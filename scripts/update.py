@@ -96,7 +96,8 @@ def refresh_feed(item):
             feed_id=item["id"],
             uniq_id=entry.id if hasattr(entry, "id") else entry.link,
             defaults=dict(
-                url=entry.link,
+                url=entry.link[:2000],
+                domain=parse_domain(entry.link)[:256],
                 created_at=parse_datetime(entry),
                 updated_at=datetime.utcnow(),
                 title=entry.title[:256]
@@ -107,15 +108,12 @@ def refresh_feed(item):
             # parse heavy info
             try:
                 real_url = resolve_real_url(entry)
-            except ConnectionError:
-                log.warning(f"Failed to parse URL: {entry.link}")
-                real_url = None
-
-            if real_url:
                 article.url = real_url[:2000]
                 article.domain = parse_domain(real_url)[:256]
+            except ConnectionError:
+                log.warning(f"Failed to resolve real URL: {entry.link}")
 
-            summary, lead_image = parse_text_and_lead_image(entry)
+            summary, lead_image = parse_entry_text_and_image(entry)
 
             if summary:
                 article.description = summary[:1000]
@@ -163,7 +161,7 @@ def parse_datetime(entry):
     return datetime.utcnow()
 
 
-def parse_text_and_lead_image(entry):
+def parse_entry_text_and_image(entry):
     bs = BeautifulSoup(entry.summary, features="lxml")
     text = re.sub(r"\s\s+", " ", bs.text or "").strip()
 
@@ -174,6 +172,10 @@ def parse_text_and_lead_image(entry):
             return text, src
 
     return text, ""
+
+
+def load_and_parse_full_article_text_and_image(url):
+    pass
 
 
 if __name__ == '__main__':

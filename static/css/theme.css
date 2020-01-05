@@ -8,10 +8,14 @@ body {
 .light-theme {
     --bg-color: #FFF;
     --opposite-bg-color: #282c35;
+
     --text-color: #333;
+    --brighter-text-color: #000;
     --opposite-text-color: #DDD;
+
     --link-color: #333;
     --visited-link-color: #afafaf;
+
     color: var(--text-color);
     background-color: var(--bg-color);
 }
@@ -19,10 +23,14 @@ body {
 .dark-theme {
     --bg-color: #282c35;
     --opposite-bg-color: #FFF;
+
     --text-color: #DDD;
+    --brighter-text-color: #FFF;
     --opposite-text-color: #333;
+
     --link-color: #DDD;
     --visited-link-color: #737373;
+
     color: var(--text-color);
     background-color: var(--bg-color);
 }

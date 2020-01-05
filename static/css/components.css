@@ -278,24 +278,26 @@
         .article-tooltip-title {
             display: block;
             font-weight: bold;
-            font-size: 90%;
         }
 
         .article-tooltip-description {
             display: block;
             font-weight: normal;
             font-size: 70%;
+            margin-top: 10px;
         }
 
         .article-tooltip-info {
             display: block;
             font-weight: normal;
             font-size: 70%;
+            margin-top: 10px;
         }
 
 
     .is-article-fresh {
         font-weight: 600;
+        color: var(--brighter-text-color);
     }
 
 .message-popup {

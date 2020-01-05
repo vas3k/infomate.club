@@ -125,7 +125,7 @@ boards:
     - name: Следим за скидками и распродажами
       slug: sales
       feeds:
-        - name: PeritoBurrito
+        - name: Perito Burrito
           url: https://perito-burrito.com
           rss: http://perito-burrito.com/feed
     - name: Путешествуем
