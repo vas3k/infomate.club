@@ -10,7 +10,7 @@ DEBUG = True
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "wow so secret"
-ALLOWED_HOSTS = ["127.0.0.1", "vas3k.ru"]
+ALLOWED_HOSTS = ["127.0.0.1", "vas3k.ru", "infomate.club"]
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",

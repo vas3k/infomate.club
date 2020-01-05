@@ -5,4 +5,4 @@ requests==2.22.0
 beautifulsoup4==4.6.2
 pyyaml==5.2
 feedparser==5.2.1
-sentry-sdk==0.13.0
+sentry-sdk==0.13.5
