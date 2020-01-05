@@ -18,6 +18,8 @@ import requests
 import click
 import feedparser
 from bs4 import BeautifulSoup
+from requests import RequestException
+from newspaper import Article as NewspaperArticle
 
 from boards.models import BoardFeed, Article, Board
 
@@ -81,7 +83,10 @@ def worker():
         if task is None:
             break
 
-        refresh_feed(task)
+        try:
+            refresh_feed(task)
+        except Exception:
+            pass  # to avoid infinite wait in .join()
 
         queue.task_done()
 
@@ -106,20 +111,26 @@ def refresh_feed(item):
 
         if is_created:
             # parse heavy info
-            try:
-                real_url = resolve_real_url(entry)
+            real_url = resolve_real_url(entry)
+
+            if real_url:
                 article.url = real_url[:2000]
                 article.domain = parse_domain(real_url)[:256]
-            except ConnectionError:
-                log.warning(f"Failed to resolve real URL: {entry.link}")
 
-            summary, lead_image = parse_entry_text_and_image(entry)
+            text, lead_image = parse_entry_text_and_image(entry)
 
-            if summary:
-                article.description = summary[:1000]
+            if text:
+                article.description = text[:1000]
 
             if lead_image:
                 article.image = lead_image[:512]
+
+            summary, summary_image = load_and_parse_full_article_text_and_image(article.url)
+
+            article.summary = summary
+
+            if summary_image:
+                article.image = summary_image[:512]
 
             article.save()
 
@@ -139,11 +150,18 @@ def resolve_real_url(entry):
     depth = 10
     while depth > 0:
         depth -= 1
-        r = requests.head(url)
-        if 300 < r.status_code < 400:
-            url = r.headers["location"]
+
+        try:
+            response = requests.head(url)
+        except RequestException:
+            log.warning(f"Failed to resolve real URL: {entry.link}")
+            return None
+
+        if 300 < response.status_code < 400:
+            url = response.headers["location"]
         else:
             break
+
     return url
 
 
@@ -175,7 +193,11 @@ def parse_entry_text_and_image(entry):
 
 
 def load_and_parse_full_article_text_and_image(url):
-    pass
+    article = NewspaperArticle(url)
+    article.download()
+    article.parse()
+    article.nlp()
+    return article.summary, article.top_image
 
 
 if __name__ == '__main__':

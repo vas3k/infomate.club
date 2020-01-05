@@ -137,6 +137,7 @@ class Article(models.Model):
     title = models.CharField(max_length=256)
     image = models.URLField(max_length=512, null=True)
     description = models.TextField(null=True)
+    summary = models.TextField(null=True)
 
     created_at = models.DateTimeField(db_index=True)
     updated_at = models.DateTimeField()

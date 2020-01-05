@@ -152,7 +152,7 @@
         font-size: 180%;
         text-align: center;
         border-bottom: solid 2px var(--text-color);
-        min-height: 40px;
+        min-height: 45px;
     }
 
         .is-block-header-dummy {
@@ -202,7 +202,7 @@
     }
 
 .feed {
-    padding: 30px 20px 0;
+    padding: 35px 20px 0;
 }
 
     .feed-title {

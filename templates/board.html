@@ -62,7 +62,11 @@
                                                     <span class="article-tooltip-title">{{ article.title|truncatechars:100 }}</span>
                                                 {% if article.description and article.description|length > 20 %}
                                                     <span class="article-tooltip-description">
-                                                        {{ article.description|truncatechars:300 }}
+                                                        {% if article.summary %}
+                                                            {{ article.summary|striptags|nl2br|truncatechars:300|safe }}
+                                                        {% else %}
+                                                            {{ article.description|truncatechars:300 }}
+                                                        {% endif %}
                                                     </span>
                                                 {% endif %}
                                                 <span class="article-tooltip-info">{{ article.natural_created_at }}</span>

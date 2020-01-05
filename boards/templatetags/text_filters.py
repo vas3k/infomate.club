@@ -15,6 +15,17 @@ def pretty_url(value):
     return re.sub(r"https?://(www\.)?", "", value, 1)
 
 
+@register.filter(is_safe=True)
+def nl2br(text):
+    """
+    Replaces \n to <br/>
+    """
+    if not text:
+        return ""
+    text = text.replace("\n", "<br/>")
+    return text
+
+
 @register.filter
 def cool_number(value, num_decimals=1):
     """

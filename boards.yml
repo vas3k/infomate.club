@@ -62,7 +62,7 @@ boards:
     - name: MIT Technology Review
       rss: https://www.technologyreview.com/topnews.rss
       url: https://www.technologyreview.com
-  - name: Мейкерство
+  - name: Инди-разработка
     slug: make
     feeds:
     - name: Show HN
