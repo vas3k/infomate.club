@@ -176,6 +176,9 @@ class Article(models.Model):
         elif frequency <= 20:
             # average frequency — mark today posts
             return self.created_at > now - timedelta(days=1)
+        elif frequency >= 100:
+            # extra high frequency — mark newest posts
+            return self.created_at > now - timedelta(hours=2)
 
-        # high frequency - mark 6-hour old posts
+        # normal frequency - mark 6-hour old posts
         return self.created_at > now - timedelta(hours=6)
