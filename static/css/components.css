@@ -8,6 +8,7 @@
     .menu-logo {
         text-align: center;
         font-weight: bold;
+        padding-left: 20px;
     }
 
         .menu-logo img {
@@ -38,6 +39,7 @@
         margin-top: 100px;
         font-weight: normal;
         font-size: 29px;
+        padding: 0 20px;
     }
 
 .landing-boards {
@@ -76,7 +78,6 @@
         .landing-board-name {
             display: block;
             font-size: 160%;
-            line-height: 130%;
             margin: 15px;
             font-weight: bold;
         }
@@ -103,7 +104,7 @@
 
     .curator-info {
         margin-left: 30px;
-        line-height: 1.5em;
+        line-height: 1.5;
     }
 
         .curator-name {
@@ -114,7 +115,7 @@
 
         .curator-url {
             font-size: 120%;
-            padding-top: 10px;
+            line-height: 1;
         }
 
         .curator-bio {
@@ -125,6 +126,17 @@
         .curator-info a {
             color: var(--link-color);
         }
+
+    @media only screen and (max-width : 570px) {
+        .curator {
+            font-size: 12px;
+        }
+
+            .curator-avatar {
+                width: 100px;
+                height: 100px;
+            }
+    }
 
 .board-empty {
     padding: 100px 20px;
@@ -166,7 +178,7 @@
     box-sizing: border-box;
     box-shadow: 3px 3px 150px #000;
     font-size: 120%;
-    line-height: 150%;
+    line-height: 1.5;
 }
 
     .block-login-title {
@@ -218,7 +230,7 @@
         .feed-title small {
             font-size: 70%;
             opacity: 0.7;
-            line-height: 200%;
+            line-height: 2;
         }
 
     .feed-articles {
