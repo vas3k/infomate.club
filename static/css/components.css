@@ -313,9 +313,11 @@
     }
 
     .logout-button {
+        display: inline-block;
         color: var(--opposite-text-color) !important;
         font-size: 90%;
         padding: 5px 15px;
+        margin-top: 40px;
     }
 
 .privacy-policy {
