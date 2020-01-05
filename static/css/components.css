@@ -7,7 +7,16 @@
 
     .menu-logo {
         text-align: center;
+        font-weight: bold;
     }
+
+        .menu-logo img {
+            width: 32px;
+            height: 32px;
+            vertical-align: middle;
+            position: relative;
+            top: -3px;
+        }
 
     .menu-theme-switcher {
         text-align: center;
@@ -302,3 +311,13 @@
     .footer a {
         color: var(--link-color);
     }
+
+    .logout-button {
+        color: var(--opposite-text-color) !important;
+        font-size: 90%;
+        padding: 5px 15px;
+    }
+
+.privacy-policy {
+    white-space: pre-wrap;
+}

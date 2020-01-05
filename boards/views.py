@@ -28,3 +28,7 @@ def board(request, board_slug):
         "blocks": blocks,
         "feeds": feeds,
     })
+
+
+def privacy_policy(request):
+    return render(request, "docs/privacy_policy.html")

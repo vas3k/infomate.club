@@ -223,7 +223,7 @@
                 Данная подборка доступна только членам <a href="https://vas3k.ru/club/">Вастрик.Клуба</a>.
                 Нам не нужны чужаки.
             </span>
-            <a href="{% url "login" %}" class="button block-login-button">Войти по клубной карте</a>
+            <a href="{% url "login" %}?redirect={{ settings.APP_HOST }}{% url "board" board.slug %}" class="button block-login-button">Войти по клубной карте</a>
         </div>
     </div>
 {% endblock %}

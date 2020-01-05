@@ -14,7 +14,9 @@
 {% block body %}
     {% block menu %}
         <div class="menu">
-            <div class="menu-logo"><a href="{% url "index" %}">👩‍🎤&nbsp;{{ settings.APP_NAME|lower|safe }}</a></div>
+            <div class="menu-logo"><a href="{% url "index" %}">
+                <img src="{% static "images/logo-128x128.png" %}" alt="">&nbsp;{{ settings.APP_NAME|lower|safe }}</a>
+            </div>
             <div class="menu-center"></div>
             <div class="menu-theme-switcher">
                 <label class="theme-switcher" for="checkbox">
@@ -30,7 +32,11 @@
 
 {% block footer %}
     <div class="footer">
-        Сделал <a href="https://vas3k.ru">Вастрик</a>
+        Сделал <a href="https://vas3k.ru">Вастрик</a>.<br>
+        Сайт использует <a href="https://ru.wikipedia.org/wiki/Cookie" target="_blank">куки</a> для авторизации<br> и <a href="{% url "privacy_policy" %}">не собирает данные</a> больше, чем нужно.
+        {% if me %}
+            <br><br><a href="{% url "logout" %}" class="button logout-button">Выйти</a>
+        {% endif %}
     </div>
 {% endblock %}
 

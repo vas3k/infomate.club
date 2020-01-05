@@ -42,6 +42,10 @@ def club_callback(request):
 
 
 def logout(request):
+    token = request.COOKIES.get(settings.AUTH_COOKIE_NAME)
+    if token:
+        Session.objects.filter(token=token).delete()
+
     response = redirect("index")
     response.delete_cookie(settings.AUTH_COOKIE_NAME)
     return response
