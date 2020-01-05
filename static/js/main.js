@@ -1,7 +1,7 @@
 function initializeThemeSwitcher() {
-    const toggleSwitch = document.querySelector('.theme-switcher input[type="checkbox"]');
+    const themeSwitch = document.querySelector('.theme-switcher input[type="checkbox"]');
 
-    function switchTheme(e) {
+    themeSwitch.addEventListener("change", function(e) {
         if (e.target.checked) {
             document.body.className = "dark-theme";
             localStorage.setItem("theme", "dark");
@@ -9,14 +9,13 @@ function initializeThemeSwitcher() {
             document.body.className = "light-theme";
             localStorage.setItem("theme", "light");
         }
-    }
+    }, false);
 
-    toggleSwitch.addEventListener("change", switchTheme, false);
-
+    const isDarkOS = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
+    if (theme === "dark" || isDarkOS) {
         document.body.className = "dark-theme";
-        toggleSwitch.checked = true;
+        themeSwitch.checked = true;
     }
 }
 
