@@ -6,6 +6,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "infomate.settings")
 django.setup()
 
 import re
+import logging
 from datetime import timedelta, datetime
 from urllib.parse import urlparse
 
@@ -24,6 +25,7 @@ DEFAULT_NUM_WORKER_THREADS = 5
 DEFAULT_ENTRIES_LIMIT = 100
 MIN_REFRESH_DELTA = timedelta(minutes=30)
 
+log = logging.getLogger()
 queue = queue.Queue()
 
 
@@ -103,12 +105,24 @@ def refresh_feed(item):
 
         if is_created:
             # parse heavy info
-            real_url = resolve_real_url(entry)
+            try:
+                real_url = resolve_real_url(entry)
+            except ConnectionError:
+                log.warning(f"Failed to parse URL: {entry.link}")
+                real_url = None
+
+            if real_url:
+                article.url = real_url[:2000]
+                article.domain = parse_domain(real_url)[:256]
+
             summary, lead_image = parse_text_and_lead_image(entry)
-            article.url = real_url[:2000]
-            article.domain = parse_domain(real_url)[:256]
-            article.description = summary[:1000]
-            article.image = lead_image[:512]
+
+            if summary:
+                article.description = summary[:1000]
+
+            if lead_image:
+                article.image = lead_image[:512]
+
             article.save()
 
     week_ago = datetime.utcnow() - timedelta(days=7)

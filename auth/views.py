@@ -16,6 +16,11 @@ def login(request):
 
 def club_callback(request):
     token = request.GET.get("jwt")
+    if not token:
+        return render(request, "message.html", {
+            "title": "Что-то пошло не так",
+            "message": "При авторизации потерялся токен. Попробуйте войти еще раз."
+        })
 
     try:
         payload = jwt.decode(token, settings.JWT_SECRET, algorithms=[settings.JWT_ALGORITHM])
@@ -23,8 +28,8 @@ def club_callback(request):
         log.error(f"JWT token error: {ex}")
         return render(request, "message.html", {
             "title": "Что-то сломалось",
-            "message": "Неправильный токен авторизации. Наверное, что-то сломалось. "
-                       "Либо вы ХАКИР!!11 (тогда идите в жопу)"
+            "message": "Неправильный ключ. Наверное, что-то сломалось. "
+                       "Либо вы ХАКИР!!11"
         })
 
     Session.objects.get_or_create(
