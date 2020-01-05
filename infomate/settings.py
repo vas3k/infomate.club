@@ -90,7 +90,7 @@ CSS_HASH = str(random())
 APP_NAME = "Infomate"
 APP_TITLE = "Смотри, что читают другие"
 APP_DESCRIPTION = ""
-APP_HOST = "http://127.0.0.1:8000"  # "https://infomate.club"
+APP_HOST = "https://infomate.club"
 
 JWT_SECRET = "wow so secret"  # should be the same as on vas3k.ru
 JWT_ALGORITHM = "HS256"
