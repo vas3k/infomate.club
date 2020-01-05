@@ -89,11 +89,11 @@
 }
 
 .message-wrapper {
-    max-width: var(--max-content-width);
     padding: 100px 20px;
 }
 
     .message-popup {
         max-width: 300px;
         padding: 20px;
+        margin: 0 auto;
     }

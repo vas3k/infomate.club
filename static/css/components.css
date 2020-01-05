@@ -276,6 +276,10 @@
         font-weight: 600;
     }
 
+.message-popup {
+    text-align: center;
+    font-size: 120%;
+}
 
 .board-footer {
     max-width: 800px;

@@ -22,7 +22,7 @@ from boards.models import BoardFeed, Article, Board
 
 DEFAULT_NUM_WORKER_THREADS = 5
 DEFAULT_ENTRIES_LIMIT = 100
-REFRESH_DELTA = timedelta(hours=1)
+MIN_REFRESH_DELTA = timedelta(minutes=30)
 
 queue = queue.Queue()
 
@@ -35,7 +35,7 @@ def update(num_workers, force):
     if not force:
         need_to_update_feeds = BoardFeed.objects.filter(
             rss__isnull=False,
-            refreshed_at__lte=datetime.utcnow() - REFRESH_DELTA
+            refreshed_at__lte=datetime.utcnow() - MIN_REFRESH_DELTA
         )
     else:
         need_to_update_feeds = BoardFeed.objects.filter(rss__isnull=False)
