@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Что-то пошло не так | {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="message-wrapper">
+    <div class="message-popup">
+        <h2>{{ title }}</h2>
+        <p>{{ message }}</p>
+    </div>
+</div>
+{% endblock %}
+

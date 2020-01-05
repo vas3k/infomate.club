@@ -33,6 +33,7 @@
 
 .board {
     display: block;
+    position: relative;
     max-width: var(--max-content-width);
     margin: 0 auto;
 }
@@ -71,6 +72,28 @@
 
     }
 
+.block-login {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 500px;
+    padding-top: 160px;
+}
+
 .footer {
     display: block;
 }
+
+.message-wrapper {
+    max-width: var(--max-content-width);
+    padding: 100px 20px;
+}
+
+    .message-popup {
+        max-width: 300px;
+        padding: 20px;
+    }

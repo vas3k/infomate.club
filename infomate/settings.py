@@ -15,6 +15,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "vas3k.ru", "infomate.club"]
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+    "auth",
     "boards",
 ]
 
@@ -86,8 +87,18 @@ CSS_HASH = str(random())
 # App settings
 
 APP_NAME = "Infomate"
-APP_TITLE = "Читай то, что читают другие"
+APP_TITLE = "Смотри, что читают другие"
 APP_DESCRIPTION = ""
+APP_HOST = "https://infomate.club"
+
+JWT_SECRET = "wow so secret"  # should be the same as on vas3k.ru
+JWT_ALGORITHM = "HS256"
+JWT_EXP_TIMEDELTA = timedelta(days=120)
+
+AUTH_COOKIE_NAME = "jwt"
+AUTH_COOKIE_MAX_AGE = 300 * 24 * 60 * 60  # 300 days
+AUTH_REDIRECT_URL = "https://vas3k.ru/auth/external/"
+AUTH_FAILED_REDIRECT_URL = "https://vas3k.ru/auth/login/"
 
 SENTRY_DSN = None
 

@@ -25,7 +25,8 @@ DEFAULT_REQUEST_HEADERS = {
 
 @click.command()
 @click.option('--config', default="boards.yml", help="Boards YAML file")
-def initialize(config):
+@click.option('--board-slug', default=None, help="Board slug to parse only one exact board")
+def initialize(config, board_slug):
     yaml_file = os.path.join(BASE_DIR, config)
     with open(yaml_file) as f:
         try:
@@ -35,6 +36,9 @@ def initialize(config):
             exit(1)
 
     for board_config in config["boards"]:
+        if board_slug and board_config["slug"] != board_slug:
+            continue
+
         board_name = board_config.get("name") or board_config["slug"]
         print(f"Creating board: {board_name}...")
         board, is_created = Board.objects.get_or_create(
@@ -47,6 +51,8 @@ def initialize(config):
                 curator_footer=board_config["curator"].get("footer"),
                 curator_bio=board_config["curator"].get("bio"),
                 curator_url=board_config["curator"].get("url"),
+                is_private=board_config.get("is_private"),
+                is_visible=board_config.get("is_visible"),
             )
         )
         if not is_created:
@@ -58,6 +64,8 @@ def initialize(config):
             board.curator_footer = board_config["curator"].get("footer")
             board.curator_bio = board_config["curator"].get("bio")
             board.curator_url = board_config["curator"].get("url")
+            board.is_private = board_config.get("is_private")
+            board.is_visible = board_config.get("is_visible")
             board.save()
 
         for block_index, block_config in enumerate(board_config["blocks"]):
@@ -65,14 +73,16 @@ def initialize(config):
             print(f"\nCreating block: {block_name}...")
             block, is_created = BoardBlock.objects.get_or_create(
                 board=board,
-                name=block_name,
-                default=dict(
+                slug=block_config["slug"],
+                defaults=dict(
+                    name=block_name,
                     index=block_index
                 )
             )
 
             if not is_created:
                 block.index = block_index
+                block.name = block_name
                 block.save()
 
             if not block_config.get("feeds"):
@@ -81,35 +91,17 @@ def initialize(config):
             for feed_index, feed_config in enumerate(block_config["feeds"]):
                 feed_name = feed_config.get("name") or ""
                 feed_url = feed_config["url"]
-                print(f"Creating feed: {feed_name}...")
-
-                html = load_page_html(feed_url)
-
-                icon = feed_config.get("icon")
-                if not icon:
-                    icon = find_favicon(feed_url, html)
-                    print(f"- found favicon: {icon}")
-
-                rss_url = feed_config.get("rss")
-                if not rss_url:
-                    rss_url = find_rss_feed(feed_url, html)
-                    if not rss_url:
-                        print(f"RSS feed for '{feed_name}' not found. Please specify 'rss' key.")
-                        exit(1)
-
-                print(f"- found RSS: {rss_url}")
-
-                feed_config["rss"] = rss_url
+                print(f"Creating or updating feed: {feed_name}...")
 
                 feed, is_created = BoardFeed.objects.get_or_create(
                     board=board,
                     block=block,
                     url=feed_config["url"],
                     defaults=dict(
-                        rss=rss_url,
+                        rss=feed_config.get("rss"),
                         name=feed_name,
                         comment=feed_config.get("comment"),
-                        icon=icon,
+                        icon=feed_config.get("icon"),
                         index=feed_index,
                         columns=feed_config.get("columns") or 1,
                     )
@@ -118,14 +110,33 @@ def initialize(config):
                 if not is_created:
                     feed.name = feed_name
                     feed.comment = feed_config.get("comment")
-                    feed.rss = rss_url
-                    feed.icon = icon
                     feed.index = feed_index
                     feed.columns = feed_config.get("columns") or 1
-                    feed.save()
 
-                with open(yaml_file, "w") as f:
-                    yaml.dump(config, f, default_flow_style=False, encoding="utf-8", allow_unicode=True)
+                html = None
+
+                if not feed.rss:
+                    html = html or load_page_html(feed_url)
+                    rss_url = feed_config.get("rss")
+                    if not rss_url:
+                        rss_url = find_rss_feed(feed_url, html)
+                        if not rss_url:
+                            print(f"RSS feed for '{feed_name}' not found. Please specify 'rss' key.")
+                            exit(1)
+                        print(f"- found RSS: {rss_url}")
+
+                    feed.rss = rss_url
+
+                if not feed.icon:
+                    html = html or load_page_html(feed_url)
+                    icon = feed_config.get("icon")
+                    if not icon:
+                        icon = find_favicon(feed_url, html)
+                        print(f"- found favicon: {icon}")
+
+                    feed.icon = icon
+
+                feed.save()
 
     print("Done ✅")
 

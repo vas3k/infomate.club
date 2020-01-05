@@ -4,13 +4,13 @@
 
 {% block content %}
 <div class="landing-top">
-    <h2>{{ settings.APP_TITLE }}</h2>
+    <h2 class="landing-top-title">Смотри, что читают другие. Формируй своё инфополе.</h2>
 </div>
 
 <div class="landing-boards">
     {% for board in boards %}
         <a class="landing-board" href="{% url "board" board.slug %}">
-            <span class="avatar landing-board-avatar" style="background-image: url('{{ board.avatar }}');"></span>
+            <span class="avatar landing-board-avatar" style="background-image: url('{{ board.avatar }}'), linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);"></span>
             <span class="landing-board-name">{{ board.curator_name }}</span>
             <span class="landing-board-title">{{ board.curator_title }}</span>
         </a>

@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
 {% load text_filters %}
 
-{% block title %}{{ board.board_name }} | {{ block.super }}{% endblock %}
+{% block title %}{{ board.curator_name }} | {{ board.curator_title }} | {{ block.super }}{% endblock %}
 
 {% block content %}
 <div class="header">
     <div class="curator">
-        <div class="avatar curator-avatar" style="background-image: url('{{ board.avatar }}');"></div>
+        <div class="avatar curator-avatar" style="background-image: url('{{ board.avatar }}'), linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);"></div>
         <div class="curator-info">
             <div class="curator-name">{{ board.curator_name }}</div>
 
@@ -24,57 +24,59 @@
 </div>
 
 <div class="board">
-    {% if not blocks %}
-        <div class="board-empty">
-            Здесь пока ничего нет...<br><br>
-            Такое бывает, когда страничка только создана или обновляется.<br>
-            Подождите немного и зайдите снова!
-        </div>
-    {% endif %}
-    {% for block in blocks %}
-        <div class="block">
-            {% if block.name %}
-                <div class="block-header">{{ block.name }}</div>
-            {% else %}
-                <div class="block-header is-block-header-dummy"></div>
-            {% endif %}
-
-            {% for feed in feeds %}
-                {% if feed.block == block %}
-                    {% for column, articles in feed.articles_by_column %}
-                        <div class="feed {% if column > 1 %}hide-on-iphone{% endif %}">
-                            <div class="feed-title {% if column != 0 %}feed-title-hidden{% endif %}">
-                                {% if feed.icon %}
-                                    <img src="{{ feed.icon }}" alt="{{ feed.name }}">
-                                {% endif %}
-                                <a href="{{ feed.url }}" target="_blank">{{ feed.name }}</a><br>
-                                <small>последний пост {{ feed.natural_last_article_at }}</small>
-                            </div>
-                            <div class="articles feed-articles">
-                                {% for article in articles %}
-                                    <div class="article {% if article.is_fresh %}is-article-fresh{% endif %}">
-                                        <div class="article-title">{{ article.icon|safe }}<a href="{{ article.url }}" target="_blank">{{ article.title }}</a></div>
-                                        <a href="{{ article.url }}" class="article-tooltip" target="_blank">
-                                            {% if article.image %}
-                                                <img src="{{ article.image }}" alt="{{ article.title }}" class="article-tooltip-image">
-                                            {% endif %}
-                                                <span class="article-tooltip-title">{{ article.title|truncatechars:100 }}</span>
-                                            {% if article.description and article.description|length > 20 %}
-                                                <span class="article-tooltip-description">
-                                                    {{ article.description|truncatechars:300 }}
-                                                </span>
-                                            {% endif %}
-                                            <span class="article-tooltip-info">{{ article.natural_created_at }}</span>
-                                        </a>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    {% endfor %}
+    {% block board %}
+        {% if not blocks %}
+            <div class="board-empty">
+                Здесь пока ничего нет...<br><br>
+                Такое бывает, когда страничка только создана или обновляется.<br>
+                Подождите немного и зайдите снова!
+            </div>
+        {% endif %}
+        {% for block in blocks %}
+            <div class="block">
+                {% if block.name %}
+                    <div class="block-header">{{ block.name }}</div>
+                {% else %}
+                    <div class="block-header is-block-header-dummy"></div>
                 {% endif %}
-            {% endfor %}
-        </div>
-    {% endfor %}
+
+                {% for feed in feeds %}
+                    {% if feed.block == block %}
+                        {% for column, articles in feed.articles_by_column %}
+                            <div class="feed {% if column > 1 %}hide-on-iphone{% endif %}">
+                                <div class="feed-title {% if column != 0 %}feed-title-hidden{% endif %}">
+                                    {% if feed.icon %}
+                                        <img src="{{ feed.icon }}" alt="{{ feed.name }}">
+                                    {% endif %}
+                                    <a href="{{ feed.url }}" target="_blank">{{ feed.name }}</a><br>
+                                    <small>последний пост {{ feed.natural_last_article_at }}</small>
+                                </div>
+                                <div class="articles feed-articles">
+                                    {% for article in articles %}
+                                        <div class="article {% if article.is_fresh %}is-article-fresh{% endif %}">
+                                            <div class="article-title">{{ article.icon|safe }}<a href="{{ article.url }}" target="_blank">{{ article.title }}</a></div>
+                                            <a href="{{ article.url }}" class="article-tooltip" target="_blank">
+                                                {% if article.image %}
+                                                    <img src="{{ article.image }}" alt="{{ article.title }}" class="article-tooltip-image">
+                                                {% endif %}
+                                                    <span class="article-tooltip-title">{{ article.title|truncatechars:100 }}</span>
+                                                {% if article.description and article.description|length > 20 %}
+                                                    <span class="article-tooltip-description">
+                                                        {{ article.description|truncatechars:300 }}
+                                                    </span>
+                                                {% endif %}
+                                                <span class="article-tooltip-info">{{ article.natural_created_at }}</span>
+                                            </a>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% endblock %}
 </div>
 
 {% if board %}

@@ -9,13 +9,16 @@ register = template.Library()
 
 @register.filter
 def pretty_url(value):
+    """
+    Removes http(s) and www from an url
+    """
     return re.sub(r"https?://(www\.)?", "", value, 1)
 
 
 @register.filter
 def cool_number(value, num_decimals=1):
     """
-    Django template filter to convert regular numbers to a cool format (ie: 2K, 434.4K, 33M...)
+    Converts regular numbers into cool ones (ie: 2K, 434.4K, 33M...)
     """
     int_value = int(value)
     formatted_number = '{{:.{}f}}'.format(num_decimals)
@@ -29,12 +32,15 @@ def cool_number(value, num_decimals=1):
 
 @register.filter
 def smart_urlize(value, target="_blank"):
-    # TODO: this
+    # TODO: remove http/www prefix, add target=_blank and truncate url if needed
     return mark_safe(urlize(value))
 
 
 @register.filter
 def rupluralize(value, arg="дурак,дурака,дураков"):
+    """
+    Pluralization for russian words
+    """
     args = arg.split(",")
     number = abs(int(value))
     a = number % 10

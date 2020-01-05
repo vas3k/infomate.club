@@ -5,8 +5,8 @@
     border-radius: 50%;
     min-height: 20px;
     min-width: 20px;
-    background-color: #e3e3e3;
     box-sizing: border-box;
+    background-color: #bdc3c7;
 }
 
 .icon {
@@ -15,6 +15,33 @@
     vertical-align: middle;
     opacity: 0.8;
 }
+
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    max-width: 90%;
+    box-sizing: border-box;
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: var(--opposite-bg-color);
+    border: solid 2px var(--opposite-bg-color);
+    color: var(--opposite-text-color);
+    text-align: center;
+    cursor: pointer;
+}
+
+    .button:hover {
+        color: var(--text-color);
+        background-color: var(--bg-color);
+    }
+
+    .button-big {
+        padding: 15px 30px;
+        font-size: 160%;
+        font-weight: bold;
+        margin: 50px auto 0;
+    }
 
 .theme-switcher {
     display: inline-block;
@@ -81,6 +108,16 @@
     .theme-switcher .slider.round:before {
         border-radius: 50%;
     }
+
+.blocker {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+}
 
 @media only screen and (max-width : 570px) {
     .hide-on-iphone {

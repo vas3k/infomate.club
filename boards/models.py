@@ -28,6 +28,7 @@ class Board(models.Model):
     refreshed_at = models.DateTimeField(null=True)
 
     is_visible = models.BooleanField(default=True)
+    is_private = models.BooleanField(default=True)
 
     class Meta:
         db_table = "boards"
@@ -49,7 +50,7 @@ class Board(models.Model):
 
     def natural_refreshed_at(self):
         if not self.refreshed_at:
-            return "updating right now..."
+            return "now..."
         return naturaltime(self.refreshed_at)
 
 
@@ -57,8 +58,10 @@ class BoardBlock(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     board = models.ForeignKey(Board, related_name="blocks", on_delete=models.CASCADE, db_index=True)
     name = models.CharField(max_length=512, null=True)
+    slug = models.SlugField()
 
     created_at = models.DateTimeField(db_index=True)
+    updated_at = models.DateTimeField()
 
     index = models.PositiveIntegerField(default=0)
 
@@ -69,6 +72,12 @@ class BoardBlock(models.Model):
     def save(self, *args, **kwargs):
         if not self.created_at:
             self.created_at = datetime.utcnow()
+
+        if not self.slug:
+            self.slug = slugify(self.name).lower()
+
+        self.updated_at = datetime.utcnow()
+
         return super().save(*args, **kwargs)
 
 
@@ -78,9 +87,9 @@ class BoardFeed(models.Model):
     block = models.ForeignKey(BoardBlock, related_name="feeds", on_delete=models.CASCADE, db_index=True)
     name = models.CharField(max_length=512)
     comment = models.TextField(null=True)
-    icon = models.URLField(max_length=512, null=True)
     url = models.URLField(max_length=512)
-    rss = models.URLField(max_length=512)
+    icon = models.URLField(max_length=512, null=True)
+    rss = models.URLField(max_length=512, null=True)
 
     created_at = models.DateTimeField(db_index=True)
     last_article_at = models.DateTimeField(null=True)

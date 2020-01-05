@@ -33,9 +33,12 @@ queue = queue.Queue()
 def update(num_workers, force):
     never_updated_feeds = BoardFeed.objects.filter(refreshed_at__isnull=True)
     if not force:
-        need_to_update_feeds = BoardFeed.objects.filter(refreshed_at__lte=datetime.utcnow() - REFRESH_DELTA)
+        need_to_update_feeds = BoardFeed.objects.filter(
+            rss__isnull=False,
+            refreshed_at__lte=datetime.utcnow() - REFRESH_DELTA
+        )
     else:
-        need_to_update_feeds = BoardFeed.objects.all()
+        need_to_update_feeds = BoardFeed.objects.filter(rss__isnull=False)
 
     tasks = []
     for feed in list(never_updated_feeds) + list(need_to_update_feeds):

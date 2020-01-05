@@ -25,6 +25,12 @@
     min-height: 100px;
 }
 
+    .landing-top-title {
+        margin-top: 100px;
+        font-weight: normal;
+        font-size: 29px;
+    }
+
 .landing-boards {
     display: flex;
     flex-wrap: wrap;
@@ -61,6 +67,7 @@
         .landing-board-name {
             display: block;
             font-size: 160%;
+            line-height: 130%;
             margin: 15px;
             font-weight: bold;
         }
@@ -75,7 +82,7 @@
 }
 
 .curator {
-    max-width: 800px;
+    max-width: 700px;
     padding: 0 20px;
     box-sizing: border-box;
 }
@@ -86,7 +93,7 @@
     }
 
     .curator-info {
-        margin-left: 20px;
+        margin-left: 30px;
         line-height: 1.5em;
     }
 
@@ -116,6 +123,7 @@
 }
 
 .block {
+    position: relative;
     margin-bottom: 100px;
 }
 
@@ -126,9 +134,50 @@
         min-height: 40px;
     }
 
-    .is-block-header-dummy {
-        border: none;
-        height: 0;
+        .is-block-header-dummy {
+            border: none;
+            height: 0;
+        }
+
+    .is-block-blurred {
+        filter: blur(7px) contrast(175%);
+        user-select: none;
+    }
+
+.block-login-window {
+    display: block;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 30px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    min-height: 250px;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 150px #000;
+    font-size: 120%;
+    line-height: 150%;
+}
+
+    .block-login-title {
+        display: block;
+        font-size: 160%;
+        font-weight: bold;
+    }
+
+    .block-login-description {
+        display: block;
+        margin: 40px 0;
+    }
+
+        .block-login-description a {
+            color: var(--text-color) !important;
+        }
+
+    .block-login-button {
+        display: inline-block;
+
     }
 
 .feed {
@@ -229,7 +278,7 @@
 
 
 .board-footer {
-    max-width: 500px;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
     padding: 20px;
