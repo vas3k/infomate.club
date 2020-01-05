@@ -1,0 +1,36 @@
+*.py[co]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+sdist
+develop-eggs
+.installed.cfg
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+
+# IDEA
+.idea
+
+# Mac OS X
+.DS_Store
+
+private_settings.py
+local_settings.py
+media/images
+media/i

@@ -1,0 +1,76 @@
+/* Layouts and grids without any styles */
+:root {
+    --max-content-width: 1300px;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 170px auto 100px;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.landing-top {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.landing-boards {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.header {
+    display: grid;
+    min-height: 250px;
+}
+
+.curator {
+    display: grid;
+    grid-template-columns: 150px auto;
+    place-self: center;
+}
+
+.board {
+    display: block;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.block {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: auto auto;
+}
+
+    .block-header {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    @media only screen and (max-width : 570px) {
+        .block {
+            grid-template-columns: 100%;
+        }
+
+        .block-header {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+    }
+
+    @media only screen and (max-width : 1024px)  {
+        .block {
+            grid-template-columns: 50% 50%;
+        }
+
+        .block-header {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+    }
+
+.footer {
+    display: block;
+}

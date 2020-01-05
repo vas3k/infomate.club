@@ -1,0 +1,95 @@
+/* Buttons, switches and other reusable elements */
+.avatar {
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 50%;
+    min-height: 20px;
+    min-width: 20px;
+    background-color: #e3e3e3;
+    box-sizing: border-box;
+}
+
+.icon {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    opacity: 0.8;
+}
+
+.theme-switcher {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+    .theme-switcher input {
+        display: none;
+    }
+
+    .theme-switcher .slider {
+        display: block;
+        background-color: #000;
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: .4s;
+    }
+
+    .theme-switcher .slider:before {
+        background-color: #fff;
+        bottom: 4px;
+        content: "";
+        height: 26px;
+        left: 4px;
+        position: absolute;
+        transition: .4s;
+        width: 26px;
+    }
+
+    .theme-switcher .slider:after {
+        content: "🌙";
+        display: block;
+        position: absolute;
+        top: 12px;
+        right: 5px;
+        font-size: 13px;
+        line-height: 13px;
+    }
+
+        .theme-switcher input:checked + .slider:after {
+            content: "☀️";
+            right: auto;
+            left: 7px;
+            font-size: 16px;
+        }
+
+    .theme-switcher input:checked + .slider {
+    }
+
+        .theme-switcher input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+    .theme-switcher .slider.round {
+        border-radius: 34px;
+    }
+
+    .theme-switcher .slider.round:before {
+        border-radius: 50%;
+    }
+
+@media only screen and (max-width : 570px) {
+    .hide-on-iphone {
+        display: none;
+    }
+}
+
+@media only screen and (max-width : 1024px)  {
+    .hide-on-ipad {
+        display: none;
+    }
+}

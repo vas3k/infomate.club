@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <title>{% block title %}{{ settings.APP_NAME|safe }}{% endblock %}</title>
+    {% block meta %}
+        {% include "common/meta.html" %}
+    {% endblock %}
+    {% include "common/favicon.html" %}
+    {% include "common/css.html" %}
+</head>
+<body class="light-theme">
+
+{% block body %}
+    {% block menu %}
+        <div class="menu">
+            <div class="menu-logo"><a href="{% url "index" %}">👩‍🎤&nbsp;{{ settings.APP_NAME|lower|safe }}</a></div>
+            <div class="menu-center"></div>
+            <div class="menu-theme-switcher">
+                <label class="theme-switcher" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <span class="slider round"></span>
+              </label>
+            </div>
+        </div>
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+{% endblock %}
+
+{% block footer %}
+    <div class="footer">
+        Сделал <a href="https://vas3k.ru">Вастрик</a>
+    </div>
+{% endblock %}
+
+{% include "common/js.html" %}
+</body>
+</html>

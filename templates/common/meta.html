@@ -1,0 +1,16 @@
+<meta charset="UTF-8"/>
+<meta name="description" content="{{ settings.DESCRIPTION }}">
+<meta name="keywords" content="{{ settings.KEYWORDS }}">
+<meta name="viewport" content="{% block viewport %}width=device-width, height=device-height, initial-scale=1.0{% endblock %}">
+<meta name="format-detection" content="telephone=no">
+
+{% block meta_og %}
+<meta property="og:title" content="{{ settings.NAME }}">
+<meta property="og:url" content="{{ settings.DOMAIN }}">
+<meta property="og:type" content="website" />
+<meta property="og:description" content="{{ settings.DESCRIPTION }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ settings.NAME }}">
+<meta name="twitter:description" content="{{ settings.DESCRIPTION }}">
+{% endblock %}

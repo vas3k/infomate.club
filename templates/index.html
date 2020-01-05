@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ block.super }} | {{ settings.APP_TITLE }}{% endblock %}
+
+{% block content %}
+<div class="landing-top">
+    <h2>{{ settings.APP_TITLE }}</h2>
+</div>
+
+<div class="landing-boards">
+    {% for board in boards %}
+        <a class="landing-board" href="{% url "board" board.slug %}">
+            <span class="avatar landing-board-avatar" style="background-image: url('{{ board.avatar }}');"></span>
+            <span class="landing-board-name">{{ board.curator_name }}</span>
+            <span class="landing-board-title">{{ board.curator_title }}</span>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}

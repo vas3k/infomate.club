@@ -1,0 +1,251 @@
+/* Main styles */
+.menu {
+    font-size: 29px;
+    line-height: 70px;
+    height: 70px;
+}
+
+    .menu-logo {
+        text-align: center;
+    }
+
+    .menu-theme-switcher {
+        text-align: center;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: var(--link-color);
+    }
+
+.landing-top {
+    text-align: center;
+    min-height: 100px;
+}
+
+.landing-boards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 18px;
+}
+
+    .landing-boards a {
+        color: var(--link-color);
+    }
+
+    .landing-board {
+        display: block;
+        text-decoration: none;
+        width: 250px;
+        height: 300px;
+        text-align: center;
+        margin: 30px;
+        border-radius: 30px;
+        padding: 40px 20px;
+    }
+
+        .landing-board:hover {
+            background-color: var(--opposite-bg-color);
+            color: var(--opposite-text-color);
+        }
+
+        .landing-board-avatar {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+        }
+
+        .landing-board-name {
+            display: block;
+            font-size: 160%;
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        .landing-board-title {
+            display: block;
+            margin-top: 10px;
+        }
+
+.header {
+    /*background-image: linear-gradient(285.46deg, rgb(0, 0, 0) 3.26%, rgb(33, 35, 49) 93.52%);*/
+}
+
+.curator {
+    max-width: 800px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+    .curator-avatar {
+        width: 150px;
+        height: 150px;
+    }
+
+    .curator-info {
+        margin-left: 20px;
+        line-height: 1.5em;
+    }
+
+        .curator-name {
+            font-size: 210%;
+            font-weight: 600;
+            padding-top: 10px;
+        }
+
+        .curator-url {
+            font-size: 120%;
+            padding-top: 10px;
+        }
+
+        .curator-bio {
+            font-size: 120%;
+            padding-top: 20px;
+        }
+
+        .curator-info a {
+            color: var(--link-color);
+        }
+
+.board-empty {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.block {
+    margin-bottom: 100px;
+}
+
+    .block-header {
+        font-size: 180%;
+        text-align: center;
+        border-bottom: solid 2px var(--text-color);
+        min-height: 40px;
+    }
+
+    .is-block-header-dummy {
+        border: none;
+        height: 0;
+    }
+
+.feed {
+    padding: 30px 20px 0;
+}
+
+    .feed-title {
+        margin-bottom: 20px;
+        line-height: 1em;
+    }
+
+        .feed-title-hidden {
+            visibility: hidden;
+        }
+
+        .feed-title img {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+            vertical-align: middle;
+            float: left;
+        }
+
+        .feed-title a {
+            font-size: 130%;
+            color: var(--link-color);
+        }
+
+        .feed-title small {
+            font-size: 70%;
+            opacity: 0.7;
+            line-height: 200%;
+        }
+
+    .feed-articles {
+        margin-bottom: 40px;
+    }
+
+
+.article {
+    position: relative;
+    margin-bottom: 8px;
+    height: 20px;
+}
+
+    .article-title {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .article-tooltip {
+        display: none;
+        position: absolute;
+        left: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        background-color: var(--opposite-bg-color);
+        color: var(--opposite-text-color) !important;
+        z-index: 999;
+        text-decoration: none;
+    }
+
+        .article:hover > .article-tooltip {
+            display: block;
+        }
+
+        .article-tooltip-image {
+            display: block;
+            max-width: 100%;
+            max-height: 200px;
+            margin: 0 auto 20px;
+        }
+
+        .article-tooltip-title {
+            display: block;
+            font-weight: bold;
+            font-size: 90%;
+        }
+
+        .article-tooltip-description {
+            display: block;
+            font-weight: normal;
+            font-size: 70%;
+        }
+
+        .article-tooltip-info {
+            display: block;
+            font-weight: normal;
+            font-size: 70%;
+        }
+
+
+    .is-article-fresh {
+        font-weight: 600;
+    }
+
+
+.board-footer {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    font-size: 140%;
+    line-height: 140%;
+}
+
+    .board-footer .big {
+        font-size: 200%;
+    }
+
+.footer {
+    text-align: center;
+    padding: 60px;
+}
+
+    .footer a {
+        color: var(--link-color);
+    }

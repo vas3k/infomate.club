@@ -1,0 +1,91 @@
+boards:
+- blocks:
+  - feeds:
+    - columns: 3
+      name: Hacker News
+      rss: https://news.ycombinator.com/rss
+      url: https://news.ycombinator.com
+    - name: 'Medium: Technology'
+      rss: https://medium.com/feed/topic/technology
+      url: https://medium.com/topic/technology
+    - icon: https://assets.producthunt.com/assets/ph-ios-icon-e1733530a1bfc41080db8161823f1ef262cdbbc933800c0a2a706f70eb9c277a.png
+      name: Product Hunt
+      rss: https://www.producthunt.com/feed
+      url: https://www.producthunt.com
+  - feeds:
+    - name: 'Reddit: /r/technology/'
+      rss: https://www.reddit.com/r/technology.rss
+      url: https://www.reddit.com/r/technology
+    - name: ZDNet
+      rss: https://www.zdnet.com/news/rss.xml
+      url: https://www.zdnet.com
+    - name: TechCrunch
+      rss: http://feeds.feedburner.com/TechCrunch/
+      url: https://techcrunch.com
+    - name: The Verge
+      rss: https://www.theverge.com/rss/index.xml
+      url: https://www.theverge.com
+    - name: The Next Web
+      rss: http://feeds2.feedburner.com/thenextweb
+      url: https://thenextweb.com
+    - name: Wired
+      rss: https://www.wired.com/feed/rss
+      url: https://www.wired.com
+    - name: ArsTechnica
+      rss: http://feeds.arstechnica.com/arstechnica/index/
+      url: https://arstechnica.com
+    - name: Slashdot
+      rss: http://rss.slashdot.org/Slashdot/slashdotMain
+      url: https://slashdot.org
+    - name: Engadget
+      rss: https://www.engadget.com/rss.xml
+      url: https://www.engadget.com
+    - name: MIT Technology Review
+      rss: https://www.technologyreview.com/topnews.rss
+      url: https://www.technologyreview.com
+    name: Tech News
+  - feeds:
+    - name: Show HN
+      rss: https://hnrss.org/show
+      url: https://news.ycombinator.com/show
+    - name: Starter Story
+      rss: https://www.starterstory.com/feed?format=rss
+      url: https://www.starterstory.com
+    - name: 'Reddit: /r/SideProject'
+      rss: https://www.reddit.com/r/SideProject.rss
+      url: https://www.reddit.com/r/SideProject/
+    name: Make
+  - feeds:
+    - name: PeritoBurrito
+      rss: http://perito-burrito.com/feed
+      url: https://perito-burrito.com
+    - name: Vandrouki
+      rss: https://feeds.feedburner.com/vandroukiru
+      url: https://vandrouki.ru
+    - name: Secret Flying
+      rss: https://www.secretflying.com/feed/
+      url: https://www.secretflying.com
+    - name: 'Atlas Obscura: Stories'
+      rss: https://www.atlasobscura.com/feeds/latest
+      url: https://www.atlasobscura.com/articles
+    name: Travel
+  - feeds:
+    - name: PetaPixel
+      rss: https://feedproxy.google.com/PetaPixel
+      url: https://petapixel.com
+    - name: DPReview
+      rss: https://www.dpreview.com/feeds/reviews.xml
+      url: https://www.dpreview.com
+    - name: 500px ISO
+      rss: https://iso.500px.com/feed/
+      url: https://iso.500px.com
+    name: Photo
+  curator:
+    avatar: https://i.vas3k.ru/eb8.png
+    bio: Пишу в блог, пишу код, отвратительно путешествую
+    name: Вастрик
+    title: О технологиях
+    footer: Кек
+    url: https://vas3k.ru
+  name: Вастрик
+  slug: vas3k
