@@ -253,7 +253,8 @@
     .article-tooltip {
         display: none;
         position: absolute;
-        left: 20px;
+        bottom: 30px;
+        left: 0;
         padding: 20px;
         box-sizing: border-box;
         border-radius: 20px;
