@@ -35,3 +35,7 @@ feed_init:
 # Refresh RSS feeds
 feed_refresh:
 	@python3 ./scripts/update.py
+
+# Cleanup RSS feeds
+feed_cleanup:
+	@python3 ./scripts/cleanup.py

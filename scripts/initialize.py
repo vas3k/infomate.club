@@ -25,9 +25,10 @@ DEFAULT_REQUEST_HEADERS = {
 
 
 @click.command()
-@click.option('--config', default="boards.yml", help="Boards YAML file")
-@click.option('--board-slug', default=None, help="Board slug to parse only one exact board")
-def initialize(config, board_slug):
+@click.option("--config", default="boards.yml", help="Boards YAML file")
+@click.option("--board-slug", default=None, help="Board slug to parse only one exact board")
+@click.option("--upload-favicons/--no-upload-favicons", default=True, help="Upload favicons to i.vas3k.ru")
+def initialize(config, board_slug, upload_favicons):
     yaml_file = os.path.join(BASE_DIR, config)
     with open(yaml_file) as f:
         try:
@@ -134,8 +135,10 @@ def initialize(config, board_slug):
                     if not icon:
                         icon = find_favicon(feed_url, html)
                         print(f"- found favicon: {icon}")
-                        icon = upload_image_from_url(icon)
-                        print(f"- uploaded favicon: {icon}")
+
+                        if upload_favicons:
+                            icon = upload_image_from_url(icon)
+                            print(f"- uploaded favicon: {icon}")
 
                     feed.icon = icon
 
