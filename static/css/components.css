@@ -262,6 +262,7 @@
         color: var(--opposite-text-color) !important;
         z-index: 999;
         text-decoration: none;
+        max-width: 100%;
     }
 
         .article:hover > .article-tooltip {
@@ -285,6 +286,7 @@
             font-weight: normal;
             font-size: 70%;
             margin-top: 10px;
+            overflow: hidden;
         }
 
         .article-tooltip-info {

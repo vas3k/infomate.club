@@ -19,4 +19,16 @@ function initializeThemeSwitcher() {
     }
 }
 
+function hideTooltipOnAnyClick() {
+    document.body.addEventListener("click", function(e) {
+        const visibleTooltips = document.querySelectorAll(".article-tooltip");
+        for (let i = 0; i < visibleTooltips.length; i++) {
+            if (visibleTooltips[i].style.display !== "none") {
+                visibleTooltips[i].style.display = "none";
+            }
+        }
+    }, true);
+}
+
 initializeThemeSwitcher();
+hideTooltipOnAnyClick();
