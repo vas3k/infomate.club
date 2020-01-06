@@ -5,7 +5,7 @@ from boards.models import Board, BoardBlock, BoardFeed
 
 
 def index(request):
-    boards = Board.objects.filter(is_visible=True).order_by("created_at")
+    boards = Board.objects.filter(is_visible=True).all()
     return render(request, "index.html", {
         "boards": boards
     })

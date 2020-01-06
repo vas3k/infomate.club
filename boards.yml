@@ -1,4 +1,68 @@
 boards:
+- name: Технологии
+  slug: tech
+  is_visible: true
+  is_private: false
+  curator:
+    name: Технологии
+    title: Новости айти
+    avatar: https://i.vas3k.ru/fhr.png
+    bio: Подборка СМИ
+    footer: >
+      это общая подборка всех популярных технологических СМИ. Фиды обновляются раз в час.
+  blocks:
+  - name: На русском
+    slug: ru
+    feeds:
+      - name: VC
+        url: https://vc.ru
+        rss: https://vc.ru/rss/all
+      - name: TJ
+        url: https://tjournal.ru
+        rss: https://tjournal.ru/rss/all
+      - name: "Хабр: лучшее за сутки"
+        url: https://habr.ru
+        rss: https://habr.com/ru/rss/best/daily/?fl=ru
+  - name: На английском
+    slug: en
+    feeds:
+    - name: TechCrunch
+      rss: http://feeds.feedburner.com/TechCrunch/
+      url: https://techcrunch.com
+    - name: Engadget
+      rss: https://www.engadget.com/rss.xml
+      url: https://www.engadget.com
+    - name: Gizmodo
+      url: https://gizmodo.com
+      rss: https://gizmodo.com/rss
+    - name: Wired
+      url: https://www.wired.com
+      rss: https://www.wired.com/feed/rss
+      icon: https://i.vas3k.ru/feu.png
+    - name: VentureBeat
+      url: https://venturebeat.com
+      rss: http://feeds.feedburner.com/venturebeat/SZYF
+    - name: ZDNet
+      rss: https://www.zdnet.com/news/rss.xml
+      url: https://www.zdnet.com
+    - name: CNET
+      url: https://www.cnet.com/topics/tech-industry/
+      rss: http://feed.cnet.com/feed/topics/tech-industry
+    - name: The Verge
+      rss: https://www.theverge.com/rss/index.xml
+      url: https://www.theverge.com
+    - name: The Next Web
+      rss: http://feeds2.feedburner.com/thenextweb
+      url: https://thenextweb.com
+    - name: ArsTechnica
+      rss: http://feeds.arstechnica.com/arstechnica/index/
+      url: https://arstechnica.com
+    - name: ReadWrite
+      url: https://readwrite.com
+      rss: https://readwrite.com/feed/
+    - name: Slashdot
+      rss: http://rss.slashdot.org/Slashdot/slashdotMain
+      url: https://slashdot.org
 - name: Вастрик
   slug: vas3k
   is_visible: true

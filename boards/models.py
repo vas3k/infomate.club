@@ -29,10 +29,11 @@ class Board(models.Model):
 
     is_visible = models.BooleanField(default=True)
     is_private = models.BooleanField(default=True)
+    index = models.PositiveIntegerField(default=0)
 
     class Meta:
         db_table = "boards"
-        ordering = ["name"]
+        ordering = ["index", "name"]
 
     def save(self, *args, **kwargs):
         if not self.created_at:

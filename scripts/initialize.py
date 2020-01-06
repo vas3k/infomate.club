@@ -37,7 +37,7 @@ def initialize(config, board_slug, upload_favicons):
             print(f"Bad YAML file '{yaml_file}': {ex}")
             exit(1)
 
-    for board_config in config["boards"]:
+    for board_index, board_config in enumerate(config["boards"]):
         if board_slug and board_config["slug"] != board_slug:
             continue
 
@@ -55,6 +55,7 @@ def initialize(config, board_slug, upload_favicons):
                 curator_url=board_config["curator"].get("url"),
                 is_private=board_config.get("is_private"),
                 is_visible=board_config.get("is_visible"),
+                index=board_index,
             )
         )
         if not is_created:
@@ -68,6 +69,7 @@ def initialize(config, board_slug, upload_favicons):
             board.curator_url = board_config["curator"].get("url")
             board.is_private = board_config.get("is_private")
             board.is_visible = board_config.get("is_visible")
+            board.index = board_index
             board.save()
 
         for block_index, block_config in enumerate(board_config["blocks"]):
