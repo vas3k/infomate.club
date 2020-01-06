@@ -6,7 +6,7 @@ from random import random
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-DEBUG = True
+DEBUG = os.getenv("DEBUG", True)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "wow so secret"
@@ -102,6 +102,9 @@ AUTH_REDIRECT_URL = "https://vas3k.ru/auth/external/"
 AUTH_FAILED_REDIRECT_URL = "https://vas3k.ru/auth/login/"
 
 SENTRY_DSN = None
+
+MEDIA_UPLOAD_URL = "https://i.vas3k.ru/upload/"
+MEDIA_UPLOAD_CODE = None  # should be set in private_settings.py
 
 try:
     # poor mans' private settings

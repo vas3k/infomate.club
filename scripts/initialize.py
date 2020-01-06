@@ -1,6 +1,9 @@
 import os
 import sys
 import django
+
+from utils.images import upload_image_from_url
+
 BASE_DIR = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(BASE_DIR)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "infomate.settings")
@@ -133,6 +136,8 @@ def initialize(config, board_slug):
                     if not icon:
                         icon = find_favicon(feed_url, html)
                         print(f"- found favicon: {icon}")
+                        icon = upload_image_from_url(icon)
+                        print(f"- uploaded favicon: {icon}")
 
                     feed.icon = icon
 
