@@ -1,4 +1,5 @@
 Django==2.2.8
+psycopg2==2.8.3
 click==7.0
 awesome-slugify>=1.6.5
 requests==2.22.0
@@ -7,4 +8,5 @@ pyyaml==5.2
 feedparser==5.2.1
 sentry-sdk==0.13.5
 pyjwt==1.7.1
+nltk==3.4.4
 newspaper3k>=0.2.8

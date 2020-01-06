@@ -30,6 +30,7 @@ pip-log.txt
 # Mac OS X
 .DS_Store
 
+.mypy_cache
 private_settings.py
 local_settings.py
 media/images

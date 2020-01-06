@@ -50,8 +50,8 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "infomate",
         "USER": "postgres",  # redefined in private_settings.py
-        "PASSWORD": "",
-        "HOST": "127.0.0.1",
+        "PASSWORD": "postgres",
+        "HOST": "postgres",
         "PORT": "5432",
     }
 }
@@ -105,7 +105,7 @@ SENTRY_DSN = None
 
 try:
     # poor mans' private settings
-    from .private_settings import *
+    from infomate.private_settings import *
 except ImportError:
     pass
 
