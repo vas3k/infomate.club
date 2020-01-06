@@ -1,9 +1,6 @@
 import os
 import sys
 import django
-
-from utils.images import upload_image_from_url
-
 BASE_DIR = os.path.join(os.path.dirname(__file__), "..")
 sys.path.append(BASE_DIR)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "infomate.settings")
@@ -18,6 +15,7 @@ import feedparser
 from bs4 import BeautifulSoup
 
 from boards.models import Board, BoardFeed, BoardBlock
+from utils.images import upload_image_from_url
 
 
 DEFAULT_REQUEST_HEADERS = {
