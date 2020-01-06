@@ -29,6 +29,7 @@ def upload_image_from_url(url, resize=(192, 192), convert_format="PNG"):
         saved_image = io.BytesIO()
         image.save(saved_image, format=convert_format, optimize=True)
         image_data = saved_image.getvalue()
+        image_name = os.path.splitext(image_name)[0] + f".{convert_format.lower()}"
 
     try:
         uploaded = requests.post(
