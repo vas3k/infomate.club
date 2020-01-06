@@ -4,12 +4,13 @@ import os
 from urllib.parse import urlparse
 
 import requests
+from PIL import Image
 from django.conf import settings
 
 log = logging.getLogger(__name__)
 
 
-def upload_image_from_url(url):
+def upload_image_from_url(url, resize=(192, 192), convert_format="PNG"):
     if not url:
         return None
 
@@ -22,6 +23,13 @@ def upload_image_from_url(url):
     except requests.exceptions.RequestException:
         return None
 
+    if resize:
+        image = Image.open(image_data)
+        image.thumbnail(resize)
+        saved_image = io.BytesIO()
+        image.save(saved_image, format=convert_format, optimize=True)
+        image_data = saved_image.getvalue()
+
     try:
         uploaded = requests.post(
             url=settings.MEDIA_UPLOAD_URL,
@@ -32,16 +40,15 @@ def upload_image_from_url(url):
                 "media": (image_name, image_data)
             }
         )
-    except requests.exceptions.RequestException:
+    except requests.exceptions.RequestException as ex:
+        log.error(f"Image upload error: {ex}")
         return None
-    finally:
-        image_data.close()
 
     if 200 <= uploaded.status_code <= 299:
         try:
             response_data = uploaded.json()
         except Exception as ex:
-            log.exception(f"Error uploading avatar: {ex}")
+            log.exception(f"Image upload error: {ex} ({uploaded.content})")
             return None
 
         return response_data["uploaded"][0]
