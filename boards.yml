@@ -5,7 +5,7 @@ boards:
   is_private: false
   curator:
     name: Технологии
-    title: Основные СМИ
+    title: Главные новости
     avatar: https://i.vas3k.ru/fhr.png
     bio: Подборка основных изданий о технологиях на русском и английском языках
     footer: >

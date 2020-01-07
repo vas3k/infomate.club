@@ -63,9 +63,9 @@
                                                 {% if article.description or article.summary %}
                                                     <span class="article-tooltip-description">
                                                         {% if article.summary %}
-                                                            {{ article.summary|striptags|nl2br|truncatechars:300|safe }}
+                                                            {{ article.summary|striptags|nl2br|truncatechars:400|safe }}
                                                         {% else %}
-                                                            {{ article.description|truncatechars:300 }}
+                                                            {{ article.description|truncatechars:400 }}
                                                         {% endif %}
                                                     </span>
                                                 {% endif %}
