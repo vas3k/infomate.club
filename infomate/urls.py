@@ -1,11 +1,11 @@
 from django.urls import path
 
 from auth.views import login, logout, club_callback
-from boards.views import index, board, privacy_policy
+from boards.views import index, board, privacy_policy, what
 
 urlpatterns = [
     path("", index, name="index"),
-    path("what/", privacy_policy, name="what"),
+    path("what/", what, name="what"),
 
     path("docs/privacy_policy/", privacy_policy, name="privacy_policy"),
 

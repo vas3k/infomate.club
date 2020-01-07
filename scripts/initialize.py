@@ -37,7 +37,7 @@ def initialize(config, board_slug, upload_favicons):
             print(f"Bad YAML file '{yaml_file}': {ex}")
             exit(1)
 
-    input(f"Initializing feeds from {config}. Press Enter to continue...")
+    input(f"Initializing feeds from {yaml_file}. Press Enter to continue...")
 
     for board_index, board_config in enumerate(config.get("boards") or []):
         if board_slug and board_config["slug"] != board_slug:
