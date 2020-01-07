@@ -11,7 +11,8 @@ boards:
     footer: >
       это общая подборка популярных технологических СМИ.
       Она сделана по итогам опроса в моём телеграм-канале.
-      Фиды обновляются раз в час.
+      Жирным выделяются свежие статьи.
+      Страница обновляется раз в час.
   blocks:
   - name: На русском
     slug: ru
@@ -19,68 +20,81 @@ boards:
       - name: VC
         url: https://vc.ru
         rss: https://vc.ru/rss/all
-      - name: Tproger
-        url: https://tproger.ru/
-        rss: https://tproger.ru/feed/
+      - name: TJ
+        url: https://tjournal.ru
+        rss: https://tjournal.ru/rss/all
       - name: "Хабр: лучшее за сутки"
         url: https://habr.ru
         rss: https://habr.com/ru/rss/best/daily/?fl=ru
       - name: iXBT
         url: https://www.ixbt.com
         rss: http://www.ixbt.com/export/news.rss
-      - name: TJ
-        url: https://tjournal.ru
-        rss: https://tjournal.ru/rss/all
+        icon: https://i.vas3k.ru/fkm.jpg
+      - name: Tproger
+        url: https://tproger.ru/
+        rss: https://tproger.ru/feed/
       - name: OpenNet
         url: https://www.opennet.ru/
         rss: https://www.opennet.ru/opennews/opennews_6.rss
   - name: На английском
     slug: en
     feeds:
-    - name: TechCrunch
-      rss: http://feeds.feedburner.com/TechCrunch/
-      url: https://techcrunch.com
-    - name: Engadget
-      rss: https://www.engadget.com/rss.xml
-      url: https://www.engadget.com
-    - name: Gizmodo
-      url: https://gizmodo.com
-      rss: https://gizmodo.com/rss
-    - name: Wired
-      url: https://www.wired.com
-      rss: https://www.wired.com/feed/rss
-      icon: https://i.vas3k.ru/feu.png
-    - name: Mashable
-      url: https://mashable.com/
-      rss: http://feeds.mashable.com/Mashable
-    - name: The Verge
-      rss: https://www.theverge.com/rss/index.xml
-      url: https://www.theverge.com
-    - name: VentureBeat
-      url: https://venturebeat.com
-      rss: http://feeds.feedburner.com/venturebeat/SZYF
-    - name: ZDNet
-      rss: https://www.zdnet.com/news/rss.xml
-      url: https://www.zdnet.com
-    - name: CNET
-      url: https://www.cnet.com/topics/tech-industry/
-      rss: http://feed.cnet.com/feed/topics/tech-industry
-    - name: The Next Web
-      rss: http://feeds2.feedburner.com/thenextweb
-      url: https://thenextweb.com
-    - name: ArsTechnica
-      rss: http://feeds.arstechnica.com/arstechnica/index/
-      url: https://arstechnica.com
-    - name: ReadWrite
-      url: https://readwrite.com
-      rss: https://readwrite.com/feed/
-    - name: Slashdot
-      rss: http://rss.slashdot.org/Slashdot/slashdotMain
-      url: https://slashdot.org
+      - name: Hacker News
+        url: https://news.ycombinator.com
+        rss: https://news.ycombinator.com/rss
+      - name: dev.to
+        url: https://dev.to
+        rss: https://dev.to/feed
+      - name: TechCrunch
+        rss: http://feeds.feedburner.com/TechCrunch/
+        url: https://techcrunch.com
+      - name: Engadget
+        rss: https://www.engadget.com/rss.xml
+        url: https://www.engadget.com
+      - name: Gizmodo
+        url: https://gizmodo.com
+        rss: https://gizmodo.com/rss
+      - name: Wired
+        url: https://www.wired.com
+        rss: https://www.wired.com/feed/rss
+        icon: https://i.vas3k.ru/feu.png
+      - name: Mashable
+        url: https://mashable.com/
+        rss: http://feeds.mashable.com/Mashable
+      - name: The Verge
+        rss: https://www.theverge.com/rss/index.xml
+        url: https://www.theverge.com
+      - name: VentureBeat
+        url: https://venturebeat.com
+        rss: http://feeds.feedburner.com/venturebeat/SZYF
+      - name: ZDNet
+        rss: https://www.zdnet.com/news/rss.xml
+        url: https://www.zdnet.com
+      - name: CNET
+        url: https://www.cnet.com/topics/tech-industry/
+        rss: http://feed.cnet.com/feed/topics/tech-industry
+      - name: The Next Web
+        rss: http://feeds2.feedburner.com/thenextweb
+        url: https://thenextweb.com
+      - name: ArsTechnica
+        rss: http://feeds.arstechnica.com/arstechnica/index/
+        url: https://arstechnica.com
+      - name: ReadWrite
+        url: https://readwrite.com
+        rss: https://readwrite.com/feed/
   - name: Мейнстрим
     slug: mainstream
     feeds:
-      - name:
+      - name: "WSJ: Tech"
+        url: https://www.wsj.com/news/technology
+        rss: https://feeds.a.dj.com/rss/RSSWSJD.xml
+      - name: "NYT: Technology"
+        url: https://www.nytimes.com/section/technology
+        rss: https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/technology/rss.xml
+      - name: "Reuters Technology"
+        url: https://www.reuters.com/news/technology
+        rss: http://feeds.reuters.com/reuters/technologyNews
+
 
 - name: Вастрик
   slug: vas3k
@@ -93,10 +107,9 @@ boards:
     avatar: https://i.vas3k.ru/eb8.png
     bio: Веду блог о технологиях, пишу код, отвратительно путешествую и фотографирую это
     footer: >
-      здесь я собрал ресурсы, которые формируют моё текущее инфополе.
-      Из них я и получаю 90% информации, которая мне интересна.
-      Отбор и фильтрация источников — непрерывный процесс для меня, потому в будущем всё может измениться.
-      Пока что вот так.
+      здесь я собрал сайты, которые составляют 90% того, что я читаю постоянно.
+      Отбор и фильтрация источников — непрерывный процесс для меня, потому их набор постоянно меняется.
+      Так что следите.
   blocks:
 
 - name: How to Berlin
