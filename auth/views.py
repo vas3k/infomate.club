@@ -28,15 +28,14 @@ def club_callback(request):
         log.error(f"JWT token error: {ex}")
         return render(request, "message.html", {
             "title": "Что-то сломалось",
-            "message": "Неправильный ключ. Наверное, что-то сломалось. "
-                       "Либо вы ХАКИР!!11"
+            "message": "Неправильный ключ. Наверное, что-то сломалось. Либо ты ХАКИР!!11"
         })
 
     Session.objects.get_or_create(
-        token=token,
+        token=token[:1024],
         defaults=dict(
             user_id=payload["user_id"],
-            user_name=payload.get("user_name"),
+            user_name=str(payload.get("user_name") or "")[:32],
             expires_at=datetime.utcfromtimestamp(payload["exp"])
         )
     )

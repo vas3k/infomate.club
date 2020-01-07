@@ -128,15 +128,4 @@
 .what {
     max-width: 700px;
     margin: 50px auto 0;
-    padding: 40px;
 }
-
-    .what-block {
-        margin: 20px 0;
-        border-radius: 20px;
-    }
-
-    .what-block:target {
-        color: var(--opposite-text-color);
-        background-color: var(--opposite-bg-color);
-    }

@@ -27,7 +27,7 @@ def upload_image_from_url(url, resize=(192, 192), convert_format="PNG"):
         try:
             image = Image.open(image_data)
         except OSError:
-            log.error(f"Broken image file: {url}")
+            log.warning(f"Broken image file: {url}")
             return None
 
         image.thumbnail(resize)

@@ -38,7 +38,7 @@
     .landing-top-title {
         margin-top: 100px;
         font-weight: normal;
-        font-size: 29px;
+        font-size: 36px;
         padding: 0 20px;
     }
 
@@ -344,6 +344,7 @@
 
 .document {
     font-size: 110%;
+    line-height: 1.5;
 }
 
     .document h1 > a,
@@ -357,4 +358,26 @@
 
     .what {
         font-size: 120%;
+        padding: 40px;
     }
+
+        .what-block:target {
+            color: var(--opposite-text-color);
+            background-color: var(--opposite-bg-color);
+        }
+
+            .what-block:target a {
+                color: var(--opposite-text-color);
+            }
+
+        .what-block {
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .what h2 {
+            font-size: 160%;
+            margin: 10px 0 30px;
+        }
+
