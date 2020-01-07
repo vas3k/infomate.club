@@ -31,4 +31,4 @@ function hideTooltipOnAnyClick() {
 }
 
 initializeThemeSwitcher();
-hideTooltipOnAnyClick();
+// hideTooltipOnAnyClick();
