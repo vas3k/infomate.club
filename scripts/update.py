@@ -178,7 +178,8 @@ def resolve_url(entry):
             url = response.headers["location"]
         else:
             content_type = response.headers.get("content-type")
-            content_length = response.headers.get("content-length")
+            content_length = int(response.headers.get("content-length")
+                                 or MAX_PARSABLE_CONTENT_LENGTH + 1)
             break
 
     return url, content_type, content_length
