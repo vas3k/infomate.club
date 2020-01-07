@@ -106,7 +106,10 @@ def refresh_feed(item):
     print(f"Updating feed {item['name']}...")
     feed = feedparser.parse(item['rss'])
     for entry in feed.entries[:DEFAULT_ENTRIES_LIMIT]:
-        entry_title = entry.get("title") or entry.get("description") or entry.get("summary")
+        entry_title = parse_title(entry)
+        if not entry_title:
+            continue
+
         print(f"- article: '{entry_title}' {entry.link}")
         article, is_created = Article.objects.get_or_create(
             board_id=item["board_id"],
@@ -132,7 +135,7 @@ def refresh_feed(item):
                     article.url = real_url[:2000]
                     article.domain = parse_domain(real_url)[:256]
 
-                text, lead_image = parse_rss_entry(entry)
+                text, lead_image = parse_text_and_image(entry)
 
                 if text:
                     article.description = text[:1000]
@@ -199,7 +202,12 @@ def parse_datetime(entry):
     return datetime.utcnow()
 
 
-def parse_rss_entry(entry):
+def parse_title(entry):
+    title = entry.get("title") or entry.get("description") or entry.get("summary")
+    return re.sub("<[^<]+?>", "", title).strip()
+
+
+def parse_text_and_image(entry):
     bs = BeautifulSoup(entry.summary, features="lxml")
     text = re.sub(r"\s\s+", " ", bs.text or "").strip()
 
