@@ -7,6 +7,7 @@ django.setup()
 
 import re
 import logging
+import socket
 from datetime import timedelta, datetime
 from urllib.parse import urlparse
 
@@ -26,9 +27,12 @@ from boards.models import BoardFeed, Article, Board
 DEFAULT_NUM_WORKER_THREADS = 5
 DEFAULT_ENTRIES_LIMIT = 100
 MIN_REFRESH_DELTA = timedelta(minutes=30)
+REQUEST_TIMEOUT = 10
 
 log = logging.getLogger()
 queue = queue.Queue()
+
+socket.setdefaulttimeout(REQUEST_TIMEOUT)
 
 
 @click.command()
@@ -152,7 +156,7 @@ def resolve_real_url(entry):
         depth -= 1
 
         try:
-            response = requests.head(url)
+            response = requests.head(url, timeout=REQUEST_TIMEOUT)
         except RequestException:
             log.warning(f"Failed to resolve real URL: {entry.link}")
             return None
