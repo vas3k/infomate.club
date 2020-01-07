@@ -27,9 +27,7 @@
     {% block board %}
         {% if not blocks %}
             <div class="board-empty">
-                Здесь пока ничего нет...<br><br>
-                Такое бывает, когда страничка только создана или обновляется.<br>
-                Подождите немного и зайдите снова!
+                Скоро будет!
             </div>
         {% endif %}
         {% for block in blocks %}
@@ -90,10 +88,11 @@
     <div class="board-footer">
         {% if board.curator_footer %}
             <span class="big">👆</span> {{ board.curator_footer|smart_urlize|safe }}<br>
-        {% else %}
-            <span class="big">👆</span> подборка каналов предоставлена автором<br>
         {% endif %}
-        <br><small>Обновлено {{ board.natural_refreshed_at }}</small>
+
+        {% if board.natural_refreshed_at %}
+            <br><small>Обновлено {{ board.natural_refreshed_at }}</small>
+        {% endif %}
     </div>
 {% endif %}
 {% endblock %}

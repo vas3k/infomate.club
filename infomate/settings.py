@@ -88,7 +88,7 @@ CSS_HASH = str(random())
 # App settings
 
 APP_NAME = "Infomate"
-APP_TITLE = "Читай, что читают другие"
+APP_TITLE = "Читай интернет так, как читают его другие"
 APP_DESCRIPTION = ""
 APP_HOST = "https://infomate.club"
 

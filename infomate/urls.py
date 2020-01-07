@@ -5,6 +5,7 @@ from boards.views import index, board, privacy_policy
 
 urlpatterns = [
     path("", index, name="index"),
+    path("what/", privacy_policy, name="what"),
 
     path("docs/privacy_policy/", privacy_policy, name="privacy_policy"),
 

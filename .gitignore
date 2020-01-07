@@ -35,3 +35,4 @@ private_settings.py
 local_settings.py
 media/images
 media/i
+boards_private.yml

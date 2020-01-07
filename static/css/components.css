@@ -141,6 +141,7 @@
 .board-empty {
     padding: 100px 20px;
     text-align: center;
+    font-size: 130%;
 }
 
 .block {
@@ -337,6 +338,19 @@
         margin-top: 40px;
     }
 
-.privacy-policy {
-    white-space: pre-wrap;
+.document {
+    font-size: 110%;
 }
+
+    .document h1 > a,
+    .document h2 > a {
+        text-decoration: none;
+    }
+
+    .privacy-policy {
+        white-space: pre-wrap;
+    }
+
+    .what {
+        font-size: 120%;
+    }

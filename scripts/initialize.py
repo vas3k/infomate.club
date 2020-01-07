@@ -27,7 +27,7 @@ DEFAULT_REQUEST_HEADERS = {
 @click.command()
 @click.option("--config", default="boards.yml", help="Boards YAML file")
 @click.option("--board-slug", default=None, help="Board slug to parse only one exact board")
-@click.option("--upload-favicons/--no-upload-favicons", default=True, help="Upload favicons to i.vas3k.ru")
+@click.option("--upload-favicons/--no-upload-favicons", default=True, help="Upload favicons")
 def initialize(config, board_slug, upload_favicons):
     yaml_file = os.path.join(BASE_DIR, config)
     with open(yaml_file) as f:
@@ -37,7 +37,9 @@ def initialize(config, board_slug, upload_favicons):
             print(f"Bad YAML file '{yaml_file}': {ex}")
             exit(1)
 
-    for board_index, board_config in enumerate(config["boards"]):
+    input(f"Initializing feeds from {config}. Press Enter to continue...")
+
+    for board_index, board_config in enumerate(config.get("boards") or []):
         if board_slug and board_config["slug"] != board_slug:
             continue
 
@@ -72,7 +74,7 @@ def initialize(config, board_slug, upload_favicons):
             board.index = board_index
             board.save()
 
-        for block_index, block_config in enumerate(board_config["blocks"]):
+        for block_index, block_config in enumerate(board_config.get("blocks") or []):
             block_name = block_config.get("name") or ""
             print(f"\nCreating block: {block_name}...")
             block, is_created = BoardBlock.objects.get_or_create(
@@ -92,7 +94,7 @@ def initialize(config, board_slug, upload_favicons):
             if not block_config.get("feeds"):
                 continue
 
-            for feed_index, feed_config in enumerate(block_config["feeds"]):
+            for feed_index, feed_config in enumerate(block_config.get("feeds") or []):
                 feed_name = feed_config.get("name") or ""
                 feed_url = feed_config["url"]
                 print(f"Creating or updating feed: {feed_name}...")
@@ -125,7 +127,8 @@ def initialize(config, board_slug, upload_favicons):
                     if not rss_url:
                         rss_url = find_rss_feed(feed_url, html)
                         if not rss_url:
-                            print(f"RSS feed for '{feed_name}' not found. Please specify 'rss' key.")
+                            print(f"RSS feed for '{feed_name}' not found. "
+                                  f"Please specify 'rss' key.")
                             exit(1)
                         print(f"- found RSS: {rss_url}")
 
@@ -145,6 +148,14 @@ def initialize(config, board_slug, upload_favicons):
                     feed.icon = icon
 
                 feed.save()
+
+            # delete unused feeds
+            BoardFeed.objects.filter(
+                board=board,
+                block=block
+            ).exclude(
+                url__in={feed["url"] for feed in block_config.get("feeds") or []}
+            ).delete()
 
     print("Done ✅")
 

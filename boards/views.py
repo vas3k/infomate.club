@@ -30,5 +30,9 @@ def board(request, board_slug):
     })
 
 
+def what(request):
+    return render(request, "what.html")
+
+
 def privacy_policy(request):
     return render(request, "docs/privacy_policy.html")

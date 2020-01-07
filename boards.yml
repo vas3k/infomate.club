@@ -5,11 +5,13 @@ boards:
   is_private: false
   curator:
     name: Технологии
-    title: Новости айти
+    title: Основные СМИ
     avatar: https://i.vas3k.ru/fhr.png
-    bio: Подборка СМИ
+    bio: Подборка основных изданий о технологиях на русском и английском языках
     footer: >
-      это общая подборка всех популярных технологических СМИ. Фиды обновляются раз в час.
+      это общая подборка популярных технологических СМИ.
+      Она сделана по итогам опроса в моём телеграм-канале.
+      Фиды обновляются раз в час.
   blocks:
   - name: На русском
     slug: ru
@@ -17,12 +19,21 @@ boards:
       - name: VC
         url: https://vc.ru
         rss: https://vc.ru/rss/all
-      - name: TJ
-        url: https://tjournal.ru
-        rss: https://tjournal.ru/rss/all
+      - name: Tproger
+        url: https://tproger.ru/
+        rss: https://tproger.ru/feed/
       - name: "Хабр: лучшее за сутки"
         url: https://habr.ru
         rss: https://habr.com/ru/rss/best/daily/?fl=ru
+      - name: iXBT
+        url: https://www.ixbt.com
+        rss: http://www.ixbt.com/export/news.rss
+      - name: TJ
+        url: https://tjournal.ru
+        rss: https://tjournal.ru/rss/all
+      - name: OpenNet
+        url: https://www.opennet.ru/
+        rss: https://www.opennet.ru/opennews/opennews_6.rss
   - name: На английском
     slug: en
     feeds:
@@ -39,6 +50,12 @@ boards:
       url: https://www.wired.com
       rss: https://www.wired.com/feed/rss
       icon: https://i.vas3k.ru/feu.png
+    - name: Mashable
+      url: https://mashable.com/
+      rss: http://feeds.mashable.com/Mashable
+    - name: The Verge
+      rss: https://www.theverge.com/rss/index.xml
+      url: https://www.theverge.com
     - name: VentureBeat
       url: https://venturebeat.com
       rss: http://feeds.feedburner.com/venturebeat/SZYF
@@ -48,9 +65,6 @@ boards:
     - name: CNET
       url: https://www.cnet.com/topics/tech-industry/
       rss: http://feed.cnet.com/feed/topics/tech-industry
-    - name: The Verge
-      rss: https://www.theverge.com/rss/index.xml
-      url: https://www.theverge.com
     - name: The Next Web
       rss: http://feeds2.feedburner.com/thenextweb
       url: https://thenextweb.com
@@ -63,6 +77,11 @@ boards:
     - name: Slashdot
       rss: http://rss.slashdot.org/Slashdot/slashdotMain
       url: https://slashdot.org
+  - name: Мейнстрим
+    slug: mainstream
+    feeds:
+      - name:
+
 - name: Вастрик
   slug: vas3k
   is_visible: true
@@ -74,100 +93,11 @@ boards:
     avatar: https://i.vas3k.ru/eb8.png
     bio: Веду блог о технологиях, пишу код, отвратительно путешествую и фотографирую это
     footer: >
-      здесь собраны ресурсы, которые формируют моё текущее инфополе.
-      По сути из них я и получаю 90% информации о том, что мне интересно.
-      Отбор и фильтрация источников — непрерывный процесс, так что в будущем всё может измениться.
+      здесь я собрал ресурсы, которые формируют моё текущее инфополе.
+      Из них я и получаю 90% информации, которая мне интересна.
+      Отбор и фильтрация источников — непрерывный процесс для меня, потому в будущем всё может измениться.
       Пока что вот так.
   blocks:
-  - slug: main
-    feeds:
-    - name: Hacker News
-      url: https://news.ycombinator.com
-      rss: https://news.ycombinator.com/rss
-      columns: 3
-    - name: 'Medium: Technology'
-      url: https://medium.com/topic/technology
-      rss: https://medium.com/feed/topic/technology
-    - name: Product Hunt
-      url: https://www.producthunt.com
-      rss: https://www.producthunt.com/feed
-      icon: https://i.vas3k.ru/fep.png
-  - name: Техно-мейнстрим
-    slug: tech
-    feeds:
-    - name: 'Reddit: /r/technology/'
-      url: https://www.reddit.com/r/technology
-      rss: https://www.reddit.com/r/technology.rss
-    - name: ZDNet
-      rss: https://www.zdnet.com/news/rss.xml
-      url: https://www.zdnet.com
-    - name: TechCrunch
-      rss: http://feeds.feedburner.com/TechCrunch/
-      url: https://techcrunch.com
-    - name: The Verge
-      rss: https://www.theverge.com/rss/index.xml
-      url: https://www.theverge.com
-    - name: The Next Web
-      rss: http://feeds2.feedburner.com/thenextweb
-      url: https://thenextweb.com
-    - name: Wired
-      url: https://www.wired.com
-      rss: https://www.wired.com/feed/rss
-      icon: https://i.vas3k.ru/feu.png
-    - name: ArsTechnica
-      rss: http://feeds.arstechnica.com/arstechnica/index/
-      url: https://arstechnica.com
-    - name: Slashdot
-      rss: http://rss.slashdot.org/Slashdot/slashdotMain
-      url: https://slashdot.org
-    - name: Engadget
-      rss: https://www.engadget.com/rss.xml
-      url: https://www.engadget.com
-    - name: MIT Technology Review
-      rss: https://www.technologyreview.com/topnews.rss
-      url: https://www.technologyreview.com
-  - name: Инди-разработка
-    slug: make
-    feeds:
-    - name: Show HN
-      url: https://news.ycombinator.com/show
-      rss: https://hnrss.org/show
-    - name: Starter Story
-      url: https://www.starterstory.com
-      rss: https://www.starterstory.com/feed?format=rss
-    - name: 'Reddit: /r/SideProject'
-      url: https://www.reddit.com/r/SideProject/
-      rss: https://www.reddit.com/r/SideProject.rss
-  - name: Путешествия
-    slug: travel
-    feeds:
-    - name: PeritoBurrito
-      url: https://perito-burrito.com
-      rss: http://perito-burrito.com/feed
-    - name: Vandrouki
-      url: https://vandrouki.ru
-      rss: https://feeds.feedburner.com/vandroukiru
-      icon: https://i.vas3k.ru/fer.jpg
-    - name: Secret Flying
-      url: https://www.secretflying.com
-      rss: https://www.secretflying.com/feed/
-    - name: 'Atlas Obscura: Stories'
-      url: https://www.atlasobscura.com/articles
-      rss: https://www.atlasobscura.com/feeds/latest
-  - name: Фотография
-    slug: photo
-    feeds:
-    - name: PetaPixel
-      url: https://petapixel.com
-      rss: https://feedproxy.google.com/PetaPixel
-      icon: https://i.vas3k.ru/fes.jpg
-    - name: DPReview
-      url: https://www.dpreview.com
-      rss: https://www.dpreview.com/feeds/reviews.xml
-    - name: 500px ISO
-      url: https://iso.500px.com
-      rss: https://iso.500px.com/feed/
-      icon: https://i.vas3k.ru/fet.png
 
 - name: How to Berlin
   slug: howtoberlin
@@ -178,23 +108,6 @@ boards:
     url: https://howtoberlin.de
     title: Набор Берлинца
     avatar: https://i.vas3k.ru/fev.png
-    bio: Что читать когда ты переехал в Берлин и не понимаешь что происходит
+    bio: Что читать когда переехал в Берлин и не понимаешь что происходит вокруг
   blocks:
-    - name: Где узнавать новости?
-      slug: news
-      feeds:
-        - name: PeritoBurrito
-          url: https://perito-burrito.com
-          rss: http://perito-burrito.com/feed
-    - name: Следим за скидками и распродажами
-      slug: sales
-      feeds:
-        - name: Perito Burrito
-          url: https://perito-burrito.com
-          rss: http://perito-burrito.com/feed
-    - name: Путешествуем
-      slug: travel
-      feeds:
-        - name: PeritoBurrito
-          url: https://perito-burrito.com
-          rss: http://perito-burrito.com/feed
+
