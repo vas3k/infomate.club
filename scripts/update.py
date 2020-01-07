@@ -28,6 +28,7 @@ DEFAULT_NUM_WORKER_THREADS = 5
 DEFAULT_ENTRIES_LIMIT = 100
 MIN_REFRESH_DELTA = timedelta(minutes=30)
 REQUEST_TIMEOUT = 10
+MAX_PARSABLE_CONTENT_LENGTH = 5 * 1024 * 1024  # 5Mb
 
 log = logging.getLogger()
 queue = queue.Queue()
@@ -115,28 +116,31 @@ def refresh_feed(item):
 
         if is_created:
             # parse heavy info
-            real_url = resolve_real_url(entry)
+            real_url, content_type, content_length = resolve_url(entry)
 
-            if real_url:
-                article.url = real_url[:2000]
-                article.domain = parse_domain(real_url)[:256]
+            if content_length <= MAX_PARSABLE_CONTENT_LENGTH \
+                    and content_type.startswith("text/"):  # to not try to parse podcasts :D
 
-            text, lead_image = parse_entry_text_and_image(entry)
+                if real_url:
+                    article.url = real_url[:2000]
+                    article.domain = parse_domain(real_url)[:256]
 
-            if text:
-                article.description = text[:1000]
+                text, lead_image = parse_rss_entry(entry)
 
-            if lead_image:
-                article.image = lead_image[:512]
+                if text:
+                    article.description = text[:1000]
 
-            summary, summary_image = load_and_parse_full_article_text_and_image(article.url)
+                if lead_image:
+                    article.image = lead_image[:512]
 
-            article.summary = summary
+                summary, summary_image = load_and_parse_full_article_text_and_image(article.url)
 
-            if summary_image:
-                article.image = summary_image[:512]
+                article.summary = summary
 
-            article.save()
+                if summary_image:
+                    article.image = summary_image[:512]
+
+                article.save()
 
     week_ago = datetime.utcnow() - timedelta(days=7)
     frequency = Article.objects.filter(feed_id=item["id"], created_at__gte=week_ago).count()
@@ -149,8 +153,10 @@ def refresh_feed(item):
     )
 
 
-def resolve_real_url(entry):
+def resolve_url(entry):
     url = entry.link
+    content_type = None
+    content_length = None
     depth = 10
     while depth > 0:
         depth -= 1
@@ -158,15 +164,17 @@ def resolve_real_url(entry):
         try:
             response = requests.head(url, timeout=REQUEST_TIMEOUT)
         except RequestException:
-            log.warning(f"Failed to resolve real URL: {entry.link}")
-            return None
+            log.warning(f"Failed to resolve URL: {entry.link}")
+            return None, content_type, content_length
 
         if 300 < response.status_code < 400:
             url = response.headers["location"]
         else:
+            content_type = response.headers.get("content-type")
+            content_length = response.headers.get("content-length")
             break
 
-    return url
+    return url, content_type, content_length
 
 
 def parse_domain(url):
@@ -183,7 +191,7 @@ def parse_datetime(entry):
     return datetime.utcnow()
 
 
-def parse_entry_text_and_image(entry):
+def parse_rss_entry(entry):
     bs = BeautifulSoup(entry.summary, features="lxml")
     text = re.sub(r"\s\s+", " ", bs.text or "").strip()
 
