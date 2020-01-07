@@ -23,6 +23,7 @@
 .header {
     display: grid;
     min-height: 250px;
+    margin-bottom: 20px;
 }
 
     @media only screen and (max-width : 570px) {
