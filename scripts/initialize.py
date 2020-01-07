@@ -157,6 +157,13 @@ def initialize(config, board_slug, upload_favicons):
                 url__in={feed["url"] for feed in block_config.get("feeds") or []}
             ).delete()
 
+        # delete unused blocks
+        BoardBlock.objects.filter(
+            board=board,
+        ).exclude(
+            slug__in={block["slug"] for block in board_config.get("blocks") or []}
+        ).delete()
+
     print("Done ✅")
 
 
