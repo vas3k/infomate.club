@@ -41,10 +41,10 @@ socket.setdefaulttimeout(REQUEST_TIMEOUT)
 @click.option("--force", is_flag=True, help="Force to update all existing feeds")
 @click.option("--feed", help="To update one particular feed")
 def update(num_workers, force, feed):
-    never_updated_feeds = BoardFeed.objects.filter(refreshed_at__isnull=True)
     if feed:
         need_to_update_feeds = BoardFeed.objects.filter(rss=feed)
     else:
+        never_updated_feeds = BoardFeed.objects.filter(refreshed_at__isnull=True)
         if not force:
             need_to_update_feeds = BoardFeed.objects.filter(
                 rss__isnull=False,
