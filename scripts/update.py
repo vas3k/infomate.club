@@ -43,6 +43,7 @@ socket.setdefaulttimeout(REQUEST_TIMEOUT)
 def update(num_workers, force, feed):
     if feed:
         need_to_update_feeds = BoardFeed.objects.filter(rss=feed)
+        never_updated_feeds = []
     else:
         never_updated_feeds = BoardFeed.objects.filter(refreshed_at__isnull=True)
         if not force:
@@ -94,7 +95,8 @@ def worker():
 
         try:
             refresh_feed(task)
-        except Exception:
+        except Exception as ex:
+            log.exception("Error refreshing feed")
             pass  # to avoid infinite wait in .join()
 
         queue.task_done()
