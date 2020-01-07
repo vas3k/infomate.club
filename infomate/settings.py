@@ -20,7 +20,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.cache.FetchFromCacheMiddleware"
 ]
 
 ROOT_URLCONF = "infomate.urls"
@@ -84,6 +86,15 @@ STATICFILES_DIRS = (
 STATIC_URL = "/static/"
 CSS_HASH = str(random())
 
+# Cache
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "LOCATION": os.path.join(BASE_DIR, "../django_cache.tmp")
+    }
+}
+CACHE_MIDDLEWARE_SECONDS = 60
 
 # App settings
 
