@@ -24,7 +24,12 @@ def upload_image_from_url(url, resize=(192, 192), convert_format="PNG"):
         return None
 
     if resize:
-        image = Image.open(image_data)
+        try:
+            image = Image.open(image_data)
+        except OSError:
+            log.error(f"Broken image file: {url}")
+            return None
+
         image.thumbnail(resize)
         saved_image = io.BytesIO()
         image.save(saved_image, format=convert_format, optimize=True)

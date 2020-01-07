@@ -86,7 +86,7 @@ class BoardFeed(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     board = models.ForeignKey(Board, related_name="feeds", on_delete=models.CASCADE, db_index=True)
     block = models.ForeignKey(BoardBlock, related_name="feeds", on_delete=models.CASCADE, db_index=True)
-    name = models.CharField(max_length=512)
+    name = models.CharField(max_length=512, null=True)
     comment = models.TextField(null=True)
     url = models.URLField(max_length=512)
     icon = models.URLField(max_length=512, null=True)

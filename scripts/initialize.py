@@ -95,7 +95,7 @@ def initialize(config, board_slug, upload_favicons):
                 continue
 
             for feed_index, feed_config in enumerate(block_config.get("feeds") or []):
-                feed_name = feed_config.get("name") or ""
+                feed_name = feed_config.get("name")
                 feed_url = feed_config["url"]
                 print(f"Creating or updating feed: {feed_name}...")
 
