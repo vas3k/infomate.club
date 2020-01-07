@@ -37,17 +37,21 @@ socket.setdefaulttimeout(REQUEST_TIMEOUT)
 
 
 @click.command()
-@click.option('--num-workers', default=DEFAULT_NUM_WORKER_THREADS, help="Number of parser threads")
-@click.option('--force', is_flag=True, help="Force to update all existing feeds")
-def update(num_workers, force):
+@click.option("--num-workers", default=DEFAULT_NUM_WORKER_THREADS, help="Number of parser threads")
+@click.option("--force", is_flag=True, help="Force to update all existing feeds")
+@click.option("--feed", help="To update one particular feed")
+def update(num_workers, force, feed):
     never_updated_feeds = BoardFeed.objects.filter(refreshed_at__isnull=True)
-    if not force:
-        need_to_update_feeds = BoardFeed.objects.filter(
-            rss__isnull=False,
-            refreshed_at__lte=datetime.utcnow() - MIN_REFRESH_DELTA
-        )
+    if feed:
+        need_to_update_feeds = BoardFeed.objects.filter(rss=feed)
     else:
-        need_to_update_feeds = BoardFeed.objects.filter(rss__isnull=False)
+        if not force:
+            need_to_update_feeds = BoardFeed.objects.filter(
+                rss__isnull=False,
+                refreshed_at__lte=datetime.utcnow() - MIN_REFRESH_DELTA
+            )
+        else:
+            need_to_update_feeds = BoardFeed.objects.filter(rss__isnull=False)
 
     tasks = []
     for feed in list(never_updated_feeds) + list(need_to_update_feeds):
