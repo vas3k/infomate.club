@@ -117,7 +117,7 @@ def refresh_feed(item):
                 domain=parse_domain(entry.link)[:256],
                 created_at=parse_datetime(entry),
                 updated_at=datetime.utcnow(),
-                title=entry.title[:256]
+                title=entry_title[:256]
             )
         )
 
