@@ -1,3 +1,4 @@
+{% load static %}
 <meta charset="UTF-8"/>
 <meta name="description" content="{{ settings.APP_DESCRIPTION }}">
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
@@ -5,11 +6,15 @@
 
 {% block meta_og %}
     <meta property="og:title" content="{{ settings.APP_NAME }}">
+    <meta property="og:site_name" content="Infomate">
     <meta property="og:url" content="{{ settings.APP_HOST }}">
     <meta property="og:type" content="website" />
     <meta property="og:description" content="{{ settings.APP_DESCRIPTION }}">
+    <meta property="og:image" content="{% static "images/cover.jpg" %}">
 
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{ settings.APP_NAME }}">
     <meta name="twitter:description" content="{{ settings.APP_DESCRIPTION }}">
+    <meta name="twitter:image" content="{% static "images/cover.jpg" %}">
+    <meta name="twitter:creator" content="@vas3k">
 {% endblock %}
