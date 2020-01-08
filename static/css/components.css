@@ -82,13 +82,12 @@
         .landing-board-name {
             display: block;
             font-size: 160%;
-            margin: 15px;
+            margin: 10px 0 5px;
             font-weight: bold;
         }
 
         .landing-board-title {
             display: block;
-            margin-top: 10px;
         }
 
 .header {
