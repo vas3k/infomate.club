@@ -19,7 +19,7 @@ def board(request, board_slug):
         if not me:
             return render(request, "board_no_access.html", {
                 "board": board
-            })
+            }, status=401)
 
     blocks = BoardBlock.objects.filter(board=board)
     feeds = BoardFeed.objects.filter(board=board)
