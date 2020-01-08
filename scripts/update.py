@@ -215,7 +215,7 @@ def parse_title(entry):
 
 def parse_image(entry):
     if entry.get("media_content"):
-        images = [m["url"] for m in entry["media_content"] if m["medium"] == "image"]
+        images = [m["url"] for m in entry["media_content"] if m.get("medium") == "image" and m.get("url")]
         if images:
             return images[0]
     return None
