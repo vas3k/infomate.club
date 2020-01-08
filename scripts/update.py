@@ -20,7 +20,7 @@ import click
 import feedparser
 from bs4 import BeautifulSoup
 from requests import RequestException
-from newspaper import Article as NewspaperArticle
+from newspaper import Article as NewspaperArticle, ArticleException
 
 from boards.models import BoardFeed, Article, Board
 
@@ -120,7 +120,8 @@ def refresh_feed(item):
                 domain=parse_domain(entry.link)[:256],
                 created_at=parse_datetime(entry),
                 updated_at=datetime.utcnow(),
-                title=entry_title[:256]
+                title=entry_title[:256],
+                image=str(parse_image(entry) or "")[:512]
             )
         )
 
@@ -143,9 +144,14 @@ def refresh_feed(item):
                 if lead_image:
                     article.image = lead_image[:512]
 
-                summary, summary_image = load_and_parse_full_article_text_and_image(article.url)
+                try:
+                    summary, summary_image = load_and_parse_full_article_text_and_image(article.url)
+                except ArticleException:
+                    summary = None
+                    summary_image = None
 
-                article.summary = summary
+                if summary:
+                    article.summary = summary
 
                 if summary_image:
                     article.image = summary_image[:512]
@@ -205,6 +211,14 @@ def parse_datetime(entry):
 def parse_title(entry):
     title = entry.get("title") or entry.get("description") or entry.get("summary")
     return re.sub("<[^<]+?>", "", title).strip()
+
+
+def parse_image(entry):
+    if entry.get("media_content"):
+        images = [m["url"] for m in entry["media_content"] if m["medium"] == "image"]
+        if images:
+            return images[0]
+    return None
 
 
 def parse_text_and_image(entry):
