@@ -172,7 +172,7 @@ def refresh_feed(item):
 def resolve_url(entry):
     url = entry.link
     content_type = None
-    content_length = None
+    content_length = MAX_PARSABLE_CONTENT_LENGTH + 1  # don't parse null content-types
     depth = 10
     while depth > 0:
         depth -= 1
