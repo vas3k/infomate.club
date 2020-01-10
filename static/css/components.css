@@ -155,8 +155,9 @@
     .block-header {
         font-size: 180%;
         text-align: center;
-        border-bottom: solid 2px var(--text-color);
+        border-bottom: solid 1.5px var(--text-color);
         min-height: 45px;
+        font-weight: bold;
     }
 
         .is-block-header-dummy {
@@ -210,7 +211,7 @@
 }
 
     .feed-title {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         line-height: 1em;
     }
 
@@ -229,6 +230,7 @@
         .feed-title a {
             font-size: 130%;
             color: var(--link-color);
+            font-weight: bold;
         }
 
         .feed-title small {

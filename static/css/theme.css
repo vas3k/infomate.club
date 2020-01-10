@@ -50,15 +50,16 @@ a {
     transition: all linear .1s;
 }
 
-a:visited {
-    color: var(--visited-link-color);
-}
-
 a:hover {
     color: #9b9b9b;
 }
 
-.article a {
-    text-decoration-color: #9e9e9e;
+
+.feed a {
+    text-decoration: none;
 }
+
+    .article a:visited {
+        color: var(--visited-link-color);
+    }
 
