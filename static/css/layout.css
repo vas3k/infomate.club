@@ -74,10 +74,13 @@
         }
     }
 
-    @media only screen and (max-width : 570px) {
+    @media only screen and (max-width : 750px) {
         .block {
             grid-template-columns: 100%;
         }
+    }
+
+    @media only screen and (max-width : 570px) {
 
         .block-header {
             grid-column-start: 1;
