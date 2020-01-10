@@ -14,7 +14,6 @@ function initializeThemeSwitcher() {
     const theme = localStorage.getItem('theme');
     if (theme !== null) {
         themeSwitch.checked = (theme === 'dark');
-        document.documentElement.setAttribute('theme', theme);
     }
 }
 
