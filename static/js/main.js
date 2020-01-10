@@ -19,16 +19,42 @@ function initializeThemeSwitcher() {
     }
 }
 
+function hideTooltip() {
+    let visibleTooltips = document.querySelectorAll(".article-tooltip");
+    for (let i = 0; i < visibleTooltips.length; i++) {
+        if (visibleTooltips[i].style.display !== "none") {
+            visibleTooltips[i].style.display = null;
+        }
+    }
+}
+
 function hideTooltipOnAnyClick() {
     document.body.addEventListener("click", function(e) {
-        const visibleTooltips = document.querySelectorAll(".article-tooltip");
-        for (let i = 0; i < visibleTooltips.length; i++) {
-            if (visibleTooltips[i].style.display !== "none") {
-                visibleTooltips[i].style.display = "none";
-            }
-        }
+        hideTooltip();
     }, true);
 }
 
+function checkKeyPress(e) {
+
+    let tooltip;
+
+    if (e.keyCode == 81) {
+        tooltip = document.activeElement.parentNode.parentNode.querySelector('.article-tooltip');
+        if (tooltip.style.display == "block") {
+            tooltip.style.display = null;
+        } else {
+            tooltip.style.display = "block";
+        }
+    }
+
+    if (e.keyCode == 9) {
+        hideTooltip();
+    }
+}
+
+let body = document.querySelector('body');
+body.addEventListener('keyup', checkKeyPress);
+
+
 initializeThemeSwitcher();
-// hideTooltipOnAnyClick();
+hideTooltipOnAnyClick();

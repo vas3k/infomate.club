@@ -254,6 +254,13 @@
         overflow: hidden;
     }
 
+    .article-title a:focus {
+        background-color: var(--opposite-bg-color);
+        color: var(--opposite-text-color);
+        outline-width: 0;
+        text-decoration: none;
+    }
+
     .article-tooltip {
         display: none;
         position: absolute;
