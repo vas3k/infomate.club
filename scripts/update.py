@@ -20,15 +20,18 @@ import click
 import feedparser
 from bs4 import BeautifulSoup
 from requests import RequestException
-from newspaper import Article as NewspaperArticle, ArticleException
+from newspaper import Article as NewspaperArticle, ArticleException, Config
 
 from boards.models import BoardFeed, Article, Board
+from scripts.common import DEFAULT_REQUEST_HEADERS
 
 DEFAULT_NUM_WORKER_THREADS = 5
 DEFAULT_ENTRIES_LIMIT = 100
 MIN_REFRESH_DELTA = timedelta(minutes=30)
 REQUEST_TIMEOUT = 10
 MAX_PARSABLE_CONTENT_LENGTH = 5 * 1024 * 1024  # 5Mb
+NEWSPAPER_CONFIG = Config()
+NEWSPAPER_CONFIG.browser_user_agent = DEFAULT_REQUEST_HEADERS["User-Agent"]
 
 log = logging.getLogger()
 queue = queue.Queue()
@@ -121,7 +124,8 @@ def refresh_feed(item):
                 created_at=parse_datetime(entry),
                 updated_at=datetime.utcnow(),
                 title=entry_title[:256],
-                image=str(parse_image(entry) or "")[:512]
+                image=str(parse_image(entry) or "")[:512],
+                description=entry.get("summary"),
             )
         )
 
@@ -235,7 +239,7 @@ def parse_text_and_image(entry):
 
 
 def load_and_parse_full_article_text_and_image(url):
-    article = NewspaperArticle(url)
+    article = NewspaperArticle(url, config=NEWSPAPER_CONFIG)
     article.download()
     article.parse()
     article.nlp()
