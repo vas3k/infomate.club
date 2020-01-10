@@ -42,10 +42,6 @@
         padding: 0 20px;
     }
 
-        .landing-top-title a {
-            color: var(--text-color);
-        }
-
 .landing-boards {
     display: flex;
     flex-wrap: wrap;
@@ -337,10 +333,6 @@
     text-align: center;
     padding: 60px;
 }
-
-    .footer a {
-        color: var(--link-color);
-    }
 
     .logout-button {
         display: inline-block;
