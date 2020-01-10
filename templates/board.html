@@ -67,7 +67,7 @@
                                                         {% if article.summary %}
                                                             {{ article.summary|striptags|nl2br|truncatechars:400|safe }}
                                                         {% else %}
-                                                            {{ article.description|truncatechars:400 }}
+                                                            {{ article.description|striptags|truncatechars:400 }}
                                                         {% endif %}
                                                     </span>
                                                 {% endif %}
