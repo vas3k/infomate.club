@@ -131,22 +131,24 @@ def refresh_feed(item):
 
         if is_created:
             # parse heavy info
+            text, lead_image = parse_text_and_image(entry)
+
+            if text:
+                article.description = text[:1000]
+
+            if lead_image:
+                article.image = lead_image[:512]
+
+            # get real url
             real_url, content_type, content_length = resolve_url(entry)
 
+            # load and summarize article
             if content_length <= MAX_PARSABLE_CONTENT_LENGTH \
                     and content_type.startswith("text/"):  # to not try to parse podcasts :D
 
                 if real_url:
                     article.url = real_url[:2000]
                     article.domain = parse_domain(real_url)[:256]
-
-                text, lead_image = parse_text_and_image(entry)
-
-                if text:
-                    article.description = text[:1000]
-
-                if lead_image:
-                    article.image = lead_image[:512]
 
                 try:
                     summary, summary_image = load_and_parse_full_article_text_and_image(article.url)
@@ -160,7 +162,7 @@ def refresh_feed(item):
                 if summary_image:
                     article.image = summary_image[:512]
 
-                article.save()
+            article.save()
 
     week_ago = datetime.utcnow() - timedelta(days=7)
     frequency = Article.objects.filter(feed_id=item["id"], created_at__gte=week_ago).count()
