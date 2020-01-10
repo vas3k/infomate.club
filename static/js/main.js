@@ -52,7 +52,7 @@ function checkKeyPress(e) {
     }
 }
 
-var body = document.querySelector('body');
+let body = document.querySelector('body');
 body.addEventListener('keyup', checkKeyPress);
 
 

@@ -255,8 +255,8 @@
     }
 
     .article-title a:focus {
-        background-color: #DDD;
-        color: #282c35;
+        background-color: var(--opposite-bg-color);
+        color: var(--opposite-text-color);
         outline-width: 0;
         text-decoration: none;
     }
