@@ -1,11 +1,4 @@
-body {
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    line-height: 1.3;
-    transition: all linear .2s;
-}
-
-.light-theme {
+html, html[theme="light"] {
     --bg-color: #FFF;
     --opposite-bg-color: #282c35;
 
@@ -15,12 +8,9 @@ body {
 
     --link-color: #333;
     --visited-link-color: #afafaf;
-
-    color: var(--text-color);
-    background-color: var(--bg-color);
 }
 
-.dark-theme {
+html[theme="dark"] {
     --bg-color: #282c35;
     --opposite-bg-color: #FFF;
 
@@ -30,7 +20,27 @@ body {
 
     --link-color: #DDD;
     --visited-link-color: #737373;
+}
 
+@media (prefers-color-scheme: dark) {
+    html {
+        --bg-color: #282c35;
+        --opposite-bg-color: #FFF;
+
+        --text-color: #DDD;
+        --brighter-text-color: #FFF;
+        --opposite-text-color: #333;
+
+        --link-color: #DDD;
+        --visited-link-color: #737373;
+    }
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    transition: all linear .2s;
     color: var(--text-color);
     background-color: var(--bg-color);
 }
