@@ -254,6 +254,13 @@
         overflow: hidden;
     }
 
+    .article-title a:focus {
+        background-color: #DDD;
+        color: #282c35;
+        outline-width: 0;
+        text-decoration: none;
+    }
+
     .article-tooltip {
         display: none;
         position: absolute;
