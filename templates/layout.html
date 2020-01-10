@@ -2,6 +2,12 @@
 {% load static %}
 <html lang="ru">
 <head>
+    <script>
+        const theme = localStorage.getItem('theme');
+        if (theme !== null) {
+            document.documentElement.setAttribute('theme', theme);
+        }
+    </script>
     <title>{% block title %}{{ settings.APP_NAME|safe }}{% endblock %}</title>
     {% block meta %}
         {% include "common/meta.html" %}
@@ -9,7 +15,7 @@
     {% include "common/favicon.html" %}
     {% include "common/css.html" %}
 </head>
-<body class="light-theme">
+<body>
 
 {% block body %}
     {% block menu %}
