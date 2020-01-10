@@ -13,7 +13,7 @@ function initializeThemeSwitcher() {
 
     const isDarkOS = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = localStorage.getItem("theme");
-    if (theme === "dark" || isDarkOS) {
+    if ((theme === "dark" || isDarkOS) && theme !== "light") {
         document.body.className = "dark-theme";
         themeSwitch.checked = true;
     }
