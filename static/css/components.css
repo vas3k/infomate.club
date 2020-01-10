@@ -266,7 +266,7 @@
     .article-tooltip {
         display: none;
         position: absolute;
-        bottom: 30px;
+        bottom: 25px;
         left: 0;
         padding: 20px;
         box-sizing: border-box;
