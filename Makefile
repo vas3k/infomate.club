@@ -55,4 +55,6 @@ test-requirements:  ## Install requirements to run tests
   lint \
   migrate \
   mypy \
-  run
+  run \
+  test-ci \
+  test-requirements
