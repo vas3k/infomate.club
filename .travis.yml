@@ -7,7 +7,5 @@ addons:
   apt:
     packages:
       - "shellcheck"
-install:
-  - "pip install -r ./requirements-test.txt"
 script:
   - "make test-ci"

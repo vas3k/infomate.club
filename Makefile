@@ -42,7 +42,7 @@ run:  ## Runs dev server
 test-ci: test-requirements lint mypy  ## Run tests (intended for CI usage)
 
 test-requirements:  ## Install requirements to run tests
-	@pip3 install -r ./requirements-test.txt"
+	@pip3 install -r ./requirements-test.txt
 
 
 .PHONY: \
