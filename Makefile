@@ -40,7 +40,6 @@ run:  ## Runs dev server
 	@python3 manage.py runserver
 
 .PHONY: \
-  all \
   dev-requirements \
   docker_run \
   feed_cleanup \
