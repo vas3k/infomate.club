@@ -93,6 +93,7 @@ CACHES = {
     }
 }
 STATIC_PAGE_CACHE_SECONDS = 5 * 60  # 5 min
+BOARD_CACHE_SECONDS = 10 * 60  # 10 min
 
 # App settings
 
