@@ -46,7 +46,6 @@ socket.setdefaulttimeout(REQUEST_TIMEOUT)
 def update(num_workers, force, feed):
     if feed:
         need_to_update_feeds = BoardFeed.objects.filter(rss=feed)
-        never_updated_feeds = []
     else:
         never_updated_feeds = BoardFeed.objects.filter(refreshed_at__isnull=True)
         if not force:
@@ -56,9 +55,10 @@ def update(num_workers, force, feed):
             )
         else:
             need_to_update_feeds = BoardFeed.objects.filter(rss__isnull=False)
+        need_to_update_feeds = list(never_updated_feeds) + list(need_to_update_feeds)
 
     tasks = []
-    for feed in list(never_updated_feeds) + list(need_to_update_feeds):
+    for feed in need_to_update_feeds:
         tasks.append({
             "id": feed.id,
             "board_id": feed.board_id,
@@ -80,7 +80,8 @@ def update(num_workers, force, feed):
     queue.join()
 
     # update timestamps
-    Board.objects.all().update(refreshed_at=datetime.utcnow())
+    updated_boards = {feed.board_id for feed in need_to_update_feeds}
+    Board.objects.filter(id__in=updated_boards).update(refreshed_at=datetime.utcnow())
 
     # stop workers
     for i in range(num_workers):
