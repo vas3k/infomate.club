@@ -111,6 +111,7 @@ def initialize(config, board_slug, upload_favicons):
                 )
 
                 if not is_created:
+                    feed.rss = feed_config.get("rss")
                     feed.name = feed_name
                     feed.comment = feed_config.get("comment")
                     feed.index = feed_index
