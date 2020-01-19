@@ -39,7 +39,7 @@
 {% block footer %}
     <div class="footer">
         Сделал <a href="https://vas3k.ru">Вастрик</a>.<br><br>
-        Сайт использует <a href="https://ru.wikipedia.org/wiki/Cookie" target="_blank">куки</a> для авторизации<br> и <a href="{% url "privacy_policy" %}">не собирает данные</a> больше, чем нужно для анонимной статистики.
+        Сайт использует <a href="https://ru.wikipedia.org/wiki/Cookie" target="_blank">куки</a> для авторизации<br> и собирает <a href="{% url "privacy_policy" %}">анонимные данные</a> для статистики.
         {% if me %}
             <br><a href="{% url "logout" %}" class="button logout-button">Выйти</a>
         {% endif %}

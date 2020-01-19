@@ -1,7 +1,7 @@
 from django.urls import path
 
 from auth.views import login, logout, club_callback
-from boards.views import index, board, privacy_policy, what
+from boards.views import index, board, privacy_policy, what, export
 
 urlpatterns = [
     path("", index, name="index"),
@@ -14,4 +14,5 @@ urlpatterns = [
     path("auth/logout/", logout, name="logout"),
 
     path("<slug:board_slug>/", board, name="board"),
+    path("<slug:board_slug>/export/", export, name="export"),
 ]

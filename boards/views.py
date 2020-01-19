@@ -43,6 +43,15 @@ def board(request, board_slug):
 
 
 @cache_page(settings.STATIC_PAGE_CACHE_SECONDS)
+def export(request, board_slug):
+    board = get_object_or_404(Board, slug=board_slug)
+
+    return render(request, "export.html", {
+        "board": board,
+    })
+
+
+@cache_page(settings.STATIC_PAGE_CACHE_SECONDS)
 def what(request):
     return render(request, "what.html")
 
