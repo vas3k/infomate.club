@@ -3,6 +3,19 @@
 
 {% block title %}{{ board.curator_name }} | {{ board.curator_title }} | {{ block.super }}{% endblock %}
 
+{% block meta_og %}
+    <meta property="og:title" content="{{ board.curator_name }} | {{ board.curator_title }}">
+    <meta property="og:site_name" content="Infomate">
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="{{ board.curator_bio }}">
+    <meta property="og:image" content="{% static "images/cover.jpg" %}">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ board.curator_name }} | {{ board.curator_title }}">
+    <meta name="twitter:description" content="{{ board.curator_bio }}">
+    <meta name="twitter:image" content="{% static "images/cover.jpg" %}">
+{% endblock %}
+
 {% block content %}
 <div class="header">
     <div class="curator">
