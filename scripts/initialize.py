@@ -92,6 +92,7 @@ def initialize(config, board_slug, upload_favicons):
             for feed_index, feed_config in enumerate(block_config.get("feeds") or []):
                 feed_name = feed_config.get("name")
                 feed_url = feed_config["url"]
+                
                 print(f"Creating or updating feed: {feed_name}...")
 
                 feed, is_created = BoardFeed.objects.get_or_create(
@@ -105,6 +106,7 @@ def initialize(config, board_slug, upload_favicons):
                         icon=feed_config.get("icon"),
                         index=feed_index,
                         columns=feed_config.get("columns") or 1,
+                        conditions=feed_config.get("conditions")
                     )
                 )
 
@@ -113,6 +115,7 @@ def initialize(config, board_slug, upload_favicons):
                     feed.comment = feed_config.get("comment")
                     feed.index = feed_index
                     feed.columns = feed_config.get("columns") or 1
+                    feed.conditions = feed_config.get("conditions")
 
                 html = None
 

@@ -63,7 +63,8 @@ def update(num_workers, force, feed):
             "id": feed.id,
             "board_id": feed.board_id,
             "name": feed.name,
-            "rss": feed.rss
+            "rss": feed.rss,
+            "conditions": feed.conditions,
         })
 
     threads = []
@@ -114,6 +115,14 @@ def refresh_feed(item):
             continue
 
         print(f"- article: '{entry_title}' {entry.link}")
+        
+        conditions = item.get("conditions") 
+        if conditions:
+            is_valid = check_conditions(conditions, entry)
+            if not is_valid:
+                print(f"Condition {conditions} does not match. Skipped")
+                continue
+        
         article, is_created = Article.objects.get_or_create(
             board_id=item["board_id"],
             feed_id=item["id"],
@@ -173,6 +182,18 @@ def refresh_feed(item):
         last_article_at=last_article.created_at if last_article else None,
         frequency=frequency or 0
     )
+
+
+def check_conditions(conditions, entry):
+    if not conditions:
+        return True
+
+    for condition in conditions:
+        if condition["type"] == "in":
+            if condition["in"] not in entry[condition["field"]]:
+                return False
+
+    return True
 
 
 def resolve_url(entry):

@@ -17,9 +17,13 @@ boards:
   - name: На русском
     slug: ru
     feeds:
-      - name: VC
+      - name: "vc.ru: Технологии"
         url: https://vc.ru
         rss: https://vc.ru/rss/all
+        conditions:
+          - type: in
+            field: link
+            in: "https://vc.ru/tech/"
       - name: TJ
         url: https://tjournal.ru
         rss: https://tjournal.ru/rss/all

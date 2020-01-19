@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.db import models
+from django.contrib.postgres.fields import JSONField
 from slugify import slugify
 
 from boards.icons import DOMAIN_ICONS
@@ -100,6 +101,8 @@ class BoardFeed(models.Model):
     columns = models.SmallIntegerField(default=1)
     articles_per_column = models.SmallIntegerField(default=15)
     index = models.PositiveIntegerField(default=0)
+
+    conditions = JSONField(null=True)
 
     class Meta:
         db_table = "board_feeds"
