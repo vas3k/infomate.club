@@ -14,7 +14,9 @@
         <a class="landing-board" href="{% url "board" board.slug %}">
             <span class="avatar landing-board-avatar" style="background-image: url('{{ board.avatar }}'), linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);"></span>
             <span class="landing-board-name">{{ board.curator_name }}</span>
-            <span class="landing-board-title">{{ board.curator_title }}</span>
+            {% if board.curator_title %}
+                <span class="landing-board-title">{{ board.curator_title }}</span>
+            {% endif %}
         </a>
     {% endfor %}
 </div>
