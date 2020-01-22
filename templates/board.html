@@ -26,7 +26,7 @@
 
             {% if board.curator_url %}
                 <div class="curator-url">
-                    👉 от <a href="{{ board.curator_url }}" target="_blank">{{ board.curator_url|pretty_url }}</a>
+                    👉 {{ board.curator_url|safe }}
                 </div>
             {% endif %}
 

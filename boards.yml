@@ -87,14 +87,14 @@ boards:
         url: https://readwrite.com
         rss: https://readwrite.com/feed/
   - name: Микс блогов
-      slug: the_mix
-      feeds:
-        - url: http://www.rssmix.com/
-          rss: http://www.rssmix.com/
-          columns: 3
-          mix:
-            - http://vas3k.ru/rss/
-            - http://nedbatchelder.com/blog/rss.xml
+    slug: the_mix
+    feeds:
+      - url: http://www.rssmix.com/
+        rss: http://www.rssmix.com/
+        columns: 3
+        mix:
+          - http://vas3k.ru/rss/
+          - http://nedbatchelder.com/blog/rss.xml
   - name: Мейнстрим
     slug: mainstream
     feeds:

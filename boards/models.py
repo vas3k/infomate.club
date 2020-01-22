@@ -18,8 +18,8 @@ class Board(models.Model):
 
     curator_name = models.CharField(max_length=120)
     curator_title = models.CharField(max_length=120, null=True)
-    curator_url = models.URLField(null=True)
-    curator_bio = models.CharField(max_length=120, null=True)
+    curator_url = models.TextField(null=True)
+    curator_bio = models.TextField(null=True)
     curator_footer = models.TextField(null=True)
 
     schema = models.TextField(null=True)
