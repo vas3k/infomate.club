@@ -99,9 +99,9 @@ def worker():
 
         try:
             refresh_feed(task)
-        except Exception as ex:
+        except Exception:
+            # catch all to avoid infinite wait in .join()
             log.exception("Error refreshing feed")
-            pass  # to avoid infinite wait in .join()
 
         queue.task_done()
 
@@ -109,10 +109,12 @@ def worker():
 def refresh_feed(item):
     print(f"Updating feed {item['name']}...")
     feed = feedparser.parse(item['rss'])
+    print(f"Entries found: {len(feed.entries)}")
     for entry in feed.entries[:DEFAULT_ENTRIES_LIMIT]:
         entry_title = parse_title(entry)
         entry_link = entry.get("link")
         if not entry_title or not entry_link:
+            print("No entry title or link. Skipped")
             continue
 
         print(f"- article: '{entry_title}' {entry_link}")
