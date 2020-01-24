@@ -111,10 +111,11 @@ def refresh_feed(item):
     feed = feedparser.parse(item['rss'])
     for entry in feed.entries[:DEFAULT_ENTRIES_LIMIT]:
         entry_title = parse_title(entry)
-        if not entry_title:
+        entry_link = entry.get("link")
+        if not entry_title or not entry_link:
             continue
 
-        print(f"- article: '{entry_title}' {entry.link}")
+        print(f"- article: '{entry_title}' {entry_link}")
         
         conditions = item.get("conditions") 
         if conditions:
@@ -126,10 +127,10 @@ def refresh_feed(item):
         article, is_created = Article.objects.get_or_create(
             board_id=item["board_id"],
             feed_id=item["id"],
-            uniq_id=entry.get("id") or entry.get("guid") or entry.link,
+            uniq_id=entry.get("id") or entry.get("guid") or entry_link,
             defaults=dict(
-                url=entry.link[:2000],
-                domain=parse_domain(entry.link)[:256],
+                url=entry_link[:2000],
+                domain=parse_domain(entry_link)[:256],
                 created_at=parse_datetime(entry),
                 updated_at=datetime.utcnow(),
                 title=entry_title[:256],
