@@ -208,7 +208,7 @@ def resolve_url(entry):
         depth -= 1
 
         try:
-            response = requests.head(url, timeout=REQUEST_TIMEOUT)
+            response = requests.head(url, timeout=REQUEST_TIMEOUT, verify=False)
         except RequestException:
             log.warning(f"Failed to resolve URL: {entry.link}")
             return None, content_type, content_length
