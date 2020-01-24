@@ -10,7 +10,7 @@ import logging
 import socket
 from datetime import timedelta, datetime
 from urllib.parse import urlparse
-
+from urllib3.exceptions import InsecureRequestWarning
 from time import mktime
 import threading
 import queue
@@ -37,6 +37,7 @@ log = logging.getLogger()
 queue = queue.Queue()
 
 socket.setdefaulttimeout(REQUEST_TIMEOUT)
+requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 
 @click.command()
