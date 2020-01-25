@@ -30,12 +30,12 @@
         color: var(--link-color);
     }
 
-.landing-top {
+.landing-info {
     text-align: center;
     min-height: 100px;
 }
 
-    .landing-top-title {
+    .landing-info-title {
         margin-top: 100px;
         font-weight: normal;
         font-size: 36px;

@@ -3,12 +3,6 @@
 {% block title %}{{ block.super }} — {{ settings.APP_TITLE }}{% endblock %}
 
 {% block content %}
-<div class="landing-top">
-    <h2 class="landing-top-title">
-        <a href="{% url "what" %}">Что это?</a>
-    </h2>
-</div>
-
 <div class="landing-boards">
     {% for board in boards %}
         <a class="landing-board" href="{% url "board" board.slug %}">
@@ -19,5 +13,11 @@
             {% endif %}
         </a>
     {% endfor %}
+</div>
+
+<div class="landing-info">
+    <h2 class="landing-info-title">
+        <a href="{% url "what" %}">Что это?</a>
+    </h2>
 </div>
 {% endblock %}
