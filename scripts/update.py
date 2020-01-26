@@ -253,7 +253,10 @@ def parse_image(entry):
 
 
 def parse_text_and_image(entry):
-    bs = BeautifulSoup(entry.summary, features="lxml")
+    if not entry.get("summary"):
+        return "", ""
+
+    bs = BeautifulSoup(entry["summary"], features="lxml")
     text = re.sub(r"\s\s+", " ", bs.text or "").strip()
 
     img_tags = bs.findAll("img")
