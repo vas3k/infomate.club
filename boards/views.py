@@ -4,8 +4,10 @@ from django.conf import settings
 from django.core.cache import cache
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.cache import cache_page
+from django.views.decorators.http import last_modified
 
 from auth.helpers import authorized_user
+from boards.cache import board_last_modified_at
 from boards.models import Board, BoardBlock, BoardFeed
 
 
@@ -17,6 +19,7 @@ def index(request):
     })
 
 
+@last_modified(board_last_modified_at)
 def board(request, board_slug):
     board = get_object_or_404(Board, slug=board_slug)
 
@@ -28,7 +31,8 @@ def board(request, board_slug):
             }, status=401)
 
     cached_page = cache.get(f"board_{board.slug}")
-    if cached_page and board.refreshed_at <= datetime.utcnow() - timedelta(seconds=settings.BOARD_CACHE_SECONDS):
+    if cached_page and board.refreshed_at <= \
+            datetime.utcnow() - timedelta(seconds=settings.BOARD_CACHE_SECONDS):
         return cached_page
 
     blocks = BoardBlock.objects.filter(board=board)
@@ -59,4 +63,3 @@ def what(request):
 @cache_page(settings.STATIC_PAGE_CACHE_SECONDS)
 def privacy_policy(request):
     return render(request, "docs/privacy_policy.html")
-
