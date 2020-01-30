@@ -68,7 +68,7 @@
                                 <div class="articles feed-articles">
                                     {% for article in articles %}
                                         <div class="article {% if article.is_fresh %}is-article-fresh{% endif %}">
-                                            <div class="article-title">{{ article.icon|safe }}<a href="{{ article.url }}" target="_blank">{{ article.title|striptags }}</a></div>
+                                            <div class="article-title">{{ article.icon|safe }}<a href="{{ article.url }}" target="_blank"><div/>{{ article.title|striptags }}</a></div>
                                             <a href="{{ article.url }}" class="article-tooltip" target="_blank">
                                                 {% if article.image %}
                                                     <img src="{{ article.image }}" alt="{{ article.title|striptags }}" class="article-tooltip-image">
