@@ -39,6 +39,11 @@ mypy:  ## Check types with mypy
 run:  ## Runs dev server
 	@python3 manage.py runserver
 
+test-ci: test-requirements lint mypy  ## Run tests (intended for CI usage)
+
+test-requirements:  ## Install requirements to run tests
+	@pip3 install -r ./requirements-test.txt
+
 .PHONY: \
   dev-requirements \
   docker_run \
@@ -49,4 +54,6 @@ run:  ## Runs dev server
   lint \
   migrate \
   mypy \
-  run
+  run \
+  test-ci \
+  test-requirements

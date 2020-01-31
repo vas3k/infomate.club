@@ -118,7 +118,10 @@ MEDIA_UPLOAD_CODE = None  # should be set in private_settings.py
 
 try:
     # poor mans' private settings
-    from infomate.private_settings import *
+    # As due to obvious reasons this file is missing in the repository, suppress the following 'pyflakes' error codes:
+    # - F401 'infomate.private_settings.*' imported but unused
+    # - F403 'from infomate.private_settings import *' used; unable to detect undefined names
+    from infomate.private_settings import *  # noqa: F401 F403
 except ImportError:
     pass
 
