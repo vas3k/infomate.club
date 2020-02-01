@@ -114,7 +114,7 @@ def refresh_feed(item):
     print(f"Entries found: {len(feed.entries)}")
     for entry in feed.entries[:DEFAULT_ENTRIES_LIMIT]:
         entry_title = parse_title(entry)
-        entry_link = entry.get("link")
+        entry_link = parse_link(entry)
         if not entry_title or not entry_link:
             print("No entry title or link. Skipped")
             continue
@@ -154,7 +154,7 @@ def refresh_feed(item):
                 article.image = lead_image[:512]
 
             # get real url
-            real_url, content_type, content_length = resolve_url(entry)
+            real_url, content_type, content_length = resolve_url(entry_link)
 
             # load and summarize article
             if content_length <= MAX_PARSABLE_CONTENT_LENGTH \
@@ -201,8 +201,8 @@ def check_conditions(conditions, entry):
     return True
 
 
-def resolve_url(entry):
-    url = entry.link
+def resolve_url(entry_link):
+    url = str(entry_link)
     content_type = None
     content_length = MAX_PARSABLE_CONTENT_LENGTH + 1  # don't parse null content-types
     depth = 10
@@ -212,7 +212,7 @@ def resolve_url(entry):
         try:
             response = requests.head(url, timeout=REQUEST_TIMEOUT, verify=False)
         except RequestException:
-            log.warning(f"Failed to resolve URL: {entry.link}")
+            log.warning(f"Failed to resolve URL: {url}")
             return None, content_type, content_length
 
         if 300 < response.status_code < 400:
@@ -245,11 +245,27 @@ def parse_title(entry):
     return re.sub("<[^<]+?>", "", title).strip()
 
 
+def parse_link(entry):
+    if entry.get("link"):
+        return entry["link"]
+
+    if entry.get("links"):
+        return entry["links"][0]["href"]
+
+    return None
+
+
 def parse_image(entry):
     if entry.get("media_content"):
         images = [m["url"] for m in entry["media_content"] if m.get("medium") == "image" and m.get("url")]
         if images:
             return images[0]
+
+    if entry.get("image"):
+        if isinstance(entry["image"], dict):
+            return entry["image"].get("href")
+        return entry["image"]
+
     return None
 
 
