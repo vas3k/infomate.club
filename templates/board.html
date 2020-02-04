@@ -31,7 +31,7 @@
             {% endif %}
 
             {% if board.curator_bio %}
-                <div class="curator-bio">{{ board.curator_bio|smart_urlize|safe }}</div>
+                <div class="curator-bio">{{ board.curator_bio|safe }}</div>
             {% endif %}
         </div>
     </div>
@@ -103,7 +103,7 @@
 {% if board %}
     <div class="board-footer">
         {% if board.curator_footer %}
-            <span class="big">👆</span> {{ board.curator_footer|smart_urlize|safe }}<br>
+            <span class="big">👆</span> {{ board.curator_footer|safe }}<br>
         {% endif %}
 
         {% if board.natural_refreshed_at %}
