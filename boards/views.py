@@ -31,7 +31,7 @@ def board(request, board_slug):
             }, status=401)
 
     cached_page = cache.get(f"board_{board.slug}")
-    if cached_page and board.refreshed_at <= \
+    if cached_page and board.refreshed_at and board.refreshed_at <= \
             datetime.utcnow() - timedelta(seconds=settings.BOARD_CACHE_SECONDS):
         return cached_page
 
