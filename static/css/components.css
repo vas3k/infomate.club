@@ -78,6 +78,7 @@
         .landing-board-name {
             display: block;
             font-size: 160%;
+            line-height: 115%;
             margin: 10px 0 5px;
             font-weight: bold;
         }
@@ -288,13 +289,14 @@
         .article-tooltip-title {
             display: block;
             font-weight: bold;
+            font-size: 105%;
         }
 
         .article-tooltip-description {
             display: block;
             font-weight: normal;
-            font-size: 70%;
-            margin-top: 10px;
+            margin: 0;
+            font-size: 80%;
             overflow: hidden;
         }
 
