@@ -13,13 +13,10 @@ import requests
 import yaml
 import feedparser
 from bs4 import BeautifulSoup
-from urllib3.exceptions import InsecureRequestWarning
 
 from boards.models import Board, BoardFeed, BoardBlock
 from utils.images import upload_image_from_url
 from scripts.common import DEFAULT_REQUEST_HEADERS
-
-requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 
 @click.command()

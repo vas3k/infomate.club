@@ -79,9 +79,9 @@
                                                 {% if article.description or article.summary %}
                                                     <span class="article-tooltip-description">
                                                         {% if article.summary %}
-                                                            {{ article.summary|striptags|truncatechars:600|escape|nl2p|safe }}
+                                                            {{ article.summary|striptags|truncatechars:700|escape|nl2p|safe }}
                                                         {% else %}
-                                                            {{ article.description|striptags|truncatechars:600|escape|nl2p|safe }}
+                                                            {{ article.description|striptags|truncatechars:700|escape|nl2p|safe }}
                                                         {% endif %}
                                                     </span>
                                                 {% endif %}

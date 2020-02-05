@@ -1,3 +1,4 @@
+import io
 import os
 import sys
 import django
@@ -7,10 +8,8 @@ django.setup()
 
 import re
 import logging
-import socket
 from datetime import timedelta, datetime
 from urllib.parse import urlparse
-from urllib3.exceptions import InsecureRequestWarning
 from time import mktime
 import threading
 import queue
@@ -20,24 +19,17 @@ import click
 import feedparser
 from bs4 import BeautifulSoup
 from requests import RequestException
-from newspaper import Article as NewspaperArticle, ArticleException, Config
+from newspaper import Article as NewspaperArticle, ArticleException
 
 from boards.models import BoardFeed, Article, Board
-from scripts.common import DEFAULT_REQUEST_HEADERS
+from scripts.common import DEFAULT_REQUEST_HEADERS, DEFAULT_REQUEST_TIMEOUT, MAX_PARSABLE_CONTENT_LENGTH
 
 DEFAULT_NUM_WORKER_THREADS = 5
 DEFAULT_ENTRIES_LIMIT = 100
 MIN_REFRESH_DELTA = timedelta(minutes=30)
-REQUEST_TIMEOUT = 10
-MAX_PARSABLE_CONTENT_LENGTH = 15 * 1024 * 1024  # 15Mb
-NEWSPAPER_CONFIG = Config()
-NEWSPAPER_CONFIG.browser_user_agent = DEFAULT_REQUEST_HEADERS["User-Agent"]
 
 log = logging.getLogger()
 queue = queue.Queue()
-
-socket.setdefaulttimeout(REQUEST_TIMEOUT)
-requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 
 @click.command()
@@ -210,17 +202,16 @@ def resolve_url(entry_link):
         depth -= 1
 
         try:
-            response = requests.head(url, timeout=REQUEST_TIMEOUT, verify=False)
+            response = requests.head(url, timeout=DEFAULT_REQUEST_TIMEOUT, verify=False, stream=True)
         except RequestException:
             log.warning(f"Failed to resolve URL: {url}")
             return None, content_type, content_length
 
         if 300 < response.status_code < 400:
-            url = response.headers["location"]
+            url = response.headers["location"]  # follow redirect
         else:
             content_type = response.headers.get("content-type")
-            content_length = int(response.headers.get("content-length")
-                                 or MAX_PARSABLE_CONTENT_LENGTH + 1)
+            content_length = int(response.headers.get("content-length") or 0)
             break
 
     return url, content_type, content_length
@@ -285,9 +276,29 @@ def parse_text_and_image(entry):
     return text, ""
 
 
+def load_page_safe(url):
+    response = requests.get(
+        url=url,
+        timeout=DEFAULT_REQUEST_TIMEOUT,
+        headers=DEFAULT_REQUEST_HEADERS,
+        stream=True  # the most important part — stream response to prevent loading everything into memory
+    )
+
+    html = io.StringIO()
+    total_bytes = 0
+
+    for chunk in response.iter_content(chunk_size=100 * 1024, decode_unicode=True):
+        total_bytes += len(chunk)
+        if total_bytes >= MAX_PARSABLE_CONTENT_LENGTH:
+            return ""  # reject too big pages
+        html.write(chunk)
+
+    return html.getvalue()
+
+
 def load_and_parse_full_article_text_and_image(url):
-    article = NewspaperArticle(url, config=NEWSPAPER_CONFIG)
-    article.download()
+    article = NewspaperArticle(url)
+    article.set_html(load_page_safe(url))  # safer than article.download()
     article.parse()
     article.nlp()
     return article.summary, article.top_image
