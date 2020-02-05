@@ -273,13 +273,8 @@
         z-index: 999;
         text-decoration: none;
         max-width: 100%;
+        font-size: 17px;
     }
-
-        @media only screen and (max-width : 800px) {
-            .article-tooltip {
-                font-size: 17px;
-            }
-        }
 
         .article:hover > .article-tooltip {
             display: block;
@@ -295,14 +290,14 @@
         .article-tooltip-title {
             display: block;
             font-weight: bold;
-            font-size: 105%;
+            font-size: 110%;
         }
 
         .article-tooltip-description {
             display: block;
             font-weight: normal;
             margin: 0;
-            font-size: 80%;
+            font-size: 85%;
             overflow: hidden;
         }
 
