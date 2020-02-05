@@ -78,15 +78,14 @@
         .block {
             grid-template-columns: 100%;
         }
-    }
-
-    @media only screen and (max-width : 570px) {
 
         .block-header {
             grid-column-start: 1;
             grid-column-end: 2;
         }
+    }
 
+    @media only screen and (max-width : 570px) {
         .feed-title-hidden {
             display: none;
         }
