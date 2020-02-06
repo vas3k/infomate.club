@@ -277,12 +277,16 @@ def parse_text_and_image(entry):
 
 
 def load_page_safe(url):
-    response = requests.get(
-        url=url,
-        timeout=DEFAULT_REQUEST_TIMEOUT,
-        headers=DEFAULT_REQUEST_HEADERS,
-        stream=True  # the most important part — stream response to prevent loading everything into memory
-    )
+    try:
+        response = requests.get(
+            url=url,
+            timeout=DEFAULT_REQUEST_TIMEOUT,
+            headers=DEFAULT_REQUEST_HEADERS,
+            stream=True  # the most important part — stream response to prevent loading everything into memory
+        )
+    except RequestException as ex:
+        log.warning(f"Error parsing the page: {url} {ex}")
+        return ""
 
     html = io.StringIO()
     total_bytes = 0
