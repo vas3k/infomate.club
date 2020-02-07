@@ -16,9 +16,7 @@ Thematic and people-based collections does a really good job for discovery of ne
 
 Which means you really shouldn't expect much from it. I wrote it over the weekend to solve my own pain. No state-of-art kubernetes bullshit, no architecture patterns, even no tests at all. It's here just to show people what a pet-project might look like.
 
-I wrote this code for fun, not for work. That's usually a huge difference. 
-
-Like between riding a bike on the streets and cycling in the wild for fun :)
+This code has been written for fun, not for business. There is usually a big difference. Like between riding a bike on the streets and cycling in the wild for fun :)
 
 ## How it works
 
