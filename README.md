@@ -6,8 +6,7 @@ Infomate is a small web service that shows multiple RSS sources on one page and 
 
 It helps to keep track of news from different areas without subscribing to hundreds of media accounts and getting annoying notifications.
 
-Thematic and people-based collections does a really good job for discovery of new sources of information. 
-Since we all are biased, such compilations can really help us to get out of information bubbles.
+Thematic and people-based collections does a really good job for discovery of new sources of information. Since we all are biased, such compilations can really help us to get out of information bubbles.
 
 ### Live URL: [infomate.club](https://infomate.club)
 
@@ -15,27 +14,22 @@ Since we all are biased, such compilations can really help us to get out of info
 
 ## This is a pet-project 🐶
 
-Which means you really shouldn't expect much from it. I wrote it over the weekend to solve my own pain.
-No state-of-art kubernetes bullshit, no architecture patterns, even no tests at all. 
-It's here just to show people what a pet-project might look like.
+Which means you really shouldn't expect much from it. I wrote it over the weekend to solve my own pain. No state-of-art kubernetes bullshit, no architecture patterns, even no tests at all. It's here just to show people what a pet-project might look like.
 
 I wrote this code for fun, not for work. That's usually a huge difference. 
-
 
 Like between riding a bike on the streets and cycling in the wild for fun :)
 
 ## How it works
 
-It's basically a Django web app with a bunch of [scripts](scripts) for RSS parsing. 
-It stores the parsed data in a PostgreSQL database.
+It's basically a Django web app with a bunch of [scripts](scripts) for RSS parsing. It stores the parsed data in a PostgreSQL database.
 
 The web app is only used to show the data (with heavy caching). 
 Parsing and feed updates are performed by the three scripts running in cron. Like poor people do.
 
 [Feedparser](https://pythonhosted.org/feedparser/) and [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) are used to find, download and parse RSS. 
 
-Text summarization is done via [newspaper3k](https://newspaper.readthedocs.io/en/latest/) with some additional 
-protection against bad types of content like podcasts and too big pages in general, which can eat all your memory. Anything can happen in the RSS world :)
+Text summarization is done via [newspaper3k](https://newspaper.readthedocs.io/en/latest/) with some additional protection against bad types of content like podcasts and too big pages in general, which can eat all your memory. Anything can happen in the RSS world :)
 
 ## Running it locally
 
@@ -43,13 +37,13 @@ The easy way. Install [docker](https://docs.docker.com/install/) on your machine
 
 ```
 git clone git@github.com:vas3k/infomate.club.git
-ls infomate.club
+cd infomate.club
 docker-compose up --build
 ```
 
 After that navigate to [localhost:8000](http://localhost:8000)
 
-To terminate:
+To terminate it:
 
 ```shell script
 docker-compose down --remove-orphans
@@ -74,8 +68,7 @@ python3 manage.py migrate
 
 #### Step 3: Take a look at [boards.yml](boards.yml)
 
-This is the main source of truth for all RSS streams and collections in the service. 
-All updates to the database are made through it. For the first time you can just use the existing one.
+This is the main source of truth for all RSS streams and collections in the service. All updates to the database are made through it. For the first time you can just use the existing one.
 
 #### Step 4: Initialize your feeds
 
@@ -83,8 +76,7 @@ All updates to the database are made through it. For the first time you can just
 python3 scripts/initialize.py --config boards.yml
 ```
 
-> Every time you make a change to boards.yml, just run this script again. 
-> He is smart enough to create the missing ones and remove the old ones.
+> Every time you make a change to boards.yml, just run this script again. He is smart enough to create the missing ones and remove the old ones.
 
 #### Step 5: Fetch some articles
 
@@ -92,8 +84,7 @@ python3 scripts/initialize.py --config boards.yml
 python3 scripts/update.py
 ```
 
-> Don't run it too often, otherwise sites may ban your IP. 
-> There is a hardcoded cooldown interval for each feed, but you can use `--force` flag to ignore it.
+> Don't run it too often, otherwise sites may ban your IP. There is a hardcoded cooldown interval for each feed, but you can use `--force` flag to ignore it.
 
 #### Step 6: Run dev server
 
