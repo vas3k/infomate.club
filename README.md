@@ -1,4 +1,6 @@
-# 😋 [infomate.club](https://infomate.club) [![Build Status](https://travis-ci.org/vas3k/infomate.club.svg?branch=master)](https://travis-ci.org/vas3k/infomate.club)
+# Infomate.club
+
+[![Build Status](https://travis-ci.org/vas3k/infomate.club.svg?branch=master)](https://travis-ci.org/vas3k/infomate.club) [![GitHub license](https://img.shields.io/github/license/vas3k/infomate.club)](https://github.com/vas3k/infomate.club/blob/master/LICENSE) [![GitHub contributors](https://img.shields.io/github/contributors/vas3k/infomate.club)](https://GitHub.com/vas3k/infomate.club/graphs/contributors/)
 
 Infomate is a small web service that shows multiple RSS sources on one page and performs tricky parsing and summarizing articles using TextRank algorithm. 
 
@@ -7,7 +9,7 @@ It helps to keep track of news from different areas without subscribing to hundr
 Thematic and people-based collections does a really good job for discovery of new sources of information. 
 Since we all are biased, such compilations can really help us to get out of information bubbles.
 
-Live URL: [infomate.club](https://infomate.club)
+### Live URL: [infomate.club](https://infomate.club)
 
 ![](https://i.vas3k.ru/i7m.png)
 
