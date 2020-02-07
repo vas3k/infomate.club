@@ -58,6 +58,7 @@ def update(num_workers, force, feed):
             "name": feed.name,
             "rss": feed.rss,
             "conditions": feed.conditions,
+            "is_parsable": feed.is_parsable,
         })
 
     threads = []
@@ -130,14 +131,14 @@ def refresh_feed(item):
                 created_at=parse_datetime(entry),
                 updated_at=datetime.utcnow(),
                 title=entry_title[:256],
-                image=str(parse_image(entry) or "")[:512],
+                image=str(parse_rss_image(entry) or "")[:512],
                 description=entry.get("summary"),
             )
         )
 
         if is_created:
             # parse heavy info
-            text, lead_image = parse_text_and_image(entry)
+            text, lead_image = parse_rss_text_and_image(entry)
 
             if text:
                 article.description = text[:1000]
@@ -149,7 +150,7 @@ def refresh_feed(item):
             real_url, content_type, content_length = resolve_url(entry_link)
 
             # load and summarize article
-            if content_length <= MAX_PARSABLE_CONTENT_LENGTH \
+            if item["is_parsable"] and content_length <= MAX_PARSABLE_CONTENT_LENGTH \
                     and content_type.startswith("text/"):  # to not try to parse podcasts :D
 
                 if real_url:
@@ -246,7 +247,7 @@ def parse_link(entry):
     return None
 
 
-def parse_image(entry):
+def parse_rss_image(entry):
     if entry.get("media_content"):
         images = [m["url"] for m in entry["media_content"] if m.get("medium") == "image" and m.get("url")]
         if images:
@@ -260,7 +261,7 @@ def parse_image(entry):
     return None
 
 
-def parse_text_and_image(entry):
+def parse_rss_text_and_image(entry):
     if not entry.get("summary"):
         return "", ""
 
