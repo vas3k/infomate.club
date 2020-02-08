@@ -1,7 +1,5 @@
 from django.contrib.syndication.views import Feed
-from parsing.models import TelegramChannel, TelegramChannelMessage
 from parsing.telegram import get_channel
-from django.http import JsonResponse
 
 
 class TelegramChannelFeed(Feed):
@@ -9,7 +7,6 @@ class TelegramChannelFeed(Feed):
     FEED_ITEMS = 30
 
     def get_object(self, request, channel):
-        # return TelegramChannel.objects.get(channel_id=channel)
         return get_channel(channel, self.FEED_ITEMS)
 
     def title(self, obj):
@@ -22,7 +19,7 @@ class TelegramChannelFeed(Feed):
         return obj.description
 
     def items(self, obj):
-        return TelegramChannelMessage.objects.filter(channel=obj).order_by('-timestamp')[:self.FEED_ITEMS]
+        return obj.messages
 
     def item_title(self, item):
         return item.title

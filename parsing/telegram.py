@@ -1,9 +1,35 @@
 from abc import ABC, abstractmethod
 from telethon.sync import TelegramClient, functions
-from parsing.models import TelegramChannel, TelegramChannelMessage
 from django.conf import settings
 import asyncio
 import re
+
+
+class TelegramChannel:
+
+    def __init__(self, channel_id=None, title=None, link=None, description=None, messages=None):
+        self.channel_id = channel_id
+        self.title = title
+        self.link = link
+        self.description = description
+        self.messages = messages if messages is not None else []
+
+    def add_message(self, message):
+        self.messages.append(message)
+
+    def remove_message(self, message):
+        self.messages.remove(message)
+
+
+class TelegramChannelMessage:
+
+    def __init__(self, telegram_id=None, title=None, description=None, link=None, channel=None, timestamp=None):
+        self.telegram_id = telegram_id
+        self.title = title
+        self.description = description
+        self.link = link
+        self.channel = channel
+        self.timestamp = timestamp
 
 
 class Parser(ABC):
@@ -72,68 +98,30 @@ def get_channel(channel_id, messages_limit):
     asyncio.set_event_loop(loop)
     with TelegramClient(settings.TELEGRAM_SESSION_FILE, settings.TELEGRAM_APP_ID, settings.TELEGRAM_APP_HASH, loop=loop) as client:
         channel = __get_channel_info(client, channel_id)
-        channel.save()
-        __update_channel_messages(client, channel, messages_limit)
+        channel.messages = __get_channel_messages(client, channel, messages_limit)
     return channel
 
 
 def __get_channel_info(client, channel_id):
     chat_full = client(functions.channels.GetFullChannelRequest(channel=channel_id))
-    channel_db = TelegramChannel.objects.filter(channel_id=channel_id).first()
-
-    if channel_db is None:
-        channel_db = TelegramChannel(channel_id=channel_id)
-
-    if channel_db.title != chat_full.chats[0].title or channel_db.description != chat_full.full_chat.about:
-        channel_db.title = chat_full.chats[0].title
-        channel_db.description = chat_full.full_chat.about
-        channel_db.link = _TELEGRAM_CHANNEL_LINK.format(chat_full.chats[0].username)
-
-    return channel_db
+    return TelegramChannel(
+        channel_id=channel_id,
+        title=chat_full.chats[0].title,
+        description=chat_full.full_chat.about,
+        link=_TELEGRAM_CHANNEL_LINK.format(chat_full.chats[0].username)
+    )
 
 
-def __update_channel_messages(client, channel, messages_limit):
-    def get_messages():
-        return client.iter_messages(channel.channel_id, limit=messages_limit)
-
-    def get_messages_to_date():
-        return client.iter_messages(channel.channel_id, reverse=True, offset_date=last_message.timestamp, limit=messages_limit)
-
-    def save_message(t_message):
+def __get_channel_messages(client, channel, messages_limit):
+    channel_messages = []
+    for t_message in client.iter_messages(channel.channel_id, limit=messages_limit):
         parser = Parser.from_message(channel, t_message)
         if parser is not None:
             message = parser.parse(channel, t_message)
             if message is not None:
-                message.save()
-                return message
-        return None
+                channel_messages.append(message)
 
-    def load_last_new_message(messages_iterator):
-        try:
-            t_message = next(messages_iterator)
-            exists_message = TelegramChannelMessage.objects.filter(channel=channel, telegram_id=t_message.id).first()
-            if exists_message is None:
-                return save_message(t_message)
-        except StopIteration:
-            pass
-        return None
-
-    def load_and_save_new_messages(message_iterator):
-        for message in messages_iterator:
-            save_message(message)
-
-    last_message = TelegramChannelMessage.objects.filter(channel=channel).order_by("-timestamp").first()
-
-    if last_message is not None:
-        messages = get_messages_to_date
-    else:
-        messages = get_messages
-
-    messages_iterator = messages()
-    message = load_last_new_message(messages_iterator)
-
-    if message is not None:
-        load_and_save_new_messages(messages_iterator)
+    return channel_messages
 
 
 _TELEGRAM_CHANNEL_LINK = 'https://t.me/{}'
