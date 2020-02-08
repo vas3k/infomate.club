@@ -103,6 +103,7 @@ class BoardFeed(models.Model):
     index = models.PositiveIntegerField(default=0)
 
     conditions = JSONField(null=True)
+    is_parsable = models.BooleanField(default=True)
 
     class Meta:
         db_table = "board_feeds"

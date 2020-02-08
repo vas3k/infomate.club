@@ -17,7 +17,7 @@ feed_cleanup:  ## Cleanup RSS feeds
 	@python3 ./scripts/cleanup.py
 
 feed_init:  ## Initialize feeds from boards.yml
-	@python3 ./scripts/initialize.py
+	@python3 ./scripts/initialize.py --config boards.yml --no-upload-favicons -y
 
 feed_refresh:  ## Refresh RSS feeds
 	@python3 ./scripts/update.py

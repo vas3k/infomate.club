@@ -78,7 +78,7 @@
 
                                                 {% if article.description or article.summary %}
                                                     <span class="article-tooltip-description">
-                                                        {% if article.summary %}
+                                                        {% if feed.is_parsable and article.summary %}
                                                             {{ article.summary|striptags|truncatechars:700|escape|nl2p|safe }}
                                                         {% else %}
                                                             {{ article.description|striptags|truncatechars:700|escape|nl2p|safe }}

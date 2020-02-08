@@ -22,8 +22,9 @@ from scripts.common import DEFAULT_REQUEST_HEADERS
 @click.command()
 @click.option("--config", default="boards.yml", help="Boards YAML file")
 @click.option("--board-slug", default=None, help="Board slug to parse only one exact board")
-@click.option("--upload-favicons/--no-upload-favicons", default=True, help="Upload favicons")
-def initialize(config, board_slug, upload_favicons):
+@click.option("--upload-favicons/--no-upload-favicons", default=False, help="Upload favicons")
+@click.option("-y", "always_yes", is_flag=True, help="Don't ask any questions (good for scripts)")
+def initialize(config, board_slug, upload_favicons, always_yes):
     yaml_file = os.path.join(BASE_DIR, config)
     with open(yaml_file) as f:
         try:
@@ -32,7 +33,8 @@ def initialize(config, board_slug, upload_favicons):
             print(f"Bad YAML file '{yaml_file}': {ex}")
             exit(1)
 
-    input(f"Initializing feeds from {yaml_file}. Press Enter to continue...")
+    if not always_yes:
+        input(f"Initializing feeds from {yaml_file}. Press Enter to continue...")
 
     for board_index, board_config in enumerate(config.get("boards") or []):
         if board_slug and board_config["slug"] != board_slug:
@@ -106,7 +108,8 @@ def initialize(config, board_slug, upload_favicons):
                         icon=feed_config.get("icon"),
                         index=feed_index,
                         columns=feed_config.get("columns") or 1,
-                        conditions=feed_config.get("conditions")
+                        conditions=feed_config.get("conditions"),
+                        is_parsable=feed_config.get("is_parsable") or True
                     )
                 )
 
@@ -117,6 +120,7 @@ def initialize(config, board_slug, upload_favicons):
                     feed.index = feed_index
                     feed.columns = feed_config.get("columns") or 1
                     feed.conditions = feed_config.get("conditions")
+                    feed.is_parsable = feed_config.get("is_parsable") or True
 
                 html = None
 
