@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     "auth",
     "boards",
+    "parsing"
 ]
 
 MIDDLEWARE = [

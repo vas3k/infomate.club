@@ -1,3 +1,8 @@
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "adleads.settings")
+import django
+django.setup()
+
 from abc import ABC, abstractmethod
 from telethon import TelegramClient, events, sync, functions
 import datetime
