@@ -7,7 +7,8 @@ class TelegramChannelFeed(Feed):
     FEED_ITEMS = 30
 
     def get_object(self, request, channel):
-        return get_channel(channel, self.FEED_ITEMS)
+        feed_items = int(request.GET['size']) if 'size' in request.GET else self.FEED_ITEMS
+        return get_channel(channel, feed_items)
 
     def title(self, obj):
         return obj.title
