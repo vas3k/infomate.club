@@ -1,3 +1,4 @@
+from enum import Enum
 
 
 class TelegramChannel:
@@ -27,12 +28,15 @@ class TelegramChannel:
 
 class TelegramChannelMessage:
 
-    def __init__(self, telegram_id=None, title=None, description=None, link=None, channel=None, timestamp=None):
+    def __init__(self, telegram_id=None, title=None, description=None, link=None, channel=None,
+                 grouped_id=None, type=None, timestamp=None):
         self.telegram_id = telegram_id
         self.title = title
         self.description = description
         self.link = link
         self.channel = channel
+        self.grouped_id = grouped_id
+        self.type = type
         self.timestamp = timestamp
 
     def to_dict(self):
@@ -42,6 +46,15 @@ class TelegramChannelMessage:
             'description': self.description,
             'link': self.link,
             'channel': self.channel.channel_id,
+            'grouped_id': self.grouped_id,
+            'type': self.type.value,
             'timestamp': self.timestamp.strftime("%Y-%m-%d %H:%M:%S")
         }
 
+
+class MessageType(Enum):
+    TEXT = "text"
+    VIDEO = "video"
+    PHOTO = "photo"
+    VOICE = "voice"
+    FILE = "file"

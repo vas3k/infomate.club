@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from parsing.utils import TelegramChannelMessage, TelegramChannel
+from parsing.utils import TelegramChannelMessage, TelegramChannel, MessageType
 import re
 
 
@@ -9,6 +9,7 @@ class Parser(ABC):
         return TelegramChannelMessage(channel=channel,
                                       link=_TELEGRAM_MESSAGE_LINK.format(channel.channel_id, message.id),
                                       telegram_id=message.id,
+                                      grouped_id=message.grouped_id,
                                       timestamp=message.date)
 
     @abstractmethod
@@ -32,6 +33,7 @@ class SimpleTextParser(Parser):
         (title, description) = self.parse_text(message)
         parsed_message.title = self.enhance_title(title)
         parsed_message.description = description
+        parsed_message.type = MessageType.TEXT
         return parsed_message
 
     def parse_text(self, message):
@@ -61,6 +63,7 @@ class VideoParser(Parser):
     def parse(self, channel, message):
         parsed_message = super().parse(channel, message)
         parsed_message.title = "[video]"
+        parsed_message.type = MessageType.VIDEO
         return parsed_message
 
     def matches(self, channel, message):
@@ -72,6 +75,7 @@ class PhotoParser(Parser):
     def parse(self, channel, message):
         parsed_message = super().parse(channel, message)
         parsed_message.title = '[photo]'
+        parsed_message.type = MessageType.PHOTO
         return parsed_message
 
     def matches(self, channel, message):
@@ -82,6 +86,7 @@ class FileParser(Parser):
     def parse(self, channel, message):
         parsed_message = super().parse(channel, message)
         parsed_message.title = '[file]'
+        parsed_message.type = MessageType.FILE
         return parsed_message
 
     def matches(self, channel, message):
@@ -92,6 +97,7 @@ class VoiceParser(Parser):
     def parse(self, channel, message):
         parsed_message = super().parse(channel, message)
         parsed_message.title = '[voice]'
+        parsed_message.type = MessageType.VOICE
         return parsed_message
 
     def matches(self, channel, message):
