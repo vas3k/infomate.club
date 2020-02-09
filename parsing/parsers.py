@@ -56,6 +56,48 @@ class SimpleTextParser(Parser):
         return message.text is not None and len(message.text) > 0
 
 
+class VideoParser(Parser):
+
+    def parse(self, channel, message):
+        parsed_message = super().parse(channel, message)
+        parsed_message.title = "[video]"
+        return parsed_message
+
+    def matches(self, channel, message):
+        return message.video is not None
+
+
+class PhotoParser(Parser):
+
+    def parse(self, channel, message):
+        parsed_message = super().parse(channel, message)
+        parsed_message.title = '[photo]'
+        return parsed_message
+
+    def matches(self, channel, message):
+        return message.photo is not None
+
+
+class FileParser(Parser):
+    def parse(self, channel, message):
+        parsed_message = super().parse(channel, message)
+        parsed_message.title = '[file]'
+        return parsed_message
+
+    def matches(self, channel, message):
+        return message.file is not None
+
+
+class VoiceParser(Parser):
+    def parse(self, channel, message):
+        parsed_message = super().parse(channel, message)
+        parsed_message.title = '[voice]'
+        return parsed_message
+
+    def matches(self, channel, message):
+        return message.voice is not None
+
+
 def parse_channel(channel_id, chat_full):
     return TelegramChannel(
         channel_id=channel_id,
@@ -66,7 +108,11 @@ def parse_channel(channel_id, chat_full):
 
 
 _messages_parsers = [
-    SimpleTextParser()
+    SimpleTextParser(),
+    VideoParser(),
+    PhotoParser(),
+    VoiceParser(),
+    FileParser()
 ]
 
 _TELEGRAM_CHANNEL_LINK = 'https://t.me/{}'
