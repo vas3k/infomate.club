@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from parsing.utils import TelegramChannelMessage, TelegramChannel, MessageType
+from parsing.telegram.models import TelegramChannelMessage, TelegramChannel, MessageType
 import re
 
 

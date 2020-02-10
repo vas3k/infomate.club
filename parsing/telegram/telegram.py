@@ -1,7 +1,7 @@
 from telethon.sync import TelegramClient, functions
 from django.conf import settings
-from parsing.parsers import Parser, parse_channel
-from parsing.utils import MessageType
+from parsing.telegram.parsers import Parser, parse_channel
+from parsing.telegram.models import MessageType
 import asyncio
 
 

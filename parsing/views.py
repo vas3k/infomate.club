@@ -1,5 +1,5 @@
 from django.contrib.syndication.views import Feed
-from parsing.telegram import get_channel
+from parsing.telegram.telegram import get_channel
 
 
 class TelegramChannelFeed(Feed):
