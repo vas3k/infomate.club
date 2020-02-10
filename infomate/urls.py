@@ -16,5 +16,5 @@ urlpatterns = [
 
     path("<slug:board_slug>/", board, name="board"),
     path("<slug:board_slug>/export/", export, name="export"),
-    path("rss/telegram/<str:channel>", TelegramChannelFeed(), name="telegram_channel_feed")
+    path("parsing/telegram/<str:channel>/", TelegramChannelFeed(), name="telegram_channel_feed")
 ]
