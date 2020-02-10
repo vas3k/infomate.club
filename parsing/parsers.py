@@ -4,13 +4,14 @@ import re
 
 
 class Parser(ABC):
-
     def parse(self, channel, message):
-        return TelegramChannelMessage(channel=channel,
-                                      link=_TELEGRAM_MESSAGE_LINK.format(channel.channel_id, message.id),
-                                      telegram_id=message.id,
-                                      grouped_id=message.grouped_id,
-                                      timestamp=message.date)
+        return TelegramChannelMessage(
+            channel=channel,
+            link=_TELEGRAM_MESSAGE_LINK.format(channel.channel_id, message.id),
+            telegram_id=message.id,
+            grouped_id=message.grouped_id,
+            timestamp=message.date,
+        )
 
     @abstractmethod
     def matches(self, channel, message):
@@ -59,7 +60,6 @@ class SimpleTextParser(Parser):
 
 
 class VideoParser(Parser):
-
     def parse(self, channel, message):
         parsed_message = super().parse(channel, message)
         parsed_message.title = "[video]"
@@ -71,10 +71,9 @@ class VideoParser(Parser):
 
 
 class PhotoParser(Parser):
-
     def parse(self, channel, message):
         parsed_message = super().parse(channel, message)
-        parsed_message.title = '[photo]'
+        parsed_message.title = "[photo]"
         parsed_message.type = MessageType.PHOTO
         return parsed_message
 
@@ -85,7 +84,7 @@ class PhotoParser(Parser):
 class FileParser(Parser):
     def parse(self, channel, message):
         parsed_message = super().parse(channel, message)
-        parsed_message.title = '[file]'
+        parsed_message.title = "[file]"
         parsed_message.type = MessageType.FILE
         return parsed_message
 
@@ -96,7 +95,7 @@ class FileParser(Parser):
 class VoiceParser(Parser):
     def parse(self, channel, message):
         parsed_message = super().parse(channel, message)
-        parsed_message.title = '[voice]'
+        parsed_message.title = "[voice]"
         parsed_message.type = MessageType.VOICE
         return parsed_message
 
@@ -109,7 +108,7 @@ def parse_channel(channel_id, chat_full):
         channel_id=channel_id,
         title=chat_full.chats[0].title,
         description=chat_full.full_chat.about,
-        link=_TELEGRAM_CHANNEL_LINK.format(chat_full.chats[0].username)
+        link=_TELEGRAM_CHANNEL_LINK.format(chat_full.chats[0].username),
     )
 
 
@@ -118,8 +117,8 @@ _messages_parsers = [
     VideoParser(),
     PhotoParser(),
     VoiceParser(),
-    FileParser()
+    FileParser(),
 ]
 
-_TELEGRAM_CHANNEL_LINK = 'https://t.me/{}'
-_TELEGRAM_MESSAGE_LINK = _TELEGRAM_CHANNEL_LINK + '/{}'
+_TELEGRAM_CHANNEL_LINK = "https://t.me/{}"
+_TELEGRAM_MESSAGE_LINK = _TELEGRAM_CHANNEL_LINK + "/{}"

@@ -2,8 +2,9 @@ from enum import Enum
 
 
 class TelegramChannel:
-
-    def __init__(self, channel_id=None, title=None, link=None, description=None, messages=None):
+    def __init__(
+        self, channel_id=None, title=None, link=None, description=None, messages=None
+    ):
         self.channel_id = channel_id
         self.title = title
         self.link = link
@@ -18,18 +19,26 @@ class TelegramChannel:
 
     def to_dict(self):
         return {
-            'channel_id': self.channel_id,
-            'title': self.title,
-            'link': self.link,
-            'description': self.description,
-            'messages': list(map(lambda message: message.to_dict(), self.messages))
+            "channel_id": self.channel_id,
+            "title": self.title,
+            "link": self.link,
+            "description": self.description,
+            "messages": list(map(lambda message: message.to_dict(), self.messages)),
         }
 
 
 class TelegramChannelMessage:
-
-    def __init__(self, telegram_id=None, title=None, description=None, link=None, channel=None,
-                 grouped_id=None, type=None, timestamp=None):
+    def __init__(
+        self,
+        telegram_id=None,
+        title=None,
+        description=None,
+        link=None,
+        channel=None,
+        grouped_id=None,
+        type=None,
+        timestamp=None,
+    ):
         self.telegram_id = telegram_id
         self.title = title
         self.description = description
@@ -41,14 +50,14 @@ class TelegramChannelMessage:
 
     def to_dict(self):
         return {
-            'telegram_id': self.telegram_id,
-            'title': self.title,
-            'description': self.description,
-            'link': self.link,
-            'channel': self.channel.channel_id,
-            'grouped_id': self.grouped_id,
-            'type': self.type.value,
-            'timestamp': self.timestamp.strftime("%Y-%m-%d %H:%M:%S")
+            "telegram_id": self.telegram_id,
+            "title": self.title,
+            "description": self.description,
+            "link": self.link,
+            "channel": self.channel.channel_id,
+            "grouped_id": self.grouped_id,
+            "type": self.type.value,
+            "timestamp": self.timestamp.strftime("%Y-%m-%d %H:%M:%S"),
         }
 
 

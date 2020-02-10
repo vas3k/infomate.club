@@ -8,8 +8,16 @@ import asyncio
 def get_channel(channel_id, messages_limit):
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
-    with TelegramClient(settings.TELEGRAM_SESSION_FILE, settings.TELEGRAM_APP_ID, settings.TELEGRAM_APP_HASH, loop=loop) as client:
-        channel = parse_channel(channel_id, client(functions.channels.GetFullChannelRequest(channel=channel_id)))
+    with TelegramClient(
+        settings.TELEGRAM_SESSION_FILE,
+        settings.TELEGRAM_APP_ID,
+        settings.TELEGRAM_APP_HASH,
+        loop=loop,
+    ) as client:
+        channel = parse_channel(
+            channel_id,
+            client(functions.channels.GetFullChannelRequest(channel=channel_id)),
+        )
         channel.messages = __get_channel_messages(client, channel, messages_limit)
     return channel
 
@@ -26,14 +34,18 @@ def __get_channel_messages(client, channel, messages_limit):
 
     def merge_messages(messages, new_message):
         if new_message.type == MessageType.TEXT:
-            indexes = get_messages_indexes(messages, new_message.grouped_id, type=MessageType.TEXT, inverse=True)
+            indexes = get_messages_indexes(
+                messages, new_message.grouped_id, type=MessageType.TEXT, inverse=True
+            )
             if len(indexes) > 0:
                 messages[indexes.pop()] = new_message
 
             for i in indexes:
                 messages.remove(i)
         else:
-            indexes = get_messages_indexes(messages, new_message.grouped_id, type=MessageType.TEXT)
+            indexes = get_messages_indexes(
+                messages, new_message.grouped_id, type=MessageType.TEXT
+            )
             if len(indexes) == 0:
                 messages.append(new_message)
 
