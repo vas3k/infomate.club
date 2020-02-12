@@ -36,3 +36,6 @@ local_settings.py
 media/images
 media/i
 boards_private.yml
+
+*.session
+venv/

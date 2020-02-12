@@ -39,6 +39,9 @@ mypy:  ## Check types with mypy
 run:  ## Runs dev server
 	@python3 manage.py runserver
 
+telegram:
+	@python3 setup_telegram.py
+
 test-ci: test-requirements lint mypy  ## Run tests (intended for CI usage)
 
 test-requirements:  ## Install requirements to run tests

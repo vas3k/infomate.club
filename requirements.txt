@@ -11,3 +11,4 @@ sentry-sdk==0.13.5
 pyjwt==1.7.1
 nltk==3.4.5
 newspaper3k>=0.2.8
+telethon==1.10.10
