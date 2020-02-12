@@ -109,7 +109,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                         index=feed_index,
                         columns=feed_config.get("columns") or 1,
                         conditions=feed_config.get("conditions"),
-                        is_parsable=feed_config.get("is_parsable") or True
+                        is_parsable=feed_config.get("is_parsable", True)
                     )
                 )
 
@@ -120,7 +120,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                     feed.index = feed_index
                     feed.columns = feed_config.get("columns") or 1
                     feed.conditions = feed_config.get("conditions")
-                    feed.is_parsable = feed_config.get("is_parsable") or True
+                    feed.is_parsable = feed_config.get("is_parsable", True)
 
                 html = None
 
