@@ -41,7 +41,10 @@ def __get_channel_messages(client, channel, messages_limit):
                 messages[indexes.pop()] = new_message
 
             for i in indexes:
-                messages.remove(i)
+                try:
+                    messages.remove(i)
+                except ValueError:
+                    pass  # skip missing indexes
         else:
             indexes = get_messages_indexes(
                 messages, new_message.grouped_id, type=MessageType.TEXT
