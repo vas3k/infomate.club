@@ -1,7 +1,9 @@
 from django.urls import path
+from django.views.decorators.cache import cache_page
 
 from auth.views import login, logout, club_callback
 from boards.views import index, board, privacy_policy, what, export
+from infomate import settings
 from parsing.views import TelegramChannelFeed
 
 urlpatterns = [
@@ -16,5 +18,8 @@ urlpatterns = [
 
     path("<slug:board_slug>/", board, name="board"),
     path("<slug:board_slug>/export/", export, name="export"),
-    path("parsing/telegram/<str:channel>/", TelegramChannelFeed(), name="telegram_channel_feed")
+
+    path("parsing/telegram/<str:channel>/",
+         cache_page(settings.TELEGRAM_CACHE_SECONDS)(TelegramChannelFeed()),
+         name="telegram_channel_feed")
 ]

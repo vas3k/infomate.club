@@ -120,6 +120,7 @@ MEDIA_UPLOAD_CODE = None  # should be set in private_settings.py
 TELEGRAM_APP_ID = None  # should set in private_settings.py
 TELEGRAM_APP_HASH = None  # should set in private_settings.py
 TELEGRAM_SESSION_FILE = None  # should set in private settings.py
+TELEGRAM_CACHE_SECONDS = 10 * 60  # 10 min
 
 try:
     # poor mans' private settings

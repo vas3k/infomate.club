@@ -1,5 +1,7 @@
 from telethon.sync import TelegramClient, functions
 from django.conf import settings
+
+from parsing.exceptions import ParsingException
 from parsing.telegram.parsers import Parser, parse_channel
 from parsing.telegram.models import MessageType
 import asyncio
@@ -14,11 +16,16 @@ def get_channel(channel_id, messages_limit):
         settings.TELEGRAM_APP_HASH,
         loop=loop,
     ) as client:
-        channel = parse_channel(
-            channel_id,
-            client(functions.channels.GetFullChannelRequest(channel=channel_id)),
-        )
+        try:
+            channel = parse_channel(
+                channel_id,
+                client(functions.channels.GetFullChannelRequest(channel=channel_id)),
+            )
+        except ValueError:
+            raise ParsingException(f"No channel named '{channel_id}'")
+
         channel.messages = __get_channel_messages(client, channel, messages_limit)
+
     return channel
 
 

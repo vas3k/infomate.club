@@ -1,4 +1,7 @@
 from django.contrib.syndication.views import Feed
+from django.http import Http404
+
+from parsing.exceptions import ParsingException
 from parsing.telegram.telegram import get_channel
 
 
@@ -10,7 +13,11 @@ class TelegramChannelFeed(Feed):
         feed_items = (
             int(request.GET["size"]) if "size" in request.GET else self.FEED_ITEMS
         )
-        return get_channel(channel, feed_items)
+
+        try:
+            return get_channel(channel, feed_items)
+        except ParsingException:
+            raise Http404()
 
     def title(self, obj):
         return obj.title
