@@ -24,17 +24,16 @@ def get_channel(channel_id, messages_limit):
         except ValueError:
             raise ParsingException(f"No channel named '{channel_id}'")
 
-        channel.messages = __get_channel_messages(client, channel, messages_limit)
+        channel.messages = get_channel_messages(client, channel, messages_limit)
 
     return channel
 
 
-def __get_channel_messages(client, channel, messages_limit):
+def get_channel_messages(client, channel, messages_limit):
     def get_messages_indexes(messages, grouped_id, type=None, inverse=False):
         type_predicate = lambda m: m != type if inverse else m == type
         indexes = []
-        for i in range(len(messages)):
-            message = messages[i]
+        for i, message in enumerate(messages):
             if type_predicate(message) and message.grouped_id == grouped_id:
                 indexes.append(i)
         return indexes
@@ -51,7 +50,7 @@ def __get_channel_messages(client, channel, messages_limit):
                 try:
                     messages.remove(i)
                 except ValueError:
-                    pass  # skip missing indexes
+                    pass  # skip missing messages
         else:
             indexes = get_messages_indexes(
                 messages, new_message.grouped_id, type=MessageType.TEXT
@@ -60,6 +59,7 @@ def __get_channel_messages(client, channel, messages_limit):
                 messages.append(new_message)
 
     channel_messages = []
+
     for t_message in client.iter_messages(channel.channel_id, limit=messages_limit):
         parser = Parser.from_message(channel, t_message)
         if parser is not None:
