@@ -11,7 +11,7 @@ dev-requirements:  ## Install dev requirements
 docker_run:  ## Run dev server in docker
 	@python3 ./utils/wait_for_postgres.py
 	@python3 manage.py migrate
-	@python3 manage.py runserver
+	@python3 manage.py runserver 0.0.0.0:8000
 
 feed_cleanup:  ## Cleanup RSS feeds
 	@python3 ./scripts/cleanup.py
