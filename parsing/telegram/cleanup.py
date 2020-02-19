@@ -11,6 +11,6 @@ def cleanup_telegram_message_text(text):
         r"[\n]{3,}",  # triple newlines
     ]
     for pattern in cleanup_expressions:
-        text = re.sub(pattern, "", text)
+        text = re.sub(pattern, "", text, flags=re.M)
 
     return text.strip()

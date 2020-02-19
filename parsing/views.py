@@ -33,7 +33,7 @@ class TelegramChannelFeed(Feed):
         return item.title
 
     def item_description(self, item):
-        return item.description
+        return item.clean_text
 
     def item_link(self, item):
         return item.link
