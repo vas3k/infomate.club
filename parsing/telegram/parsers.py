@@ -29,8 +29,8 @@ class Parser(ABC):
 class SimpleTextParser(Parser):
     def parse(self, channel, message):
         parsed_message = super().parse(channel, message)
-        parsed_message.text = message
-        parsed_message.clean_text = cleanup_telegram_message_text(message)
+        parsed_message.text = message.text
+        parsed_message.clean_text = cleanup_telegram_message_text(message.text)
         parsed_message.title = self.parse_message_title(parsed_message.clean_text)
         parsed_message.type = MessageType.TEXT
         return parsed_message
