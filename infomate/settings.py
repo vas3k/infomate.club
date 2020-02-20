@@ -15,6 +15,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0", "vas3k.ru", "infomate.club"]
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+    "django_bleach",
     "auth",
     "boards",
     "parsing"
