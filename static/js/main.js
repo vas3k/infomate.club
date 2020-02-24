@@ -55,10 +55,11 @@ function addWeirdLogicThatSomeGeeksWillUseOnceAndForget() {
 function useSmartTooltipPositioning() {
     // This handler is trying to keep the tooltip card on the screen
     // so that it doesn't go beyond its borders if it's enough space nearby
-    const preservedMargin = 10;
-    const defaultTop = -100;
+    const preservedMargin = 20; // px
+    const defaultTop = -100; // px
     const screenWidth = (window.innerWidth || screen.width);
     const screenHeight = (window.innerHeight || screen.height || document.documentElement.clientHeight);
+
     if (screenWidth <= 750) return; // disable on small screens
 
     let articles = document.querySelectorAll(".article");
