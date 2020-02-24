@@ -15,6 +15,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0", "vas3k.ru", "infomate.club"]
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+    "django_bleach",
     "auth",
     "boards",
     "parsing"
@@ -121,6 +122,8 @@ TELEGRAM_APP_ID = None  # should set in private_settings.py
 TELEGRAM_APP_HASH = None  # should set in private_settings.py
 TELEGRAM_SESSION_FILE = None  # should set in private settings.py
 TELEGRAM_CACHE_SECONDS = 10 * 60  # 10 min
+
+BLEACH_STRIP_TAGS = True
 
 try:
     # poor mans' private settings
