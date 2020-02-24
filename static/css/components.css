@@ -261,7 +261,7 @@
     }
 
     .article-tooltip {
-        visibility: hidden;
+        display: none;
         position: absolute;
         bottom: 25px;
         left: 0;
@@ -277,8 +277,7 @@
     }
 
         .article:hover > .article-tooltip {
-            visibility: visible;
-            transition: visibility 0.1s;
+            display: block;
         }
 
         .article-tooltip-image {
