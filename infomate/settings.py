@@ -90,8 +90,7 @@ CSS_HASH = str(random())
 
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
-        "LOCATION": os.path.join(BASE_DIR, "../django_cache.tmp")
+        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
     }
 }
 STATIC_PAGE_CACHE_SECONDS = 5 * 60  # 5 min

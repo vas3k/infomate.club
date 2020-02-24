@@ -34,4 +34,4 @@ services:
     container_name: infomate_migrate_and_init
     restart: "no"
     ports: []
-    command: make migrate feed_init
+    command: make migrate feed_init # feed_refresh # <-- uncomment to parse some data

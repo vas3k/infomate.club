@@ -32,27 +32,27 @@ function hideTooltipOnAnyClick() {
     }, true);
 }
 
-function checkKeyPress(e) {
+function addWeirdLogicThatSomeGeeksWillUseOnceAndForget() {
+    let body = document.querySelector('body');
+    body.addEventListener('keyup', function(e) {
+        let tooltip;
 
-    let tooltip;
-
-    if (e.keyCode == 81) {
-        tooltip = document.activeElement.parentNode.parentNode.querySelector('.article-tooltip');
-        if (tooltip.style.display == "block") {
-            tooltip.style.display = null;
-        } else {
-            tooltip.style.display = "block";
+        if (e.keyCode == 81) {
+            tooltip = document.activeElement.parentNode.parentNode.querySelector('.article-tooltip');
+            if (tooltip.style.display == "block") {
+                tooltip.style.display = null;
+            } else {
+                tooltip.style.display = "block";
+            }
         }
-    }
 
-    if (e.keyCode == 9) {
-        hideTooltip();
-    }
+        if (e.keyCode == 9) {
+            hideTooltip();
+        }
+    });
 }
-
-let body = document.querySelector('body');
-body.addEventListener('keyup', checkKeyPress);
 
 
 initializeThemeSwitcher();
 hideTooltipOnAnyClick();
+addWeirdLogicThatSomeGeeksWillUseOnceAndForget();

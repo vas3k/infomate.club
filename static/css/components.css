@@ -157,11 +157,6 @@
         font-weight: bold;
     }
 
-        .is-block-header-dummy {
-            border: none;
-            height: 0;
-        }
-
     .is-block-blurred {
         filter: blur(7px) contrast(175%);
         user-select: none;
@@ -262,6 +257,7 @@
 
     .article-tooltip {
         display: none;
+        width: 100%;
         position: absolute;
         bottom: 25px;
         left: 0;
@@ -272,7 +268,6 @@
         color: var(--opposite-text-color) !important;
         z-index: 999;
         text-decoration: none;
-        max-width: 100%;
         font-size: 17px;
     }
 
