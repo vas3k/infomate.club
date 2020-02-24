@@ -40,7 +40,6 @@ body {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
     line-height: 1.3;
-    transition: all linear .2s;
     color: var(--text-color);
     background-color: var(--bg-color);
 }
@@ -53,7 +52,7 @@ body {
 
 a {
     color: var(--link-color);
-    transition: all linear .1s;
+    transition: color linear .1s;
 }
 
 a:hover {
