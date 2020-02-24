@@ -342,7 +342,7 @@
 
     .export-button {
         display: inline-block;
-        color: var(--opposite-text-color);
+        color: var(--opposite-text-color) !important;
         font-size: 90%;
         padding: 10px 20px;
         margin-top: 40px;
@@ -391,17 +391,17 @@
     min-height: 400px;
 }
 
-.coming-soon {
-    display: block;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 100px 20px;
-}
+    .coming-soon {
+        display: block;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 100px 20px;
+    }
 
-.coming-soon h2 {
-    font-size: 200%;
-}
+        .coming-soon h2 {
+            font-size: 200%;
+        }
 
-.coming-soon p {
-    font-size: 120%;
-}
+        .coming-soon p {
+            font-size: 120%;
+        }
