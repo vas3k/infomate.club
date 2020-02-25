@@ -342,7 +342,7 @@
 
     .export-button {
         display: inline-block;
-        color: var(--opposite-text-color) !important;
+        color: var(--opposite-text-color);
         font-size: 90%;
         padding: 10px 20px;
         margin-top: 40px;
