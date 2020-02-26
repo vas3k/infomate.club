@@ -14,6 +14,7 @@ class TelegramChannelFeed(Feed):
         only = str(request.GET.get("only") or "")
         if only:
             only = [item.strip() for item in only.split(",")]
+            limit = 100  # dirty hack: artificially increase the limit to get more filtered messages
 
         try:
             return get_channel(channel, types=only, limit=limit)

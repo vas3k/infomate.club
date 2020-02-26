@@ -6,8 +6,10 @@ from parsing.telegram.parsers import Parser, parse_channel
 from parsing.telegram.models import MessageType
 import asyncio
 
+DEFAULT_LIMIT = 30
 
-def get_channel(channel_id, *, types=None, limit=10):
+
+def get_channel(channel_id, *, types=None, limit=DEFAULT_LIMIT):
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     with TelegramClient(
@@ -29,7 +31,7 @@ def get_channel(channel_id, *, types=None, limit=10):
     return channel
 
 
-def get_channel_messages(client, channel, *, types=None, limit=10):
+def get_channel_messages(client, channel, *, types=None, limit=DEFAULT_LIMIT):
     def get_messages_indexes(messages, grouped_id, type=None, inverse=False):
         type_predicate = lambda m: m != type if inverse else m == type
         indexes = []
