@@ -10,10 +10,13 @@ class TelegramChannelFeed(Feed):
     FEED_ITEMS = 30
 
     def get_object(self, request, channel):
-        limit = int(request.GET["size"]) if "size" in request.GET else self.FEED_ITEMS
+        limit = int(request.GET.get("size") or self.FEED_ITEMS)
+        only = str(request.GET.get("only") or "")
+        if only:
+            only = [item.strip() for item in only.split(",")]
 
         try:
-            return get_channel(channel, limit)
+            return get_channel(channel, types=only, limit=limit)
         except ParsingException:
             raise Http404()
 
