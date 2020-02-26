@@ -1,5 +1,5 @@
 from django.contrib.syndication.views import Feed
-from django.http import Http404
+from django.http import Http404, HttpResponseBadRequest
 
 from parsing.exceptions import ParsingException
 from parsing.telegram.telegram import get_channel
@@ -13,9 +13,11 @@ class TelegramChannelFeed(Feed):
         limit = int(request.GET.get("size") or self.FEED_ITEMS)
         only = str(request.GET.get("only") or "")
         if only:
-            only = [
-                MessageType.get(item.strip()) for item in only.split(",")
-            ]
+            try:
+                only = [MessageType[item.strip()] for item in only.split(",")]
+            except (KeyError, ValueError):
+                raise HttpResponseBadRequest()
+
             limit = 100  # dirty hack: artificially increase the limit to get more filtered messages
 
         try:
