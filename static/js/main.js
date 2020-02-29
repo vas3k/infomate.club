@@ -20,9 +20,7 @@ function initializeThemeSwitcher() {
 function hideTooltip() {
     let visibleTooltips = document.querySelectorAll(".article-tooltip");
     for (let i = 0; i < visibleTooltips.length; i++) {
-        if (visibleTooltips[i].style.display !== "none") {
-            visibleTooltips[i].style.display = null;
-        }
+        visibleTooltips[i].style.visibility = null;
     }
 }
 
@@ -39,12 +37,13 @@ function addWeirdLogicThatSomeGeeksWillUseOnceAndForget() {
 
         if (e.keyCode == 81) {
             tooltip = document.activeElement.parentNode.parentNode.querySelector('.article-tooltip');
-            if (tooltip.style.display == "block") {
-                tooltip.style.display = null;
+            if (tooltip.style.visibility == "visible") {
+                tooltip.style.visibility = null;
             } else {
-                tooltip.style.display = "block";
+                tooltip.style.visibility = "visible";
             }
         }
+
 
         if (e.keyCode == 9) {
             hideTooltip();
