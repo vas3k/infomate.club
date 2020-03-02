@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.db import models
+from django.contrib.postgres.fields import JSONField
 from slugify import slugify
 
 from boards.icons import DOMAIN_ICONS
@@ -16,9 +17,9 @@ class Board(models.Model):
     avatar = models.URLField(max_length=512, null=True)
 
     curator_name = models.CharField(max_length=120)
-    curator_title = models.CharField(max_length=120)
-    curator_url = models.URLField(null=True)
-    curator_bio = models.CharField(max_length=120, null=True)
+    curator_title = models.CharField(max_length=120, null=True)
+    curator_url = models.TextField(null=True)
+    curator_bio = models.TextField(null=True)
     curator_footer = models.TextField(null=True)
 
     schema = models.TextField(null=True)
@@ -101,6 +102,9 @@ class BoardFeed(models.Model):
     articles_per_column = models.SmallIntegerField(default=15)
     index = models.PositiveIntegerField(default=0)
 
+    conditions = JSONField(null=True)
+    is_parsable = models.BooleanField(default=True)
+
     class Meta:
         db_table = "board_feeds"
         ordering = ["index"]
@@ -180,7 +184,7 @@ class Article(models.Model):
             return self.created_at > now - timedelta(days=1)
         elif frequency >= 100:
             # extra high frequency — mark newest posts
-            return self.created_at > now - timedelta(hours=3)
+            return self.created_at > now - timedelta(hours=4)
 
-        # normal frequency - mark 6-hour old posts
-        return self.created_at > now - timedelta(hours=6)
+        # normal frequency
+        return self.created_at > now - timedelta(hours=8)

@@ -26,6 +26,17 @@ def nl2br(text):
     return text
 
 
+@register.filter(is_safe=True)
+def nl2p(text):
+    """
+    Wraps \n into <p></p>
+    """
+    if not text:
+        return ""
+    text = "<p>" + text.strip().replace("\n", "</p><p>") + "</p>"
+    return text
+
+
 @register.filter
 def cool_number(value, num_decimals=1):
     """

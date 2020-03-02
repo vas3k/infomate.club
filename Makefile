@@ -11,13 +11,13 @@ dev-requirements:  ## Install dev requirements
 docker_run:  ## Run dev server in docker
 	@python3 ./utils/wait_for_postgres.py
 	@python3 manage.py migrate
-	@python3 manage.py runserver
+	@python3 manage.py runserver 0.0.0.0:8000
 
 feed_cleanup:  ## Cleanup RSS feeds
 	@python3 ./scripts/cleanup.py
 
 feed_init:  ## Initialize feeds from boards.yml
-	@python3 ./scripts/initialize.py
+	@python3 ./scripts/initialize.py --config boards.yml --no-upload-favicons -y
 
 feed_refresh:  ## Refresh RSS feeds
 	@python3 ./scripts/update.py
@@ -39,6 +39,14 @@ mypy:  ## Check types with mypy
 run:  ## Runs dev server
 	@python3 manage.py runserver
 
+telegram:
+	@python3 setup_telegram.py
+
+test-ci: test-requirements lint mypy  ## Run tests (intended for CI usage)
+
+test-requirements:  ## Install requirements to run tests
+	@pip3 install -r ./requirements-test.txt
+
 .PHONY: \
   dev-requirements \
   docker_run \
@@ -49,4 +57,6 @@ run:  ## Runs dev server
   lint \
   migrate \
   mypy \
-  run
+  run \
+  test-ci \
+  test-requirements

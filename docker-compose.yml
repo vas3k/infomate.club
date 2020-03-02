@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  infomate_app:
+  infomate_app: &app
     build:
       context: .
       args:
@@ -28,3 +28,10 @@ services:
         - POSTGRES_DB=infomate
     ports:
         - 5432
+
+  migrate_and_init:
+    <<: *app
+    container_name: infomate_migrate_and_init
+    restart: "no"
+    ports: []
+    command: make migrate feed_init # feed_refresh # <-- uncomment to parse some data

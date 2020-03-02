@@ -1,42 +1,18 @@
 boards:
-- name: Технологии
+- name: Tech
   slug: tech
-  is_visible: true
-  is_private: false
+  is_visible: true  # visibility on the main page
+  is_private: false  # logging in is not required to view
   curator:
-    name: Технологии
-    title: Главные новости
+    name: Tech
+    title: Main news
     avatar: https://i.vas3k.ru/fhr.png
-    bio: Подборка основных изданий о технологиях на русском и английском языках
+    bio: Major technology media in English and Russian
     footer: >
-      это общая подборка популярных технологических СМИ.
-      Она сделана по итогам опроса в моём телеграм-канале.
-      Жирным выделяются свежие статьи.
-      Страница обновляется раз в час.
+      this is a general selection of popular technology media.
+      The page is updated once per hour.
   blocks:
-  - name: На русском
-    slug: ru
-    feeds:
-      - name: VC
-        url: https://vc.ru
-        rss: https://vc.ru/rss/all
-      - name: TJ
-        url: https://tjournal.ru
-        rss: https://tjournal.ru/rss/all
-      - name: "Хабр: лучшее за сутки"
-        url: https://habr.ru
-        rss: https://habr.com/ru/rss/best/daily/?fl=ru
-      - name: iXBT
-        url: https://www.ixbt.com
-        rss: http://www.ixbt.com/export/news.rss
-        icon: https://i.vas3k.ru/fkm.jpg
-      - name: Tproger
-        url: https://tproger.ru/
-        rss: https://tproger.ru/feed/
-      - name: OpenNet
-        url: https://www.opennet.ru/
-        rss: https://www.opennet.ru/opennews/opennews_6.rss
-  - name: На английском
+  - name: English
     slug: en
     feeds:
       - name: Hacker News
@@ -48,6 +24,7 @@ boards:
       - name: TechCrunch
         rss: http://feeds.feedburner.com/TechCrunch/
         url: https://techcrunch.com
+        is_parsable: false  # do not try to parse pages, show RSS content only
       - name: Engadget
         rss: https://www.engadget.com/rss.xml
         url: https://www.engadget.com
@@ -82,7 +59,43 @@ boards:
       - name: ReadWrite
         url: https://readwrite.com
         rss: https://readwrite.com/feed/
-  - name: Мейнстрим
+  - name: Russian
+    slug: ru
+    feeds:
+      - name: "vc.ru"
+        url: https://vc.ru
+        rss: https://vc.ru/rss/all
+        is_parsable: false
+        conditions:
+          - type: in
+            field: link
+            in: "https://vc.ru/tech/"  # just an example, no real benefits
+      - name: TJ
+        url: https://tjournal.ru
+        rss: https://tjournal.ru/rss/all
+      - name: "Habr.com"
+        url: https://habr.com
+        rss: https://habr.com/ru/rss/best/daily/?fl=ru
+      - name: iXBT
+        url: https://www.ixbt.com
+        rss: http://www.ixbt.com/export/news.rss
+        icon: https://i.vas3k.ru/fkm.jpg
+      - name: Tproger
+        url: https://tproger.ru/
+        rss: https://tproger.ru/feed/
+      - name: OpenNet
+        url: https://www.opennet.ru/
+        rss: https://www.opennet.ru/opennews/opennews_6.rss
+  - name: Mix
+    slug: the_mix
+    feeds:
+      - url: http://www.rssmix.com/
+        rss: http://www.rssmix.com/
+        columns: 3
+        mix:
+          - http://vas3k.ru/rss/
+          - http://nedbatchelder.com/blog/rss.xml
+  - name: Mainstream
     slug: mainstream
     feeds:
       - name: "WSJ: Tech"
@@ -96,31 +109,28 @@ boards:
         rss: http://feeds.reuters.com/reuters/technologyNews
 
 
-- name: Вастрик
-  slug: vas3k
-  is_visible: true
-  is_private: true
-  curator:
-    name: Вастрик
-    url: https://vas3k.ru
-    title: Айти и путешествия
-    avatar: https://i.vas3k.ru/eb8.png
-    bio: Веду блог о технологиях, пишу код, отвратительно путешествую и фотографирую это
-    footer: >
-      здесь я собрал сайты, которые составляют 90% того, что я читаю постоянно.
-      Отбор и фильтрация источников — непрерывный процесс для меня, потому их набор постоянно меняется.
-      Так что следите.
-  blocks:
-
 - name: How to Berlin
   slug: howtoberlin
   is_visible: true
-  is_private: true
+  is_private: false
   curator:
-    name: Лена How to Berlin
+    name: How to Berlin
     url: https://howtoberlin.de
-    title: Набор Берлинца
+    title: Berliner kit
     avatar: https://i.vas3k.ru/fev.png
-    bio: Что читать когда переехал в Берлин и не понимаешь что происходит вокруг
+    bio: What to read when you moved to Berlin and you don't know what's going on around
   blocks:
-
+    - name: Main and expat news
+      slug: news
+      feeds:
+        - name: "Berlin.de"
+          url: https://www.berlin.de/aktuelles/
+          rss: https://www.berlin.de/en/news/index.rss
+          icon: https://i.vas3k.ru/fjc.png
+        - name: "DW.com"
+          url: https://www.dw.com/en/top-stories/germany/s-1432
+          rss: http://rss.dw.com/rdf/rss-en-ger
+        - name: "TheLocal"
+          url: https://www.thelocal.de/
+          rss: https://feeds.thelocal.com/rss/de
+          is_parsable: false

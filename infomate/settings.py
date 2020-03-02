@@ -10,13 +10,15 @@ DEBUG = os.getenv("DEBUG", True)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "wow so secret"
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "vas3k.ru", "infomate.club"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "0.0.0.0", "vas3k.ru", "infomate.club"]
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+    "django_bleach",
     "auth",
     "boards",
+    "parsing"
 ]
 
 MIDDLEWARE = [
@@ -88,8 +90,7 @@ CSS_HASH = str(random())
 
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
-        "LOCATION": os.path.join(BASE_DIR, "../django_cache.tmp")
+        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
     }
 }
 STATIC_PAGE_CACHE_SECONDS = 5 * 60  # 5 min
@@ -116,9 +117,19 @@ SENTRY_DSN = None
 MEDIA_UPLOAD_URL = "https://i.vas3k.ru/upload/"
 MEDIA_UPLOAD_CODE = None  # should be set in private_settings.py
 
+TELEGRAM_APP_ID = None  # should set in private_settings.py
+TELEGRAM_APP_HASH = None  # should set in private_settings.py
+TELEGRAM_SESSION_FILE = None  # should set in private settings.py
+TELEGRAM_CACHE_SECONDS = 10 * 60  # 10 min
+
+BLEACH_STRIP_TAGS = True
+
 try:
     # poor mans' private settings
-    from infomate.private_settings import *
+    # As due to obvious reasons this file is missing in the repository, suppress the following 'pyflakes' error codes:
+    # - F401 'infomate.private_settings.*' imported but unused
+    # - F403 'from infomate.private_settings import *' used; unable to detect undefined names
+    from infomate.private_settings import *  # noqa: F401 F403
 except ImportError:
     pass
 

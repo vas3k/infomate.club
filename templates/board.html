@@ -1,7 +1,22 @@
 {% extends "layout.html" %}
 {% load text_filters %}
+{% load static %}
+{% load bleach_tags %}
 
-{% block title %}{{ board.curator_name }} | {{ board.curator_title }} | {{ block.super }}{% endblock %}
+{% block title %}{{ board.curator_name }}{% if board.curator_title %} | {{ board.curator_title }}{% endif %} | {{ block.super }}{% endblock %}
+
+{% block og_tags %}
+    <meta property="og:title" content="{{ board.curator_name }}{% if board.curator_title %} | {{ board.curator_title }}{% endif %}">
+    <meta property="og:site_name" content="Infomate">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="{{ board.curator_bio }}">
+    <meta property="og:image" content="{{ board.avatar }}">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ board.curator_name }}{% if board.curator_title %} | {{ board.curator_title }}{% endif %}">
+    <meta name="twitter:description" content="{{ board.curator_bio }}">
+    <meta name="twitter:image" content="{{ board.avatar }}">
+{% endblock %}
 
 {% block content %}
 <div class="header">
@@ -12,12 +27,12 @@
 
             {% if board.curator_url %}
                 <div class="curator-url">
-                    👉 <a href="{{ board.curator_url }}" target="_blank">{{ board.curator_url|pretty_url }}</a>
+                    👉 {{ board.curator_url|safe }}
                 </div>
             {% endif %}
 
             {% if board.curator_bio %}
-                <div class="curator-bio">{{ board.curator_bio|smart_urlize|safe }}</div>
+                <div class="curator-bio">{{ board.curator_bio|safe }}</div>
             {% endif %}
         </div>
     </div>
@@ -34,53 +49,53 @@
             <div class="block">
                 {% if block.name %}
                     <div class="block-header">{{ block.name }}</div>
-                {% else %}
-                    <div class="block-header is-block-header-dummy"></div>
                 {% endif %}
 
-                {% for feed in feeds %}
-                    {% if feed.block == block %}
-                        {% for column, articles in feed.articles_by_column %}
-                            <div class="feed {% if column > 1 %}hide-on-iphone{% endif %}">
-                                {% if feed.name %}
-                                    <div class="feed-title {% if column != 0 %}feed-title-hidden{% endif %}">
-                                        {% if feed.icon %}
-                                            <img src="{{ feed.icon }}" alt="{{ feed.name }}">
-                                        {% endif %}
-                                        <a href="{{ feed.url }}" target="_blank">{{ feed.name }}</a><br>
-                                        <small>последний пост {{ feed.natural_last_article_at }}</small>
-                                    </div>
-                                {% endif %}
-                                <div class="articles feed-articles">
-                                    {% for article in articles %}
-                                        <div class="article {% if article.is_fresh %}is-article-fresh{% endif %}">
-                                            <div class="article-title">{{ article.icon|safe }}<a href="{{ article.url }}" target="_blank">{{ article.title|striptags }}</a></div>
-                                            <a href="{{ article.url }}" class="article-tooltip" target="_blank">
-                                                {% if article.image %}
-                                                    <img src="{{ article.image }}" alt="{{ article.title|striptags }}" class="article-tooltip-image">
-                                                {% endif %}
-
-                                                <span class="article-tooltip-title">{{ article.title|striptags|truncatechars:100 }}</span>
-
-                                                {% if article.description or article.summary %}
-                                                    <span class="article-tooltip-description">
-                                                        {% if article.summary %}
-                                                            {{ article.summary|striptags|nl2br|truncatechars:500|safe }}
-                                                        {% else %}
-                                                            {{ article.description|striptags|truncatechars:500 }}
-                                                        {% endif %}
-                                                    </span>
-                                                {% endif %}
-
-                                                <span class="article-tooltip-info">{{ article.natural_created_at }}</span>
-                                            </a>
+                <div class="feeds">
+                    {% for feed in feeds %}
+                        {% if feed.block == block %}
+                            {% for column, articles in feed.articles_by_column %}
+                                <div class="feed {% if column > 1 %}hide-on-iphone{% endif %}">
+                                    {% if feed.name %}
+                                        <div class="feed-title {% if column != 0 %}feed-title-hidden{% endif %}">
+                                            {% if feed.icon %}
+                                                <img src="{{ feed.icon }}" alt="{{ feed.name }}">
+                                            {% endif %}
+                                            <a href="{{ feed.url }}" target="_blank">{{ feed.name }}</a><br>
+                                            <small>последний пост {{ feed.natural_last_article_at }}</small>
                                         </div>
-                                    {% endfor %}
+                                    {% endif %}
+                                    <div class="articles feed-articles">
+                                        {% for article in articles %}
+                                            <div class="article {% if article.is_fresh %}is-article-fresh{% endif %}">
+                                                <div class="article-title">{{ article.icon|safe }}<a href="{{ article.url }}" target="_blank">{{ article.title|bleach }}</a></div>
+                                                <a href="{{ article.url }}" class="article-tooltip" target="_blank">
+                                                    {% if article.image %}
+                                                        <img src="{{ article.image }}" alt="{{ article.title|striptags }}" class="article-tooltip-image">
+                                                    {% endif %}
+
+                                                    <span class="article-tooltip-title">{{ article.title|striptags|truncatechars:300 }}</span>
+
+                                                    {% if article.description or article.summary %}
+                                                        <span class="article-tooltip-description">
+                                                            {% if feed.is_parsable and article.summary %}
+                                                                {{ article.summary|striptags|truncatechars:700|escape|nl2p|safe }}
+                                                            {% else %}
+                                                                {{ article.description|striptags|truncatechars:700|escape|nl2p|safe }}
+                                                            {% endif %}
+                                                        </span>
+                                                    {% endif %}
+
+                                                    <span class="article-tooltip-info">{{ article.natural_created_at }} @ {{ article.domain }}</span>
+                                                </a>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
                                 </div>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         {% endfor %}
     {% endblock %}
@@ -89,12 +104,16 @@
 {% if board %}
     <div class="board-footer">
         {% if board.curator_footer %}
-            <span class="big">👆</span> {{ board.curator_footer|smart_urlize|safe }}<br>
+            <span class="big">👆</span> {{ board.curator_footer|safe }}<br>
         {% endif %}
 
         {% if board.natural_refreshed_at %}
             <br><small>Обновлено {{ board.natural_refreshed_at }}</small>
         {% endif %}
+
+        <div class="board-footer-export">
+            <a href="{% url "export" board.slug %}" class="button export-button">Экспортировать подборку себе</a>
+        </div>
     </div>
 {% endif %}
 {% endblock %}
