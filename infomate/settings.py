@@ -20,9 +20,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.cache.FetchFromCacheMiddleware"
 ]
 
 ROOT_URLCONF = "infomate.urls"
@@ -94,7 +92,8 @@ CACHES = {
         "LOCATION": os.path.join(BASE_DIR, "../django_cache.tmp")
     }
 }
-CACHE_MIDDLEWARE_SECONDS = 60
+STATIC_PAGE_CACHE_SECONDS = 5 * 60  # 5 min
+BOARD_CACHE_SECONDS = 10 * 60  # 10 min
 
 # App settings
 
