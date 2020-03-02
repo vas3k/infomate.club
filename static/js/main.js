@@ -10,7 +10,7 @@ function initializeThemeSwitcher() {
     }, false);
 
     checkMacTheme();
-    synctTheThemeSwitcher();
+    syncThemeSwitcher();
 }
 
 function checkMacTheme() {
@@ -28,7 +28,7 @@ function checkMacTheme() {
                 theme = 'light';
             }
             switchTheme(theme);
-            synctTheThemeSwitcher();
+            syncThemeSwitcher();
         })
     }
 }
@@ -38,7 +38,7 @@ function switchTheme(theme) {
     localStorage.setItem('theme', theme);
 }
 
-function synctTheThemeSwitcher() {
+function syncThemeSwitcher() {
     const themeSwitch = document.querySelector('.theme-switcher input[type="checkbox"]');
     const theme = localStorage.getItem('theme');
     if (theme !== null) {
