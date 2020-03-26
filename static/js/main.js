@@ -94,8 +94,42 @@ function useSmartTooltipPositioning() {
     }
 }
 
+function showTooltipOnClickOnMobile() {
+    function isMobile() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Windows Phone must come first because its UA also contains "Android"
+        if (/windows phone/i.test(userAgent)) {
+            return true;
+        }
+
+        if (/android/i.test(userAgent)) {
+            return true;
+        }
+
+        // iOS detection from: http://stackoverflow.com/a/9039885/177710
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return true;
+        }
+
+        return false;
+    }
+
+    if (isMobile()) {
+        let articleLinks = document.querySelectorAll(".article-link");
+        for (let i = 0; i < articleLinks.length; i++) {
+            articleLinks[i].addEventListener("click", function(e) {
+                e.preventDefault(); // do not open the link
+                let tooltip = e.target.parentElement.querySelector(".article-tooltip");
+                tooltip.style.visibility = "visible";
+            });
+        }
+    }
+}
+
 
 initializeThemeSwitcher();
+showTooltipOnClickOnMobile();
 hideTooltipOnAnyClick();
 useSmartTooltipPositioning();
 addWeirdLogicThatSomeGeeksWillUseOnceAndForget();
