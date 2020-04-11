@@ -94,7 +94,35 @@ Then go to [localhost:8000](http://localhost:8000) again
 
 ## boards.yml format
 
-TBD
+```
+boards:
+- name: Tech            # board title
+  slug: tech            # board url
+  is_visible: true      # visibility on the main page
+  is_private: false     # private boards require logging in
+  curator:              # board author profile
+    name: John Wick 
+    title: Main news
+    avatar: https://i.vas3k.ru/fhr.png 
+    bio: Major technology media in English and Russian
+    footer: >
+      this is a general selection of popular technology media.
+      The page is updated once per hour.
+  blocks:               # list of logical feed blocks
+  - name: English       # block title
+    slug: en            # unique board id
+    feeds:         
+      - name: Hacker News
+        url: https://news.ycombinator.com
+        rss: https://news.ycombinator.com/rss
+      - name: dev.to
+        url: https://dev.to
+        rss: https://dev.to/feed
+      - name: TechCrunch
+        rss: http://feeds.feedburner.com/TechCrunch/
+        url: https://techcrunch.com
+        is_parsable: false  # do not try to parse pages, show RSS content only
+```
 
 ## Contributing
 
