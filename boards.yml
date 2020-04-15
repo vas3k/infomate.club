@@ -1783,7 +1783,7 @@ boards:
 - name: Журнал «Максим»
   slug: maxim
   is_visible: true
-  is_private: true
+  is_private: false
   curator:
     name: Журнал «Максим»
     avatar: https://i.vas3k.ru/irc.png
