@@ -121,7 +121,10 @@ function showTooltipOnClickOnMobile() {
             articleLinks[i].addEventListener("click", function(e) {
                 e.preventDefault(); // do not open the link
                 let tooltip = e.target.parentElement.querySelector(".article-tooltip");
-                tooltip.style.visibility = "visible";
+                if (tooltip !== null) {
+                    tooltip.style.visibility = "visible";
+                }
+                return false;
             });
         }
     }
