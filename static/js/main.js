@@ -117,8 +117,11 @@ function showTooltipOnClickOnMobile() {
 
     if (isMobile()) {
         function mobileClickHandler(e) {
-            e.preventDefault(); // do not open the link
-            e.stopImmediatePropagation();
+            if (e.cancelable) {
+                e.preventDefault(); // do not open the link
+                e.stopImmediatePropagation();
+            }
+
             let tooltip = e.target.parentElement.querySelector(".article-tooltip");
             if (tooltip !== null) {
                 tooltip.style.visibility = "visible";
@@ -130,10 +133,7 @@ function showTooltipOnClickOnMobile() {
         for (let i = 0; i < articleLinks.length; i++) {
             articleLinks[i].addEventListener("click", mobileClickHandler);
             articleLinks[i].addEventListener("touchstart", mobileClickHandler);
-            articleLinks[i].addEventListener("touchend", function(e) {
-                e.preventDefault();
-                return false;
-            });
+            articleLinks[i].addEventListener("touchend", (e) => false);
         }
     }
 }
