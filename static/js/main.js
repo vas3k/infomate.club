@@ -116,14 +116,22 @@ function showTooltipOnClickOnMobile() {
     }
 
     if (isMobile()) {
+        function mobileClickHandler(e) {
+            e.preventDefault(); // do not open the link
+            e.stopImmediatePropagation();
+            let tooltip = e.target.parentElement.querySelector(".article-tooltip");
+            if (tooltip !== null) {
+                tooltip.style.visibility = "visible";
+            }
+            return false;
+        }
+
         let articleLinks = document.querySelectorAll(".article-link");
         for (let i = 0; i < articleLinks.length; i++) {
-            articleLinks[i].addEventListener("click", function(e) {
-                e.preventDefault(); // do not open the link
-                let tooltip = e.target.parentElement.querySelector(".article-tooltip");
-                if (tooltip !== null) {
-                    tooltip.style.visibility = "visible";
-                }
+            articleLinks[i].addEventListener("click", mobileClickHandler);
+            articleLinks[i].addEventListener("touchstart", mobileClickHandler);
+            articleLinks[i].addEventListener("touchend", function(e) {
+                e.preventDefault();
                 return false;
             });
         }
