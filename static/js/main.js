@@ -116,24 +116,20 @@ function showTooltipOnClickOnMobile() {
     }
 
     if (isMobile()) {
-        function mobileClickHandler(e) {
-            if (e.cancelable) {
-                e.preventDefault(); // do not open the link
-                e.stopImmediatePropagation();
-            }
-
-            let tooltip = e.target.parentElement.querySelector(".article-tooltip");
-            if (tooltip !== null) {
-                tooltip.style.visibility = "visible";
-            }
-            return false;
-        }
-
         let articleLinks = document.querySelectorAll(".article-link");
         for (let i = 0; i < articleLinks.length; i++) {
-            articleLinks[i].addEventListener("click", mobileClickHandler);
-            articleLinks[i].addEventListener("touchstart", mobileClickHandler);
-            articleLinks[i].addEventListener("touchend", (e) => false);
+            articleLinks[i].addEventListener("click", function(e) {
+                if (e.cancelable) {
+                    e.preventDefault(); // do not open the link
+                    e.stopImmediatePropagation();
+                }
+
+                let tooltip = e.target.parentElement.querySelector(".article-tooltip");
+                if (tooltip !== null) {
+                    tooltip.style.visibility = "visible";
+                }
+                return false;
+            });
         }
     }
 }
