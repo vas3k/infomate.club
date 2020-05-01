@@ -1726,12 +1726,12 @@ boards:
 
 - name: Книги, книги, книги
   slug: mnogochital
-  is_visible: false
+  is_visible: true
   is_private: false
   curator:
     name: Книги, книги, книги
     url: от <a href="https://mnogochital.ru/">Сергея Капличного</a>
-    avatar: https://i.vas3k.ru/irc.png
+    avatar: https://i.vas3k.ru/n2g.png
     bio: Делаю проект «Многочитал», для которого отбираю лучшие литературные новинки
   blocks:
     - slug: publishers
