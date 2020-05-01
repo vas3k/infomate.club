@@ -302,7 +302,7 @@ boards:
     title: Набор берлинца
     url: от Лены из <a href="https://howtoberlin.de">howtoberlin.de</a>
     avatar: https://i.vas3k.ru/fev.png
-    bio: Что читать когда живешь в Берлине и не понимаешь что происходит
+    bio: Что читать, когда живешь в Берлине и не понимаешь что происходит
     footer: >
       это ресурсы для понимания и вдохновения, немецкие и экспатские, чтобы понимать,
       что происходит в Германии и Берлине и как весело и комфортно в этом жить.
@@ -317,13 +317,12 @@ boards:
         - name: "DW.com"
           url: https://www.dw.com/en/top-stories/germany/s-1432
           rss: http://rss.dw.com/rdf/rss-en-ger
+        - name: "The Berlin Spectator"
+          url: https://berlinspectator.com
+          rss: https://berlinspectator.com/feed/
         - name: "TheLocal"
           url: https://www.thelocal.de/
           rss: https://feeds.thelocal.com/rss/de
-        - name: "Der Tagesspiegel [DE]"
-          url: https://www.tagesspiegel.de/
-          rss: https://www.tagesspiegel.de/contentexport/feed/home
-          icon: https://i.vas3k.ru/fjb.jpg
         - name: "Что там у немцев?"
           url: https://t.me/dwrussian
           rss: https://infomate.club/parsing/telegram/dwrussian
@@ -331,24 +330,42 @@ boards:
         - name: IamExpat
           url: https://www.iamexpat.de/
           rss: https://www.iamexpat.de/rss/news-germany
-    - name: "События и места: где поесть, где затусить"
+        - name: "Der Spiegel [DE]"
+          url: https://www.spiegel.de
+          rss: https://www.spiegel.de/schlagzeilen/index.rss
+        - name: "Der Tagesspiegel [DE]"
+          url: https://www.tagesspiegel.de/
+          rss: https://www.tagesspiegel.de/contentexport/feed/home
+          icon: https://i.vas3k.ru/fjb.jpg
+        - name: "Presseportal des Landes Berlin [DE]"
+          url: https://www.berlin.de/presse/
+          rss: https://www.berlin.de/presse/index.php/rss
+    - name: "Наблюдения, события, места"
       slug: events
       feeds:
-        - name: "Канал Travelclever"
-          url: https://t.me/travelclever
-          rss: https://tg2rss.xyz/channel/?name=travelclever
-          is_parsable: false
         - name: "Kiez in Berlin"
           url: http://kiezinberlin.com/
           rss: http://kiezinberlin.com/feed/
+        - name: "Канал Глазами Богдана"
+          url: https://t.me/bogdandevisu
+          rss: https://tg2rss.xyz/channel/?name=bogdandevisu
+        - name: "Канал Travelclever"
+          url: https://t.me/travelclever
+          rss: https://tg2rss.xyz/channel/?name=travelclever 
+          is_parsable: false
         - name: "Berlin.de Events"
           url: https://www.berlin.de/en/events/
           rss: https://www.berlin.de/en/events/rubric.rss
           icon: https://i.vas3k.ru/fjc.png
-        - name: EXBERLINER
-          url: https://www.exberliner.com/
-          rss: https://www.exberliner.com/api/rss/content.rss
-          icon: https://i.vas3k.ru/fjd.png
+        - name: "Mit Vergnügen [DE]"
+          url: https://mitvergnuegen.com
+          rss: https://mitvergnuegen.com/feed
+        - name: Berlin Ick Liebe Dir [DE]
+          url: https://berlin-ick-liebe-dir.de
+          rss: https://berlin-ick-liebe-dir.de/feed/
+        - name: Stil in Berlin
+          url: https://www.stilinberlin.de
+          rss: https://www.stilinberlin.de/feed
         - name: "Eventbrite"
           url: https://www.eventbrite.de/d/germany--berlin/all-events/
           rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e15a1b88a93f8b0238b4567.xml
@@ -359,9 +376,6 @@ boards:
         - name: "GoOut Events"
           url: https://goout.net/en/berlin/events/
           rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e14f1098a93f805718b4567.xml
-        - name: "Cee Cee"
-          url: https://ceecee.cc/en/
-          rss: http://www.rssmix.com/u/10536194/rss.xml
     - name: "Подкасты"
       slug: podcasts
       feeds:
@@ -373,10 +387,6 @@ boards:
           url: https://podcasts.apple.com/de/podcast/berlin-briefing/id1241197566?l=en
           rss: https://berlinbriefing.podigee.io/feed/aac
           icon: https://i.vas3k.ru/fjf.jpg
-        - name: "What's The Mate?"
-          url: https://podcasts.apple.com/de/podcast/whats-the-mate/id1428466185?l=en
-          rss: https://www.spreaker.com/show/3089364/episodes/feed
-          icon: https://i.vas3k.ru/fjq.jpg
     - name: "Учим немецкий"
       slug: learn
       feeds:
