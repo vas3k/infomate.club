@@ -1725,8 +1725,8 @@ boards:
 
 
 - name: Книги, книги, книги
-  slug: books
-  is_visible: true
+  slug: mnogochital
+  is_visible: false
   is_private: false
   curator:
     name: Книги, книги, книги
@@ -1763,7 +1763,7 @@ boards:
           url: http://litnov.ru
           rss: http://litnov.ru/rss
         - name: "Amazon Book Review"
-          url: w https://www.amazonbookreview.com/
+          url: https://www.amazonbookreview.com/
           rss: https://www.amazonbookreview.com//rss.xml
         - name: "A life in books"
           url: https://alifeinbooks.co.uk/
