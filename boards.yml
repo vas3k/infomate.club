@@ -348,10 +348,10 @@ boards:
           rss: http://kiezinberlin.com/feed/
         - name: "Канал Глазами Богдана"
           url: https://t.me/bogdandevisu
-          rss: https://tg2rss.xyz/channel/?name=bogdandevisu
+          rss: https://infomate.club/parsing/telegram/bogdandevisu?only=text
         - name: "Канал Travelclever"
           url: https://t.me/travelclever
-          rss: https://tg2rss.xyz/channel/?name=travelclever 
+          rss: https://infomate.club/parsing/telegram/travelclever?only=text 
           is_parsable: false
         - name: "Berlin.de Events"
           url: https://www.berlin.de/en/events/
@@ -1726,7 +1726,7 @@ boards:
 
 - name: Книги, книги, книги
   slug: books
-  is_visible: false
+  is_visible: true
   is_private: false
   curator:
     name: Книги, книги, книги
@@ -1762,7 +1762,16 @@ boards:
         - name: "Агрегатор литературных новостей"
           url: http://litnov.ru
           rss: http://litnov.ru/rss
-
+        - name: "Amazon Book Review"
+          url: w https://www.amazonbookreview.com/
+          rss: https://www.amazonbookreview.com//rss.xml
+        - name: "A life in books"
+          url: https://alifeinbooks.co.uk/
+          rss: https://alifeinbooks.co.uk/feed/
+        - name: "Amy’s Bookshelf"
+          url: https://www.amybucklesbookshelf.co.uk/
+          rss: https://www.amybucklesbookshelf.co.uk/feed
+          
     - slug: telegram
       name: "Телеграм-каналы"
       feeds:
@@ -1775,6 +1784,28 @@ boards:
         - name: "Канал редакции Букмейта"
           url: https://t.me/bookmate_ru
           rss: https://infomate.club/parsing/telegram/bookmate_ru
+        - name: "Книжный лис"
+          url: https://t.me/booksfox
+          rss: https://infomate.club/parsing/telegram/booksfox?only=text
+        - name: "Books & Reviews"
+          url: https://t.me/books_reviews
+          rss: https://infomate.club/parsing/telegram/books_reviews?only=text
+        - name: "Редактор Р."
+          url: https://t.me/redaktorr
+          rss: https://infomate.club/parsing/telegram/redaktorr?only=text
+          
+    - slug: releases
+      name: "Новые релизы"
+      feeds:
+        - name: "Amazon Hot New Releases"
+          url: https://www.amazon.com/gp/new-releases/books
+          rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685eac71d48a93f8e5478b4567.xml
+        - name: "Новинки MyBook"
+          url: https://mybook.ru/sets/?rubric=4
+          rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685eac72b08a93f895518b4567.xml
+        - name: "Новинки Libelib"
+          url: https://www.livelib.ru/books/novelties
+          rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685eac72518a93f8074f8b4567.xml
 
     - slug: podcasts
       name: "Подкасты"
