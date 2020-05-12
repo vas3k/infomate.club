@@ -1352,7 +1352,7 @@ boards:
     avatar: https://i.vas3k.ru/hzv.png
     bio: Наша SOTA-подборка ML-новостей. Что-то из этого читает Лекун.
     footer:  >
-        есть предложения? Пиши в <a href="https://twitter.com/tiulpin">твиттер</a>
+        есть предложения? Пиши мне в <a href="https://twitter.com/tiulpin">Твиттер</a>
   blocks:
     - slug: main
       feeds:
@@ -1419,19 +1419,15 @@ boards:
         - name: "Machine Learning Mastery"
           url: https://machinelearningmastery.com/blog/
           rss: http://machinelearningmastery.com/blog/feed
+        - name: "Synced Review"
+          url: https://medium.com/syncedreview
+          rss: https://medium.com/feed/syncedreview
     - name: "💼 University and corporation labs"
       slug: labs
       feeds:
         - name: "DeepMind"
           url: https://www.deepmind.com/blog
           rss: https://www.deepmind.com/blog/feed/basic/
-        - name: "Facebook"
-          url: https://research.fb.com/blog/
-          rss: http://rssmix.com/u/10966862/rss.xml
-          mix:
-            - https://research.fb.com/blog/feed
-            - https://engineering.fb.com/category/ai-research/feed/
-            - https://engineering.fb.com/category/ml-applications/feed/
         - name: "Google"
           url: https://ai.googleblog.com/
           rss: http://rssmix.com/u/10966870/rss.xml
@@ -1452,6 +1448,13 @@ boards:
             - https://azurecomcdn.azureedge.net/en-us/blog/topics/artificial-intelligence/feed/
             - https://azurecomcdn.azureedge.net/en-us/blog/topics/datascience/feed/
             - https://azurecomcdn.azureedge.net/en-us/blog/topics/machine-learning-2/feed/
+        - name: "Facebook"
+          url: https://research.fb.com/blog/
+          rss: http://rssmix.com/u/10966862/rss.xml
+          mix:
+            - https://research.fb.com/blog/feed
+            - https://engineering.fb.com/category/ai-research/feed/
+            - https://engineering.fb.com/category/ml-applications/feed/
         - name: "MIT AI"
           url: http://news.mit.edu/topic/artificial-intelligence2
           rss: http://news.mit.edu/rss/topic/artificial-intelligence2
@@ -1469,15 +1472,15 @@ boards:
             - http://feeds.feedburner.com/nvidia/acceleratedcomputing
             - https://devblogs.nvidia.com/category/data-science/feed/
             - https://devblogs.nvidia.com/category/artificial-intelligence/feed/
-        - name: "Intel AI"
-          url: https://www.intel.ai/blog/
-          rss: https://www.intel.ai/blog/feed/
         - name: "Apple Machine Learning Journal"
           url: https://machinelearning.apple.com/
           rss: https://machinelearning.apple.com/feed.xml
         - name: "Uber Engineering"
           url: https://eng.uber.com/category/articles/ai/
           rss: https://eng.uber.com/category/articles/ai/feed/
+        - name: "neptune.ai"
+          url: https://neptune.ai/blog
+          rss: https://neptune.ai/blog/feed
     - name: "✈️ Telegram"
       slug: tg
       feeds:
@@ -1587,9 +1590,6 @@ boards:
         - name: "Data Skeptic"
           url: https://dataskeptic.com
           rss: https://dataskeptic.libsyn.com/rss
-        - name: "ODS.ai Podcast"
-          url: http://dscast.ru
-          rss: https://feed.podbean.com/dscast.ru/feed.xml
         - name: "Linear Digressions"
           url: http://lineardigressions.com/episodes
           rss: http://lineardigressions.com/episodes?format=rss
@@ -1599,6 +1599,9 @@ boards:
         - name: "Data Science at Home"
           url: https://datascienceathome.com
           rss: https://datascienceathome.com/feed/
+        - name: "Найм и управление в DS"
+          url: https://anchor.fm/ds-hiring
+          rss: https://anchor.fm/s/1b9ecd00/podcast/rss
 
 - name: Кибербезопасность
   slug: cybersec
