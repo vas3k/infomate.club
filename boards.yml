@@ -1894,3 +1894,117 @@ boards:
         - name: "Oper.ru"
           url: https://oper.ru/
           rss: http://feeds.feedburner.com/oper_ru?format=xml
+
+
+- name: Тестирование
+  slug: qa
+  is_visible: true
+  is_private: false
+  curator:
+    name: Тестирование
+    url: от <a href="https://twitter.com/diana_pinchuk">Дианы Пинчук</a>
+    bio: О тестировании ПО и обеспечении качества
+  blocks:
+    - slug: ru
+      name: "На русском"
+      feeds:
+        - name: "QA дайджест DOU"
+          url: https://dou.ua/lenta/tags/QA%20%D0%B4%D0%B0%D0%B9%D0%B4%D0%B6%D0%B5%D1%81%D1%82/
+          rss: https://dou.ua/lenta/digests/feed/
+        - name: "software-testing.ru"
+          url: https://software-testing.ru/
+          rss: https://software-testing.ru/index.php?format=feed&type=rss
+        - name: "Блог Лаборатории Качества"
+          url: https://quality-lab.ru/blog/
+          rss: https://quality-lab.ru/feed/
+        - name: "Блог Перфоманс Лаб"
+          url: http://www.performance-lab.ru/blog
+          rss: http://www.performance-lab.ru/feed
+        - name: "Блог Сергея Пирогова - Записки Автоматизатора"
+          url: https://automation-remarks.com/
+          rss: https://automation-remarks.com/archive.html
+        - name: "Блог Ольги Назиной"
+          url: http://okiseleva.blogspot.com/
+          rss: http://okiseleva.blogspot.com/feeds/posts/default
+        - name: "Блог Никиты Макарова"
+          url: http://test-failed.blogspot.com/
+          rss: http://test-failed.blogspot.com/feeds/posts/default
+        - name: "Блог Алексея Лупана"
+          url: https://testitquickly.com/author/astenix/
+          rss: https://testitquickly.com/feed/
+        - name: "Хабр: Тестирование IT-систем"
+          url: https://habr.com/ru/hub/it_testing/
+          icon: https://i.vas3k.ru/fhv.png
+          rss: https://habr.com/ru/hub/it_testing/all/?fl=ru
+    - slug: en
+      name: "In English"
+      feeds:
+        - name: "Ministry of Testing"
+          url: https://www.ministryoftesting.com/dojo/catalog
+          rss: http://feeds.feedburner.com/mottestingfeeds
+        - name: "James Bach blog"
+          url: https://www.satisfice.com/blog
+          rss: https://www.satisfice.com/feed
+        - name: "Michael Bolton blog'"
+          url: https://www.developsense.com/blog/
+          rss: https://www.developsense.com/blog/feed
+        - name: "Kristin Jackvony blog: Think like a tester"
+          url: http://thethinkingtester.blogspot.com/
+          rss: http://thethinkingtester.blogspot.com/feeds/posts/default
+        - name: "Alan Richardson (Evil tester) blog"
+          url: https://www.eviltester.com/blog/
+          rss: https://www.eviltester.com/index.xml
+        - name: "Maaret Pyhäjärvi blog"
+          url: https://visible-quality.blogspot.com/
+          rss: https://visible-quality.blogspot.com/feeds/posts/default
+        - name: "Katrina Clokie blog"
+          url: http://katrinatester.blogspot.com/
+          rss: http://katrinatester.blogspot.com/feeds/posts/default
+    - slug: youtube
+      name: "Youtube"
+      feeds:
+        - name: "Heisenbug Conference"
+          url: https://www.youtube.com/channel/UCX6fjZa167tSy_4ryTLcOBw
+          rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCX6fjZa167tSy_4ryTLcOBw
+        - name: "Selenium Camp"
+          url: https://www.youtube.com/channel/UCTGNGRvd6fxpj1F6-7emUJw
+          rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCTGNGRvd6fxpj1F6-7emUJw
+        - name: "QA Fest"
+          url: https://www.youtube.com/channel/UClTnsvgTiW2YcfP1tcI2oKA
+          rss: https://www.youtube.com/feeds/videos.xml?channel_id=UClTnsvgTiW2YcfP1tcI2oKA
+        - name: "QA Guild"
+          url: https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg
+          rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCHtyBZ2XbtsRmNiAxh48RGg
+        - name: "SQA Days"
+          url: https://www.youtube.com/user/vldcorp
+          rss: https://www.youtube.com/feeds/videos.xml?user=vldcorp
+        - name: "Яндекс Тестирование"
+          url: https://www.youtube.com/channel/UC9VeXtf7fcCJUfmZ_cyweXA
+          rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC9VeXtf7fcCJUfmZ_cyweXA
+    - slug: podcasts
+      name: "Подкасты"
+      feeds:
+        - name: "QA Guild"
+          url: https://soundcloud.com/qaguild
+          rss: http://feeds.soundcloud.com/users/soundcloud:users:371334098/sounds.rss
+        - name: "Radio QA"
+          url: http://radio-qa.com/
+          rss: http://radio-qa.com/feed/
+        - name: "AB Testing"
+          url: https://testingpodcast.com/category/ab-testing/
+          rss: https://www.angryweasel.com/ABTesting/feed/podcast/
+        - name: "Ministry of Testing Podcasts"
+          url: https://www.ministryoftesting.com/dojo/podcasts
+          rss: https://www.ministryoftesting.com/feeds/podcasts
+    - slug: telegram
+      name: "Telegram-каналы"
+      feeds:
+        - name: "Automation Remarks"
+          url: https://t.me/automation_remarks
+          rss: https://infomate.club/parsing/telegram/automation_remarks
+        - name: "Automated-testing.info"
+          url: https://t.me/atinfo
+          rss: https://infomate.club/parsing/telegram/atinfo
+        - name: "QA Mania (Украиноязычный канал)"
+          url: https://t.me/qamania
+          rss: https://infomate.club/parsing/telegram/qamania
