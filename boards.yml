@@ -1824,77 +1824,6 @@ boards:
           rss: https://feeds.simplecast.com/x_9E5llm
 
 
-- name: Журнал «Максим»
-  slug: maxim
-  is_visible: true
-  is_private: false
-  curator:
-    name: Журнал «Максим»
-    avatar: https://i.vas3k.ru/irc.png
-    bio: Только качественное СМИ! Ставь класс если Максим!
-  blocks:
-    - name: Новости, которые ты заслужил
-      slug: news
-      feeds:
-        - name: "ИА Панорама"
-          url: https://panorama.pub
-          rss: https://panorama.pub/feed
-        - name: "Иностранные новости"
-          url: https://russian.rt.com/
-          rss: https://www.rt.com/rss/russia/
-        - name: "Телеканал СПАС"
-          url: http://spastv.ru/
-          rss: http://spastv.ru/news/feed/
-        - name: "Lenta.ru"
-          url: https://lenta.ru
-          rss: https://lenta.ru/rss
-        - name: "Экспресс Газета"
-          url: https://www.eg.ru/
-          rss: https://www.eg.ru/rss/
-        - name: Камень в лесу
-          url: https://twitter.com/kamen_v_lesu
-          rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e538d5d8a93f8330d8b4567.xml
-    - name: Ржака))0)))
-      slug: fun
-      feeds:
-        - name: "ЯПлакалъ"
-          icon: https://i.vas3k.ru/ire.jpeg
-          url: https://www.yaplakal.com/
-          rss: https://www.yaplakal.com/news.xml
-        - name: "Anekdot.ru"
-          url: https://www.anekdot.ru
-          rss: https://www.anekdot.ru/rss/export_j.xml
-        - name: "Bash.im"
-          url: https://bash.im/
-          rss: https://bash.im/rss/
-    - name: По работе
-      slug: work
-      feeds:
-        - name: "Ebanoe.it"
-          url: https://ebanoe.it/
-          rss: https://ebanoe.it/feed
-        - name: "Dou.ua"
-          url: https://dou.ua/
-          rss: https://dou.ua/feed/
-        - name: "Habr"
-          url: https://habr.com
-          rss: https://habr.com/ru/rss/best/daily/?fl=ru
-        - name: "Dev.by"
-          url: https://dev.by
-          rss: https://dev.by/rss
-        - name: "Kanobu.ru"
-          url: https://kanobu.ru/
-          rss: https://kanobu.ru/rss/kanobuvosti_itunes.xml
-    - name: Интересные блоги, почитай
-      slug: blogs
-      feeds:
-        - name: "ЖЖ Артемия Лебедева"
-          url: https://tema.livejournal.com
-          rss: https://tema.livejournal.com/data/rss
-        - name: "Oper.ru"
-          url: https://oper.ru/
-          rss: http://feeds.feedburner.com/oper_ru?format=xml
-
 
 - name: Тестирование
   slug: qa
@@ -1903,6 +1832,7 @@ boards:
   curator:
     name: Тестирование
     url: от <a href="https://twitter.com/diana_pinchuk">Дианы Пинчук</a>
+    avatar: https://i.vas3k.ru/nfg.jpg
     bio: О тестировании ПО и обеспечении качества
   blocks:
     - slug: ru
