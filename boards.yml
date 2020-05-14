@@ -139,7 +139,7 @@ boards:
           - name: 'Changelog.com'
             url: https://changelog.com/
             rss: https://changelog.com/feed
-          - name: 'O`Reilli Radar'
+          - name: 'O`Reilly Radar'
             url: https://www.oreilly.com/radar/
             rss: https://www.oreilly.com/radar/feed/index.xml
           - name: 'Reddit: /r/technology/'
