@@ -127,9 +127,10 @@ boards:
             rss: https://www.producthunt.com/feed
             is_parsable: false
             icon: https://i.vas3k.ru/fep.png
-          - name: 'Changelog.com'
+          - name: Changelog
             url: https://changelog.com/
             rss: https://changelog.com/feed
+            icon: https://i.vas3k.ru/nip.png
           - name: GitHub Trending
             url: https://github.com/trending
             rss: https://mshibanami.github.io/GitHubTrendingRSS/weekly/all.xml
