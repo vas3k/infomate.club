@@ -127,21 +127,18 @@ boards:
             rss: https://www.producthunt.com/feed
             is_parsable: false
             icon: https://i.vas3k.ru/fep.png
-          - name: The Information
-            url: https://www.theinformation.com/
-            rss: https://www.theinformation.com/feed
+          - name: 'Changelog.com'
+            url: https://changelog.com/
+            rss: https://changelog.com/feed
           - name: GitHub Trending
             url: https://github.com/trending
             rss: https://mshibanami.github.io/GitHubTrendingRSS/weekly/all.xml
       - name: Технологии
         slug: tech
         feeds:
-          - name: 'Changelog.com'
-            url: https://changelog.com/
-            rss: https://changelog.com/feed
-          - name: 'O`Reilly Radar'
-            url: https://www.oreilly.com/radar/
-            rss: https://www.oreilly.com/radar/feed/index.xml
+          - name: The Information
+            url: https://www.theinformation.com/
+            rss: https://www.theinformation.com/feed
           - name: 'Reddit: /r/technology/'
             url: https://www.reddit.com/r/technology
             rss: https://www.reddit.com/r/technology.rss
