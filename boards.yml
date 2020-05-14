@@ -1838,7 +1838,7 @@ boards:
     - slug: ru
       name: "На русском"
       feeds:
-        - name: "QA дайджест DOU"
+        - name: "QA дайджест DOU (и другие дайджесты)"
           url: https://dou.ua/lenta/tags/QA%20%D0%B4%D0%B0%D0%B9%D0%B4%D0%B6%D0%B5%D1%81%D1%82/
           rss: https://dou.ua/lenta/digests/feed/
         - name: "software-testing.ru"
@@ -1852,7 +1852,7 @@ boards:
           rss: http://www.performance-lab.ru/feed
         - name: "Блог Сергея Пирогова - Записки Автоматизатора"
           url: https://automation-remarks.com/
-          rss: https://automation-remarks.com/archive.html
+          rss: https://automation-remarks.com/rss/index.rss
         - name: "Блог Ольги Назиной"
           url: http://okiseleva.blogspot.com/
           rss: http://okiseleva.blogspot.com/feeds/posts/default
@@ -1865,7 +1865,7 @@ boards:
         - name: "Хабр: Тестирование IT-систем"
           url: https://habr.com/ru/hub/it_testing/
           icon: https://i.vas3k.ru/fhv.png
-          rss: https://habr.com/ru/hub/it_testing/all/?fl=ru
+          rss: https://habr.com/ru/rss/hub/it_testing/all/?fl=ru
     - slug: en
       name: "In English"
       feeds:
@@ -1925,7 +1925,7 @@ boards:
           rss: https://www.angryweasel.com/ABTesting/feed/podcast/
         - name: "Ministry of Testing Podcasts"
           url: https://www.ministryoftesting.com/dojo/podcasts
-          rss: https://www.ministryoftesting.com/feeds/podcasts
+          rss: https://www.ministryoftesting.com/feed/podcast
     - slug: telegram
       name: "Telegram-каналы"
       feeds:
