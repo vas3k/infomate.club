@@ -203,7 +203,7 @@
 }
 
     .feed-title {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         line-height: 1em;
     }
 
@@ -212,8 +212,8 @@
         }
 
         .feed-title img {
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             margin-right: 10px;
             vertical-align: middle;
             float: left;
@@ -221,6 +221,7 @@
 
         .feed-title a {
             font-size: 130%;
+            line-height: 1.3em;
             color: var(--link-color);
             font-weight: bold;
         }
@@ -228,7 +229,7 @@
         .feed-title small {
             font-size: 70%;
             opacity: 0.7;
-            line-height: 2;
+            line-height: 1.0em;
         }
 
     .feed-articles {
