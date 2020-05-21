@@ -1484,7 +1484,7 @@ boards:
             rss: https://eng.uber.com/category/articles/ai/feed/
           - name: "neptune.ai"
             url: https://neptune.ai/blog
-            rss: https://neptune.ai/blog/feed
+            rss: https://neptune.ai/feed
       - name: "✈️ Telegram"
         slug: tg
         feeds:
