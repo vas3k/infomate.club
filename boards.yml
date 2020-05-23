@@ -1942,3 +1942,144 @@ boards:
           - name: "QA Mania (Украиноязычный канал)"
             url: https://t.me/qamania
             rss: https://infomate.club/parsing/telegram/qamania
+
+
+  - name: Музыкальный мир
+    slug: music
+    is_visible: true
+    is_private: false
+    curator:
+      name: Музыкальный мир
+      url: от <a href="https://t.me/korobka_live">Тимура Салабаева</a>
+#      avatar: https://i.vas3k.ru/nfg.jpg
+      bio: Подборка про музыку и все, что вертится вокруг нее.
+      footer: >
+        подборка, которая пытается максимально широко охватить музыкальный контекст:
+        винил, обзоры, новости индустрии, написание, продюссирование, оборудование, живые выступления и вдохновение.
+    blocks:
+      - slug: listen
+        name: "Важные СМИ"
+        feeds:
+          - name: "NPR Music"
+            url: https://www.npr.org/music
+            rss: https://feeds.npr.org/1039/rss.xml
+          - name: "Mixmag"
+            url: https://mixmag.net
+            rss: https://mixmag.net/rss.xml
+          - name: "Bandcamp Daily"
+            url: https://daily.bandcamp.com
+            rss: http://feeds.feedburner.com/LatestBandcampDaily
+          - name: "Pitchfork"
+            url: https://pitchfork.com/news/
+            rss: https://pitchfork.com/rss/news/
+          - name: "FACT Magazine"
+            url: https://www.factmag.com
+            rss: https://feeds.feedburner.com/factmag
+          - name: "NME"
+            url: https://www.nme.com/news/music/
+            rss: https://www.nme.com/news/music/feed
+          - name: "Kerrang!"
+            url: https://www.kerrang.com/
+            rss: https://www.kerrang.com/feed.rss
+          - name: "Rock Sound"
+            url: https://www.rocksound.tv
+            rss: https://www.rocksound.tv/feeds/all
+      - slug: produce
+        name: "Блоги и ресурсы для музыкантов"
+        feeds:
+          - name: "Samesound"
+            url: https://samesound.ru
+            rss: https://samesound.ru/feed
+          - name: "Ableton Blog"
+            url: https://www.ableton.com/blog
+            rss: https://www.ableton.com/blog/feeds/latest
+          - name: "LANDR Blog"
+            url: https://blog.landr.com
+            rss: https://blog.landr.com/feed/
+          - name: "Pyramind Blog"
+            url: https://studios.pyramind.com/blog
+            rss: https://studios.pyramind.com/blog?format=rss
+          - name: "Hyperbits Blog"
+            url: https://hyperbitsmusic.com/blog/
+            rss: https://hyperbitsmusic.com/feed
+          - name: "r/WeAreTheMusicMakers"
+            url: https://www.reddit.com/r/WeAreTheMusicMakers/
+            rss: https://www.reddit.com/r/WeAreTheMusicMakers/.rss
+      - slug: vinyl
+        name: "Про винил"
+        feeds:
+          - name: "r/VinylReleases/"
+            url: https://www.reddit.com/r/VinylReleases/
+            rss: https://www.reddit.com/r/VinylReleases/.rss
+          - name: "Vinyl Me, Please"
+            url: http://thevinylfactory.com
+            rss: http://thevinylfactory.com/feed
+          - name: "Discogs Blog"
+            url: https://blog.discogs.com/en
+            rss: https://blog.discogs.com/en/feed/
+      - slug: youtube
+        name: "Познавательно-обучающий Youtube"
+        feeds:
+          - name: "Adam Neely"
+            url: https://www.youtube.com/channel/UCnkp4xDOwqqJD7sSM3xdUiQ
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCnkp4xDOwqqJD7sSM3xdUiQ
+          - name: "Andrew Huang"
+            url: https://www.youtube.com/channel/UCdcemy56JtVTrsFIOoqvV8g
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCdcemy56JtVTrsFIOoqvV8g
+          - name: "HAINBACH"
+            url: https://www.youtube.com/channel/UCeovElJP0n0i8ADaPsRSd8g
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCeovElJP0n0i8ADaPsRSd8g
+          - name: "Drumeo"
+            url: https://www.youtube.com/channel/UCBiJBaDaM3K6vPVggLhTyWA
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCBiJBaDaM3K6vPVggLhTyWA
+          - name: "Ricky Tinez"
+            url: https://www.youtube.com/channel/UC4OAAbxtB6QEKaTDb-SEe-Q
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC4OAAbxtB6QEKaTDb-SEe-Q
+          - name: "Нескучный саунд"
+            url: https://www.youtube.com/channel/UCc1a1Nm8aNFoqv1G4CfyHzA
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCc1a1Nm8aNFoqv1G4CfyHzA
+          - name: "Rick Beato: Everything Music"
+            url: https://www.youtube.com/channel/UCJquYOG5EL82sKTfH9aMA9Q
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCJquYOG5EL82sKTfH9aMA9Q
+          - name: "Michael Borzenkov"
+            url: https://www.youtube.com/channel/UCHB_LTbHebAPiiP3q8Jj3dg
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCHB_LTbHebAPiiP3q8Jj3dg
+      - slug: live
+        name: "Лайвы"
+        feeds:
+          - name: "Tiny Desc Concert"
+            url: https://www.youtube.com/playlist?list=PL1B627337ED6F55F0
+            rss: https://www.youtube.com/feeds/videos.xml?playlist_id=PL1B627337ED6F55F0
+          - name: "COLORS"
+            url: https://www.youtube.com/channel/UC2Qw1dzXDBAZPwS7zm37g8g
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC2Qw1dzXDBAZPwS7zm37g8g
+          - name: "triple j | Like a Version"
+            url: https://www.youtube.com/watch?v=UIp6gHnLS3k&list=PLCC51BF0C94BE62E8
+            rss: https://www.youtube.com/feeds/videos.xml?playlist_id=PLCC51BF0C94BE62E8
+          - name: "BBC Music"
+            url: https://www.youtube.com/channel/UCZtDUmC3W7j25XHZWFT_XgQ
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCZtDUmC3W7j25XHZWFT_XgQ
+          - name: "BBC Radio 1 Live Lounge"
+            url: https://www.youtube.com/channel/UCKoafhJ9dkAWaEvlXCiBBwA
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKoafhJ9dkAWaEvlXCiBBwA
+      - slug: telegram
+        name: "Солянка из Телеграм-каналов"
+        feeds:
+          - name: "Выбор Mixmag"
+            url: https://t.me/mixmagrussia
+            rss: https://infomate.club/parsing/telegram/mixmagrussia
+          - name: "Институт музыкальных инициатив"
+            url: https://t.me/imi_live
+            rss: https://infomate.club/parsing/telegram/imi_live
+          - name: "Надо ехать!"
+            url: https://t.me/ehainahuy
+            rss: https://infomate.club/parsing/telegram/ehainahuy
+          - name: "Mooscle"
+            url: https://t.me/mooscle
+            rss: https://infomate.club/parsing/telegram/mooscle
+          - name: "История электронной музыки"
+            url: https://t.me/ru12edit
+            rss: https://infomate.club/parsing/telegram/ru12edit
+          - name: "On The Corner"
+            url: https://t.me/jazzonthecorner
+            rss: https://infomate.club/parsing/telegram/jazzonthecorner
