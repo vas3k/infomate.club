@@ -707,6 +707,409 @@ boards:
             rss: http://feeds.soundcloud.com/users/soundcloud:users:6251250/sounds.rss
 
 
+  - name: Very ML
+    slug: ml
+    is_visible: true
+    is_private: false
+    curator:
+      name: Very ML
+      url: от <a href="https://twitter.com/tiulpin">Виктора Тюльпина</a> и <a href="https://t.me/Recent_AI">Recent AI News</a>
+      avatar: https://i.vas3k.ru/hzv.png
+      bio: Наша SOTA-подборка ML-новостей. Что-то из этого читает Лекун.
+      footer:  >
+        есть предложения? Пиши мне в <a href="https://twitter.com/tiulpin">Твиттер</a>
+    blocks:
+      - slug: main
+        feeds:
+          - name: "DataTau"
+            url: https://datatau.net/
+            rss: https://datatau.net/feed
+          - name: "/r/MachineLearning"
+            url: https://www.reddit.com/r/MachineLearning/
+            rss: https://www.reddit.com/r/MachineLearning.rss
+          - name: "Towards Data Science"
+            url: https://towardsdatascience.com/
+            rss: https://towardsdatascience.com/feed
+          - name: "Becoming Human"
+            url: https://becominghuman.ai/
+            rss: https://becominghuman.ai/feed
+          - name: "Distill.pub"
+            icon: https://i.vas3k.ru/i0r.png
+            url: https://distill.pub/
+            rss: http://distill.pub/rss.xml
+          - name: "The Gradient"
+            url: https://thegradient.pub/
+            rss: https://thegradient.pub/rss/
+      - name: "🔬 Science"
+        slug: science
+        feeds:
+          - name: "arXiv.org"
+            url: https://arxiv.org/
+            rss: http://www.rssmix.com/u/10956280/rss.xml
+            columns: 2
+            mix:
+              - http://export.arxiv.org/rss/cs.CL
+              - http://export.arxiv.org/rss/cs.CV
+              - http://export.arxiv.org/rss/cs.LG
+              - http://export.arxiv.org/rss/cs.NE
+              - http://export.arxiv.org/rss/stat.ML
+          - name: "Papers With Code"
+            icon: https://i.vas3k.ru/i0s.jpg
+            url: https://paperswithcode.com/
+            rss: https://us-east1-ml-feeds.cloudfunctions.net/pwc/latest
+      - name: "📝 Cool Blogs"
+        slug: blogs
+        feeds:
+          - name: "ODS.ai Habr"
+            url: https://habr.com/ru/company/ods/
+            rss: https://habr.com/ru/rss/company/ods/blog/?fl=ru
+          - name: "inFERENCe"
+            url: https://www.inference.vc/
+            rss: https://www.inference.vc/rss
+          - name: "The Spectator"
+            url: http://blog.shakirm.com/
+            rss: http://blog.shakirm.com/feed/
+          - name: "大トロ"
+            url: http://blog.otoro.net/
+            rss: http://blog.otoro.net/feed.xml
+          - name: "The Unofficial Google Data Science Blog"
+            url: http://www.unofficialgoogledatascience.com/
+            rss: http://www.unofficialgoogledatascience.com/feeds/posts/default
+          - name: "Andrew Karpathy"
+            url: http://karpathy.github.io/
+            rss: http://karpathy.github.io/feed.xml
+          - name: "Off the Convex Path"
+            url: http://www.offconvex.org/
+            rss: http://www.offconvex.org/feed
+          - name: "Machine Learning Mastery"
+            url: https://machinelearningmastery.com/blog/
+            rss: http://machinelearningmastery.com/blog/feed
+          - name: "Synced Review"
+            url: https://medium.com/syncedreview
+            rss: https://medium.com/feed/syncedreview
+      - name: "💼 University and corporation labs"
+        slug: labs
+        feeds:
+          - name: "DeepMind"
+            url: https://www.deepmind.com/blog
+            rss: https://www.deepmind.com/blog/feed/basic/
+          - name: "Google"
+            url: https://ai.googleblog.com/
+            rss: http://rssmix.com/u/10966870/rss.xml
+            mix:
+              - http://googleaiblog.blogspot.com/atom.xml
+              - https://cloudblog.withgoogle.com/products/ai-machine-learning/rss/
+              - https://blog.google/technology/ai/rss
+          - name: "OpenAI"
+            url: https://openai.com/blog/
+            rss: https://openai.com/blog/rss/
+          - name: "Microsoft"
+            icon: https://i.vas3k.ru/i0t.png
+            url: https://www.microsoft.com/en-us/research/
+            rss: http://rssmix.com/u/10966880/rss.xml
+            mix:
+              - https://www.microsoft.com/en-us/research/rss
+              - https://blogs.microsoft.com/ai/feed/
+              - https://azurecomcdn.azureedge.net/en-us/blog/topics/artificial-intelligence/feed/
+              - https://azurecomcdn.azureedge.net/en-us/blog/topics/datascience/feed/
+              - https://azurecomcdn.azureedge.net/en-us/blog/topics/machine-learning-2/feed/
+          - name: "Facebook"
+            url: https://research.fb.com/blog/
+            rss: http://rssmix.com/u/10966862/rss.xml
+            mix:
+              - https://research.fb.com/blog/feed
+              - https://engineering.fb.com/category/ai-research/feed/
+              - https://engineering.fb.com/category/ml-applications/feed/
+          - name: "MIT AI"
+            url: http://news.mit.edu/topic/artificial-intelligence2
+            rss: http://news.mit.edu/rss/topic/artificial-intelligence2
+          - name: "Berkeley AI"
+            url: https://bair.berkeley.edu/blog/
+            rss: https://bair.berkeley.edu/blog/feed.xml
+          - name: "AWS Machine Learning"
+            url: https://aws.amazon.com/blogs/machine-learning/
+            rss: https://aws.amazon.com/blogs/amazon-ai/feed/
+          - name: "NVIDIA"
+            url: https://blogs.nvidia.com/blog/category/deep-learning/
+            rss: http://rssmix.com/u/10966894/rss.xml
+            mix:
+              - https://blogs.nvidia.com/feed
+              - http://feeds.feedburner.com/nvidia/acceleratedcomputing
+              - https://devblogs.nvidia.com/category/data-science/feed/
+              - https://devblogs.nvidia.com/category/artificial-intelligence/feed/
+          - name: "Apple Machine Learning Journal"
+            url: https://machinelearning.apple.com/
+            rss: https://machinelearning.apple.com/feed.xml
+          - name: "Uber Engineering"
+            url: https://eng.uber.com/category/articles/ai/
+            rss: https://eng.uber.com/category/articles/ai/feed/
+          - name: "neptune.ai"
+            url: https://neptune.ai/blog
+            rss: https://neptune.ai/feed
+      - name: "✈️ Telegram"
+        slug: tg
+        feeds:
+          - name: "DL in NLP"
+            url: https://t.me/dlinnlp
+            rss: https://infomate.club/parsing/telegram/dlinnlp
+          - name: "gonzo-обзоры ML-статей"
+            url: https://t.me/gonzo_ML
+            rss: https://infomate.club/parsing/telegram/gonzo_ML/?only=text
+          - name: "tldr_arxiv"
+            url: https://t.me/tldr_arxiv
+            rss: https://infomate.club/parsing/telegram/tldr_arxiv
+          - name: "partially unsupervised"
+            url: https://t.me/partially_unsupervised
+            rss: https://infomate.club/parsing/telegram/partially_unsupervised
+          - name: "Data Science by ODS.ai"
+            url: https://t.me/opendatascience
+            rss: https://infomate.club/parsing/telegram/opendatascience
+          - name: "мамкин датасаентист"
+            url: https://t.me/mommyscience
+            rss: https://infomate.club/parsing/telegram/mommyscience
+          - name: "NeuroHive"
+            url: https://t.me/neurohive
+            rss: https://infomate.club/parsing/telegram/neurohive
+          - name: "Kantor.AI"
+            url: https://t.me/kantor_ai
+            rss: https://infomate.club/parsing/telegram/kantor_ai
+          - name: "Loss Function Porn"
+            url: https://t.me/loss_function_porn
+            rss: https://infomate.club/parsing/telegram/loss_function_porn
+          - name: "Small Data Science"
+            url: https://t.me/smalldatascience
+            rss: https://infomate.club/parsing/telegram/smalldatascience
+          - name: "Machine Learning Explained"
+            url: https://t.me/machine_learning_explained
+            rss: https://infomate.club/parsing/telegram/machine_learning_explained
+          - name: "Neural Networks Engineering"
+            url: https://t.me/neural_network_engineering
+            rss: https://infomate.club/parsing/telegram/neural_network_engineering
+          - name: "Graph Machine Learning"
+            url: https://t.me/graphML
+            rss: https://infomate.club/parsing/telegram/graphML
+          - name: "Just links"
+            url: https://t.me/j_links
+            rss: https://infomate.club/parsing/telegram/j_links
+          - name: "feed@tiulp.in"
+            url: https://t.me/tiulpin
+            rss: https://infomate.club/parsing/telegram/tiulpin
+      - name: "🗣️ Митапы"
+        slug: meetups
+        feeds:
+          - name: "OpenDataScience RU"
+            url: https://t.me/ods_ru
+            rss: https://infomate.club/parsing/telegram/ods_ru
+          - name: "ML REPA"
+            url: https://t.me/mlrepa
+            rss: https://infomate.club/parsing/telegram/mlrepa
+          - name: "Lean DS"
+            url: https://t.me/leands
+            rss: https://infomate.club/parsing/telegram/leands
+      - name: "▶️ YouTube"
+        slug: youtube
+        feeds:
+          - name: "Henry AI Labs"
+            url: https://www.youtube.com/channel/UCHB9VepY6kYvZjj0Bgxnpbw
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCHB9VepY6kYvZjj0Bgxnpbw
+          - name: "Machine Learning and AI Academy"
+            url: https://www.youtube.com/channel/UC4lM4hz_v5ixNjK54UwPEVw
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC4lM4hz_v5ixNjK54UwPEVw
+          - name: "3blue1brown"
+            url: https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw
+          - name: "Two Minute Papers"
+            url: https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg
+          - name: "Primer"
+            url: https://www.youtube.com/channel/UCKzJFdi57J53Vr_BkTfN3uQ
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKzJFdi57J53Vr_BkTfN3uQ
+          - name: "DataFest Video"
+            url: https://www.youtube.com/channel/UCM9ECBAZtlLeEr-m3ldZ7Tw
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCM9ECBAZtlLeEr-m3ldZ7Tw
+          - name: "Семинары JetBrains Research"
+            url: https://www.youtube.com/channel/UCdeSxuESqLOxuuwXNnqqbrA
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCdeSxuESqLOxuuwXNnqqbrA
+          - name: "Яндекс. Компьютерные науки"
+            url: https://www.youtube.com/channel/UCKFojzto0n4Ab3CRQRZ2zYA
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKFojzto0n4Ab3CRQRZ2zYA
+          - name: "ML Trainings"
+            url: https://www.youtube.com/channel/UCeq6ZIlvC9SVsfhfKnSvM9w
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCeq6ZIlvC9SVsfhfKnSvM9w
+      - name: "🎧 Podcasts"
+        slug: podcasts
+        feeds:
+          - name: "Lex Fridman AI Podcast"
+            url: https://lexfridman.com/
+            rss: https://lexfridman.com/category/ai/feed/
+          - name: "DeepMind: The Podcast"
+            url: https://deepmind.com/blog/article/welcome-to-the-deepmind-podcast
+            rss: https://feeds.simplecast.com/JT6pbPkg
+          - name: "Microsoft Research Podcast"
+            icon: https://i.vas3k.ru/i0t.png
+            url: https://www.microsoft.com/en-us/research/blog/category/podcast/
+            rss: https://feeds.blubrry.com/feeds/microsoftresearch.xml
+          - name: "NLP Highlights"
+            url: https://soundcloud.com/nlp-highlights
+            rss: https://feeds.soundcloud.com/users/soundcloud:users:306749289/sounds.rss
+          - name: "Data Skeptic"
+            url: https://dataskeptic.com
+            rss: https://dataskeptic.libsyn.com/rss
+          - name: "Linear Digressions"
+            url: http://lineardigressions.com/episodes
+            rss: http://lineardigressions.com/episodes?format=rss
+          - name: "SuperDataScience"
+            url: https://www.superdatascience.com/podcast
+            rss: https://feeds.soundcloud.com/users/soundcloud:users:253585900/sounds.rss
+          - name: "Data Science at Home"
+            url: https://datascienceathome.com
+            rss: https://datascienceathome.com/feed/
+          - name: "Найм и управление в DS"
+            url: https://anchor.fm/ds-hiring
+            rss: https://anchor.fm/s/1b9ecd00/podcast/rss
+
+
+  - name: Музыкальный мир
+    slug: music
+    is_visible: true
+    is_private: false
+    curator:
+      name: Музыкальный мир
+      url: от <a href="https://t.me/korobka_live">Тимура Салабаева</a>
+      avatar: https://i.vas3k.ru/p3o.png
+      bio: Подборка про музыку и все, что вертится вокруг нее.
+      footer: >
+        подборка, которая пытается максимально широко охватить музыкальный контекст:
+        винил, обзоры, новости индустрии, написание, продюссирование, оборудование, живые выступления и вдохновение.
+    blocks:
+      - slug: listen
+        name: "Важные СМИ"
+        feeds:
+          - name: "NPR Music"
+            url: https://www.npr.org/music
+            rss: https://feeds.npr.org/1039/rss.xml
+          - name: "Mixmag"
+            url: https://mixmag.net
+            rss: https://mixmag.net/rss.xml
+          - name: "Bandcamp Daily"
+            url: https://daily.bandcamp.com
+            rss: http://feeds.feedburner.com/LatestBandcampDaily
+          - name: "Pitchfork"
+            url: https://pitchfork.com/news/
+            rss: https://pitchfork.com/rss/news/
+          - name: "FACT Magazine"
+            url: https://www.factmag.com
+            rss: https://feeds.feedburner.com/factmag
+          - name: "NME"
+            url: https://www.nme.com/news/music/
+            rss: https://www.nme.com/news/music/feed
+          - name: "Kerrang!"
+            url: https://www.kerrang.com/
+            rss: https://www.kerrang.com/feed.rss
+          - name: "Rock Sound"
+            url: https://www.rocksound.tv
+            rss: https://www.rocksound.tv/feeds/all
+      - slug: produce
+        name: "Блоги и ресурсы для музыкантов"
+        feeds:
+          - name: "Samesound"
+            url: https://samesound.ru
+            rss: https://samesound.ru/feed
+          - name: "Ableton Blog"
+            url: https://www.ableton.com/blog
+            rss: https://www.ableton.com/blog/feeds/latest
+          - name: "LANDR Blog"
+            url: https://blog.landr.com
+            rss: https://blog.landr.com/feed/
+          - name: "Pyramind Blog"
+            url: https://studios.pyramind.com/blog
+            rss: https://studios.pyramind.com/blog?format=rss
+          - name: "Hyperbits Blog"
+            url: https://hyperbitsmusic.com/blog/
+            rss: https://hyperbitsmusic.com/feed
+          - name: "r/WeAreTheMusicMakers"
+            url: https://www.reddit.com/r/WeAreTheMusicMakers/
+            rss: https://www.reddit.com/r/WeAreTheMusicMakers/.rss
+      - slug: vinyl
+        name: "Про винил"
+        feeds:
+          - name: "r/VinylReleases/"
+            url: https://www.reddit.com/r/VinylReleases/
+            rss: https://www.reddit.com/r/VinylReleases/.rss
+          - name: "Vinyl Me, Please"
+            url: http://thevinylfactory.com
+            rss: http://thevinylfactory.com/feed
+          - name: "Discogs Blog"
+            url: https://blog.discogs.com/en
+            rss: https://blog.discogs.com/en/feed/
+      - slug: youtube
+        name: "Познавательно-обучающий Youtube"
+        feeds:
+          - name: "Adam Neely"
+            url: https://www.youtube.com/channel/UCnkp4xDOwqqJD7sSM3xdUiQ
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCnkp4xDOwqqJD7sSM3xdUiQ
+          - name: "Andrew Huang"
+            url: https://www.youtube.com/channel/UCdcemy56JtVTrsFIOoqvV8g
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCdcemy56JtVTrsFIOoqvV8g
+          - name: "HAINBACH"
+            url: https://www.youtube.com/channel/UCeovElJP0n0i8ADaPsRSd8g
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCeovElJP0n0i8ADaPsRSd8g
+          - name: "Drumeo"
+            url: https://www.youtube.com/channel/UCBiJBaDaM3K6vPVggLhTyWA
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCBiJBaDaM3K6vPVggLhTyWA
+          - name: "Ricky Tinez"
+            url: https://www.youtube.com/channel/UC4OAAbxtB6QEKaTDb-SEe-Q
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC4OAAbxtB6QEKaTDb-SEe-Q
+          - name: "Нескучный саунд"
+            url: https://www.youtube.com/channel/UCc1a1Nm8aNFoqv1G4CfyHzA
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCc1a1Nm8aNFoqv1G4CfyHzA
+          - name: "Rick Beato: Everything Music"
+            url: https://www.youtube.com/channel/UCJquYOG5EL82sKTfH9aMA9Q
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCJquYOG5EL82sKTfH9aMA9Q
+          - name: "Michael Borzenkov"
+            url: https://www.youtube.com/channel/UCHB_LTbHebAPiiP3q8Jj3dg
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCHB_LTbHebAPiiP3q8Jj3dg
+      - slug: live
+        name: "Лайвы"
+        feeds:
+          - name: "Tiny Desc Concert"
+            url: https://www.youtube.com/playlist?list=PL1B627337ED6F55F0
+            rss: https://www.youtube.com/feeds/videos.xml?playlist_id=PL1B627337ED6F55F0
+          - name: "COLORS"
+            url: https://www.youtube.com/channel/UC2Qw1dzXDBAZPwS7zm37g8g
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC2Qw1dzXDBAZPwS7zm37g8g
+          - name: "triple j | Like a Version"
+            url: https://www.youtube.com/watch?v=UIp6gHnLS3k&list=PLCC51BF0C94BE62E8
+            rss: https://www.youtube.com/feeds/videos.xml?playlist_id=PLCC51BF0C94BE62E8
+          - name: "BBC Music"
+            url: https://www.youtube.com/channel/UCZtDUmC3W7j25XHZWFT_XgQ
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCZtDUmC3W7j25XHZWFT_XgQ
+          - name: "BBC Radio 1 Live Lounge"
+            url: https://www.youtube.com/channel/UCKoafhJ9dkAWaEvlXCiBBwA
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKoafhJ9dkAWaEvlXCiBBwA
+      - slug: telegram
+        name: "Солянка из Телеграм-каналов"
+        feeds:
+          - name: "Выбор Mixmag"
+            url: https://t.me/mixmagrussia
+            rss: https://infomate.club/parsing/telegram/mixmagrussia
+          - name: "Институт музыкальных инициатив"
+            url: https://t.me/imi_live
+            rss: https://infomate.club/parsing/telegram/imi_live
+          - name: "Надо ехать!"
+            url: https://t.me/ehainahuy
+            rss: https://infomate.club/parsing/telegram/ehainahuy
+          - name: "Mooscle"
+            url: https://t.me/mooscle
+            rss: https://infomate.club/parsing/telegram/mooscle
+          - name: "История электронной музыки"
+            url: https://t.me/ru12edit
+            rss: https://infomate.club/parsing/telegram/ru12edit
+          - name: "On The Corner"
+            url: https://t.me/jazzonthecorner
+            rss: https://infomate.club/parsing/telegram/jazzonthecorner
+
+
   - name: Linguistic Madness
     slug: linguisticmadness
     is_visible: true
@@ -1346,267 +1749,6 @@ boards:
             url: https://daringfireball.net/thetalkshow/
             rss: https://daringfireball.net/thetalkshow/rss
 
-  - name: Very ML
-    slug: ml
-    is_visible: true
-    is_private: false
-    curator:
-      name: Very ML
-      url: от <a href="https://twitter.com/tiulpin">Виктора Тюльпина</a> и <a href="https://t.me/Recent_AI">Recent AI News</a>
-      avatar: https://i.vas3k.ru/hzv.png
-      bio: Наша SOTA-подборка ML-новостей. Что-то из этого читает Лекун.
-      footer:  >
-        есть предложения? Пиши мне в <a href="https://twitter.com/tiulpin">Твиттер</a>
-    blocks:
-      - slug: main
-        feeds:
-          - name: "DataTau"
-            url: https://datatau.net/
-            rss: https://datatau.net/feed
-          - name: "/r/MachineLearning"
-            url: https://www.reddit.com/r/MachineLearning/
-            rss: https://www.reddit.com/r/MachineLearning.rss
-          - name: "Towards Data Science"
-            url: https://towardsdatascience.com/
-            rss: https://towardsdatascience.com/feed
-          - name: "Becoming Human"
-            url: https://becominghuman.ai/
-            rss: https://becominghuman.ai/feed
-          - name: "Distill.pub"
-            icon: https://i.vas3k.ru/i0r.png
-            url: https://distill.pub/
-            rss: http://distill.pub/rss.xml
-          - name: "The Gradient"
-            url: https://thegradient.pub/
-            rss: https://thegradient.pub/rss/
-      - name: "🔬 Science"
-        slug: science
-        feeds:
-          - name: "arXiv.org"
-            url: https://arxiv.org/
-            rss: http://www.rssmix.com/u/10956280/rss.xml
-            columns: 2
-            mix:
-              - http://export.arxiv.org/rss/cs.CL
-              - http://export.arxiv.org/rss/cs.CV
-              - http://export.arxiv.org/rss/cs.LG
-              - http://export.arxiv.org/rss/cs.NE
-              - http://export.arxiv.org/rss/stat.ML
-          - name: "Papers With Code"
-            icon: https://i.vas3k.ru/i0s.jpg
-            url: https://paperswithcode.com/
-            rss: https://us-east1-ml-feeds.cloudfunctions.net/pwc/latest
-      - name: "📝 Cool Blogs"
-        slug: blogs
-        feeds:
-          - name: "ODS.ai Habr"
-            url: https://habr.com/ru/company/ods/
-            rss: https://habr.com/ru/rss/company/ods/blog/?fl=ru
-          - name: "inFERENCe"
-            url: https://www.inference.vc/
-            rss: https://www.inference.vc/rss
-          - name: "The Spectator"
-            url: http://blog.shakirm.com/
-            rss: http://blog.shakirm.com/feed/
-          - name: "大トロ"
-            url: http://blog.otoro.net/
-            rss: http://blog.otoro.net/feed.xml
-          - name: "The Unofficial Google Data Science Blog"
-            url: http://www.unofficialgoogledatascience.com/
-            rss: http://www.unofficialgoogledatascience.com/feeds/posts/default
-          - name: "Andrew Karpathy"
-            url: http://karpathy.github.io/
-            rss: http://karpathy.github.io/feed.xml
-          - name: "Off the Convex Path"
-            url: http://www.offconvex.org/
-            rss: http://www.offconvex.org/feed
-          - name: "Machine Learning Mastery"
-            url: https://machinelearningmastery.com/blog/
-            rss: http://machinelearningmastery.com/blog/feed
-          - name: "Synced Review"
-            url: https://medium.com/syncedreview
-            rss: https://medium.com/feed/syncedreview
-      - name: "💼 University and corporation labs"
-        slug: labs
-        feeds:
-          - name: "DeepMind"
-            url: https://www.deepmind.com/blog
-            rss: https://www.deepmind.com/blog/feed/basic/
-          - name: "Google"
-            url: https://ai.googleblog.com/
-            rss: http://rssmix.com/u/10966870/rss.xml
-            mix:
-              - http://googleaiblog.blogspot.com/atom.xml
-              - https://cloudblog.withgoogle.com/products/ai-machine-learning/rss/
-              - https://blog.google/technology/ai/rss
-          - name: "OpenAI"
-            url: https://openai.com/blog/
-            rss: https://openai.com/blog/rss/
-          - name: "Microsoft"
-            icon: https://i.vas3k.ru/i0t.png
-            url: https://www.microsoft.com/en-us/research/
-            rss: http://rssmix.com/u/10966880/rss.xml
-            mix:
-              - https://www.microsoft.com/en-us/research/rss
-              - https://blogs.microsoft.com/ai/feed/
-              - https://azurecomcdn.azureedge.net/en-us/blog/topics/artificial-intelligence/feed/
-              - https://azurecomcdn.azureedge.net/en-us/blog/topics/datascience/feed/
-              - https://azurecomcdn.azureedge.net/en-us/blog/topics/machine-learning-2/feed/
-          - name: "Facebook"
-            url: https://research.fb.com/blog/
-            rss: http://rssmix.com/u/10966862/rss.xml
-            mix:
-              - https://research.fb.com/blog/feed
-              - https://engineering.fb.com/category/ai-research/feed/
-              - https://engineering.fb.com/category/ml-applications/feed/
-          - name: "MIT AI"
-            url: http://news.mit.edu/topic/artificial-intelligence2
-            rss: http://news.mit.edu/rss/topic/artificial-intelligence2
-          - name: "Berkeley AI"
-            url: https://bair.berkeley.edu/blog/
-            rss: https://bair.berkeley.edu/blog/feed.xml
-          - name: "AWS Machine Learning"
-            url: https://aws.amazon.com/blogs/machine-learning/
-            rss: https://aws.amazon.com/blogs/amazon-ai/feed/
-          - name: "NVIDIA"
-            url: https://blogs.nvidia.com/blog/category/deep-learning/
-            rss: http://rssmix.com/u/10966894/rss.xml
-            mix:
-              - https://blogs.nvidia.com/feed
-              - http://feeds.feedburner.com/nvidia/acceleratedcomputing
-              - https://devblogs.nvidia.com/category/data-science/feed/
-              - https://devblogs.nvidia.com/category/artificial-intelligence/feed/
-          - name: "Apple Machine Learning Journal"
-            url: https://machinelearning.apple.com/
-            rss: https://machinelearning.apple.com/feed.xml
-          - name: "Uber Engineering"
-            url: https://eng.uber.com/category/articles/ai/
-            rss: https://eng.uber.com/category/articles/ai/feed/
-          - name: "neptune.ai"
-            url: https://neptune.ai/blog
-            rss: https://neptune.ai/feed
-      - name: "✈️ Telegram"
-        slug: tg
-        feeds:
-          - name: "DL in NLP"
-            url: https://t.me/dlinnlp
-            rss: https://infomate.club/parsing/telegram/dlinnlp
-          - name: "gonzo-обзоры ML-статей"
-            url: https://t.me/gonzo_ML
-            rss: https://infomate.club/parsing/telegram/gonzo_ML/?only=text
-          - name: "tldr_arxiv"
-            url: https://t.me/tldr_arxiv
-            rss: https://infomate.club/parsing/telegram/tldr_arxiv
-          - name: "partially unsupervised"
-            url: https://t.me/partially_unsupervised
-            rss: https://infomate.club/parsing/telegram/partially_unsupervised
-          - name: "Data Science by ODS.ai"
-            url: https://t.me/opendatascience
-            rss: https://infomate.club/parsing/telegram/opendatascience
-          - name: "мамкин датасаентист"
-            url: https://t.me/mommyscience
-            rss: https://infomate.club/parsing/telegram/mommyscience
-          - name: "NeuroHive"
-            url: https://t.me/neurohive
-            rss: https://infomate.club/parsing/telegram/neurohive
-          - name: "Kantor.AI"
-            url: https://t.me/kantor_ai
-            rss: https://infomate.club/parsing/telegram/kantor_ai
-          - name: "Loss Function Porn"
-            url: https://t.me/loss_function_porn
-            rss: https://infomate.club/parsing/telegram/loss_function_porn
-          - name: "Small Data Science"
-            url: https://t.me/smalldatascience
-            rss: https://infomate.club/parsing/telegram/smalldatascience
-          - name: "Machine Learning Explained"
-            url: https://t.me/machine_learning_explained
-            rss: https://infomate.club/parsing/telegram/machine_learning_explained
-          - name: "Neural Networks Engineering"
-            url: https://t.me/neural_network_engineering
-            rss: https://infomate.club/parsing/telegram/neural_network_engineering
-          - name: "Graph Machine Learning"
-            url: https://t.me/graphML
-            rss: https://infomate.club/parsing/telegram/graphML
-          - name: "Just links"
-            url: https://t.me/j_links
-            rss: https://infomate.club/parsing/telegram/j_links
-          - name: "feed@tiulp.in"
-            url: https://t.me/tiulpin
-            rss: https://infomate.club/parsing/telegram/tiulpin
-      - name: "🗣️ Митапы"
-        slug: meetups
-        feeds:
-          - name: "OpenDataScience RU"
-            url: https://t.me/ods_ru
-            rss: https://infomate.club/parsing/telegram/ods_ru
-          - name: "ML REPA"
-            url: https://t.me/mlrepa
-            rss: https://infomate.club/parsing/telegram/mlrepa
-          - name: "Lean DS"
-            url: https://t.me/leands
-            rss: https://infomate.club/parsing/telegram/leands
-      - name: "▶️ YouTube"
-        slug: youtube
-        feeds:
-          - name: "Henry AI Labs"
-            url: https://www.youtube.com/channel/UCHB9VepY6kYvZjj0Bgxnpbw
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCHB9VepY6kYvZjj0Bgxnpbw
-          - name: "Machine Learning and AI Academy"
-            url: https://www.youtube.com/channel/UC4lM4hz_v5ixNjK54UwPEVw
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC4lM4hz_v5ixNjK54UwPEVw
-          - name: "3blue1brown"
-            url: https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw
-          - name: "Two Minute Papers"
-            url: https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg
-          - name: "Primer"
-            url: https://www.youtube.com/channel/UCKzJFdi57J53Vr_BkTfN3uQ
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKzJFdi57J53Vr_BkTfN3uQ
-          - name: "DataFest Video"
-            url: https://www.youtube.com/channel/UCM9ECBAZtlLeEr-m3ldZ7Tw
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCM9ECBAZtlLeEr-m3ldZ7Tw
-          - name: "Семинары JetBrains Research"
-            url: https://www.youtube.com/channel/UCdeSxuESqLOxuuwXNnqqbrA
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCdeSxuESqLOxuuwXNnqqbrA
-          - name: "Яндекс. Компьютерные науки"
-            url: https://www.youtube.com/channel/UCKFojzto0n4Ab3CRQRZ2zYA
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKFojzto0n4Ab3CRQRZ2zYA
-          - name: "ML Trainings"
-            url: https://www.youtube.com/channel/UCeq6ZIlvC9SVsfhfKnSvM9w
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCeq6ZIlvC9SVsfhfKnSvM9w
-      - name: "🎧 Podcasts"
-        slug: podcasts
-        feeds:
-          - name: "Lex Fridman AI Podcast"
-            url: https://lexfridman.com/
-            rss: https://lexfridman.com/category/ai/feed/
-          - name: "DeepMind: The Podcast"
-            url: https://deepmind.com/blog/article/welcome-to-the-deepmind-podcast
-            rss: https://feeds.simplecast.com/JT6pbPkg
-          - name: "Microsoft Research Podcast"
-            icon: https://i.vas3k.ru/i0t.png
-            url: https://www.microsoft.com/en-us/research/blog/category/podcast/
-            rss: https://feeds.blubrry.com/feeds/microsoftresearch.xml
-          - name: "NLP Highlights"
-            url: https://soundcloud.com/nlp-highlights
-            rss: https://feeds.soundcloud.com/users/soundcloud:users:306749289/sounds.rss
-          - name: "Data Skeptic"
-            url: https://dataskeptic.com
-            rss: https://dataskeptic.libsyn.com/rss
-          - name: "Linear Digressions"
-            url: http://lineardigressions.com/episodes
-            rss: http://lineardigressions.com/episodes?format=rss
-          - name: "SuperDataScience"
-            url: https://www.superdatascience.com/podcast
-            rss: https://feeds.soundcloud.com/users/soundcloud:users:253585900/sounds.rss
-          - name: "Data Science at Home"
-            url: https://datascienceathome.com
-            rss: https://datascienceathome.com/feed/
-          - name: "Найм и управление в DS"
-            url: https://anchor.fm/ds-hiring
-            rss: https://anchor.fm/s/1b9ecd00/podcast/rss
-
   - name: Кибербезопасность
     slug: cybersec
     is_visible: true
@@ -1943,143 +2085,3 @@ boards:
             url: https://t.me/qamania
             rss: https://infomate.club/parsing/telegram/qamania
 
-
-  - name: Музыкальный мир
-    slug: music
-    is_visible: true
-    is_private: false
-    curator:
-      name: Музыкальный мир
-      url: от <a href="https://t.me/korobka_live">Тимура Салабаева</a>
-#      avatar: https://i.vas3k.ru/nfg.jpg
-      bio: Подборка про музыку и все, что вертится вокруг нее.
-      footer: >
-        подборка, которая пытается максимально широко охватить музыкальный контекст:
-        винил, обзоры, новости индустрии, написание, продюссирование, оборудование, живые выступления и вдохновение.
-    blocks:
-      - slug: listen
-        name: "Важные СМИ"
-        feeds:
-          - name: "NPR Music"
-            url: https://www.npr.org/music
-            rss: https://feeds.npr.org/1039/rss.xml
-          - name: "Mixmag"
-            url: https://mixmag.net
-            rss: https://mixmag.net/rss.xml
-          - name: "Bandcamp Daily"
-            url: https://daily.bandcamp.com
-            rss: http://feeds.feedburner.com/LatestBandcampDaily
-          - name: "Pitchfork"
-            url: https://pitchfork.com/news/
-            rss: https://pitchfork.com/rss/news/
-          - name: "FACT Magazine"
-            url: https://www.factmag.com
-            rss: https://feeds.feedburner.com/factmag
-          - name: "NME"
-            url: https://www.nme.com/news/music/
-            rss: https://www.nme.com/news/music/feed
-          - name: "Kerrang!"
-            url: https://www.kerrang.com/
-            rss: https://www.kerrang.com/feed.rss
-          - name: "Rock Sound"
-            url: https://www.rocksound.tv
-            rss: https://www.rocksound.tv/feeds/all
-      - slug: produce
-        name: "Блоги и ресурсы для музыкантов"
-        feeds:
-          - name: "Samesound"
-            url: https://samesound.ru
-            rss: https://samesound.ru/feed
-          - name: "Ableton Blog"
-            url: https://www.ableton.com/blog
-            rss: https://www.ableton.com/blog/feeds/latest
-          - name: "LANDR Blog"
-            url: https://blog.landr.com
-            rss: https://blog.landr.com/feed/
-          - name: "Pyramind Blog"
-            url: https://studios.pyramind.com/blog
-            rss: https://studios.pyramind.com/blog?format=rss
-          - name: "Hyperbits Blog"
-            url: https://hyperbitsmusic.com/blog/
-            rss: https://hyperbitsmusic.com/feed
-          - name: "r/WeAreTheMusicMakers"
-            url: https://www.reddit.com/r/WeAreTheMusicMakers/
-            rss: https://www.reddit.com/r/WeAreTheMusicMakers/.rss
-      - slug: vinyl
-        name: "Про винил"
-        feeds:
-          - name: "r/VinylReleases/"
-            url: https://www.reddit.com/r/VinylReleases/
-            rss: https://www.reddit.com/r/VinylReleases/.rss
-          - name: "Vinyl Me, Please"
-            url: http://thevinylfactory.com
-            rss: http://thevinylfactory.com/feed
-          - name: "Discogs Blog"
-            url: https://blog.discogs.com/en
-            rss: https://blog.discogs.com/en/feed/
-      - slug: youtube
-        name: "Познавательно-обучающий Youtube"
-        feeds:
-          - name: "Adam Neely"
-            url: https://www.youtube.com/channel/UCnkp4xDOwqqJD7sSM3xdUiQ
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCnkp4xDOwqqJD7sSM3xdUiQ
-          - name: "Andrew Huang"
-            url: https://www.youtube.com/channel/UCdcemy56JtVTrsFIOoqvV8g
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCdcemy56JtVTrsFIOoqvV8g
-          - name: "HAINBACH"
-            url: https://www.youtube.com/channel/UCeovElJP0n0i8ADaPsRSd8g
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCeovElJP0n0i8ADaPsRSd8g
-          - name: "Drumeo"
-            url: https://www.youtube.com/channel/UCBiJBaDaM3K6vPVggLhTyWA
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCBiJBaDaM3K6vPVggLhTyWA
-          - name: "Ricky Tinez"
-            url: https://www.youtube.com/channel/UC4OAAbxtB6QEKaTDb-SEe-Q
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC4OAAbxtB6QEKaTDb-SEe-Q
-          - name: "Нескучный саунд"
-            url: https://www.youtube.com/channel/UCc1a1Nm8aNFoqv1G4CfyHzA
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCc1a1Nm8aNFoqv1G4CfyHzA
-          - name: "Rick Beato: Everything Music"
-            url: https://www.youtube.com/channel/UCJquYOG5EL82sKTfH9aMA9Q
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCJquYOG5EL82sKTfH9aMA9Q
-          - name: "Michael Borzenkov"
-            url: https://www.youtube.com/channel/UCHB_LTbHebAPiiP3q8Jj3dg
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCHB_LTbHebAPiiP3q8Jj3dg
-      - slug: live
-        name: "Лайвы"
-        feeds:
-          - name: "Tiny Desc Concert"
-            url: https://www.youtube.com/playlist?list=PL1B627337ED6F55F0
-            rss: https://www.youtube.com/feeds/videos.xml?playlist_id=PL1B627337ED6F55F0
-          - name: "COLORS"
-            url: https://www.youtube.com/channel/UC2Qw1dzXDBAZPwS7zm37g8g
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC2Qw1dzXDBAZPwS7zm37g8g
-          - name: "triple j | Like a Version"
-            url: https://www.youtube.com/watch?v=UIp6gHnLS3k&list=PLCC51BF0C94BE62E8
-            rss: https://www.youtube.com/feeds/videos.xml?playlist_id=PLCC51BF0C94BE62E8
-          - name: "BBC Music"
-            url: https://www.youtube.com/channel/UCZtDUmC3W7j25XHZWFT_XgQ
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCZtDUmC3W7j25XHZWFT_XgQ
-          - name: "BBC Radio 1 Live Lounge"
-            url: https://www.youtube.com/channel/UCKoafhJ9dkAWaEvlXCiBBwA
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKoafhJ9dkAWaEvlXCiBBwA
-      - slug: telegram
-        name: "Солянка из Телеграм-каналов"
-        feeds:
-          - name: "Выбор Mixmag"
-            url: https://t.me/mixmagrussia
-            rss: https://infomate.club/parsing/telegram/mixmagrussia
-          - name: "Институт музыкальных инициатив"
-            url: https://t.me/imi_live
-            rss: https://infomate.club/parsing/telegram/imi_live
-          - name: "Надо ехать!"
-            url: https://t.me/ehainahuy
-            rss: https://infomate.club/parsing/telegram/ehainahuy
-          - name: "Mooscle"
-            url: https://t.me/mooscle
-            rss: https://infomate.club/parsing/telegram/mooscle
-          - name: "История электронной музыки"
-            url: https://t.me/ru12edit
-            rss: https://infomate.club/parsing/telegram/ru12edit
-          - name: "On The Corner"
-            url: https://t.me/jazzonthecorner
-            rss: https://infomate.club/parsing/telegram/jazzonthecorner
