@@ -713,26 +713,20 @@ boards:
     is_private: false
     curator:
       name: Very ML
-      url: от <a href="https://twitter.com/tiulpin">Виктора Тюльпина</a> и <a href="https://t.me/Recent_AI">Recent AI News</a>
+      url: by <a href="https://twitter.com/tiulpin">Viktor Tiulpin</a> and <a href="https://t.me/Recent_AI">Recent AI News</a>
       avatar: https://i.vas3k.ru/hzv.png
-      bio: Наша SOTA-подборка ML-новостей. Что-то из этого читает Лекун.
+      bio: State-of-the-art Machine Learning News Feed
       footer:  >
-        есть предложения? Пиши мне в <a href="https://twitter.com/tiulpin">Твиттер</a>
+        have something to add? Send me a message on <a href="https://twitter.com/tiulpin">Twitter</a>
     blocks:
       - slug: main
         feeds:
-          - name: "DataTau"
-            url: https://datatau.net/
-            rss: https://datatau.net/feed
           - name: "/r/MachineLearning"
             url: https://www.reddit.com/r/MachineLearning/
             rss: https://www.reddit.com/r/MachineLearning.rss
           - name: "Towards Data Science"
             url: https://towardsdatascience.com/
             rss: https://towardsdatascience.com/feed
-          - name: "Becoming Human"
-            url: https://becominghuman.ai/
-            rss: https://becominghuman.ai/feed
           - name: "Distill.pub"
             icon: https://i.vas3k.ru/i0r.png
             url: https://distill.pub/
@@ -740,24 +734,22 @@ boards:
           - name: "The Gradient"
             url: https://thegradient.pub/
             rss: https://thegradient.pub/rss/
+          - name: "DataTau"
+            url: https://datatau.net/
+            rss: https://datatau.net/feed
+          - name: "Synced Review"
+            url: https://medium.com/syncedreview
+            rss: https://medium.com/feed/syncedreview
+
       - name: "🔬 Science"
         slug: science
         feeds:
-          - name: "arXiv.org"
-            url: https://arxiv.org/
-            rss: http://www.rssmix.com/u/10956280/rss.xml
-            columns: 2
-            mix:
-              - http://export.arxiv.org/rss/cs.CL
-              - http://export.arxiv.org/rss/cs.CV
-              - http://export.arxiv.org/rss/cs.LG
-              - http://export.arxiv.org/rss/cs.NE
-              - http://export.arxiv.org/rss/stat.ML
           - name: "Papers With Code"
             icon: https://i.vas3k.ru/i0s.jpg
             url: https://paperswithcode.com/
             rss: https://us-east1-ml-feeds.cloudfunctions.net/pwc/latest
-      - name: "📝 Cool Blogs"
+            columns: 3
+      - name: "📓 Cool Blogs"
         slug: blogs
         feeds:
           - name: "ODS.ai Habr"
@@ -784,9 +776,15 @@ boards:
           - name: "Machine Learning Mastery"
             url: https://machinelearningmastery.com/blog/
             rss: http://machinelearningmastery.com/blog/feed
-          - name: "Synced Review"
-            url: https://medium.com/syncedreview
-            rss: https://medium.com/feed/syncedreview
+          - name: "Lil'Log"
+            url: https://lilianweng.github.io/lil-log/
+            rss: https://lilianweng.github.io/lil-log/feed.xml
+          - name: "Piekniewski's blog"
+            url: https://blog.piekniewski.info/
+            rss: https://blog.piekniewski.info/rss/
+          - name: Sebastian Ruder
+            url: https://ruder.io/
+            rss: https://ruder.io/rss/
       - name: "💼 University and corporation labs"
         slug: labs
         feeds:
@@ -846,66 +844,6 @@ boards:
           - name: "neptune.ai"
             url: https://neptune.ai/blog
             rss: https://neptune.ai/feed
-      - name: "✈️ Telegram"
-        slug: tg
-        feeds:
-          - name: "DL in NLP"
-            url: https://t.me/dlinnlp
-            rss: https://infomate.club/parsing/telegram/dlinnlp
-          - name: "gonzo-обзоры ML-статей"
-            url: https://t.me/gonzo_ML
-            rss: https://infomate.club/parsing/telegram/gonzo_ML/?only=text
-          - name: "tldr_arxiv"
-            url: https://t.me/tldr_arxiv
-            rss: https://infomate.club/parsing/telegram/tldr_arxiv
-          - name: "partially unsupervised"
-            url: https://t.me/partially_unsupervised
-            rss: https://infomate.club/parsing/telegram/partially_unsupervised
-          - name: "Data Science by ODS.ai"
-            url: https://t.me/opendatascience
-            rss: https://infomate.club/parsing/telegram/opendatascience
-          - name: "мамкин датасаентист"
-            url: https://t.me/mommyscience
-            rss: https://infomate.club/parsing/telegram/mommyscience
-          - name: "NeuroHive"
-            url: https://t.me/neurohive
-            rss: https://infomate.club/parsing/telegram/neurohive
-          - name: "Kantor.AI"
-            url: https://t.me/kantor_ai
-            rss: https://infomate.club/parsing/telegram/kantor_ai
-          - name: "Loss Function Porn"
-            url: https://t.me/loss_function_porn
-            rss: https://infomate.club/parsing/telegram/loss_function_porn
-          - name: "Small Data Science"
-            url: https://t.me/smalldatascience
-            rss: https://infomate.club/parsing/telegram/smalldatascience
-          - name: "Machine Learning Explained"
-            url: https://t.me/machine_learning_explained
-            rss: https://infomate.club/parsing/telegram/machine_learning_explained
-          - name: "Neural Networks Engineering"
-            url: https://t.me/neural_network_engineering
-            rss: https://infomate.club/parsing/telegram/neural_network_engineering
-          - name: "Graph Machine Learning"
-            url: https://t.me/graphML
-            rss: https://infomate.club/parsing/telegram/graphML
-          - name: "Just links"
-            url: https://t.me/j_links
-            rss: https://infomate.club/parsing/telegram/j_links
-          - name: "feed@tiulp.in"
-            url: https://t.me/tiulpin
-            rss: https://infomate.club/parsing/telegram/tiulpin
-      - name: "🗣️ Митапы"
-        slug: meetups
-        feeds:
-          - name: "OpenDataScience RU"
-            url: https://t.me/ods_ru
-            rss: https://infomate.club/parsing/telegram/ods_ru
-          - name: "ML REPA"
-            url: https://t.me/mlrepa
-            rss: https://infomate.club/parsing/telegram/mlrepa
-          - name: "Lean DS"
-            url: https://t.me/leands
-            rss: https://infomate.club/parsing/telegram/leands
       - name: "▶️ YouTube"
         slug: youtube
         feeds:
@@ -964,9 +902,9 @@ boards:
           - name: "Data Science at Home"
             url: https://datascienceathome.com
             rss: https://datascienceathome.com/feed/
-          - name: "Найм и управление в DS"
-            url: https://anchor.fm/ds-hiring
-            rss: https://anchor.fm/s/1b9ecd00/podcast/rss
+          - name: "Unsupervised"
+            url: http://www.unsupervised-podcast.xyz/
+            rss: https://rss.simplecast.com/podcasts/3605/rss
 
 
   - name: Музыкальный мир
