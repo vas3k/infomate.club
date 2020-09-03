@@ -1,18 +1,96 @@
 boards:
+  - name: Новости
+    slug: news
+    is_visible: true
+    is_private: false
+    curator:
+      name: Новости
+      title: События в мире
+      avatar: https://i.vas3k.ru/63cd2ebddba4422aa684b2bd754c636eb061ef0555f542042c31850525d2f5bb.png
+      bio: Основные новостные издания чтобы следить за событиями в России и в мире
+    blocks:
+      - name: В России
+        slug: ru
+        feeds:
+          - name: Meduza
+            url: https://meduza.io/
+            rss: https://meduza.io/rss/all
+          - name: ТАСС
+            url: https://tass.ru/
+            rss: https://tass.ru/rss/v2.xml
+          - name: TJ
+            url: https://tjournal.ru
+            rss: https://tjournal.ru/rss/all
+            is_parsable: false
+          - name: BBC Россия
+            url: https://www.bbc.com/russian
+            rss: https://feeds.bbci.co.uk/russian/rss.xml
+          - name: Эхо Москвы
+            url: https://echo.msk.ru/
+            rss: http://echo.msk.ru/news.rss
+          - name: Lenta.ru
+            url: https://lenta.ru/
+            rss: https://lenta.ru/rss
+          - name: РБК
+            url: https://www.rbc.ru/
+            rss: http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
+          - name: Ведомости
+            url: https://www.vedomosti.ru/
+            rss: https://vedomosti.ru/rss/news
+          - name: DW на русском
+            url: https://www.dw.com/ru/
+            rss: https://rss.dw.com/rdf/rss-ru-top
+      - name: В мире
+        slug: world
+        feeds:
+          - name: Reddit News
+            url: https://www.reddit.com/r/news/
+            rss: https://www.reddit.com/r/news.rss
+          - name: BBC.com
+            url: https://www.bbc.com/
+            rss: http://feeds.bbci.co.uk/news/rss.xml
+          - name: CNN.com
+            url: https://cnn.com/
+            rss: http://rss.cnn.com/rss/edition.rss
+          - name: Reuters
+            url: https://www.reuters.com/news/world
+            rss: https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US
+          - name: Al Jazeera
+            url: https://www.aljazeera.com/
+            rss: https://www.aljazeera.com/xml/rss/all.xml
+          - name: "Wikipedia: Current Events"
+            url: https://en.wikipedia.org/wiki/Portal:Current_events
+            rss: https://www.to-rss.xyz/wikipedia/current_events/
+      - name: Телеграм-каналы
+        slug: tg
+        feeds:
+          - name: Varlamov News
+            url: https://t.me/varlamov_news
+            rss: https://infomate.club/parsing/telegram/varlamov_news
+          - name: Expresso
+            url: https://t.me/expressotoday
+            rss: https://infomate.club/parsing/telegram/expressotoday
+          - name: Mash
+            url: https://t.me/breakingmash
+            rss: https://infomate.club/parsing/telegram/breakingmash
+          - name: Лентач
+            url: https://t.me/lentachold
+            rss: https://infomate.club/parsing/telegram/lentachold
+          - name: RTVI
+            url: https://t.me/rtvimain
+            rss: https://infomate.club/parsing/telegram/rtvimain
+          - name: Новая Газета
+            url: https://t.me/novaya_pishet
+            rss: https://infomate.club/parsing/telegram/novaya_pishet
+
   - name: Технологии
     slug: tech
     is_visible: true
     is_private: false
     curator:
       name: Технологии
-      title: Главные новости
       avatar: https://i.vas3k.ru/fhr.png
-      bio: Подборка основных изданий о технологиях на русском и английском языках
-      footer: >
-        это общая подборка популярных технологических СМИ.
-        Она сделана по итогам опроса в моём телеграм-канале.
-        Жирным выделяются свежие статьи.
-        Страница обновляется раз в час.
+      bio: Новости о технологиях на русском и английском языках
     blocks:
       - name: На русском
         slug: ru
@@ -94,9 +172,9 @@ boards:
           - name: "NYT: Technology"
             url: https://www.nytimes.com/section/technology
             rss: https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/technology/rss.xml
-          - name: "Reuters Technology"
-            url: https://www.reuters.com/news/technology
-            rss: http://feeds.reuters.com/reuters/technologyNews
+          - name: "BBC: Technology"
+            url: https://www.bbc.com/news/technology
+            rss: http://feeds.bbci.co.uk/news/technology/rss.xml
 
   - name: Вастрик
     slug: vas3k
@@ -295,8 +373,6 @@ boards:
             rss: https://iso.500px.com/feed/
             icon: https://i.vas3k.ru/fet.png
 
-
-
   - name: How to Berlin
     slug: howtoberlin
     is_visible: true
@@ -415,297 +491,6 @@ boards:
           - name: "Fly4free: Germany"
             url: https://www.fly4free.com/flight-deals/germany/
             rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e15a09c8a93f842168b4567.xml
-
-  - name: Тексты и редактура
-    slug: content
-    is_visible: true
-    is_private: false
-    curator:
-      name: Тексты и редактура
-      url: от <a href="https://sdelaem.agency">Павла Молянова</a>
-      title: от Павла Молянова
-      avatar: https://i.vas3k.ru/ghd.png
-      bio: Подборка изданий и блогов о копирайтинге, редактуре, контент-маркетинге
-      footer: >
-        это моя коллекция сайтов о редактуре и контент-маркетинге. Если работаете с текстом,
-        добавляйте в закладки и не бегайте по всему интернету, чтобы прочитать что-то полезное.
-    blocks:
-      - name: Для авторов
-        slug: writers
-        feeds:
-          - name: "Максим Ильяхов"
-            url: http://maximilyahov.ru/blog/
-            rss: https://feed.rssunify.com/5e24918e967a3/rss.xml
-            mix:
-              - http://maximilyahov.ru/blog/rss/
-              - http://visual-storytelling.ru/rss/
-          - name: "Журнал Яндекс.Дзена"
-            url: https://zen.yandex.ru/zenmag
-            rss: https://zen-rss.ru/?a=emVubWFn
-          - name: "Советы Бюро Горбунова"
-            url: https://bureau.ru/bb/soviet/ilyahov-sarycheva/
-            rss: https://bureau.ru/bb/soviet/rss/
-      - name: Контент-маркетинг
-        slug: content
-        feeds:
-          - name: "vc.ru: Маркетинг"
-            url: https://vc.ru/marketing
-            rss: https://vc.ru/rss/marketing
-          - name: "Хабр: Контент-Маркетинг"
-            icon: https://i.vas3k.ru/fhv.png
-            url: https://habr.com/en/hub/contentmarketing/top/
-            rss: https://habr.com/ru/rss/hub/contentmarketing/top/weekly/?fl=ru
-          - name: "TexTerra"
-            url: https://texterra.ru/blog/rubric_is_yandeks-dzen_is_pr_is_kontent-marketing_is_redaktura/
-            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e2483ba8a93f8f60a8b4567.xml
-          - name: "Pressfeed"
-            url: https://news.pressfeed.ru
-            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e248f3a8a93f8550a8b4567.xml
-          - name: "Webpromoexperts"
-            url: https://webpromoexperts.net/blog/search/?category_id%5B%5D=29&q=
-            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e248e858a93f8f0038b4567.xml
-          - name: "Cossa.ru"
-            url: https://www.cossa.ru/articles/
-            rss: https://www.cossa.ru/rss/
-      - name: "Каналы в Телеграме"
-        slug: telegrams
-        feeds:
-          - name: "Паша и его прокрастинация"
-            url: https://t.me/abbsol
-            rss: https://infomate.club/parsing/telegram/abbsol
-            is_parsable: false
-          - name: "Главред"
-            url: https://t.me/glvrdru
-            rss: https://infomate.club/parsing/telegram/glvrdru
-            is_parsable: false
-          - name: "Что почитать редактору"
-            url: https://t.me/redaktoru
-            rss: https://infomate.club/parsing/telegram/redaktoru
-            is_parsable: false
-          - name: "Инструменты редактора"
-            url: https://t.me/writingtools
-            rss: https://infomate.club/parsing/telegram/writingtools
-            is_parsable: false
-          - name: "Советы сценаристу"
-            url: https://t.me/screenwriterRU
-            rss: https://infomate.club/parsing/telegram/screenwriterRU
-            is_parsable: false
-          - name: "Инициал"
-            url: https://t.me/ispravil
-            rss: https://infomate.club/parsing/telegram/ispravil
-            is_parsable: false
-      - name: "Микс из блогов людей"
-        slug: people_mix
-        feeds:
-          - url: https://rssunify.com/4443/
-            rss: https://feed.rssunify.com/5e24a30b45155/rss.xml
-            columns: 3
-            mix:
-              - https://ilyaslusarev.ru/feed/
-              - http://molyanov.ru/feed/
-              - https://ekushnir.ru/feed/
-              - https://speclst.com/feed/
-              - https://medium.com/feed/@ilyaeremin2607
-              - http://sashavolkova.ru/rss/
-              - http://marfitsin.com/blog/rss/
-              - http://feeds.feedburner.com/shard-copywriting
-              - https://medium.com/feed/@kateyaroshyna
-              - http://doitinbound.com/feed/
-              - https://irinausichenko.ru/blog/rss/
-              - https://zen-rss.ru/?a=aWQvNTljNTRmNzBlODZhOWVkNGU3MWE5ZTM2
-      - name: "Микс из блогов компаний"
-        slug: companies_mix
-        feeds:
-          - url: https://rssunify.com/66433/
-            rss: https://feed.rssunify.com/5e24a33c20e01/rss.xml
-            columns: 3
-            mix:
-              - https://sdelaem.agency/feed/
-              - https://semantica.in/blog/feed?data=rss2
-              - https://5oclick.ru/blog/content/feed/
-              - http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e24a1f98a93f830578b4567.xml
-              - https://zen-rss.ru/?a=aWQvNWQyMDk3Y2FjNGFlMzEwMGFkNzlhMmMy
-      - name: Подкасты
-        slug: podcasts
-        feeds:
-          - name: Редач
-            url: https://soundcloud.com/redachpodcast
-            rss: http://feeds.soundcloud.com/users/soundcloud:users:35990653/sounds.rss
-          - name: Поредачим
-            url: https://edit.podster.fm
-            rss: https://podster.fm/rss.xml?pid=47894
-          - name: Кто студент
-            url: https://soundcloud.com/ktostudent
-            rss: http://feeds.soundcloud.com/users/soundcloud:users:653247681/sounds.rss
-          - name: Говорит контент
-            url: https://soundcloud.com/pressfeed
-            rss: http://feeds.soundcloud.com/users/soundcloud:users:694392584/sounds.rss
-      - name: Правила русского языка
-        slug: rules_ru
-        feeds:
-          - name: Грамотность
-            url: https://t.me/ruGrammar
-            rss: https://infomate.club/parsing/telegram/ruGrammar
-            is_parsable: false
-          - name: "Илья Бирман: Русский Язык"
-            url: https://ilyabirman.ru/meanwhile/tags/russian-language/
-            rss: https://ilyabirman.ru/meanwhile/tags/russian-language/rss/
-          - name: Correctarium
-            url: https://t.me/correctarium_channel
-            rss: https://infomate.club/parsing/telegram/correctarium_channel
-            is_parsable: false
-      - name: На английском языке
-        slug: english
-        feeds:
-          - name: "Medium: Writing + Marketing"
-            icon: https://i.vas3k.ru/fhb.png
-            url: https://medium.com/topic/writing
-            rss: https://feed.rssunify.com/5e24928acc33c/rss.xml
-            is_parsable: false
-            mix:
-              - https://medium.com/feed/topic/writing
-              - https://medium.com/feed/topic/freelancing
-              - https://medium.com/feed/topic/marketing
-          - name: "Impact"
-            url: https://www.impactbnd.com/blog
-            rss: https://www.impactbnd.com/blog/rss.xml
-          - name: "Copyblogger"
-            url: https://www.copyblogger.com/
-            rss: https://www.copyblogger.com/feed/
-          - name: Hubspot
-            url: https://blog.hubspot.com/
-            rss: https://blog.hubspot.com/marketing/rss.xml
-          - name: Content Marketing Institute
-            url: https://contentmarketinginstitute.com/
-            rss: https://feed.rssunify.com/5e24adaf40213/rss.xml
-          - name: Neil Patel
-            url: https://neilpatel.com/blog/
-            rss: https://neilpatel.com/blog/rss
-
-  - name: Беклог и бабки
-    slug: backlog_and_money
-    is_visible: true
-    is_private: false
-    curator:
-      name: Беклог и бабки
-      url: от <a href="https://www.facebook.com/nikitoslaptef">Никиты Лаптева</a>
-      title: Обзор продуктового айти
-      avatar: https://i.vas3k.ru/gny.png
-      bio: Ресурсы про продукты в айти и почему всё так происходит
-      footer: >
-        Собираем все важное о продуктах в айти. Есть что добавить или убавить? Пиши в fb.
-    blocks:
-      - name: "🦄 Продукты, стартапы и тренды"
-        slug: trends
-        feeds:
-          - name: "Product Hunt"
-            icon: https://i.vas3k.ru/fep.png
-            url: https://www.producthunt.com/
-            rss: https://www.producthunt.com/feed
-          - name: "Medium: Product Management"
-            icon: https://i.vas3k.ru/fhb.png
-            url: https://medium.com/topic/product-management
-            rss: https://medium.com/feed/topic/product-management
-            is_parsable: false
-          - name: "Techcrunch"
-            url: https://techcrunch.com/
-            rss: http://feeds.feedburner.com/TechCrunch/
-            is_parsable: false
-          - name: "vc.ru: Дизайн и Сервисы"
-            url: http://vc.ru
-            rss: https://feed.rssunify.com/5e286684073fc/rss.xml
-            mix:
-              - https://vc.ru/rss/team
-              - https://vc.ru/rss/services
-              - https://vc.ru/rss/design
-          - name: "addmeto"
-            url: https://addmeto.cc/
-            rss: https://addmeto.cc/rss/
-          - name: "The Bell Tech"
-            url: https://t.me/Bell_tech
-            rss: https://tg2rss.xyz/channel/?name=Bell_tech
-            is_parsable: false
-
-      - name: "👨🏻‍💻 Блоги продактов"
-        slug: blogs
-        feeds:
-          - name: "Go practice!"
-            url: http://gopractice.ru
-            rss: https://gopractice.ru/feed/
-          - name: "Тёмная сторона"
-            url: https://t.me/temno
-            rss: https://tg2rss.xyz/channel/?name=temno
-            is_parsable: false
-          - name: "Иван Замесин"
-            url: https://zamesin.me/
-            rss: https://zamesin.me/rss/
-          - name: "No Flame No Game"
-            url: https://t.me/proproduct
-            rss: https://tg2rss.xyz/channel/?name=proproduct
-            is_parsable: false
-          - name: "Продакты не нужны"
-            url: https://t.me/betternotworse
-            rss: https://tg2rss.xyz/channel/?name=betternotworse
-            is_parsable: false
-          - name: "Michael Tabunov"
-            url: https://t.me/bossofyourboss
-            rss: https://tg2rss.xyz/channel/?name=bossofyourboss
-            is_parsable: false
-          - name: "запуск завтра"
-            url: https://t.me/ctodaily
-            rss: https://tg2rss.xyz/channel/?name=ctodaily
-            is_parsable: false
-          - name: "Denis Sexy IT"
-            url: https://t.me/denissexy
-            rss: https://tg2rss.xyz/channel/?name=denissexy
-            is_parsable: false
-          - name: "Products | People | Process"
-            url: https://t.me/program_man
-            rss: https://tg2rss.xyz/channel/?name=program_man
-            is_parsable: false
-
-      - name: "🏢 Блоги компаний"
-        slug: companies
-        feeds:
-          - name: "mindtheproduct"
-            url: https://www.mindtheproduct.com/
-            rss: https://www.mindtheproduct.com/feed
-          - name: "Intercom"
-            url: https://www.intercom.com/blog/
-            rss: https://www.intercom.com/blog/feed
-          - name: "Atlassian"
-            url: https://www.atlassian.com/blog/
-            rss: https://www.atlassian.com/blog/feed
-
-      - name: "🪑 Продуктовый дизайн"
-        slug: kekek
-        feeds:
-          - name: "Ponchik News"
-            url: https://t.me/ponchiknews
-            rss: https://tg2rss.xyz/channel/?name=ponchiknews
-            is_parsable: false
-          - name: "Про удобство"
-            url: https://t.me/proudobstvo
-            rss: https://tg2rss.xyz/channel/?name=proudobstvo
-            is_parsable: false
-          - name: "Дайджест продуктового дизайна"
-            url: https://t.me/pdigest
-            rss: https://tg2rss.xyz/channel/?name=pdigest
-            is_parsable: false
-
-      - name: "🎧 Подкасты"
-        slug: podcasts
-        feeds:
-          - name: "make sense podcast"
-            url: https://podcasts.apple.com/ru/podcast/make-sense-podcast/id1417851966?l=en
-            rss: http://feeds.soundcloud.com/users/soundcloud:users:219452274/sounds.rss
-          - name: "Product & Growth Show"
-            url: https://podcasts.apple.com/ru/podcast/product-growth-show/id1477971944?l=en
-            rss: http://feeds.soundcloud.com/users/soundcloud:users:683140781/sounds.rss
-          - name: "Продуктивный Роман"
-            url: https://podcasts.apple.com/ru/podcast/%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9-%D1%80%D0%BE%D0%BC%D0%B0%D0%BD-%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%8C/id1178337792?l=en
-            rss: http://feeds.soundcloud.com/users/soundcloud:users:6251250/sounds.rss
-
 
   - name: Very ML
     slug: ml
@@ -906,6 +691,459 @@ boards:
             url: http://www.unsupervised-podcast.xyz/
             rss: https://rss.simplecast.com/podcasts/3605/rss
 
+  - name: Тексты и редактура
+    slug: content
+    is_visible: true
+    is_private: false
+    curator:
+      name: Тексты и редактура
+      url: от <a href="https://sdelaem.agency">Павла Молянова</a>
+      title: от Павла Молянова
+      avatar: https://i.vas3k.ru/ghd.png
+      bio: Подборка изданий и блогов о копирайтинге, редактуре, контент-маркетинге
+      footer: >
+        это моя коллекция сайтов о редактуре и контент-маркетинге. Если работаете с текстом,
+        добавляйте в закладки и не бегайте по всему интернету, чтобы прочитать что-то полезное.
+    blocks:
+      - name: Для авторов
+        slug: writers
+        feeds:
+          - name: "Максим Ильяхов"
+            url: http://maximilyahov.ru/blog/
+            rss: https://feed.rssunify.com/5e24918e967a3/rss.xml
+            mix:
+              - http://maximilyahov.ru/blog/rss/
+              - http://visual-storytelling.ru/rss/
+          - name: "Журнал Яндекс.Дзена"
+            url: https://zen.yandex.ru/zenmag
+            rss: https://zen-rss.ru/?a=emVubWFn
+          - name: "Советы Бюро Горбунова"
+            url: https://bureau.ru/bb/soviet/ilyahov-sarycheva/
+            rss: https://bureau.ru/bb/soviet/rss/
+      - name: Контент-маркетинг
+        slug: content
+        feeds:
+          - name: "vc.ru: Маркетинг"
+            url: https://vc.ru/marketing
+            rss: https://vc.ru/rss/marketing
+          - name: "Хабр: Контент-Маркетинг"
+            icon: https://i.vas3k.ru/fhv.png
+            url: https://habr.com/en/hub/contentmarketing/top/
+            rss: https://habr.com/ru/rss/hub/contentmarketing/top/weekly/?fl=ru
+          - name: "TexTerra"
+            url: https://texterra.ru/blog/rubric_is_yandeks-dzen_is_pr_is_kontent-marketing_is_redaktura/
+            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e2483ba8a93f8f60a8b4567.xml
+          - name: "Pressfeed"
+            url: https://news.pressfeed.ru
+            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e248f3a8a93f8550a8b4567.xml
+          - name: "Webpromoexperts"
+            url: https://webpromoexperts.net/blog/search/?category_id%5B%5D=29&q=
+            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e248e858a93f8f0038b4567.xml
+          - name: "Cossa.ru"
+            url: https://www.cossa.ru/articles/
+            rss: https://www.cossa.ru/rss/
+      - name: "Каналы в Телеграме"
+        slug: telegrams
+        feeds:
+          - name: "Паша и его прокрастинация"
+            url: https://t.me/abbsol
+            rss: https://infomate.club/parsing/telegram/abbsol
+            is_parsable: false
+          - name: "Главред"
+            url: https://t.me/glvrdru
+            rss: https://infomate.club/parsing/telegram/glvrdru
+            is_parsable: false
+          - name: "Что почитать редактору"
+            url: https://t.me/redaktoru
+            rss: https://infomate.club/parsing/telegram/redaktoru
+            is_parsable: false
+          - name: "Инструменты редактора"
+            url: https://t.me/writingtools
+            rss: https://infomate.club/parsing/telegram/writingtools
+            is_parsable: false
+          - name: "Советы сценаристу"
+            url: https://t.me/screenwriterRU
+            rss: https://infomate.club/parsing/telegram/screenwriterRU
+            is_parsable: false
+          - name: "Инициал"
+            url: https://t.me/ispravil
+            rss: https://infomate.club/parsing/telegram/ispravil
+            is_parsable: false
+      - name: "Микс из блогов людей"
+        slug: people_mix
+        feeds:
+          - url: https://rssunify.com/4443/
+            rss: https://feed.rssunify.com/5e24a30b45155/rss.xml
+            columns: 3
+            mix:
+              - https://ilyaslusarev.ru/feed/
+              - http://molyanov.ru/feed/
+              - https://ekushnir.ru/feed/
+              - https://speclst.com/feed/
+              - https://medium.com/feed/@ilyaeremin2607
+              - http://sashavolkova.ru/rss/
+              - http://marfitsin.com/blog/rss/
+              - http://feeds.feedburner.com/shard-copywriting
+              - https://medium.com/feed/@kateyaroshyna
+              - http://doitinbound.com/feed/
+              - https://irinausichenko.ru/blog/rss/
+              - https://zen-rss.ru/?a=aWQvNTljNTRmNzBlODZhOWVkNGU3MWE5ZTM2
+      - name: "Микс из блогов компаний"
+        slug: companies_mix
+        feeds:
+          - url: https://rssunify.com/66433/
+            rss: https://feed.rssunify.com/5e24a33c20e01/rss.xml
+            columns: 3
+            mix:
+              - https://sdelaem.agency/feed/
+              - https://semantica.in/blog/feed?data=rss2
+              - https://5oclick.ru/blog/content/feed/
+              - http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e24a1f98a93f830578b4567.xml
+              - https://zen-rss.ru/?a=aWQvNWQyMDk3Y2FjNGFlMzEwMGFkNzlhMmMy
+      - name: Подкасты
+        slug: podcasts
+        feeds:
+          - name: Редач
+            url: https://soundcloud.com/redachpodcast
+            rss: http://feeds.soundcloud.com/users/soundcloud:users:35990653/sounds.rss
+          - name: Поредачим
+            url: https://edit.podster.fm
+            rss: https://podster.fm/rss.xml?pid=47894
+          - name: Кто студент
+            url: https://soundcloud.com/ktostudent
+            rss: http://feeds.soundcloud.com/users/soundcloud:users:653247681/sounds.rss
+          - name: Говорит контент
+            url: https://soundcloud.com/pressfeed
+            rss: http://feeds.soundcloud.com/users/soundcloud:users:694392584/sounds.rss
+      - name: Правила русского языка
+        slug: rules_ru
+        feeds:
+          - name: Грамотность
+            url: https://t.me/ruGrammar
+            rss: https://infomate.club/parsing/telegram/ruGrammar
+            is_parsable: false
+          - name: "Илья Бирман: Русский Язык"
+            url: https://ilyabirman.ru/meanwhile/tags/russian-language/
+            rss: https://ilyabirman.ru/meanwhile/tags/russian-language/rss/
+          - name: Correctarium
+            url: https://t.me/correctarium_channel
+            rss: https://infomate.club/parsing/telegram/correctarium_channel
+            is_parsable: false
+      - name: На английском языке
+        slug: english
+        feeds:
+          - name: "Medium: Writing + Marketing"
+            icon: https://i.vas3k.ru/fhb.png
+            url: https://medium.com/topic/writing
+            rss: https://feed.rssunify.com/5e24928acc33c/rss.xml
+            is_parsable: false
+            mix:
+              - https://medium.com/feed/topic/writing
+              - https://medium.com/feed/topic/freelancing
+              - https://medium.com/feed/topic/marketing
+          - name: "Impact"
+            url: https://www.impactbnd.com/blog
+            rss: https://www.impactbnd.com/blog/rss.xml
+          - name: "Copyblogger"
+            url: https://www.copyblogger.com/
+            rss: https://www.copyblogger.com/feed/
+          - name: Hubspot
+            url: https://blog.hubspot.com/
+            rss: https://blog.hubspot.com/marketing/rss.xml
+          - name: Content Marketing Institute
+            url: https://contentmarketinginstitute.com/
+            rss: https://feed.rssunify.com/5e24adaf40213/rss.xml
+          - name: Neil Patel
+            url: https://neilpatel.com/blog/
+            rss: https://neilpatel.com/blog/rss
+
+  - name: Блокчейн без буллшита
+    slug: basicblock
+    is_visible: true
+    is_private: false
+    curator:
+      name: Блокчейн без буллшита
+      url: от Сергея Тихомирова и подкаста «<a href="https://basicblockradio.com/">Базовый Блок</a>»
+      avatar: https://i.vas3k.ru/gt3.png
+      bio: >
+        Подборка про биткоин, криптовалюты и блокчейн с фокусом на технологии
+      footer: >
+        это подборка качественных источников про блокчейн-технологии от подкаста «Базовый Блок».
+        Разбираемся, как криптовалюты работают на самом деле (вместо обсуждения их курса). Сложно, зато по делу.
+    blocks:
+      - name: "Мейнстримные блокчейн-СМИ"
+        slug: main
+        feeds:
+          - name: Coindesk
+            url: https://www.coindesk.com/
+            rss: https://www.coindesk.com/feed
+          - name: Bitcoin Magazine
+            url: https://bitcoinmagazine.com/
+            rss: https://bitcoinmagazine.com/feed
+          - name: The Block
+            url: https://www.theblockcrypto.com/
+            rss: https://www.theblockcrypto.com/rss.xml
+          - name: Decrypt
+            url: https://decrypt.co/
+            rss: https://decrypt.co/feed
+          - name: Hodl Hodl News
+            url: https://news.hodlhodl.com/
+            rss: https://news.hodlhodl.com/news.rss
+          - name: Битновости
+            url: https://bitnovosti.com/
+            rss: https://bitnovosti.com/feed/
+          - name: Форклог
+            url: https://forklog.com/
+            rss: https://forklog.com/feed/
+          - name: Bitcoin Translated
+            url: https://bitcoin-translated.ru/
+            rss: https://medium.com/feed/@Tony_B
+            is_parsable: false
+          - name: Nakamoto
+            url: https://nakamoto.com/
+            rss: https://nakamoto.com/rss/
+
+      - name: "Подкасты"
+        slug: podcasts
+        feeds:
+          - name: Epicenter
+            url: https://epicenter.tv/
+            rss: https://feeds.simplecast.com/lKmQDG9R
+          - name: Let's talk Bitcoin
+            url: https://letstalkbitcoin.com/blog/category/episodes
+            rss: https://letstalkbitcoin.com/rss/feed/blog?limit=100&soundcloud-id=true&audio-url=true&sites=1&categories=11
+          - name: Unscrypted
+            url: https://aantonop.com/unscrypted/
+            rss: https://aantonop.com/category/podcasts/unscrypted-pod/feed/podcast/
+          - name: Stephan Livera Podcast
+            url: https://stephanlivera.com/
+            rss: https://anchor.fm/s/7d083a4/podcast/rss
+          - name: Unchained
+            url: https://unchainedpodcast.com/category/unchained/
+            rss: https://unchainedpodcast.com/category/unchained/feed/
+          - name: Zero Knowledge
+            url: https://www.zeroknowledge.fm/
+            rss: https://feeds.fireside.fm/zeroknowledge/rss
+          - name: Базовый Блок
+            url: https://basicblockradio.com/
+            rss: https://basicblockradio.libsyn.com/rss
+          - name: Crypto Voices
+            url: https://cryptovoices.com/
+            rss: http://feeds.soundcloud.com/users/soundcloud:users:246365412/sounds.rss
+          - name: Tales from the Crypt
+            url: https://talesfromthecrypt.libsyn.com/
+            rss: https://anchor.fm/s/558f520/podcast/rss
+
+      - name: "Блоги важнейших людей и проектов"
+        slug: important
+        feeds:
+          - name: Bitcoin Core
+            url: https://bitcoincore.org/
+            rss: https://bitcoincore.org/en/rss.xml
+          - name: Blockstream
+            url: https://blockstream.com/blog/
+            rss: https://blockstream.com/feed.xml
+          - name: Lightning Labs
+            url: https://blog.lightning.engineering/
+            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e2b21928a93f82e418b4567.xml
+          - name: Ethereum
+            url: https://blog.ethereum.org/
+            rss: https://blog.ethereum.org/feed
+          - name: Vitalik Buterin
+            url: https://vitalik.ca/
+            rss: https://vitalik.ca/feed.xml
+
+      - name: "Подборки новостей и публикаций"
+        slug: mix
+        feeds:
+          - name: Bitcoin Optech
+            url: https://bitcoinops.org/
+            rss: https://bitcoinops.org/feed.xml
+          - name: Lightning this week
+            url: https://medium.com/zebedee-engineering
+            rss: https://medium.com/feed/zebedee-engineering
+          - name: Week in Ethereum
+            url: https://weekinethereumnews.com/
+            rss: https://weekinethereumnews.com/feed/
+          - name: EthHub
+            url: https://ethhub.substack.com/
+            rss: https://ethhub.substack.com/feed/
+          - name: Build Blockchain Tech
+            url: https://www.buildblockchain.tech/newsletter/issues/
+            rss: https://www.buildblockchain.tech/newsletter/issues?format=rss
+          - name: This Week in Blockchain Research
+            url: https://zkcapital.substack.com/
+            rss: https://zkcapital.substack.com/feed
+          - name: EU Crypto
+            url: https://eucrypto.substack.com/
+            rss: https://eucrypto.substack.com/feed
+          - name: Our Network
+            url: https://ournetwork.substack.com/
+            rss: https://ournetwork.substack.com/feed
+          - name: Blockchain Research Newsletter
+            url: https://blockchainresearch.substack.com/
+            rss: https://blockchainresearch.substack.com/feed
+
+      - name: "Инвестфонды и аналитика"
+        slug: invest
+        feeds:
+          - name: Paradigm Fund
+            url: https://medium.com/paradigm-fund
+            rss: https://medium.com/feed/paradigm-fund
+          - name: a16z Crypto
+            url: https://a16z.com/category/blockchain-cryptocurrencies/
+            rss: https://a16z.com/category/blockchain-cryptocurrencies/feed/
+          - name: Multicoin Capital
+            url: https://multicoin.capital/
+            rss: https://multicoin.capital/rss.xml
+          - name: Placeholder Capital
+            url: https://www.placeholder.vc/
+            rss: https://www.placeholder.vc/blog?format=rss
+          - name: Unchained
+            url: https://www.unchained-capital.com/blog
+            rss: https://unchained-capital.com/feed/
+          - name: Electric Capital
+            url: https://medium.com/@ElectricCapital
+            rss: https://medium.com/feed/@ElectricCapital
+          - name: Zenith Ventures
+            url: https://medium.com/zenith-ventures
+            rss: https://medium.com/feed/zenith-ventures
+          - name: BitMEX
+            url: https://blog.bitmex.com/research/
+            rss: https://blog.bitmex.com/category/research/feed/?lang=en_us
+          - name: Uncommon Core
+            url: https://uncommoncore.co/
+            rss: https://uncommoncore.co/feed/
+          - name: Nic Carter
+            url: https://medium.com/@nic__carter
+            rss: https://medium.com/feed/@nic__carter
+          - name: Dragonfly Research
+            url: https://medium.com/dragonfly-research
+            rss: https://medium.com/feed/dragonfly-research
+
+  - name: Беклог и бабки
+    slug: backlog_and_money
+    is_visible: true
+    is_private: false
+    curator:
+      name: Беклог и бабки
+      url: от <a href="https://www.facebook.com/nikitoslaptef">Никиты Лаптева</a>
+      title: Обзор продуктового айти
+      avatar: https://i.vas3k.ru/gny.png
+      bio: Ресурсы про продукты в айти и почему всё так происходит
+      footer: >
+        Собираем все важное о продуктах в айти. Есть что добавить или убавить? Пиши в fb.
+    blocks:
+      - name: "🦄 Продукты, стартапы и тренды"
+        slug: trends
+        feeds:
+          - name: "Product Hunt"
+            icon: https://i.vas3k.ru/fep.png
+            url: https://www.producthunt.com/
+            rss: https://www.producthunt.com/feed
+          - name: "Medium: Product Management"
+            icon: https://i.vas3k.ru/fhb.png
+            url: https://medium.com/topic/product-management
+            rss: https://medium.com/feed/topic/product-management
+            is_parsable: false
+          - name: "Techcrunch"
+            url: https://techcrunch.com/
+            rss: http://feeds.feedburner.com/TechCrunch/
+            is_parsable: false
+          - name: "vc.ru: Дизайн и Сервисы"
+            url: http://vc.ru
+            rss: https://feed.rssunify.com/5e286684073fc/rss.xml
+            mix:
+              - https://vc.ru/rss/team
+              - https://vc.ru/rss/services
+              - https://vc.ru/rss/design
+          - name: "addmeto"
+            url: https://addmeto.cc/
+            rss: https://addmeto.cc/rss/
+          - name: "The Bell Tech"
+            url: https://t.me/Bell_tech
+            rss: https://tg2rss.xyz/channel/?name=Bell_tech
+            is_parsable: false
+
+      - name: "👨🏻‍💻 Блоги продактов"
+        slug: blogs
+        feeds:
+          - name: "Go practice!"
+            url: http://gopractice.ru
+            rss: https://gopractice.ru/feed/
+          - name: "Тёмная сторона"
+            url: https://t.me/temno
+            rss: https://tg2rss.xyz/channel/?name=temno
+            is_parsable: false
+          - name: "Иван Замесин"
+            url: https://zamesin.me/
+            rss: https://zamesin.me/rss/
+          - name: "No Flame No Game"
+            url: https://t.me/proproduct
+            rss: https://tg2rss.xyz/channel/?name=proproduct
+            is_parsable: false
+          - name: "Продакты не нужны"
+            url: https://t.me/betternotworse
+            rss: https://tg2rss.xyz/channel/?name=betternotworse
+            is_parsable: false
+          - name: "Michael Tabunov"
+            url: https://t.me/bossofyourboss
+            rss: https://tg2rss.xyz/channel/?name=bossofyourboss
+            is_parsable: false
+          - name: "запуск завтра"
+            url: https://t.me/ctodaily
+            rss: https://tg2rss.xyz/channel/?name=ctodaily
+            is_parsable: false
+          - name: "Denis Sexy IT"
+            url: https://t.me/denissexy
+            rss: https://tg2rss.xyz/channel/?name=denissexy
+            is_parsable: false
+          - name: "Products | People | Process"
+            url: https://t.me/program_man
+            rss: https://tg2rss.xyz/channel/?name=program_man
+            is_parsable: false
+
+      - name: "🏢 Блоги компаний"
+        slug: companies
+        feeds:
+          - name: "mindtheproduct"
+            url: https://www.mindtheproduct.com/
+            rss: https://www.mindtheproduct.com/feed
+          - name: "Intercom"
+            url: https://www.intercom.com/blog/
+            rss: https://www.intercom.com/blog/feed
+          - name: "Atlassian"
+            url: https://www.atlassian.com/blog/
+            rss: https://www.atlassian.com/blog/feed
+
+      - name: "🪑 Продуктовый дизайн"
+        slug: kekek
+        feeds:
+          - name: "Ponchik News"
+            url: https://t.me/ponchiknews
+            rss: https://tg2rss.xyz/channel/?name=ponchiknews
+            is_parsable: false
+          - name: "Про удобство"
+            url: https://t.me/proudobstvo
+            rss: https://tg2rss.xyz/channel/?name=proudobstvo
+            is_parsable: false
+          - name: "Дайджест продуктового дизайна"
+            url: https://t.me/pdigest
+            rss: https://tg2rss.xyz/channel/?name=pdigest
+            is_parsable: false
+
+      - name: "🎧 Подкасты"
+        slug: podcasts
+        feeds:
+          - name: "make sense podcast"
+            url: https://podcasts.apple.com/ru/podcast/make-sense-podcast/id1417851966?l=en
+            rss: http://feeds.soundcloud.com/users/soundcloud:users:219452274/sounds.rss
+          - name: "Product & Growth Show"
+            url: https://podcasts.apple.com/ru/podcast/product-growth-show/id1477971944?l=en
+            rss: http://feeds.soundcloud.com/users/soundcloud:users:683140781/sounds.rss
+          - name: "Продуктивный Роман"
+            url: https://podcasts.apple.com/ru/podcast/%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9-%D1%80%D0%BE%D0%BC%D0%B0%D0%BD-%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%8C/id1178337792?l=en
+            rss: http://feeds.soundcloud.com/users/soundcloud:users:6251250/sounds.rss
 
   - name: Музыкальный мир
     slug: music
@@ -1046,7 +1284,6 @@ boards:
           - name: "On The Corner"
             url: https://t.me/jazzonthecorner
             rss: https://infomate.club/parsing/telegram/jazzonthecorner
-
 
   - name: Linguistic Madness
     slug: linguisticmadness
@@ -1197,7 +1434,6 @@ boards:
             url: https://t.me/duckalert
             rss: https://tg2rss.xyz/channel/?name=duckalert
             is_parsable: false
-
 
   - name: Плейсмент продаёт
     slug: targetboy
@@ -1411,174 +1647,6 @@ boards:
           - name: "Joe La Pompe advertising"
             url: https://www.joelapompe.net/category/design-digital/
             rss: https://www.joelapompe.net/category/design-digital/feed/
-
-
-
-  - name: Блокчейн без буллшита
-    slug: basicblock
-    is_visible: true
-    is_private: false
-    curator:
-      name: Блокчейн без буллшита
-      url: от Сергея Тихомирова и подкаста «<a href="https://basicblockradio.com/">Базовый Блок</a>»
-      avatar: https://i.vas3k.ru/gt3.png
-      bio: >
-        Подборка про биткоин, криптовалюты и блокчейн с фокусом на технологии
-      footer: >
-        это подборка качественных источников про блокчейн-технологии от подкаста «Базовый Блок».
-        Разбираемся, как криптовалюты работают на самом деле (вместо обсуждения их курса). Сложно, зато по делу.
-    blocks:
-      - name: "Мейнстримные блокчейн-СМИ"
-        slug: main
-        feeds:
-          - name: Coindesk
-            url: https://www.coindesk.com/
-            rss: https://www.coindesk.com/feed
-          - name: Bitcoin Magazine
-            url: https://bitcoinmagazine.com/
-            rss: https://bitcoinmagazine.com/feed
-          - name: The Block
-            url: https://www.theblockcrypto.com/
-            rss: https://www.theblockcrypto.com/rss.xml
-          - name: Decrypt
-            url: https://decrypt.co/
-            rss: https://decrypt.co/feed
-          - name: Hodl Hodl News
-            url: https://news.hodlhodl.com/
-            rss: https://news.hodlhodl.com/news.rss
-          - name: Битновости
-            url: https://bitnovosti.com/
-            rss: https://bitnovosti.com/feed/
-          - name: Форклог
-            url: https://forklog.com/
-            rss: https://forklog.com/feed/
-          - name: Bitcoin Translated
-            url: https://bitcoin-translated.ru/
-            rss: https://medium.com/feed/@Tony_B
-            is_parsable: false
-          - name: Nakamoto
-            url: https://nakamoto.com/
-            rss: https://nakamoto.com/rss/
-
-      - name: "Подкасты"
-        slug: podcasts
-        feeds:
-          - name: Epicenter
-            url: https://epicenter.tv/
-            rss: https://feeds.simplecast.com/lKmQDG9R
-          - name: Let's talk Bitcoin
-            url: https://letstalkbitcoin.com/blog/category/episodes
-            rss: https://letstalkbitcoin.com/rss/feed/blog?limit=100&soundcloud-id=true&audio-url=true&sites=1&categories=11
-          - name: Unscrypted
-            url: https://aantonop.com/unscrypted/
-            rss: https://aantonop.com/category/podcasts/unscrypted-pod/feed/podcast/
-          - name: Stephan Livera Podcast
-            url: https://stephanlivera.com/
-            rss: https://anchor.fm/s/7d083a4/podcast/rss
-          - name: Unchained
-            url: https://unchainedpodcast.com/category/unchained/
-            rss: https://unchainedpodcast.com/category/unchained/feed/
-          - name: Zero Knowledge
-            url: https://www.zeroknowledge.fm/
-            rss: https://feeds.fireside.fm/zeroknowledge/rss
-          - name: Базовый Блок
-            url: https://basicblockradio.com/
-            rss: https://basicblockradio.libsyn.com/rss
-          - name: Crypto Voices
-            url: https://cryptovoices.com/
-            rss: http://feeds.soundcloud.com/users/soundcloud:users:246365412/sounds.rss
-          - name: Tales from the Crypt
-            url: https://talesfromthecrypt.libsyn.com/
-            rss: https://anchor.fm/s/558f520/podcast/rss
-
-      - name: "Блоги важнейших людей и проектов"
-        slug: important
-        feeds:
-          - name: Bitcoin Core
-            url: https://bitcoincore.org/
-            rss: https://bitcoincore.org/en/rss.xml
-          - name: Blockstream
-            url: https://blockstream.com/blog/
-            rss: https://blockstream.com/feed.xml
-          - name: Lightning Labs
-            url: https://blog.lightning.engineering/
-            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e2b21928a93f82e418b4567.xml
-          - name: Ethereum
-            url: https://blog.ethereum.org/
-            rss: https://blog.ethereum.org/feed
-          - name: Vitalik Buterin
-            url: https://vitalik.ca/
-            rss: https://vitalik.ca/feed.xml
-
-      - name: "Подборки новостей и публикаций"
-        slug: mix
-        feeds:
-          - name: Bitcoin Optech
-            url: https://bitcoinops.org/
-            rss: https://bitcoinops.org/feed.xml
-          - name: Lightning this week
-            url: https://medium.com/zebedee-engineering
-            rss: https://medium.com/feed/zebedee-engineering
-          - name: Week in Ethereum
-            url: https://weekinethereumnews.com/
-            rss: https://weekinethereumnews.com/feed/
-          - name: EthHub
-            url: https://ethhub.substack.com/
-            rss: https://ethhub.substack.com/feed/
-          - name: Build Blockchain Tech
-            url: https://www.buildblockchain.tech/newsletter/issues/
-            rss: https://www.buildblockchain.tech/newsletter/issues?format=rss
-          - name: This Week in Blockchain Research
-            url: https://zkcapital.substack.com/
-            rss: https://zkcapital.substack.com/feed
-          - name: EU Crypto
-            url: https://eucrypto.substack.com/
-            rss: https://eucrypto.substack.com/feed
-          - name: Our Network
-            url: https://ournetwork.substack.com/
-            rss: https://ournetwork.substack.com/feed
-          - name: Blockchain Research Newsletter
-            url: https://blockchainresearch.substack.com/
-            rss: https://blockchainresearch.substack.com/feed
-
-      - name: "Инвестфонды и аналитика"
-        slug: invest
-        feeds:
-          - name: Paradigm Fund
-            url: https://medium.com/paradigm-fund
-            rss: https://medium.com/feed/paradigm-fund
-          - name: a16z Crypto
-            url: https://a16z.com/category/blockchain-cryptocurrencies/
-            rss: https://a16z.com/category/blockchain-cryptocurrencies/feed/
-          - name: Multicoin Capital
-            url: https://multicoin.capital/
-            rss: https://multicoin.capital/rss.xml
-          - name: Placeholder Capital
-            url: https://www.placeholder.vc/
-            rss: https://www.placeholder.vc/blog?format=rss
-          - name: Unchained
-            url: https://www.unchained-capital.com/blog
-            rss: https://unchained-capital.com/feed/
-          - name: Electric Capital
-            url: https://medium.com/@ElectricCapital
-            rss: https://medium.com/feed/@ElectricCapital
-          - name: Zenith Ventures
-            url: https://medium.com/zenith-ventures
-            rss: https://medium.com/feed/zenith-ventures
-          - name: BitMEX
-            url: https://blog.bitmex.com/research/
-            rss: https://blog.bitmex.com/category/research/feed/?lang=en_us
-          - name: Uncommon Core
-            url: https://uncommoncore.co/
-            rss: https://uncommoncore.co/feed/
-          - name: Nic Carter
-            url: https://medium.com/@nic__carter
-            rss: https://medium.com/feed/@nic__carter
-          - name: Dragonfly Research
-            url: https://medium.com/dragonfly-research
-            rss: https://medium.com/feed/dragonfly-research
-
-
 
   - name: Made for iPhone
     slug: iphone
@@ -1810,10 +1878,9 @@ boards:
             url: https://security.googleblog.com/
             rss: https://security.googleblog.com/feeds/posts/default?alt=rss
 
-
   - name: Книги, книги, книги
     slug: mnogochital
-    is_visible: true
+    is_visible: false
     is_private: false
     curator:
       name: Книги, книги, книги
@@ -1906,8 +1973,6 @@ boards:
           - name: "Полка"
             url: https://podcasts.apple.com/ru/podcast/полка/id1450480149
             rss: https://feeds.simplecast.com/x_9E5llm
-
-
 
   - name: Тестирование
     slug: qa
