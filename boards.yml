@@ -9,7 +9,7 @@ boards:
       avatar: https://i.vas3k.ru/63cd2ebddba4422aa684b2bd754c636eb061ef0555f542042c31850525d2f5bb.png
       bio: Основные новостные издания чтобы следить за событиями в России и в мире. Пока бета-версия. Предложения новых источников присылайте в личку
     blocks:
-      - name: На русском
+      - name: Россия
         slug: ru
         feeds:
           - name: Meduza
@@ -42,6 +42,32 @@ boards:
           - name: BBC Россия
             url: https://www.bbc.com/russian
             rss: https://feeds.bbci.co.uk/russian/rss.xml
+      - name: Телеграм-каналы
+          slug: tg
+          feeds:
+            - name: Varlamov News
+              url: https://t.me/varlamov_news
+              rss: https://infomate.club/parsing/telegram/varlamov_news?only=text
+              icon: https://i.vas3k.ru/93a624086cd3835fdf9c704155b91f12b7cf238726bc39316f0a605c87797fa7.jpg
+            - name: Новая Газета
+              url: https://t.me/novaya_pishet
+              rss: https://infomate.club/parsing/telegram/novaya_pishet
+              icon: https://i.vas3k.ru/f2cabb4173f6dcaad7db9f6285458e0d79593a5eba08b77f16e89ff532171860.jpg
+            - name: Mash
+              url: https://t.me/breakingmash
+              rss: https://infomate.club/parsing/telegram/breakingmash?only=text
+              icon: https://i.vas3k.ru/9b7f5f94e9e5b6f2b4ded23374c1dd38333f11e3a2af21863f2c89458ba77cb5.jpg
+            - name: Лентач
+              url: https://t.me/lentachold
+              rss: https://infomate.club/parsing/telegram/lentachold?only=text
+            - name: RTVI
+              url: https://t.me/rtvimain
+              rss: https://infomate.club/parsing/telegram/rtvimain?only=text
+              icon: https://i.vas3k.ru/de4d266b4744ca0cb8bc9ded3842989593fdd54ec78484c7c982b8951db08617.jpg
+            - name: Expresso
+              url: https://t.me/expressotoday
+              rss: https://infomate.club/parsing/telegram/expressotoday?only=text
+              icon: https://i.vas3k.ru/8ecf3ff7c82f89b0bfdde441e32082b063d7bf33e7b3b4b13a77dd35b38aa744.jpg
       - name: США
         slug: us
         feeds:
@@ -94,32 +120,6 @@ boards:
             url: https://www.scmp.com/
             rss: https://www.scmp.com/rss/91/feed
             icon: https://i.vas3k.ru/a9261d4f317ea377bc68a5c6a7526d6b6127ef5cae9204345f63435688a2f069.jpg
-      - name: Телеграм-каналы
-        slug: tg
-        feeds:
-          - name: Varlamov News
-            url: https://t.me/varlamov_news
-            rss: https://infomate.club/parsing/telegram/varlamov_news?only=text
-            icon: https://i.vas3k.ru/93a624086cd3835fdf9c704155b91f12b7cf238726bc39316f0a605c87797fa7.jpg
-          - name: Новая Газета
-            url: https://t.me/novaya_pishet
-            rss: https://infomate.club/parsing/telegram/novaya_pishet
-            icon: https://i.vas3k.ru/f2cabb4173f6dcaad7db9f6285458e0d79593a5eba08b77f16e89ff532171860.jpg
-          - name: Mash
-            url: https://t.me/breakingmash
-            rss: https://infomate.club/parsing/telegram/breakingmash?only=text
-            icon: https://i.vas3k.ru/9b7f5f94e9e5b6f2b4ded23374c1dd38333f11e3a2af21863f2c89458ba77cb5.jpg
-          - name: Лентач
-            url: https://t.me/lentachold
-            rss: https://infomate.club/parsing/telegram/lentachold?only=text
-          - name: RTVI
-            url: https://t.me/rtvimain
-            rss: https://infomate.club/parsing/telegram/rtvimain?only=text
-            icon: https://i.vas3k.ru/de4d266b4744ca0cb8bc9ded3842989593fdd54ec78484c7c982b8951db08617.jpg
-          - name: Expresso
-            url: https://t.me/expressotoday
-            rss: https://infomate.club/parsing/telegram/expressotoday?only=text
-            icon: https://i.vas3k.ru/8ecf3ff7c82f89b0bfdde441e32082b063d7bf33e7b3b4b13a77dd35b38aa744.jpg
 
   - name: Технологии
     slug: tech
