@@ -65,6 +65,7 @@ boards:
           - name: POLITICO
             url: https://www.politico.com/
             rss: https://www.politico.com/rss/politicopicks.xml
+            icon: https://i.vas3k.ru/0281ddd9b3bd890e1476666d5ea74688bc5fcf313500a5fc166127bc433b1287.jpg
       - name: Европа
         slug: eu
         feeds:
@@ -88,9 +89,11 @@ boards:
           - name: The Hindu
             url: https://www.thehindu.com/
             rss: https://www.thehindu.com/news/international/feeder/default.rss
+            icon: https://i.vas3k.ru/f3633b075315d58c7f9750f69d726627e1e42763352d72850eab7bc5bce28a09.jpg
           - name: South China Morning Post
             url: https://www.scmp.com/
             rss: https://www.scmp.com/rss/91/feed
+            icon: https://i.vas3k.ru/a9261d4f317ea377bc68a5c6a7526d6b6127ef5cae9204345f63435688a2f069.jpg
       - name: Телеграм-каналы
         slug: tg
         feeds:
