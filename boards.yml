@@ -7,7 +7,7 @@ boards:
       name: Новости
       title: События в мире
       avatar: https://i.vas3k.ru/63cd2ebddba4422aa684b2bd754c636eb061ef0555f542042c31850525d2f5bb.png
-      bio: Основные новостные издания чтобы следить за событиями в России и в мире. Бета-версия. Предложения новых источников присылайте в личку
+      bio: Основные новостные издания чтобы следить за событиями в России и в мире. Пока бета-версия. Предложения новых источников присылайте в личку
     blocks:
       - name: На русском
         slug: ru
@@ -23,69 +23,100 @@ boards:
             url: https://tjournal.ru
             rss: https://tjournal.ru/rss/all
             is_parsable: false
+          - name: Ведомости
+            url: https://www.vedomosti.ru/
+            rss: https://vedomosti.ru/rss/news
+          - name: Коммерсантъ
+            url: https://www.kommersant.ru/
+            rss: https://www.kommersant.ru/RSS/news.xml
+            icon: https://i.vas3k.ru/70e935c410a400d14beaadc25ddd13b386267ee7e56bd028c47ebfeb49c497cd.jpg
+          - name: РБК
+            url: https://www.rbc.ru/
+            rss: http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
           - name: Дождь
             url: https://tvrain.ru/news/
             rss: https://tvrain.ru/export/rss/all.xml
           - name: Lenta.ru
             url: https://lenta.ru/
             rss: https://lenta.ru/rss
-          - name: РБК
-            url: https://www.rbc.ru/
-            rss: http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
-          - name: Ведомости
-            url: https://www.vedomosti.ru/
-            rss: https://vedomosti.ru/rss/news
           - name: BBC Россия
             url: https://www.bbc.com/russian
             rss: https://feeds.bbci.co.uk/russian/rss.xml
-          - name: DW на русском
-            url: https://www.dw.com/ru/
-            rss: https://rss.dw.com/rdf/rss-ru-top
-      - name: Мировые
-        slug: world
+      - name: США
+        slug: us
         feeds:
           - name: Reddit News
             url: https://www.reddit.com/r/news/
             rss: https://www.reddit.com/r/news.rss
-          - name: BBC.com
-            url: https://www.bbc.com/
-            rss: http://feeds.bbci.co.uk/news/rss.xml
-            icon: https://i.vas3k.ru/635c5e5828a4868b73bdb777611084a3459873b628f3f7f9752a34e1516fc505.png
-          - name: CNN.com
+          - name: CNN
             url: https://cnn.com/
             rss: http://rss.cnn.com/rss/edition.rss
             icon: https://i.vas3k.ru/d2d88f4a1d1646bf3a70f76d6b585c472ee1735abd73dd30719d7f2f42f5743a.png
-          - name: Reuters
-            url: https://www.reuters.com/news/world
-            rss: https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US
+          - name: NYT
+            url: https://www.nytimes.com/
+            rss: https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
           - name: Bloomberg
             url: https://www.bloomberg.com/
             rss: http://www.bloomberg.com/politics/feeds/site.xml
+            icon: https://i.vas3k.ru/35c6ae6df0fe47166ed5c656bde6faa974ae1beca949c89443f0aed0b86e0806.png
+          - name: Reuters
+            url: https://www.reuters.com/news/world
+            rss: https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US
+          - name: POLITICO
+            url: https://www.politico.com/
+            rss: https://www.politico.com/rss/politicopicks.xml
+      - name: Европа
+        slug: eu
+        feeds:
+          - name: BBC
+            url: https://www.bbc.com/
+            rss: http://feeds.bbci.co.uk/news/rss.xml
+            icon: https://i.vas3k.ru/635c5e5828a4868b73bdb777611084a3459873b628f3f7f9752a34e1516fc505.png
+          - name: The Guardian
+            url: https://www.theguardian.com/international
+            rss: https://www.theguardian.com/international/rss
+          - name: Deutsche Welle
+            url: https://www.dw.com/
+            rss: https://rss.dw.com/rdf/rss-en-top
+      - name: Азия
+        slug: asia
+        feeds:
           - name: Al Jazeera
             url: https://www.aljazeera.com/
             rss: https://www.aljazeera.com/xml/rss/all.xml
             icon: https://i.vas3k.ru/c460dced3f230cd47c0626db1278c31d23325d98059487a57bdbbeac6e49c8d1.png
+          - name: The Hindu
+            url: https://www.thehindu.com/
+            rss: https://www.thehindu.com/news/international/feeder/default.rss
+          - name: South China Morning Post
+            url: https://www.scmp.com/
+            rss: https://www.scmp.com/rss/91/feed
       - name: Телеграм-каналы
         slug: tg
         feeds:
           - name: Varlamov News
             url: https://t.me/varlamov_news
             rss: https://infomate.club/parsing/telegram/varlamov_news?only=text
-          - name: Expresso
-            url: https://t.me/expressotoday
-            rss: https://infomate.club/parsing/telegram/expressotoday?only=text
+            icon: https://i.vas3k.ru/93a624086cd3835fdf9c704155b91f12b7cf238726bc39316f0a605c87797fa7.jpg
+          - name: Новая Газета
+            url: https://t.me/novaya_pishet
+            rss: https://infomate.club/parsing/telegram/novaya_pishet
+            icon: https://i.vas3k.ru/f2cabb4173f6dcaad7db9f6285458e0d79593a5eba08b77f16e89ff532171860.jpg
           - name: Mash
             url: https://t.me/breakingmash
             rss: https://infomate.club/parsing/telegram/breakingmash?only=text
+            icon: https://i.vas3k.ru/9b7f5f94e9e5b6f2b4ded23374c1dd38333f11e3a2af21863f2c89458ba77cb5.jpg
           - name: Лентач
             url: https://t.me/lentachold
             rss: https://infomate.club/parsing/telegram/lentachold?only=text
           - name: RTVI
             url: https://t.me/rtvimain
             rss: https://infomate.club/parsing/telegram/rtvimain?only=text
-          - name: Новая Газета
-            url: https://t.me/novaya_pishet
-            rss: https://infomate.club/parsing/telegram/novaya_pishet
+            icon: https://i.vas3k.ru/de4d266b4744ca0cb8bc9ded3842989593fdd54ec78484c7c982b8951db08617.jpg
+          - name: Expresso
+            url: https://t.me/expressotoday
+            rss: https://infomate.club/parsing/telegram/expressotoday?only=text
+            icon: https://i.vas3k.ru/8ecf3ff7c82f89b0bfdde441e32082b063d7bf33e7b3b4b13a77dd35b38aa744.jpg
 
   - name: Технологии
     slug: tech
