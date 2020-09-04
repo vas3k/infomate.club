@@ -128,7 +128,7 @@ boards:
     curator:
       name: Технологии
       title: Основные СМИ
-      avatar: https://i.vas3k.ru/e2760d4fcb8101f20d0c74e4a9ad2e4992b409eb377f473589bd674af81ed2a7.jpg
+      avatar: https://i.vas3k.ru/229b722cc79faca1f148c66b1e7240488e7405704f94b8d7f0fadddcf66212f0.jpg
       bio: Подборка мейнстримовых новостей о технологиях на русском и английском языках
     blocks:
       - name: На русском
