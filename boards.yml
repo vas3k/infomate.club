@@ -4,7 +4,7 @@ boards:
     is_visible: true
     is_private: false
     curator:
-      name: Новости
+      name: Главные новости
       title: События в мире
       avatar: https://i.vas3k.ru/63cd2ebddba4422aa684b2bd754c636eb061ef0555f542042c31850525d2f5bb.png
       bio: Основные новостные издания чтобы следить за событиями в России и в мире. Пока бета-версия. Предложения новых источников присылайте в личку
@@ -127,7 +127,7 @@ boards:
     is_private: false
     curator:
       name: Технологии
-      title: Главные новости
+      title: Основные СМИ
       avatar: https://i.vas3k.ru/fhr.png
       bio: Новости о технологиях на русском и английском языках
     blocks:
