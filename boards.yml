@@ -202,6 +202,18 @@ boards:
           - name: 9to5mac
             url: https://9to5mac.com
             rss: https://9to5mac.com/feed/
+      - name: Телеграм-каналы
+        slug: tg
+        feeds:
+          - name: addmeto
+            url: https://t.me/addmeto
+            rss: https://infomate.club/parsing/telegram/addmeto
+          - name: Rozetked
+            url: https://t.me/rozetked
+            rss: https://infomate.club/parsing/telegram/rozetked
+          - name: Rozetked
+            url: https://t.me/rozetked
+            rss: https://infomate.club/parsing/telegram/rozetked
       - name: Мейнстрим
         slug: mainstream
         feeds:
@@ -214,6 +226,7 @@ boards:
           - name: "BBC: Technology"
             url: https://www.bbc.com/news/technology
             rss: http://feeds.bbci.co.uk/news/technology/rss.xml
+            icon: https://i.vas3k.ru/635c5e5828a4868b73bdb777611084a3459873b628f3f7f9752a34e1516fc505.png
 
   - name: Вастрик
     slug: vas3k
@@ -537,6 +550,7 @@ boards:
     is_private: false
     curator:
       name: Very ML
+      title: State-of-the-art Machine Learning News Feed
       url: by <a href="https://twitter.com/tiulpin">Viktor Tiulpin</a> and <a href="https://t.me/Recent_AI">Recent AI News</a>
       avatar: https://i.vas3k.ru/hzv.png
       bio: State-of-the-art Machine Learning News Feed
