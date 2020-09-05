@@ -27,7 +27,7 @@ services:
         - POSTGRES_PASSWORD=postgres
         - POSTGRES_DB=infomate
     ports:
-        - 5432
+        - "54321:5432"
 
   migrate_and_init:
     <<: *app

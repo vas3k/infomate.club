@@ -1,0 +1,13 @@
+<div class="block block-100">
+    {% if block.name %}
+        <div class="block-header">{{ block.name }}</div>
+    {% endif %}
+
+    <div class="feeds feeds-3">
+        {% for feed in feeds %}
+            {% if feed.block == block %}
+                {% include feed.template %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

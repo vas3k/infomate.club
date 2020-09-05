@@ -46,7 +46,10 @@
     }
 
 .board {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
     position: relative;
     max-width: var(--max-content-width);
     margin: 0 auto;
@@ -56,21 +59,51 @@
     display: block;
 }
 
+    .block-100 {
+        width: 100%;
+    }
+
+    .block-50 {
+        width: 49%;
+    }
+
+    @media only screen and (max-width : 570px) {
+        .block-100, .block-50 {
+            width: auto;
+        }
+    }
+
+
 .feeds {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
+
+    .feed {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .feeds-3 .feed {
+        width: 33%;
+    }
+
+    .feeds-2 .feed {
+        width: 49%;
+    }
 
     .feed .article-tooltip {
         /* Shift tooltip to right */
-        left: 85%;
+        left: 250px;
         top: -100px;
         right: auto;
         bottom: auto;
     }
 
-    .feed:nth-child(3n) .article-tooltip {
+    .feeds-3 .feed:nth-child(3n) .article-tooltip,
+    .feeds-2 .feed:nth-child(2n) .article-tooltip {
         /* Shift tooltip to left */
         left: -105%;
         top: -100px;

@@ -11,12 +11,12 @@ from urllib.parse import urljoin
 import click
 import requests
 import yaml
-import feedparser
 from bs4 import BeautifulSoup
 
 from boards.models import Board, BoardFeed, BoardBlock
+from boards.icons import DOMAIN_FAVICONS
 from utils.images import upload_image_from_url
-from scripts.common import DEFAULT_REQUEST_HEADERS
+from scripts.common import DEFAULT_REQUEST_HEADERS, parse_domain
 
 
 @click.command()
@@ -79,76 +79,84 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                 slug=block_config["slug"],
                 defaults=dict(
                     name=block_name,
-                    index=block_index
+                    index=block_index,
+                    view=block_config.get("view") or BoardBlock.DEFAULT_VIEW,
                 )
             )
 
             if not is_created:
                 block.index = block_index
                 block.name = block_name
+                block.view = block_config.get("view") or BoardBlock.DEFAULT_VIEW
                 block.save()
 
             if not block_config.get("feeds"):
                 continue
 
+            updated_feed_urls = set()
+
             for feed_index, feed_config in enumerate(block_config.get("feeds") or []):
                 feed_name = feed_config.get("name")
-                feed_url = feed_config["url"]
+                feed_mix = feed_config.get("mix")
+                if feed_mix:
+                    feed_url = feed_config.get("url") or f"mix:{'|'.join(feed_mix)}"
+                    feed_rss = None
+                else:
+                    feed_url = feed_config["url"]
+                    feed_rss = feed_config["rss"]
+
+                updated_feed_urls.add(feed_url)
                 
-                print(f"Creating or updating feed: {feed_name}...")
+                print(f"Creating or updating feed {feed_name} ({feed_url})...")
 
                 feed, is_created = BoardFeed.objects.get_or_create(
                     board=board,
                     block=block,
-                    url=feed_config["url"],
+                    url=feed_url,
                     defaults=dict(
-                        rss=feed_config.get("rss"),
+                        rss=feed_rss,
+                        mix=feed_mix,
                         name=feed_name,
                         comment=feed_config.get("comment"),
                         icon=feed_config.get("icon"),
                         index=feed_index,
                         columns=feed_config.get("columns") or 1,
                         conditions=feed_config.get("conditions"),
-                        is_parsable=feed_config.get("is_parsable", True)
+                        is_parsable=feed_config.get("is_parsable", True),
+                        view=feed_config.get("view") or BoardFeed.DEFAULT_VIEW,
                     )
                 )
 
                 if not is_created:
-                    feed.rss = feed_config.get("rss")
+                    feed.rss = feed_rss
+                    feed.mix = feed_mix
                     feed.name = feed_name
                     feed.comment = feed_config.get("comment")
                     feed.index = feed_index
+                    feed.icon = feed.icon or feed_config.get("icon")
                     feed.columns = feed_config.get("columns") or 1
                     feed.conditions = feed_config.get("conditions")
                     feed.is_parsable = feed_config.get("is_parsable", True)
+                    feed.view = feed_config.get("view") or BoardFeed.DEFAULT_VIEW
 
                 html = None
 
-                if not feed.rss:
-                    html = html or load_page_html(feed_url)
-                    rss_url = feed_config.get("rss")
-                    if not rss_url:
-                        rss_url = find_rss_feed(feed_url, html)
-                        if not rss_url:
-                            print(f"RSS feed for '{feed_name}' not found. "
-                                  f"Please specify 'rss' key.")
-                            exit(1)
-                        print(f"- found RSS: {rss_url}")
+                if not feed.mix:
+                    if not feed.icon:
+                        feed.icon = DOMAIN_FAVICONS.get(parse_domain(feed_url))
 
-                    feed.rss = rss_url
+                    if not feed.icon:
+                        html = html or load_page_html(feed_url)
+                        icon = feed_config.get("icon")
+                        if not icon:
+                            icon = find_favicon(feed_url, html)
+                            print(f"- found favicon: {icon}")
 
-                if not feed.icon:
-                    html = html or load_page_html(feed_url)
-                    icon = feed_config.get("icon")
-                    if not icon:
-                        icon = find_favicon(feed_url, html)
-                        print(f"- found favicon: {icon}")
+                            if upload_favicons:
+                                icon = upload_image_from_url(icon)
+                                print(f"- uploaded favicon: {icon}")
 
-                        if upload_favicons:
-                            icon = upload_image_from_url(icon)
-                            print(f"- uploaded favicon: {icon}")
-
-                    feed.icon = icon
+                        feed.icon = icon
 
                 feed.save()
 
@@ -157,7 +165,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                 board=board,
                 block=block
             ).exclude(
-                url__in={feed["url"] for feed in block_config.get("feeds") or []}
+                url__in=updated_feed_urls
             ).delete()
 
         # delete unused blocks
@@ -180,32 +188,32 @@ def load_page_html(url):
     ).text
 
 
-def find_rss_feed(url, html):
-    bs = BeautifulSoup(html, features="lxml")
-    possible_feeds = set()
-
-    feed_urls = bs.findAll("link", rel="alternate")
-    for feed_url in feed_urls:
-        t = feed_url.get("type", None)
-        if t:
-            if "rss" in t or "xml" in t:
-                href = feed_url.get("href", None)
-                if href:
-                    possible_feeds.add(urljoin(url, href))
-
-    a_tags = bs.findAll("a")
-    for a in a_tags:
-        href = a.get("href", None)
-        if href:
-            if "xml" in href or "rss" in href or "feed" in href:
-                possible_feeds.add(urljoin(url, href))
-
-    for feed_url in possible_feeds:
-        feed = feedparser.parse(feed_url)
-        if feed.entries:
-            return feed_url
-
-    return None
+# def find_rss_feed(url, html):
+#     bs = BeautifulSoup(html, features="lxml")
+#     possible_feeds = set()
+#
+#     feed_urls = bs.findAll("link", rel="alternate")
+#     for feed_url in feed_urls:
+#         t = feed_url.get("type", None)
+#         if t:
+#             if "rss" in t or "xml" in t:
+#                 href = feed_url.get("href", None)
+#                 if href:
+#                     possible_feeds.add(urljoin(url, href))
+#
+#     a_tags = bs.findAll("a")
+#     for a in a_tags:
+#         href = a.get("href", None)
+#         if href:
+#             if "xml" in href or "rss" in href or "feed" in href:
+#                 possible_feeds.add(urljoin(url, href))
+#
+#     for feed_url in possible_feeds:
+#         feed = feedparser.parse(feed_url)
+#         if feed.entries:
+#             return feed_url
+#
+#     return None
 
 
 def find_favicon(url, html):

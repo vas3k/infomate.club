@@ -19,3 +19,5 @@ ADD . /app
 
 RUN pip install --no-cache-dir -e . \
     && pip install --no-cache-dir -r $requirements
+
+RUN python -c "import nltk; nltk.download('punkt')"

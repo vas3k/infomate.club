@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% load text_filters %}
 {% load static %}
-{% load bleach_tags %}
 
 {% block title %}{{ board.curator_name }}{% if board.curator_title %} | {{ board.curator_title }}{% endif %} | {{ block.super }}{% endblock %}
 
@@ -46,57 +45,7 @@
             </div>
         {% endif %}
         {% for block in blocks %}
-            <div class="block">
-                {% if block.name %}
-                    <div class="block-header">{{ block.name }}</div>
-                {% endif %}
-
-                <div class="feeds">
-                    {% for feed in feeds %}
-                        {% if feed.block == block %}
-                            {% for column, articles in feed.articles_by_column %}
-                                <div class="feed {% if column > 1 %}hide-on-iphone{% endif %}">
-                                    {% if feed.name %}
-                                        <div class="feed-title {% if column != 0 %}feed-title-hidden{% endif %}">
-                                            {% if feed.icon %}
-                                                <img src="{{ feed.icon }}" alt="{{ feed.name }}">
-                                            {% endif %}
-                                            <a href="{{ feed.url }}" target="_blank">{{ feed.name }}</a><br>
-                                            <small>последний пост {{ feed.natural_last_article_at }}</small>
-                                        </div>
-                                    {% endif %}
-                                    <div class="articles feed-articles">
-                                        {% for article in articles %}
-                                            <div class="article {% if article.is_fresh %}is-article-fresh{% endif %}">
-                                                <div class="article-title">{{ article.icon|safe }}<a href="{{ article.url }}" target="_blank" class="article-link">{{ article.title|bleach }}</a></div>
-                                                <a href="{{ article.url }}" class="article-tooltip" target="_blank">
-                                                    {% if article.image %}
-                                                        <img src="{{ article.image }}" alt="{{ article.title|striptags }}" class="article-tooltip-image">
-                                                    {% endif %}
-
-                                                    <span class="article-tooltip-title">{{ article.title|striptags|truncatechars:300 }}</span>
-
-                                                    {% if article.description or article.summary %}
-                                                        <span class="article-tooltip-description">
-                                                            {% if feed.is_parsable and article.summary %}
-                                                                {{ article.summary|striptags|truncatechars:700|escape|nl2p|safe }}
-                                                            {% else %}
-                                                                {{ article.description|striptags|truncatechars:700|escape|nl2p|safe }}
-                                                            {% endif %}
-                                                        </span>
-                                                    {% endif %}
-
-                                                    <span class="article-tooltip-info">{{ article.natural_created_at }} @ {{ article.domain }}</span>
-                                                </a>
-                                            </div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
+            {% include block.template %}
         {% endfor %}
     {% endblock %}
 </div>
@@ -110,10 +59,6 @@
         {% if board.natural_refreshed_at %}
             <br><small>Обновлено {{ board.natural_refreshed_at }}</small>
         {% endif %}
-
-        <div class="board-footer-export">
-            <a href="{% url "export" board.slug %}" class="button export-button">Экспортировать подборку себе</a>
-        </div>
     </div>
 {% endif %}
 {% endblock %}

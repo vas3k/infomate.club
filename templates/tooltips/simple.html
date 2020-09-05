@@ -1,0 +1,21 @@
+{% load text_filters %}
+
+<a href="{{ article.url }}" class="article-tooltip" rel="noopener noreferrer nofollow" target="_blank">
+    {% if article.image %}
+        <img src="{{ article.image }}" alt="{{ article.title|striptags }}" class="article-tooltip-image">
+    {% endif %}
+
+    <span class="article-tooltip-title">{{ article.title|striptags|truncatechars:300 }}</span>
+
+    {% if article.description or article.summary %}
+        <span class="article-tooltip-description">
+            {% if feed.is_parsable and article.summary %}
+                {{ article.summary|striptags|truncatechars:700|escape|nl2p|safe }}
+            {% else %}
+                {{ article.description|striptags|truncatechars:700|escape|nl2p|safe }}
+            {% endif %}
+        </span>
+    {% endif %}
+
+    <span class="article-tooltip-info">{{ article.natural_created_at }} @ {{ article.domain }}</span>
+</a>

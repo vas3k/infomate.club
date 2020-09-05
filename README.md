@@ -122,6 +122,10 @@ boards:
         rss: http://feeds.feedburner.com/TechCrunch/
         url: https://techcrunch.com
         is_parsable: false  # do not try to parse pages, show RSS content only
+        conditions:
+          - type: not_in
+            field: title
+            word: Trump   # exclude articles with a word "Trump" in title
 ```
 
 ## Contributing

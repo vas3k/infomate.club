@@ -1,0 +1,27 @@
+{% load static %}
+{% load text_filters %}
+{% load bleach_tags %}
+
+{% for column, articles in feed.articles_by_column %}
+    <div class="feed {% if column > 1 %}hide-on-iphone{% endif %}">
+        {% if feed.name %}
+            <div class="feed-title {% if column != 0 %}feed-title-hidden{% endif %}">
+                {% if feed.icon %}
+                    <img src="{{ feed.icon }}" alt="{{ feed.name }}">
+                {% endif %}
+                <a href="{{ feed.url }}" target="_blank">{{ feed.name }}</a><br>
+                <small>последний пост {{ feed.natural_last_article_at }}</small>
+            </div>
+        {% endif %}
+        <div class="articles feed-articles">
+            {% for article in articles %}
+                <div class="article {% if article.is_fresh %}is-article-fresh{% endif %}">
+                    <div class="article-title">
+                        {{ article.icon|safe }}<a href="{{ article.url }}" rel="noopener noreferrer nofollow" target="_blank" class="article-link">{{ article.title|bleach }}</a>
+                    </div>
+                    {% include "tooltips/simple.html" %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

@@ -41,11 +41,8 @@
 
 {% block footer %}
     <div class="footer">
-        Сделал <a href="https://vas3k.ru">Вастрик</a>. Код проекта <a href="https://github.com/vas3k/infomate.club">открыт</a>.<br><br>
-        Сайт использует <a href="https://ru.wikipedia.org/wiki/Cookie" target="_blank">куки</a> для авторизации<br> и собирает <a href="{% url "privacy_policy" %}">анонимные данные</a> для статистики.
-        {% if me %}
-            <br><a href="{% url "logout" %}" class="button logout-button">Выйти</a>
-        {% endif %}
+        Проект <a href="https://vas3k.club">Вастрик.Клуба</a>. Код <a href="https://github.com/vas3k/infomate.club">открыт</a>.<br>
+        Идеи и предложения новых источников присылайте на гитхаб.<br><br>
     </div>
 {% endblock %}
 

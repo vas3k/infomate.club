@@ -6,7 +6,7 @@ from django.db import models
 from django.contrib.postgres.fields import JSONField
 from slugify import slugify
 
-from boards.icons import DOMAIN_ICONS
+from boards.icons import DOMAIN_ICONS, DOMAIN_FAVICONS
 
 
 class Board(models.Model):
@@ -57,10 +57,14 @@ class Board(models.Model):
 
 
 class BoardBlock(models.Model):
+    DEFAULT_VIEW = "blocks/three.html"
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     board = models.ForeignKey(Board, related_name="blocks", on_delete=models.CASCADE, db_index=True)
     name = models.CharField(max_length=512, null=True)
     slug = models.SlugField()
+
+    view = models.CharField(max_length=256, default=DEFAULT_VIEW, null=False)
 
     created_at = models.DateTimeField(db_index=True)
     updated_at = models.DateTimeField()
@@ -70,6 +74,12 @@ class BoardBlock(models.Model):
     class Meta:
         db_table = "board_blocks"
         ordering = ["index"]
+
+    @property
+    def template(self):
+        if self.view and self.view.endswith(".html"):
+            return self.view
+        return self.DEFAULT_VIEW
 
     def save(self, *args, **kwargs):
         if not self.created_at:
@@ -84,14 +94,19 @@ class BoardBlock(models.Model):
 
 
 class BoardFeed(models.Model):
+    DEFAULT_VIEW = "feeds/simple.html"
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     board = models.ForeignKey(Board, related_name="feeds", on_delete=models.CASCADE, db_index=True)
     block = models.ForeignKey(BoardBlock, related_name="feeds", on_delete=models.CASCADE, db_index=True)
     name = models.CharField(max_length=512, null=True)
     comment = models.TextField(null=True)
-    url = models.URLField(max_length=512)
+    url = models.TextField()
     icon = models.URLField(max_length=512, null=True)
     rss = models.URLField(max_length=512, null=True)
+    mix = JSONField(null=True)
+
+    view = models.CharField(max_length=256, default=DEFAULT_VIEW, null=False)
 
     created_at = models.DateTimeField(db_index=True)
     last_article_at = models.DateTimeField(null=True)
@@ -108,6 +123,12 @@ class BoardFeed(models.Model):
     class Meta:
         db_table = "board_feeds"
         ordering = ["index"]
+
+    @property
+    def template(self):
+        if self.view and self.view.endswith(".html"):
+            return self.view
+        return self.DEFAULT_VIEW
 
     def save(self, *args, **kwargs):
         if not self.created_at:
@@ -166,6 +187,13 @@ class Article(models.Model):
             return f"""<i class="{article_icon[3:]}"></i> """
 
         return f"""<img src="{article_icon}" alt="{self.domain}" class="icon"> """
+
+    def favicon(self):
+        if not self.domain:
+            return None
+
+        favicon_domain = self.domain.lower().replace("www.", "")
+        return DOMAIN_FAVICONS.get(favicon_domain)
 
     def natural_created_at(self):
         if not self.created_at:

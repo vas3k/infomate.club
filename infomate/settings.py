@@ -16,7 +16,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     "django_bleach",
-    "auth",
     "boards",
     "parsing"
 ]
@@ -39,7 +38,6 @@ TEMPLATES = [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "boards.context_processors.settings_processor",
-                "auth.context_processors.me",
             ],
         },
     },

@@ -120,7 +120,7 @@
 
         .curator-bio {
             font-size: 120%;
-            padding-top: 20px;
+            padding-top: 10px;
         }
 
         .curator-info a {
@@ -256,10 +256,19 @@
         text-decoration: none;
     }
 
+    .article-favicon {
+        max-width: 20px;
+        max-height: 20px;
+        padding-right: 4px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
     .article-tooltip {
         visibility: hidden;
         transition: visibility 0.1s;
         width: 100%;
+        max-width: 400px;
         position: absolute;
         bottom: 25px;
         left: 0;

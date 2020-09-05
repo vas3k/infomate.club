@@ -4,7 +4,7 @@ boards:
     is_visible: true
     is_private: false
     curator:
-      name: Главные новости
+      name: Новости
       title: События в мире
       avatar: https://i.vas3k.ru/63cd2ebddba4422aa684b2bd754c636eb061ef0555f542042c31850525d2f5bb.png
       bio: Подборка основных новостных изданий, чтобы следить за событиями в России и в мире. Пока бета-версия. Предложения новых источников присылайте в личку
@@ -19,6 +19,7 @@ boards:
             url: https://tass.ru/
             rss: https://tass.ru/rss/v2.xml
             icon: https://i.vas3k.ru/aca2f29518b01b25b3a40d63109d45dde74be15e47877aaa89553ff567b05151.png
+            is_parsable: false
           - name: TJ
             url: https://tjournal.ru
             rss: https://tjournal.ru/rss/all
@@ -36,13 +37,14 @@ boards:
           - name: Дождь
             url: https://tvrain.ru/news/
             rss: https://tvrain.ru/export/rss/all.xml
+            is_parsable: false
           - name: Lenta.ru
             url: https://lenta.ru/
             rss: https://lenta.ru/rss
           - name: BBC Россия
             url: https://www.bbc.com/russian
             rss: https://feeds.bbci.co.uk/russian/rss.xml
-      - name: Телеграм-каналы
+      - name: Телеграм
         slug: tg
         feeds:
           - name: Varlamov News
@@ -64,34 +66,60 @@ boards:
             url: https://t.me/rtvimain
             rss: https://infomate.club/parsing/telegram/rtvimain?only=text
             icon: https://i.vas3k.ru/de4d266b4744ca0cb8bc9ded3842989593fdd54ec78484c7c982b8951db08617.jpg
-          - name: Expresso
-            url: https://t.me/expressotoday
-            rss: https://infomate.club/parsing/telegram/expressotoday?only=text
-            icon: https://i.vas3k.ru/8ecf3ff7c82f89b0bfdde441e32082b063d7bf33e7b3b4b13a77dd35b38aa744.jpg
+#          - name: Expresso
+#            url: https://t.me/expressotoday
+#            rss: https://infomate.club/parsing/telegram/expressotoday?only=text
+#            icon: https://i.vas3k.ru/8ecf3ff7c82f89b0bfdde441e32082b063d7bf33e7b3b4b13a77dd35b38aa744.jpg
       - name: США
         slug: us
         feeds:
-          - name: Reddit News
-            url: https://www.reddit.com/r/news/
-            rss: https://www.reddit.com/r/news.rss
-          - name: CNN
-            url: https://cnn.com/
-            rss: http://rss.cnn.com/rss/edition.rss
-            icon: https://i.vas3k.ru/d2d88f4a1d1646bf3a70f76d6b585c472ee1735abd73dd30719d7f2f42f5743a.png
-          - name: NYT
-            url: https://www.nytimes.com/
-            rss: https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
+          - name: Axios
+            url: https://www.axios.com/
+            rss: https://api.axios.com/feed/
+            icon: https://i.vas3k.ru/17f55ad102b80a85c618d5e56c61f24c17c20d12f8c960a87902845154a5bdfc.jpg
+          - name: Reuters
+            url: https://www.reuters.com/news/world
+            rss: https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US
           - name: Bloomberg
             url: https://www.bloomberg.com/
             rss: http://www.bloomberg.com/politics/feeds/site.xml
             icon: https://i.vas3k.ru/35c6ae6df0fe47166ed5c656bde6faa974ae1beca949c89443f0aed0b86e0806.png
-          - name: Reuters
-            url: https://www.reuters.com/news/world
-            rss: https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US
+          - name: Reddit News
+            url: https://www.reddit.com/r/news/
+            rss: https://www.reddit.com/r/news.rss
+            is_parsable: false
+          - name: NYT
+            url: https://www.nytimes.com/
+            rss: https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
+            is_parsable: false
           - name: POLITICO
             url: https://www.politico.com/
             rss: https://www.politico.com/rss/politicopicks.xml
             icon: https://i.vas3k.ru/0281ddd9b3bd890e1476666d5ea74688bc5fcf313500a5fc166127bc433b1287.jpg
+            is_parsable: false
+      - name: 🏳️‍🌈 Левые
+        slug: us_left
+        view: "blocks/two.html"
+        feeds:
+          - view: "feeds/favicons.html"
+            is_parsable: false
+            mix:
+              - http://rss.cnn.com/rss/edition.rss
+              - https://www.buzzfeed.com/index.xml
+              - https://www.huffpost.com/section/front-page/feed
+              - https://www.newyorker.com/feed/news
+              - https://www.msnbc.com/feed
+      - name: 💰 Правые
+        slug: us_right
+        view: "blocks/two.html"
+        feeds:
+          - view: "feeds/favicons.html"
+            is_parsable: false
+            mix:
+              - http://feeds.feedburner.com/foxnews/latest
+              - https://spectator.org/feed
+              - https://www.washingtontimes.com/rss/headlines/news/
+              - https://www.dailymail.co.uk/ushome/index.rss
       - name: Европа
         slug: eu
         feeds:
@@ -127,7 +155,7 @@ boards:
     is_private: false
     curator:
       name: Технологии
-      title: Основные СМИ
+      title: Главные новости
       avatar: https://i.vas3k.ru/229b722cc79faca1f148c66b1e7240488e7405704f94b8d7f0fadddcf66212f0.jpg
       bio: Подборка мейнстримовых новостей о технологиях на русском и английском языках
     blocks:
@@ -208,12 +236,11 @@ boards:
           - name: addmeto
             url: https://t.me/addmeto
             rss: https://infomate.club/parsing/telegram/addmeto
+            icon: https://i.vas3k.ru/cb1fe74c1a42fbe9d145c8538ed9230b7512633d06f680b96464fc4b355b23ef.jpg
           - name: Rozetked
             url: https://t.me/rozetked
             rss: https://infomate.club/parsing/telegram/rozetked
-          - name: Rozetked
-            url: https://t.me/rozetked
-            rss: https://infomate.club/parsing/telegram/rozetked
+            icon: https://i.vas3k.ru/abe55f96279f22704cd1cc5009be2f6527c8d205f289dc1c7c328a03314f3d5d.jpg
       - name: Мейнстрим
         slug: mainstream
         feeds:
@@ -274,6 +301,14 @@ boards:
             url: https://www.reddit.com/r/technology
             rss: https://www.reddit.com/r/technology.rss
             is_parsable: false
+          - name: "Pinboard: Popular"
+            url: https://pinboard.in/popular/
+            rss: http://feeds.pinboard.in/rss/popular/
+            icon: https://i.vas3k.ru/adfe6b6f09b2be1398df020bdd8d1b8dade25b139c88c68c0177d26e5ae0bce0.jpg
+            conditions:
+              - type: not_in
+                field: title
+                word: Trump
           - name: ZDNet
             rss: https://www.zdnet.com/news/rss.xml
             url: https://www.zdnet.com
@@ -284,100 +319,21 @@ boards:
           - name: Slashdot
             rss: http://rss.slashdot.org/Slashdot/slashdotMain
             url: https://slashdot.org
+            icon: https://i.vas3k.ru/2da938e66d63ca719a8854ead38a09d17d6ab17725aaf15fa68f401aa937340e.png
           - name: 'Medium: Technology'
             icon: https://i.vas3k.ru/fhb.png
             url: https://medium.com/topic/technology
             rss: https://medium.com/feed/topic/technology
             is_parsable: false
-          - name: Hacker Noon
-            url: https://hackernoon.com/
-            rss: https://hackernoon.com/feed
-      - name: Европейское айти
-        slug: eu
-        feeds:
-          - name: "EU-startups"
-            url: https://www.eu-startups.com/
-            rss: https://www.eu-startups.com/feed/
-            icon: https://i.vas3k.ru/fkp.jpg
-          - name: Tech.eu
-            url: https://tech.eu/
-            rss: https://tech.eu/feed/
-            icon: https://i.vas3k.ru/fl9.jpg
-          - name: "TechCrunch: Europe"
-            url: https://techcrunch.com/europe/
-            rss: http://feeds.feedburner.com/Techcrunch/europe
-            is_parsable: false
-      - name: Инди-разработка
-        slug: make
-        feeds:
-          - name: Show HN
-            url: https://news.ycombinator.com/show
-            rss: https://hnrss.org/show
-          - name: Starter Story
-            url: https://www.starterstory.com
-            rss: https://www.starterstory.com/feed?format=rss
-          - name: 'Reddit: /r/SideProject'
-            url: https://www.reddit.com/r/SideProject/
-            rss: https://www.reddit.com/r/SideProject.rss
-            is_parsable: false
-      - name: Путешествия
-        slug: travel
-        feeds:
-          - name: PeritoBurrito
-            url: https://perito-burrito.com
-            rss: http://perito-burrito.com/feed
-          - name: Vandrouki
-            url: https://vandrouki.ru
-            rss: https://feeds.feedburner.com/vandroukiru
-            icon: https://i.vas3k.ru/fer.jpg
-          - name: Secret Flying
-            url: https://www.secretflying.com
-            rss: https://www.secretflying.com/feed/
-          - name: 'Atlas Obscura: Stories'
-            url: https://www.atlasobscura.com/articles
-            rss: https://www.atlasobscura.com/feeds/latest
-          - name: "T—Ж"
-            url: https://journal.tinkoff.ru/chemodan/
-            rss: https://journal.tinkoff.ru/feed/
-          - name: Geeky Explorer
-            url: https://www.geekyexplorer.com
-            rss: https://www.geekyexplorer.com/feed/
-      - name: Микс из блогов крупных компаний
-        slug: engineering
-        feeds:
-          - url: http://www.rssmix.com/1/
-            rss: http://www.rssmix.com/u/10536474/rss.xml
-            columns: 3
-            mix:
-              - http://blog.stackoverflow.com/feed/
-              - https://machinelearning.apple.com/feed.xml
-              - http://nerds.airbnb.com/feed/
-              - http://www.ebaytechblog.com/feed/
-              - http://blog.agilebits.com/feed/
-              - http://research.microsoft.com/rss/news.xml
-              - http://blog.keras.io/feeds/all.atom.xml
-              - http://techblog.netflix.com/feeds/posts/default
-              - http://nickcraver.com/blog/feed.xml
-              - http://googlerussiablog.blogspot.com/atom.xml
-              - https://eng.uber.com/feed/
-              - http://web.mit.edu/newsoffice/topic/mitcomputers-rss.xml
-              - http://feeds.feedburner.com/corner-squareup-com
-              - http://googleresearch.blogspot.com/atom.xml
-              - http://githubengineering.com/atom.xml
-              - http://labs.spotify.com/feed/
-              - http://blog.kaggle.com/feed/
-              - http://clubs.ya.ru/company/rss/posts.xml
       - name: Блоги людей
         slug: people
         feeds:
-          - url: http://www.rssmix.com/2/
-            rss: http://www.rssmix.com/u/10538572/rss.xml
-            columns: 3
+          - columns: 3
+            view: "feeds/favicons.html"
             mix:
               - http://nedbatchelder.com/blog/rss.xml
               - http://rasskazov.pro/blog/?go=rss/
               - http://vas3k.ru/rss/
-              - http://www.dmitriysivak.com/feed/
               - http://nl.livejournal.com/data/rss
               - http://sashavolkova.ru/rss/
               - http://alexmak.net/blog/feed/
@@ -410,6 +366,81 @@ boards:
               - http://feeds.feedburner.com/codinghorror/
               - http://theoatmeal.com/feed/rss
               - https://waitbutwhy.com/feed
+      - name: Инди-разработка
+        slug: make
+        feeds:
+          - name: Show HN
+            url: https://news.ycombinator.com/show
+            rss: https://hnrss.org/show
+          - name: Starter Story
+            url: https://www.starterstory.com
+            rss: https://www.starterstory.com/feed?format=rss
+          - name: 'Reddit: /r/SideProject'
+            url: https://www.reddit.com/r/SideProject/
+            rss: https://www.reddit.com/r/SideProject.rss
+            is_parsable: false
+      - name: Путешествия
+        slug: travel
+        feeds:
+          - name: PeritoBurrito
+            url: https://perito-burrito.com
+            rss: http://perito-burrito.com/feed
+          - name: Vandrouki
+            url: https://vandrouki.ru
+            rss: https://feeds.feedburner.com/vandroukiru
+            icon: https://i.vas3k.ru/fer.jpg
+          - name: Secret Flying
+            url: https://www.secretflying.com
+            rss: https://www.secretflying.com/feed/
+          - name: 'Atlas Obscura: Stories'
+            url: https://www.atlasobscura.com/articles
+            rss: https://www.atlasobscura.com/feeds/latest
+            icon: https://i.vas3k.ru/345139fb86cb52076134880d1b4ef700d6354c4cf4639ebdfaf1f9891115f7ad.jpg
+          - name: "T—Ж"
+            url: https://journal.tinkoff.ru/chemodan/
+            rss: https://journal.tinkoff.ru/feed/
+          - name: Geeky Explorer
+            url: https://www.geekyexplorer.com
+            rss: https://www.geekyexplorer.com/feed/
+      - name: Европейское айти
+        slug: eu
+        feeds:
+          - name: "EU-startups"
+            url: https://www.eu-startups.com/
+            rss: https://www.eu-startups.com/feed/
+            icon: https://i.vas3k.ru/fkp.jpg
+          - name: Tech.eu
+            url: https://tech.eu/
+            rss: https://tech.eu/feed/
+            icon: https://i.vas3k.ru/fl9.jpg
+          - name: "TechCrunch: Europe"
+            url: https://techcrunch.com/europe/
+            rss: http://feeds.feedburner.com/Techcrunch/europe
+            is_parsable: false
+      - name: Микс из блогов крупных компаний
+        slug: engineering
+        feeds:
+          - columns: 3
+            view: "feeds/favicons.html"
+            mix:
+              - http://blog.stackoverflow.com/feed/
+              - https://machinelearning.apple.com/feed.xml
+              - http://nerds.airbnb.com/feed/
+              - http://www.ebaytechblog.com/feed/
+              - http://blog.agilebits.com/feed/
+              - http://research.microsoft.com/rss/news.xml
+              - http://blog.keras.io/feeds/all.atom.xml
+              - http://techblog.netflix.com/feeds/posts/default
+              - http://nickcraver.com/blog/feed.xml
+              - http://googlerussiablog.blogspot.com/atom.xml
+              - https://eng.uber.com/feed/
+              - http://web.mit.edu/newsoffice/topic/mitcomputers-rss.xml
+              - http://feeds.feedburner.com/corner-squareup-com
+              - http://googleresearch.blogspot.com/atom.xml
+              - http://githubengineering.com/atom.xml
+              - http://labs.spotify.com/feed/
+              - http://blog.kaggle.com/feed/
+              - http://clubs.ya.ru/company/rss/posts.xml
       - name: Фотография
         slug: photo
         feeds:
@@ -629,6 +660,7 @@ boards:
           - name: "DeepMind"
             url: https://www.deepmind.com/blog
             rss: https://www.deepmind.com/blog/feed/basic/
+            icon: https://i.vas3k.ru/aff485d139d37ac7236f0bdf831812a2ef2419972ca3996c66885f229dccf7e2.jpg
           - name: "Google"
             url: https://ai.googleblog.com/
             rss: http://rssmix.com/u/10966870/rss.xml
@@ -721,6 +753,7 @@ boards:
           - name: "DeepMind: The Podcast"
             url: https://deepmind.com/blog/article/welcome-to-the-deepmind-podcast
             rss: https://feeds.simplecast.com/JT6pbPkg
+            icon: https://i.vas3k.ru/aff485d139d37ac7236f0bdf831812a2ef2419972ca3996c66885f229dccf7e2.jpg
           - name: "Microsoft Research Podcast"
             icon: https://i.vas3k.ru/i0t.png
             url: https://www.microsoft.com/en-us/research/blog/category/podcast/
@@ -2140,4 +2173,3 @@ boards:
           - name: "QA Mania (Украиноязычный канал)"
             url: https://t.me/qamania
             rss: https://infomate.club/parsing/telegram/qamania
-
