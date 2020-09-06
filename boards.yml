@@ -73,10 +73,6 @@ boards:
       - name: США
         slug: us
         feeds:
-          - name: Axios
-            url: https://www.axios.com/
-            rss: https://api.axios.com/feed/
-            icon: https://i.vas3k.ru/17f55ad102b80a85c618d5e56c61f24c17c20d12f8c960a87902845154a5bdfc.jpg
           - name: Reuters
             url: https://www.reuters.com/news/world
             rss: https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US
@@ -84,13 +80,17 @@ boards:
             url: https://www.bloomberg.com/
             rss: http://www.bloomberg.com/politics/feeds/site.xml
             icon: https://i.vas3k.ru/35c6ae6df0fe47166ed5c656bde6faa974ae1beca949c89443f0aed0b86e0806.png
+          - name: NPR
+            url: https://www.npr.org/
+            rss: https://feeds.npr.org/1002/rss.xml
+            icon: https://i.vas3k.ru/1cc80e832275af7735ca0d600d934e4b0419f398f6b142073b576c99d948517f.jpg
+          - name: Axios
+            url: https://www.axios.com/
+            rss: https://api.axios.com/feed/
+            icon: https://i.vas3k.ru/17f55ad102b80a85c618d5e56c61f24c17c20d12f8c960a87902845154a5bdfc.jpg
           - name: Reddit News
             url: https://www.reddit.com/r/news/
             rss: https://www.reddit.com/r/news.rss
-            is_parsable: false
-          - name: NYT
-            url: https://www.nytimes.com/
-            rss: https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
             is_parsable: false
           - name: POLITICO
             url: https://www.politico.com/
@@ -108,6 +108,8 @@ boards:
               - https://www.huffpost.com/section/front-page/feed
               - https://www.newyorker.com/feed/news
               - https://www.msnbc.com/feed
+              - https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
+              - https://www.vox.com/rss/index.xml
       - name: 💰 Правые
         slug: us_right
         view: "blocks/two.html"
@@ -119,6 +121,7 @@ boards:
               - https://spectator.org/feed
               - https://www.washingtontimes.com/rss/headlines/news/
               - https://www.dailymail.co.uk/ushome/index.rss
+              - https://feeds.feedburner.com/breitbart
       - name: Европа
         slug: eu
         feeds:

@@ -11,6 +11,8 @@ DOMAIN_FAVICONS = {
     "cnn.com": "https://i.vas3k.ru/d2d88f4a1d1646bf3a70f76d6b585c472ee1735abd73dd30719d7f2f42f5743a.png",
     "cnn.it": "https://i.vas3k.ru/d2d88f4a1d1646bf3a70f76d6b585c472ee1735abd73dd30719d7f2f42f5743a.png",
     "foxnews.com": "https://i.vas3k.ru/46b5aabb4269c34ff22c90afeae1cf4b2fc64078efb0611dbddd53d336395ea4.png",
+    "breitbart.com": "https://i.vas3k.ru/643307dd9014b7e3a10b518e5b96bb01357e6e393c72a5c261ddf3c253862dad.png",
+    "nytimes.com": "https://i.vas3k.ru/4d6f5ae1cb6ae45ba2d291c3d3bddfbe0ab55279e23fdbb3ca2a5950b3ecbd1b.png",
     "vox.com": "https://i.vas3k.ru/1a7ab1f00077e12d840d236e4438db9cc47a21b2b25c9cedea68ea9b167bb7d3.png",
     "buzzfeednews.com": "https://i.vas3k.ru/ebe634861320fccd85c2fe96a5c93efd2b6643c2e191e3c8ee4b2ac0fb5b5e1c.png",
     "buzzfeed.com": "https://i.vas3k.ru/ebe634861320fccd85c2fe96a5c93efd2b6643c2e191e3c8ee4b2ac0fb5b5e1c.png",
