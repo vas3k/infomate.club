@@ -69,7 +69,7 @@
 
     @media only screen and (max-width : 570px) {
         .block-100, .block-50 {
-            width: auto;
+            width: 100%;
         }
     }
 
@@ -83,6 +83,7 @@
 
     .feed {
         width: 100%;
+        min-width: 200px;
         box-sizing: border-box;
     }
 
@@ -91,7 +92,7 @@
     }
 
     .feeds-2 .feed {
-        width: 49%;
+        width: 50%;
     }
 
     .feed .article-tooltip {
@@ -113,8 +114,8 @@
 
     @media only screen and (max-width : 1024px)  {
         /* Switch to 2-columns */
-        .feeds {
-            grid-template-columns: 50% 50%;
+        .feeds .feed {
+            width: 50%;
         }
 
             .feeds .feed .article-tooltip {
@@ -135,8 +136,8 @@
     }
 
     @media only screen and (max-width : 750px) {
-        .feeds {
-            grid-template-columns: 100%;
+        .feeds .feed {
+            width: 100%;
         }
 
             .feeds .feed .article-tooltip {

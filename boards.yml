@@ -105,7 +105,6 @@ boards:
             is_parsable: false
             mix:
               - http://rss.cnn.com/rss/edition.rss
-              - https://www.buzzfeed.com/index.xml
               - https://www.huffpost.com/section/front-page/feed
               - https://www.newyorker.com/feed/news
               - https://www.msnbc.com/feed

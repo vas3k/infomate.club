@@ -2,7 +2,7 @@
 
 <a href="{{ article.url }}" class="article-tooltip" rel="noopener noreferrer nofollow" target="_blank">
     {% if article.image %}
-        <img src="{{ article.image }}" alt="{{ article.title|striptags }}" class="article-tooltip-image">
+        <img src="{{ article.image }}" alt="{{ article.title|striptags }}" class="article-tooltip-image" loading="lazy">
     {% endif %}
 
     <span class="article-tooltip-title">{{ article.title|striptags|truncatechars:300 }}</span>

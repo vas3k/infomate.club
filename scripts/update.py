@@ -173,7 +173,9 @@ def fetch_rss(item, rss):
             real_url, content_type, content_length = resolve_url(entry_link)
 
             # load and summarize article
-            if item["is_parsable"] and content_length <= MAX_PARSABLE_CONTENT_LENGTH \
+            if item["is_parsable"] \
+                    and content_length <= MAX_PARSABLE_CONTENT_LENGTH \
+                    and content_type \
                     and content_type.startswith("text/"):  # to not try to parse podcasts :D
 
                 if real_url:
