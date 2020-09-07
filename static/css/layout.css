@@ -97,7 +97,7 @@
 
     .feed .article-tooltip {
         /* Shift tooltip to right */
-        left: 250px;
+        left: 80%;
         top: -100px;
         right: auto;
         bottom: auto;
@@ -113,8 +113,8 @@
     }
 
     @media only screen and (max-width : 1024px)  {
-        /* Switch to 2-columns */
-        .feeds .feed {
+        /* Switch 3 to 2-columns */
+        .feeds-3 .feed {
             width: 50%;
         }
 
@@ -126,7 +126,7 @@
                 bottom: auto;
             }
 
-            .feeds .feed:nth-child(2n) .article-tooltip {
+            .feeds-3 .feed:nth-child(2n) .article-tooltip {
                 /* Shift tooltip to left */
                 left: -105%;
                 top: -100px;
@@ -136,6 +136,7 @@
     }
 
     @media only screen and (max-width : 750px) {
+        /* Single column everywhere */
         .feeds .feed {
             width: 100%;
         }

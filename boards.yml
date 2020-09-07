@@ -55,17 +55,13 @@ boards:
             url: https://t.me/novaya_pishet
             rss: https://infomate.club/parsing/telegram/novaya_pishet
             icon: https://i.vas3k.ru/f2cabb4173f6dcaad7db9f6285458e0d79593a5eba08b77f16e89ff532171860.jpg
-          - name: Mash
-            url: https://t.me/breakingmash
-            rss: https://infomate.club/parsing/telegram/breakingmash?only=text
-            icon: https://i.vas3k.ru/9b7f5f94e9e5b6f2b4ded23374c1dd38333f11e3a2af21863f2c89458ba77cb5.jpg
+#          - name: Mash
+#            url: https://t.me/breakingmash
+#            rss: https://infomate.club/parsing/telegram/breakingmash?only=text
+#            icon: https://i.vas3k.ru/9b7f5f94e9e5b6f2b4ded23374c1dd38333f11e3a2af21863f2c89458ba77cb5.jpg
           - name: Лентач
             url: https://t.me/lentachold
             rss: https://infomate.club/parsing/telegram/lentachold?only=text
-          - name: RTVI
-            url: https://t.me/rtvimain
-            rss: https://infomate.club/parsing/telegram/rtvimain?only=text
-            icon: https://i.vas3k.ru/de4d266b4744ca0cb8bc9ded3842989593fdd54ec78484c7c982b8951db08617.jpg
 #          - name: Expresso
 #            url: https://t.me/expressotoday
 #            rss: https://infomate.club/parsing/telegram/expressotoday?only=text
@@ -73,6 +69,9 @@ boards:
       - name: США
         slug: us
         feeds:
+          - name: Reddit News
+            url: https://www.reddit.com/r/news/
+            rss: https://www.reddit.com/r/news.rss
           - name: Reuters
             url: https://www.reuters.com/news/world
             rss: https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US
@@ -88,9 +87,6 @@ boards:
             url: https://www.axios.com/
             rss: https://api.axios.com/feed/
             icon: https://i.vas3k.ru/17f55ad102b80a85c618d5e56c61f24c17c20d12f8c960a87902845154a5bdfc.jpg
-          - name: Reddit News
-            url: https://www.reddit.com/r/news/
-            rss: https://www.reddit.com/r/news.rss
             is_parsable: false
           - name: POLITICO
             url: https://www.politico.com/
@@ -860,9 +856,7 @@ boards:
       - name: "Микс из блогов людей"
         slug: people_mix
         feeds:
-          - url: https://rssunify.com/4443/
-            rss: https://feed.rssunify.com/5e24a30b45155/rss.xml
-            columns: 3
+          - columns: 3
             mix:
               - https://ilyaslusarev.ru/feed/
               - http://molyanov.ru/feed/
@@ -879,9 +873,7 @@ boards:
       - name: "Микс из блогов компаний"
         slug: companies_mix
         feeds:
-          - url: https://rssunify.com/66433/
-            rss: https://feed.rssunify.com/5e24a33c20e01/rss.xml
-            columns: 3
+          - columns: 3
             mix:
               - https://sdelaem.agency/feed/
               - https://semantica.in/blog/feed?data=rss2
