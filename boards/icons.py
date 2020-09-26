@@ -27,4 +27,13 @@ DOMAIN_FAVICONS = {
     "maximilyahov.ru": "https://i.vas3k.ru/5a40caa8b7c7ebeab10516ebc7402151d4c98cd96704b9149d4869f6028bf642.jpg",
     "skaplichniy.ru": "https://i.vas3k.ru/c0c5e651be84c1a84b6b819448605def65db8373607fea958bc53a27ea7d3902.jpg",
     "mikeozornin.ru": "https://i.vas3k.ru/31344c5d6928534842caf0b0f173205556baaea370ee0966853260c4713004b1.png",
+    "rt.com": "https://i.vas3k.ru/c0ac839856513188d63d28460b015f27fb683f6c21414b155d9052b91a3e1c34.png",
+    "russian.rt.com": "https://i.vas3k.ru/c0ac839856513188d63d28460b015f27fb683f6c21414b155d9052b91a3e1c34.png",
+    "novayagazeta.ru": "https://i.vas3k.ru/f2cabb4173f6dcaad7db9f6285458e0d79593a5eba08b77f16e89ff532171860.jpg",
+    "tvrain.ru": "https://i.vas3k.ru/9439d11f30e46ae7f2ea4dcbd04c020bef94dc91f04a41d5cbc102223c40f41d.png",
+    "znak.com": "https://i.vas3k.ru/760e9fce1a941d5fe86d67f73a2b528b982a129b621d5e6e4db79aa2020f1e95.png",
+    "lenta.ru": "https://i.vas3k.ru/ac74979900f8e0cb0cd0ffd56c105cbf853d502905d78deba000e674be17d63f.jpg",
+    "kp.ru": "https://i.vas3k.ru/64bc76ea5ed920e11ef2708087961af606077e51cb799e8588e68d4476123561.jpg",
+    "dw.com": "https://i.vas3k.ru/1869452100cc16474d649fdbf72746b4826ff793c07e02b9262b3f801d87e4a2.jpg",
+    "paperpaper.ru": "https://i.vas3k.ru/f34daebb47f629b99b8751b57eb55860ef152783fc16e7538f83a9cc09ee40d5.jpg",
 }

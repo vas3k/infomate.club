@@ -15,32 +15,47 @@ boards:
           - name: Meduza
             url: https://meduza.io/
             rss: https://meduza.io/rss/all
+          - name: TJ
+            url: https://tjournal.ru
+            rss: https://tjournal.ru/rss/all
+            is_parsable: false
+          - name: Коммерсантъ
+            url: https://www.kommersant.ru/
+            rss: https://www.kommersant.ru/RSS/news.xml
+            icon: https://i.vas3k.ru/70e935c410a400d14beaadc25ddd13b386267ee7e56bd028c47ebfeb49c497cd.jpg
           - name: ТАСС
             url: https://tass.ru/
             rss: https://tass.ru/rss/v2.xml
             icon: https://i.vas3k.ru/aca2f29518b01b25b3a40d63109d45dde74be15e47877aaa89553ff567b05151.png
             is_parsable: false
-          - name: TJ
-            url: https://tjournal.ru
-            rss: https://tjournal.ru/rss/all
-            is_parsable: false
           - name: Ведомости
             url: https://www.vedomosti.ru/
             rss: https://vedomosti.ru/rss/news
-          - name: Коммерсантъ
-            url: https://www.kommersant.ru/
-            rss: https://www.kommersant.ru/RSS/news.xml
-            icon: https://i.vas3k.ru/70e935c410a400d14beaadc25ddd13b386267ee7e56bd028c47ebfeb49c497cd.jpg
           - name: РБК
             url: https://www.rbc.ru/
             rss: http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
-          - name: Дождь
-            url: https://tvrain.ru/news/
-            rss: https://tvrain.ru/export/rss/all.xml
+      - name: 🗽 Либеральные
+        slug: ru_left
+        view: "blocks/two.html"
+        feeds:
+          - view: "feeds/favicons.html"
             is_parsable: false
-          - name: Lenta.ru
-            url: https://lenta.ru/
-            rss: https://lenta.ru/rss
+            mix:
+              - https://tvrain.ru/export/rss/all.xml
+              - https://www.znak.com/rss
+              - https://paperpaper.ru/feed/
+              - https://rss.dw.com/rdf/rss-ru-top
+              - https://content.novayagazeta.ru/rss/all.xml
+      - name: 👮‍♂️ Прокремлёвские
+        slug: ru_right
+        view: "blocks/two.html"
+        feeds:
+          - view: "feeds/favicons.html"
+            is_parsable: false
+            mix:
+              - https://lenta.ru/rss
+              - https://russian.rt.com/feed
+              - https://kp.ru/rss/allsections.xml
       - name: Телеграм
         slug: tg
         feeds:
