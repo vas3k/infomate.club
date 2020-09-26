@@ -2,6 +2,8 @@ import io
 import os
 import sys
 import django
+from django.db.models import Q
+
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "infomate.settings")
 django.setup()
@@ -38,15 +40,13 @@ def update(num_workers, force, feed):
     if feed:
         need_to_update_feeds = BoardFeed.objects.filter(rss=feed)
     else:
-        never_updated_feeds = BoardFeed.objects.filter(refreshed_at__isnull=True)
+        new_feeds = BoardFeed.objects.filter(refreshed_at__isnull=True)
+        outdated_feeds = BoardFeed.objects.filter(url__isnull=False)
         if not force:
-            need_to_update_feeds = BoardFeed.objects.filter(
-                rss__isnull=False,
+            outdated_feeds = BoardFeed.objects.filter(
                 refreshed_at__lte=datetime.utcnow() - MIN_REFRESH_DELTA
             )
-        else:
-            need_to_update_feeds = BoardFeed.objects.filter(rss__isnull=False)
-        need_to_update_feeds = list(never_updated_feeds) + list(need_to_update_feeds)
+        need_to_update_feeds = list(new_feeds) + list(outdated_feeds)
 
     tasks = []
     for feed in need_to_update_feeds:
@@ -106,11 +106,13 @@ def worker():
 def refresh_feed(item):
     print(f"Updating feed {item['name']}...")
     if item["mix"]:
+        print(f"Found a mix. Parsing one by one")
         for rss in item["mix"]:
             fetch_rss(item, rss)
     else:
         fetch_rss(item, item["rss"])
 
+    print(f"Updating parse dates for {item['name']}")
     week_ago = datetime.utcnow() - timedelta(days=7)
     frequency = Article.objects.filter(feed_id=item["id"], created_at__gte=week_ago).count()
     last_article = Article.objects.filter(feed_id=item["id"]).order_by("-created_at").first()
@@ -160,6 +162,8 @@ def fetch_rss(item, rss):
         )
 
         if is_created:
+            print(f"- article is new, parsing metadata...")
+
             # parse heavy info
             text, lead_image = parse_rss_text_and_image(entry)
 
