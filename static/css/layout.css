@@ -118,7 +118,8 @@
             width: 50%;
         }
 
-            .feeds .feed .article-tooltip {
+            .feeds .feed .article-tooltip,
+            .feeds-3 .feed:nth-child(3n) .article-tooltip {
                 /* Shift tooltip to right */
                 left: 85%;
                 top: -200px;
