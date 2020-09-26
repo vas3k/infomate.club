@@ -143,8 +143,13 @@ def fetch_rss(item, rss):
         if conditions:
             is_valid = check_conditions(conditions, entry)
             if not is_valid:
-                print(f"Condition {conditions} does not match. Skipped")
+                print(f"- condition {conditions} does not match. Skipped")
                 continue
+
+        created_at = parse_datetime(entry)
+        if created_at <= datetime.utcnow() - DELETE_OLD_ARTICLES_DELTA:
+            print(f"- article is too old. Skipped")
+            continue
 
         article, is_created = Article.objects.get_or_create(
             board_id=item["board_id"],
@@ -153,7 +158,7 @@ def fetch_rss(item, rss):
             defaults=dict(
                 url=entry_link[:2000],
                 domain=parse_domain(entry_link)[:256],
-                created_at=parse_datetime(entry),
+                created_at=created_at,
                 updated_at=datetime.utcnow(),
                 title=entry_title[:256],
                 image=str(parse_rss_image(entry) or "")[:512],
