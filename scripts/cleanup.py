@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 from boards.models import Article
 
 
-DEFAULT_CLEANUP_DAYS = 30
+DEFAULT_CLEANUP_DAYS = 300
 
 
 @click.command()
