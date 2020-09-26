@@ -7,7 +7,7 @@ boards:
       name: Новости
       title: События в мире
       avatar: https://i.vas3k.ru/63cd2ebddba4422aa684b2bd754c636eb061ef0555f542042c31850525d2f5bb.png
-      bio: Подборка основных новостных изданий, чтобы следить за событиями в России и в мире. Пока бета-версия. Предложения новых источников присылайте в личку
+      bio: Наша субъективная подборка основных новостных изданий, чтобы следить за событиями в России и в мире
     blocks:
       - name: Россия
         slug: ru
@@ -176,13 +176,14 @@ boards:
             url: https://vc.ru
             rss: https://vc.ru/rss/all
             is_parsable: false
-          - name: TJ
-            url: https://tjournal.ru
-            rss: https://tjournal.ru/rss/all
           - name: "Хабр: лучшее за сутки"
             icon: https://i.vas3k.ru/fhv.png
             url: https://habr.ru
             rss: https://habr.com/ru/rss/best/daily/?fl=ru
+          - name: Wylsa.com
+            icon: https://i.vas3k.ru/c1fb8935f6c7a56633d406988bd60d4cf28b9cbb351171cd39b2b119f75cf486.png
+            url: https://wylsa.com/
+            rss: https://wylsa.com/feed/
           - name: Rusbase
             url: https://rb.ru
             rss: https://rb.ru/feeds/all/
@@ -251,19 +252,10 @@ boards:
             url: https://t.me/rozetked
             rss: https://infomate.club/parsing/telegram/rozetked
             icon: https://i.vas3k.ru/abe55f96279f22704cd1cc5009be2f6527c8d205f289dc1c7c328a03314f3d5d.jpg
-      - name: Мейнстрим
-        slug: mainstream
-        feeds:
-          - name: "WSJ: Tech"
-            url: https://www.wsj.com/news/technology
-            rss: https://feeds.a.dj.com/rss/RSSWSJD.xml
-          - name: "NYT: Technology"
-            url: https://www.nytimes.com/section/technology
-            rss: https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/technology/rss.xml
-          - name: "BBC: Technology"
-            url: https://www.bbc.com/news/technology
-            rss: http://feeds.bbci.co.uk/news/technology/rss.xml
-            icon: https://i.vas3k.ru/635c5e5828a4868b73bdb777611084a3459873b628f3f7f9752a34e1516fc505.png
+          - name: TechSparks
+            url: https://t.me/techsparks
+            rss: https://infomate.club/parsing/telegram/techsparks
+            icon: https://i.vas3k.ru/b5a4fb2b5d3d0279612c639a325958e89bfaa218a87a6016f74936d347d23ced.png
 
   - name: Вастрик
     slug: vas3k
