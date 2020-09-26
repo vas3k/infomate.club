@@ -364,6 +364,7 @@ boards:
               - http://feeds.feedburner.com/codinghorror/
               - http://theoatmeal.com/feed/rss
               - https://waitbutwhy.com/feed
+              - https://mxb.dev/feed.xml
       - name: Инди-разработка
         slug: make
         feeds:
