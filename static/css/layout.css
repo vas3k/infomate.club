@@ -104,7 +104,8 @@
     }
 
     .feeds-3 .feed:nth-child(3n) .article-tooltip,
-    .feeds-2 .feed:nth-child(2n) .article-tooltip {
+    .feeds-2 .feed:nth-child(2n) .article-tooltip,
+    .block-50:nth-child(2n+1) .article-tooltip {
         /* Shift tooltip to left */
         left: -105%;
         top: -100px;

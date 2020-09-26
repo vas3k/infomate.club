@@ -41,9 +41,6 @@ boards:
           - name: Lenta.ru
             url: https://lenta.ru/
             rss: https://lenta.ru/rss
-          - name: BBC Россия
-            url: https://www.bbc.com/russian
-            rss: https://feeds.bbci.co.uk/russian/rss.xml
       - name: Телеграм
         slug: tg
         feeds:
