@@ -332,6 +332,7 @@ boards:
         feeds:
           - columns: 3
             view: "feeds/favicons.html"
+            is_parsable: false
             mix:
               - http://nedbatchelder.com/blog/rss.xml
               - http://rasskazov.pro/blog/?go=rss/
@@ -339,7 +340,6 @@ boards:
               - http://nl.livejournal.com/data/rss
               - http://sashavolkova.ru/rss/
               - http://alexmak.net/blog/feed/
-              - https://skazoff.ru/feed/
               - http://nobelfaik.livejournal.com/data/rss
               - http://vonoiral.com/rss/
               - http://skaplichniy.ru/feed/
@@ -361,6 +361,8 @@ boards:
               - http://calendar.perfplanet.com/feed/
               - http://karpathy.github.io/feed.xml
               - http://xkcd.com/rss.xml
+              - https://tonsky.me/blog/atom.xml
+              - https://tonsky.livejournal.com/data/rss
               - http://colah.github.io/rss.xml
               - https://krausefx.com/feed.xml
               - https://overreacted.io/rss.xml
@@ -368,6 +370,7 @@ boards:
               - http://theoatmeal.com/feed/rss
               - https://waitbutwhy.com/feed
               - https://mxb.dev/feed.xml
+              - https://bureau.ru/bb/soviet/rss/
       - name: Инди-разработка
         slug: make
         feeds:
@@ -424,6 +427,7 @@ boards:
         feeds:
           - columns: 3
             view: "feeds/favicons.html"
+            is_parsable: false
             mix:
               - http://blog.stackoverflow.com/feed/
               - https://machinelearning.apple.com/feed.xml
@@ -502,9 +506,6 @@ boards:
             url: https://www.tagesspiegel.de/
             rss: https://www.tagesspiegel.de/contentexport/feed/home
             icon: https://i.vas3k.ru/fjb.jpg
-          - name: "Presseportal des Landes Berlin [DE]"
-            url: https://www.berlin.de/presse/
-            rss: https://www.berlin.de/presse/index.php/rss
       - name: "Наблюдения, события, места"
         slug: events
         feeds:
