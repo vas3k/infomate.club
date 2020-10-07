@@ -1840,7 +1840,7 @@ boards:
             url: https://daringfireball.net/thetalkshow/
             rss: https://daringfireball.net/thetalkshow/rss
 
-  - name: Кибербезопасность
+  - name: Кибер Безопасность
     slug: cybersec
     is_visible: true
     is_private: false
