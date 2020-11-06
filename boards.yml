@@ -506,6 +506,9 @@ boards:
             url: https://www.tagesspiegel.de/
             rss: https://www.tagesspiegel.de/contentexport/feed/home
             icon: https://i.vas3k.ru/fjb.jpg
+            - name: "RBB24 [DE]"
+            url: https://www.rbb24.de
+            rss: http://www.rbb24.de/aktuell/index.xml/feed=rss.xml
       - name: "Наблюдения, события, места"
         slug: events
         feeds:
