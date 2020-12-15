@@ -1150,7 +1150,7 @@ boards:
             rss: https://addmeto.cc/rss/
           - name: "The Bell Tech"
             url: https://t.me/Bell_tech
-            rss: https://tg2rss.xyz/channel/?name=Bell_tech
+            rss: https://infomate.club/parsing/telegram/Bell_tech
             is_parsable: false
 
       - name: "👨🏻‍💻 Блоги продактов"
@@ -1161,34 +1161,34 @@ boards:
             rss: https://gopractice.ru/feed/
           - name: "Тёмная сторона"
             url: https://t.me/temno
-            rss: https://tg2rss.xyz/channel/?name=temno
+            rss: https://infomate.club/parsing/telegram/temno
             is_parsable: false
           - name: "Иван Замесин"
             url: https://zamesin.me/
             rss: https://zamesin.me/rss/
           - name: "No Flame No Game"
             url: https://t.me/proproduct
-            rss: https://tg2rss.xyz/channel/?name=proproduct
+            rss: https://infomate.club/parsing/telegram/proproduct
             is_parsable: false
           - name: "Продакты не нужны"
             url: https://t.me/betternotworse
-            rss: https://tg2rss.xyz/channel/?name=betternotworse
+            rss: https://infomate.club/parsing/telegram/betternotworse
             is_parsable: false
           - name: "Michael Tabunov"
             url: https://t.me/bossofyourboss
-            rss: https://tg2rss.xyz/channel/?name=bossofyourboss
+            rss: https://infomate.club/parsing/telegram/bossofyourboss
             is_parsable: false
           - name: "запуск завтра"
             url: https://t.me/ctodaily
-            rss: https://tg2rss.xyz/channel/?name=ctodaily
+            rss: https://infomate.club/parsing/telegram/ctodaily
             is_parsable: false
           - name: "Denis Sexy IT"
             url: https://t.me/denissexy
-            rss: https://tg2rss.xyz/channel/?name=denissexy
+            rss: https://infomate.club/parsing/telegram/denissexy
             is_parsable: false
           - name: "Products | People | Process"
             url: https://t.me/program_man
-            rss: https://tg2rss.xyz/channel/?name=program_man
+            rss: https://infomate.club/parsing/telegram/program_man
             is_parsable: false
 
       - name: "🏢 Блоги компаний"
@@ -1209,15 +1209,15 @@ boards:
         feeds:
           - name: "Ponchik News"
             url: https://t.me/ponchiknews
-            rss: https://tg2rss.xyz/channel/?name=ponchiknews
+            rss: https://infomate.club/parsing/telegram/ponchiknews
             is_parsable: false
           - name: "Про удобство"
             url: https://t.me/proudobstvo
-            rss: https://tg2rss.xyz/channel/?name=proudobstvo
+            rss: https://infomate.club/parsing/telegram/proudobstvo
             is_parsable: false
           - name: "Дайджест продуктового дизайна"
             url: https://t.me/pdigest
-            rss: https://tg2rss.xyz/channel/?name=pdigest
+            rss: https://infomate.club/parsing/telegram/pdigest
             is_parsable: false
 
       - name: "🎧 Подкасты"
@@ -1496,31 +1496,31 @@ boards:
         feeds:
           - name: Linguistic Madness
             url: https://t.me/linguisticmadness
-            rss: https://tg2rss.xyz/channel/?name=linguisticmadness
+            rss: https://infomate.club/parsing/telegram/linguisticmadness
             is_parsable: false
           - name: Лингвошутки
             url: https://t.me/lingvojokes
-            rss: https://tg2rss.xyz/channel/?name=lingvojokes
+            rss: https://infomate.club/parsing/telegram/lingvojokes
             is_parsable: false
           - name: Глазарий языка
             url: https://t.me/glazslov
-            rss: https://tg2rss.xyz/channel/?name=glazslov
+            rss: https://infomate.club/parsing/telegram/glazslov
             is_parsable: false
           - name: Slovomania
             url: https://t.me/slovomania
-            rss: https://tg2rss.xyz/channel/?name=slovomania
+            rss: https://infomate.club/parsing/telegram/slovomania
             is_parsable: false
           - name: Lingulinks
             url: https://t.me/lingulinks
-            rss: https://tg2rss.xyz/channel/?name=lingulinks
+            rss: https://infomate.club/parsing/telegram/lingulinks
             is_parsable: false
           - name: Лингваренье
             url: https://t.me/lingvar
-            rss: https://tg2rss.xyz/channel/?name=lingvar
+            rss: https://infomate.club/parsing/telegram/lingvar
             is_parsable: false
           - name: Duck alert!
             url: https://t.me/duckalert
-            rss: https://tg2rss.xyz/channel/?name=duckalert
+            rss: https://infomate.club/parsing/telegram/duckalert
             is_parsable: false
 
   - name: Плейсмент продаёт
@@ -1543,26 +1543,26 @@ boards:
         feeds:
           - name: "Median ads & School"
             url: https://t.me/Medianads
-            rss: https://tg2rss.xyz/channel/?name=Medianads
+            rss: https://infomate.club/parsing/telegram/Medianads
             is_parsable: false
           - name: "Dnative"
             url: https://dnative.ru/
             rss: https://dnative.ru/feed/
           - name: "Dnative (канал)"
             url: https://t.me/dnative
-            rss: https://tg2rss.xyz/channel/?name=dnative
+            rss: https://infomate.club/parsing/telegram/dnative
             is_parsable: false
           - name: "Targetorium"
             url: https://t.me/targetorium
-            rss: https://tg2rss.xyz/channel/?name=targetorium
+            rss: https://infomate.club/parsing/telegram/targetorium
             is_parsable: false
           - name: "Aitarget"
             url: https://t.me/aitarget_com
-            rss: https://tg2rss.xyz/channel/?name=aitarget_com
+            rss: https://infomate.club/parsing/telegram/aitarget_com
             is_parsable: false
           - name: "Facebook Ads Channel"
             url: https://t.me/FacebookAdChannel
-            rss: https://tg2rss.xyz/channel/?name=FacebookAdChannel
+            rss: https://infomate.club/parsing/telegram/FacebookAdChannel
             is_parsable: false
 
       - name: "vc.ru"
@@ -1584,7 +1584,7 @@ boards:
             rss: https://about.fb.com/feed/
           - name: "Instagram дайджест обновлений"
             url: https://t.me/insta_upd_dnative/
-            rss: https://tg2rss.xyz/channel/?name=insta_upd_dnative
+            rss: https://infomate.club/parsing/telegram/insta_upd_dnative
             is_parsable: false
 
       - name: "Новости рекламы в рунете"
@@ -1610,7 +1610,7 @@ boards:
             rss: http://spark.ru/blogs/general/rss
           - name: "SEOnews и Лайкни"
             url: https://t.me/digital_bar/
-            rss: https://tg2rss.xyz/channel/?name=digital_bar
+            rss: https://infomate.club/parsing/telegram/digital_bar
 
       - name: "Подкасты"
         slug: podcasts
@@ -1811,15 +1811,15 @@ boards:
         feeds:
           - name: iOS Good Reads
             url: https://t.me/iosgr
-            rss: https://tg2rss.xyz/channel/?name=iosgr
+            rss: https://infomate.club/parsing/telegram/iosgr
             is_parsable: false
           - name: iOS.Events
             url: https://t.me/ios_events
-            rss: https://tg2rss.xyz/channel/?name=ios_events
+            rss: https://infomate.club/parsing/telegram/ios_events
             is_parsable: false
           - name: Readaggregator
             url: https://t.me/readaggregator
-            rss: https://tg2rss.xyz/channel/?name=readaggregator
+            rss: https://infomate.club/parsing/telegram/readaggregator
             is_parsable: false
       - name: Подкасты
         slug: podcasts
