@@ -13,7 +13,8 @@ urlpatterns = [
 
     path("<slug:board_slug>/", board, name="board"),
 
-    path("parsing/telegram/<str:channel>/",
+    path("parsing/telegram/<str:channel_name>/",
          cache_page(settings.TELEGRAM_CACHE_SECONDS)(TelegramChannelFeed()),
-         name="telegram_channel_feed")
+         name="telegram_channel_feed"),
+
 ]
