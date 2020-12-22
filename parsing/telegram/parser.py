@@ -49,7 +49,7 @@ def parse_channel(channel_name, only_text=False, limit=100) -> TelegramChannel:
             message_url = message_date_tag[0]["href"]
             message_datetime_tag = message_date_tag[0].select("time")
             if message_datetime_tag:
-                message_time = datetime.fromisoformat(message_datetime_tag[0]["datetime"])
+                message_time = datetime.strptime(message_datetime_tag[0]["datetime"][:19], "%Y-%m-%dT%H:%M:%S")
 
         messages.append(
             TelegramMessage(
