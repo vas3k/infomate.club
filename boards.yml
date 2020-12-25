@@ -257,13 +257,12 @@ boards:
             rss: https://infomate.club/parsing/telegram/techsparks
             icon: https://i.vas3k.ru/b5a4fb2b5d3d0279612c639a325958e89bfaa218a87a6016f74936d347d23ced.png
 
-  - name: Игры и геймдев (бета)
+  - name: Игры, железо и геймдев (бета)
     slug: games
     is_visible: false
     is_private: false
     curator:
-      name: Игры и геймдев (бета)
-      title: КЕК
+      name: Игры, железо и геймдев (бета)
       avatar: https://i.vas3k.ru/3abb737fa3b806a9948ac8224cdaf62c72238500b1334fdb5a0a84acb13002a2.jpg
       bio: Новости об играх, железе и прочей гиковне
     blocks:
@@ -279,24 +278,26 @@ boards:
           - name: Stopgame
             url: https://stopgame.ru/
             rss: https://rss.stopgame.ru/rss_frontpage.xml
+          - name: Канобу
+            url: https://kanobu.ru/
+            rss: https://kanobu.ru/rss/news.xml
+          - name: Игры @ Mail.ru
+            url: https://games.mail.ru/pc/news/
+            rss: https://games.mail.ru/pc/rss/news/
           - name: IXBT.games
             url: https://www.gametech.ru/
             rss: https://infomate.club/parsing/telegram/ixbtgames
-          - name: Некстджен и Усиление+
-            url: https://t.me/usilenie_plus
-            rss: https://infomate.club/parsing/telegram/usilenie_plus
-          - name: Котонавты
-            url: https://t.me/meownauts
-            rss: https://infomate.club/parsing/telegram/meownauts
       - name: На английском
         slug: en
         feeds:
           - name: IGN
             url: https://ign.com/
             rss: https://feeds.feedburner.com/ign/all
-          - name: "Reddit: /r/gaming"
+          - name: "Reddit: /r/gaming + /r/games"
             url: https://www.reddit.com/r/gaming/
-            rss: https://www.reddit.com/r/gaming.rss
+            mix:
+             - https://www.reddit.com/r/gaming.rss
+             - https://www.reddit.com/r/games.rss
             is_parsable: false
           - name: GameSpot
             url: https://www.gamespot.com/
@@ -328,6 +329,18 @@ boards:
           - name: Геймдев, который мы заслужили
             url: https://t.me/Korovany
             rss: https://infomate.club/parsing/telegram/Korovany
+      - name: Железо
+        slug: hardware
+        feeds:
+          - name: Wccftech
+            url: https://wccftech.com/
+            rss: https://wccftech.com/feed/
+          - name: Overclockers
+            url: https://www.overclockers.com/
+            rss: https://www.overclockers.com/feed/
+          - name: "Reddit: /r/hardware"
+            url: https://www.reddit.com/r/hardware/
+            rss: https://www.reddit.com/r/hardware.rss
       - name: Платформы
         slug: platforms
         feeds:
@@ -346,21 +359,6 @@ boards:
           - name: Steam News
             url: https://store.steampowered.com/news/collection/steam/
             rss: https://store.steampowered.com/feeds/news.xml
-      - name: Железо
-        slug: hardware
-        feeds:
-          - name: Wccftech
-            url: https://wccftech.com/
-            rss: https://wccftech.com/feed/
-          - name: Overclockers
-            url: https://www.overclockers.com/
-            rss: https://www.overclockers.com/feed/
-          - name: "Tom's Hardware"
-            url: https://www.tomshardware.com/news
-            rss: https://www.tomshardware.com/feeds/all
-          - name: "Reddit: /r/hardware"
-            url: https://www.reddit.com/r/hardware/
-            rss: https://www.reddit.com/r/hardware.rss
 
   - name: Вастрик
     slug: vas3k
