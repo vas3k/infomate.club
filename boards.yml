@@ -259,12 +259,12 @@ boards:
 
   - name: Игры, железо и геймдев (бета)
     slug: games
-    is_visible: false
+    is_visible: true
     is_private: false
     curator:
       name: Игры, железо и геймдев (бета)
       avatar: https://i.vas3k.ru/3abb737fa3b806a9948ac8224cdaf62c72238500b1334fdb5a0a84acb13002a2.jpg
-      bio: Новости об играх, железе и прочей гиковне
+      bio: Тестовая версия подборки об играх, железе и прочей гиковне
     blocks:
       - name: На русском
         slug: ru
@@ -278,21 +278,22 @@ boards:
           - name: Stopgame
             url: https://stopgame.ru/
             rss: https://rss.stopgame.ru/rss_frontpage.xml
-          - name: Канобу
-            url: https://kanobu.ru/
-            rss: https://kanobu.ru/rss/news.xml
           - name: Игры @ Mail.ru
             url: https://games.mail.ru/pc/news/
             rss: https://games.mail.ru/pc/rss/news/
           - name: IXBT.games
             url: https://www.gametech.ru/
             rss: https://infomate.club/parsing/telegram/ixbtgames
+          - name: Канобу
+            url: https://kanobu.ru/
+            rss: https://kanobu.ru/rss/news.xml
       - name: На английском
         slug: en
         feeds:
           - name: IGN
             url: https://ign.com/
             rss: https://feeds.feedburner.com/ign/all
+            icon: https://i.vas3k.ru/cd6895f1b150d96ffa85bc8b160a79b2b294b9712d7f887f54d5f167a61bffd6.png
           - name: "Reddit: /r/gaming + /r/games"
             url: https://www.reddit.com/r/gaming/
             mix:
