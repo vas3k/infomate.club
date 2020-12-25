@@ -257,15 +257,15 @@ boards:
             rss: https://infomate.club/parsing/telegram/techsparks
             icon: https://i.vas3k.ru/b5a4fb2b5d3d0279612c639a325958e89bfaa218a87a6016f74936d347d23ced.png
 
-  - name: Игры и кино
+  - name: Игры и геймдев (бета)
     slug: games
     is_visible: false
     is_private: false
     curator:
-      name: Игры и кино
+      name: Игры и геймдев (бета)
       title: КЕК
-      avatar: https://i.vas3k.ru/229b722cc79faca1f148c66b1e7240488e7405704f94b8d7f0fadddcf66212f0.jpg
-      bio: Подборка новостей об играх, кино и гиковне
+      avatar: https://i.vas3k.ru/3abb737fa3b806a9948ac8224cdaf62c72238500b1334fdb5a0a84acb13002a2.jpg
+      bio: Новости об играх, железе и прочей гиковне
     blocks:
       - name: На русском
         slug: ru
@@ -273,12 +273,12 @@ boards:
           - name: DTF
             url: https://dtf.ru/
             rss: https://dtf.ru/rss/all
-          - name: Stopgame
-            url: https://stopgame.ru/
-            rss: https://rss.stopgame.ru/rss_all.xml
           - name: Игромания
             url: https://www.igromania.ru/news/
             rss: https://www.igromania.ru/rss/news-game.rss
+          - name: Stopgame
+            url: https://stopgame.ru/
+            rss: https://rss.stopgame.ru/rss_frontpage.xml
           - name: IXBT.games
             url: https://www.gametech.ru/
             rss: https://infomate.club/parsing/telegram/ixbtgames
@@ -298,9 +298,6 @@ boards:
             url: https://www.reddit.com/r/gaming/
             rss: https://www.reddit.com/r/gaming.rss
             is_parsable: false
-          - name: Metacritic
-            url: https://www.metacritic.com/
-            rss: https://www.metacritic.com/rss/games
           - name: GameSpot
             url: https://www.gamespot.com/
             rss: https://www.gamespot.com/feeds/mashup
@@ -310,18 +307,24 @@ boards:
           - name: Rock Paper Shotgun
             url: https://www.rockpapershotgun.com/
             rss: https://www.rockpapershotgun.com/feed/
+          - name: Metacritic
+            url: https://www.metacritic.com/
+            rss: https://www.metacritic.com/rss/games
       - name: Индустрия
         slug: industry
         feeds:
-          - name: Gamasutra
-            url: https://www.gamasutra.com/
-            rss: https://feeds.feedburner.com/GamasutraNews
           - name: GamesIndustry.biz
             url: https://www.gamesindustry.biz/
             rss: https://www.gamesindustry.biz/rss/gamesindustry_news_feed.rss
+          - name: Gamasutra
+            url: https://www.gamasutra.com/
+            rss: https://feeds.feedburner.com/GamasutraNews
           - name: Kotaku
             url: https://kotaku.com/
             rss: https://kotaku.com/rss
+          - name: "MCV/Develop"
+            url: https://www.mcvuk.com/
+            rss: https://www.mcvuk.com/feed/
           - name: Геймдев, который мы заслужили
             url: https://t.me/Korovany
             rss: https://infomate.club/parsing/telegram/Korovany
@@ -343,10 +346,21 @@ boards:
           - name: Steam News
             url: https://store.steampowered.com/news/collection/steam/
             rss: https://store.steampowered.com/feeds/news.xml
-      - name: Телеграм-каналы
-        slug: tg
+      - name: Железо
+        slug: hardware
         feeds:
-          - name:
+          - name: Wccftech
+            url: https://wccftech.com/
+            rss: https://wccftech.com/feed/
+          - name: Overclockers
+            url: https://www.overclockers.com/
+            rss: https://www.overclockers.com/feed/
+          - name: "Tom's Hardware"
+            url: https://www.tomshardware.com/news
+            rss: https://www.tomshardware.com/feeds/all
+          - name: "Reddit: /r/hardware"
+            url: https://www.reddit.com/r/hardware/
+            rss: https://www.reddit.com/r/hardware.rss
 
   - name: Вастрик
     slug: vas3k
