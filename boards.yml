@@ -257,6 +257,97 @@ boards:
             rss: https://infomate.club/parsing/telegram/techsparks
             icon: https://i.vas3k.ru/b5a4fb2b5d3d0279612c639a325958e89bfaa218a87a6016f74936d347d23ced.png
 
+  - name: Игры и кино
+    slug: games
+    is_visible: false
+    is_private: false
+    curator:
+      name: Игры и кино
+      title: КЕК
+      avatar: https://i.vas3k.ru/229b722cc79faca1f148c66b1e7240488e7405704f94b8d7f0fadddcf66212f0.jpg
+      bio: Подборка новостей об играх, кино и гиковне
+    blocks:
+      - name: На русском
+        slug: ru
+        feeds:
+          - name: DTF
+            url: https://dtf.ru/
+            rss: https://dtf.ru/rss/all
+          - name: Stopgame
+            url: https://stopgame.ru/
+            rss: https://rss.stopgame.ru/rss_all.xml
+          - name: Игромания
+            url: https://www.igromania.ru/news/
+            rss: https://www.igromania.ru/rss/news-game.rss
+          - name: IXBT.games
+            url: https://www.gametech.ru/
+            rss: https://infomate.club/parsing/telegram/ixbtgames
+          - name: Некстджен и Усиление+
+            url: https://t.me/usilenie_plus
+            rss: https://infomate.club/parsing/telegram/usilenie_plus
+          - name: Котонавты
+            url: https://t.me/meownauts
+            rss: https://infomate.club/parsing/telegram/meownauts
+      - name: На английском
+        slug: en
+        feeds:
+          - name: IGN
+            url: https://ign.com/
+            rss: https://feeds.feedburner.com/ign/all
+          - name: "Reddit: /r/gaming"
+            url: https://www.reddit.com/r/gaming/
+            rss: https://www.reddit.com/r/gaming.rss
+            is_parsable: false
+          - name: Metacritic
+            url: https://www.metacritic.com/
+            rss: https://www.metacritic.com/rss/games
+          - name: GameSpot
+            url: https://www.gamespot.com/
+            rss: https://www.gamespot.com/feeds/mashup
+          - name: Eurogamer
+            url: https://www.eurogamer.net/
+            rss: https://www.eurogamer.net/?format=rss
+          - name: Rock Paper Shotgun
+            url: https://www.rockpapershotgun.com/
+            rss: https://www.rockpapershotgun.com/feed/
+      - name: Индустрия
+        slug: industry
+        feeds:
+          - name: Gamasutra
+            url: https://www.gamasutra.com/
+            rss: https://feeds.feedburner.com/GamasutraNews
+          - name: GamesIndustry.biz
+            url: https://www.gamesindustry.biz/
+            rss: https://www.gamesindustry.biz/rss/gamesindustry_news_feed.rss
+          - name: Kotaku
+            url: https://kotaku.com/
+            rss: https://kotaku.com/rss
+          - name: Геймдев, который мы заслужили
+            url: https://t.me/Korovany
+            rss: https://infomate.club/parsing/telegram/Korovany
+      - name: Платформы
+        slug: platforms
+        feeds:
+          - name: Xbox Wire
+            url: https://news.xbox.com/en-us/
+            rss: https://news.xbox.com/en-us/feed/
+          - name: PlayStation Blog
+            url: https://blog.playstation.com/
+            rss: https://blog.playstation.com/feed/
+          - name: PC Gamer
+            url: https://www.pcgamer.com/
+            rss: https://www.pcgamer.com/rss/
+          - name: Nintendo Life
+            url: https://www.nintendolife.com/
+            rss: https://www.nintendolife.com/feeds/latest
+          - name: Steam News
+            url: https://store.steampowered.com/news/collection/steam/
+            rss: https://store.steampowered.com/feeds/news.xml
+      - name: Телеграм-каналы
+        slug: tg
+        feeds:
+          - name:
+
   - name: Вастрик
     slug: vas3k
     is_visible: true
