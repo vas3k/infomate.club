@@ -272,21 +272,22 @@ boards:
           - name: DTF
             url: https://dtf.ru/
             rss: https://dtf.ru/rss/all
-          - name: Игромания
-            url: https://www.igromania.ru/news/
-            rss: https://www.igromania.ru/rss/news-game.rss
           - name: Stopgame
             url: https://stopgame.ru/
-            rss: https://rss.stopgame.ru/rss_frontpage.xml
+            mix:
+             - https://rss.stopgame.ru/rss_frontpage.xml
+             - https://www.youtube.com/feeds/videos.xml?channel_id=UCq7JZ8ATgQWeu6sDM1czjhg
           - name: Игры @ Mail.ru
             url: https://games.mail.ru/pc/news/
             rss: https://games.mail.ru/pc/rss/news/
+          - name: Игромания
+            url: https://www.igromania.ru/news/
+            mix:
+             - https://www.igromania.ru/rss/news-game.rss
+             - https://www.youtube.com/feeds/videos.xml?channel_id=UC_Q1vhf7wcR_zGlc5ahAg0A
           - name: IXBT.games
             url: https://www.gametech.ru/
             rss: https://infomate.club/parsing/telegram/ixbtgames
-          - name: Канобу
-            url: https://kanobu.ru/
-            rss: https://kanobu.ru/rss/news.xml
       - name: На английском
         slug: en
         feeds:
@@ -294,24 +295,21 @@ boards:
             url: https://ign.com/
             rss: https://feeds.feedburner.com/ign/all
             icon: https://i.vas3k.ru/cd6895f1b150d96ffa85bc8b160a79b2b294b9712d7f887f54d5f167a61bffd6.png
+            is_parsable: false
+          - name: Rock Paper Shotgun
+            url: https://www.rockpapershotgun.com/
+            rss: https://www.rockpapershotgun.com/feed/
+          - name: Polygon
+            url: https://www.polygon.com/
+            rss: https://www.polygon.com/rss/front-page/index.xml
+          - name: Eurogamer
+            url: https://www.eurogamer.net/
+            rss: https://www.eurogamer.net/?format=rss
           - name: "Reddit: /r/gaming + /r/games"
             url: https://www.reddit.com/r/gaming/
             mix:
              - https://www.reddit.com/r/gaming.rss
              - https://www.reddit.com/r/games.rss
-            is_parsable: false
-          - name: GameSpot
-            url: https://www.gamespot.com/
-            rss: https://www.gamespot.com/feeds/mashup
-          - name: Eurogamer
-            url: https://www.eurogamer.net/
-            rss: https://www.eurogamer.net/?format=rss
-          - name: Rock Paper Shotgun
-            url: https://www.rockpapershotgun.com/
-            rss: https://www.rockpapershotgun.com/feed/
-          - name: Metacritic
-            url: https://www.metacritic.com/
-            rss: https://www.metacritic.com/rss/games
       - name: Индустрия
         slug: industry
         feeds:
@@ -327,9 +325,10 @@ boards:
           - name: "MCV/Develop"
             url: https://www.mcvuk.com/
             rss: https://www.mcvuk.com/feed/
-          - name: Геймдев, который мы заслужили
-            url: https://t.me/Korovany
-            rss: https://infomate.club/parsing/telegram/Korovany
+            icon: https://i.vas3k.ru/2c3f4640e0109754dc7d250b63dc7e828268a246efac1cfa3780a650e7ec2119.jpg
+          - name: "Шрайер"
+            url: https://www.bloomberg.com/authors/AUvqMRVAZCw/jason-schreier
+            rss: https://www.bloomberg.com/authors/AUvqMRVAZCw/jason-schreier.rss
       - name: Железо
         slug: hardware
         feeds:
@@ -359,7 +358,7 @@ boards:
             rss: https://www.nintendolife.com/feeds/latest
           - name: Steam News
             url: https://store.steampowered.com/news/collection/steam/
-            rss: https://store.steampowered.com/feeds/news.xml
+            rss: https://store.steampowered.com/feeds/newreleases.xml
 
   - name: Вастрик
     slug: vas3k
@@ -484,6 +483,9 @@ boards:
           - name: Starter Story
             url: https://www.starterstory.com
             rss: https://www.starterstory.com/feed?format=rss
+          - name: Indiehackers
+            url: https://www.indiehackers.com/
+            rss: https://rss.app/feeds/faq798zw7eJuer9w.xml
           - name: 'Reddit: /r/SideProject'
             url: https://www.reddit.com/r/SideProject/
             rss: https://www.reddit.com/r/SideProject.rss
