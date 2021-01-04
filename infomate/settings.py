@@ -97,7 +97,7 @@ BOARD_CACHE_SECONDS = 10 * 60  # 10 min
 # App settings
 
 APP_NAME = "Infomate"
-APP_TITLE = "Читай интернет нормально"
+APP_TITLE = "Агрегатор инфополя"
 APP_DESCRIPTION = APP_TITLE
 APP_HOST = "https://infomate.club"
 

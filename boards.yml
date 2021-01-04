@@ -15,6 +15,7 @@ boards:
           - name: Meduza
             url: https://meduza.io/
             rss: https://meduza.io/rss/all
+            icon: https://i.vas3k.ru/e4b09a9d72f9b0157b88ed1cc5b755f7b6099358c889edce021a481442c7222f.png
           - name: TJ
             url: https://tjournal.ru
             rss: https://tjournal.ru/rss/all
@@ -34,6 +35,7 @@ boards:
           - name: РБК
             url: https://www.rbc.ru/
             rss: http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
+            icon: https://i.vas3k.ru/8e8a9d54921aafb2c72e347f0cf07f3f4e84103d02117fdf1d04799cadb13b80.jpg
       - name: 🗽 Либеральные
         slug: ru_left
         view: "blocks/two.html"
@@ -263,7 +265,7 @@ boards:
     is_private: false
     curator:
       name: Игры, железо и геймдев (бета)
-      avatar: https://i.vas3k.ru/3abb737fa3b806a9948ac8224cdaf62c72238500b1334fdb5a0a84acb13002a2.jpg
+      avatar: https://i.vas3k.ru/009083029266714bfe0124c26b5b435cadbf8d76798408c89c678b7a3684df3a.jpg
       bio: Тестовая версия подборки об играх, железе и прочей гиковне
     blocks:
       - name: На русском
@@ -271,7 +273,9 @@ boards:
         feeds:
           - name: DTF
             url: https://dtf.ru/
-            rss: https://dtf.ru/rss/all
+            mix:
+             - https://dtf.ru/rss/all
+             - https://www.youtube.com/feeds/videos.xml?channel_id=UCBDLWj5X5D9bvBa3JIMMTIQ
           - name: Stopgame
             url: https://stopgame.ru/
             mix:
@@ -299,9 +303,11 @@ boards:
           - name: Rock Paper Shotgun
             url: https://www.rockpapershotgun.com/
             rss: https://www.rockpapershotgun.com/feed/
+            icon: https://i.vas3k.ru/a3306dfa0ba6c7169454702ca22535255ec3988ea5500e21558258c789d45a3a.jpg
           - name: Polygon
             url: https://www.polygon.com/
             rss: https://www.polygon.com/rss/front-page/index.xml
+            icon: https://i.vas3k.ru/e710868062d590ef2906648582eb139d21fb4edba1b4b9a40a2c7a16744c00b1.png
           - name: Eurogamer
             url: https://www.eurogamer.net/
             rss: https://www.eurogamer.net/?format=rss
@@ -316,9 +322,11 @@ boards:
           - name: GamesIndustry.biz
             url: https://www.gamesindustry.biz/
             rss: https://www.gamesindustry.biz/rss/gamesindustry_news_feed.rss
+            icon: https://i.vas3k.ru/61b867daaa85db8d74061ca2d730f6a32b0af2387db77371946ef807b7f8cd84.png
           - name: Gamasutra
             url: https://www.gamasutra.com/
             rss: https://feeds.feedburner.com/GamasutraNews
+            icon: https://i.vas3k.ru/e0464b0fe7cc7e5abc98570a88340a0082da5a96598febfa6bf66a1bc7b37987.png
           - name: Kotaku
             url: https://kotaku.com/
             rss: https://kotaku.com/rss
@@ -329,6 +337,7 @@ boards:
           - name: "Шрайер"
             url: https://www.bloomberg.com/authors/AUvqMRVAZCw/jason-schreier
             rss: https://www.bloomberg.com/authors/AUvqMRVAZCw/jason-schreier.rss
+            icon: https://i.vas3k.ru/35c6ae6df0fe47166ed5c656bde6faa974ae1beca949c89443f0aed0b86e0806.png
       - name: Железо
         slug: hardware
         feeds:
@@ -356,9 +365,7 @@ boards:
           - name: Nintendo Life
             url: https://www.nintendolife.com/
             rss: https://www.nintendolife.com/feeds/latest
-          - name: Steam News
-            url: https://store.steampowered.com/news/collection/steam/
-            rss: https://store.steampowered.com/feeds/newreleases.xml
+            icon: https://i.vas3k.ru/6b873b5b6eea734311d63ab9f20643b724767a08e69ffeb48835043d5d3ed445.png
 
   - name: Вастрик
     slug: vas3k
@@ -474,6 +481,7 @@ boards:
               - https://waitbutwhy.com/feed
               - https://mxb.dev/feed.xml
               - https://bureau.ru/bb/soviet/rss/
+              - http://nickcraver.com/blog/feed.xml
       - name: Инди-разработка
         slug: make
         feeds:
@@ -528,31 +536,6 @@ boards:
             url: https://techcrunch.com/europe/
             rss: http://feeds.feedburner.com/Techcrunch/europe
             is_parsable: false
-      - name: Микс из блогов крупных компаний
-        slug: engineering
-        feeds:
-          - columns: 3
-            view: "feeds/favicons.html"
-            is_parsable: false
-            mix:
-              - http://blog.stackoverflow.com/feed/
-              - https://machinelearning.apple.com/feed.xml
-              - http://nerds.airbnb.com/feed/
-              - http://www.ebaytechblog.com/feed/
-              - http://blog.agilebits.com/feed/
-              - http://research.microsoft.com/rss/news.xml
-              - http://blog.keras.io/feeds/all.atom.xml
-              - http://techblog.netflix.com/feeds/posts/default
-              - http://nickcraver.com/blog/feed.xml
-              - http://googlerussiablog.blogspot.com/atom.xml
-              - https://eng.uber.com/feed/
-              - http://web.mit.edu/newsoffice/topic/mitcomputers-rss.xml
-              - http://feeds.feedburner.com/corner-squareup-com
-              - http://googleresearch.blogspot.com/atom.xml
-              - http://githubengineering.com/atom.xml
-              - http://labs.spotify.com/feed/
-              - http://blog.kaggle.com/feed/
-              - http://clubs.ya.ru/company/rss/posts.xml
       - name: Фотография
         slug: photo
         feeds:
