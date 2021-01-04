@@ -86,6 +86,7 @@ boards:
           - name: Reddit News
             url: https://www.reddit.com/r/news/
             rss: https://www.reddit.com/r/news.rss
+            icon: https://i.vas3k.ru/3062b953fa39b4f3bc26a5f3ba65effb0fac935ffa5ee50c3b734107be457c48.png
           - name: Reuters
             url: https://www.reuters.com/news/world
             rss: https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US
@@ -265,7 +266,7 @@ boards:
     is_private: false
     curator:
       name: Игры, железо и геймдев (бета)
-      avatar: https://i.vas3k.ru/009083029266714bfe0124c26b5b435cadbf8d76798408c89c678b7a3684df3a.jpg
+      avatar: https://i.vas3k.ru/d91addda792605da2764afc6c866257e05b8218d11b91534eaf0e87c03acebe5.jpg
       bio: Тестовая версия подборки об играх, железе и прочей гиковне
     blocks:
       - name: На русском
@@ -273,11 +274,13 @@ boards:
         feeds:
           - name: DTF
             url: https://dtf.ru/
+            icon: https://i.vas3k.ru/75a05e5c534be82df78b704bf6d8c18308772736074ae3a6b2fdac4a6cd03343.png
             mix:
              - https://dtf.ru/rss/all
              - https://www.youtube.com/feeds/videos.xml?channel_id=UCBDLWj5X5D9bvBa3JIMMTIQ
           - name: Stopgame
             url: https://stopgame.ru/
+            icon: https://i.vas3k.ru/110c51acbc7b938803332ce502eaa92284302093825b86f632002720397cdd66.png
             mix:
              - https://rss.stopgame.ru/rss_frontpage.xml
              - https://www.youtube.com/feeds/videos.xml?channel_id=UCq7JZ8ATgQWeu6sDM1czjhg
@@ -286,12 +289,14 @@ boards:
             rss: https://games.mail.ru/pc/rss/news/
           - name: Игромания
             url: https://www.igromania.ru/news/
+            icon: https://i.vas3k.ru/da87856ddac8e5000798651b23669134fc47755adb23ac4cb9cf3862e5f0736e.jpg
             mix:
              - https://www.igromania.ru/rss/news-game.rss
              - https://www.youtube.com/feeds/videos.xml?channel_id=UC_Q1vhf7wcR_zGlc5ahAg0A
           - name: IXBT.games
             url: https://www.gametech.ru/
             rss: https://infomate.club/parsing/telegram/ixbtgames
+            icon: https://i.vas3k.ru/7e54723ab414656c96a7b736f843f1bc961237c50ca30e8209096c3a912db7a1.png
       - name: На английском
         slug: en
         feeds:
@@ -313,6 +318,7 @@ boards:
             rss: https://www.eurogamer.net/?format=rss
           - name: "Reddit: /r/gaming + /r/games"
             url: https://www.reddit.com/r/gaming/
+            icon: https://i.vas3k.ru/3062b953fa39b4f3bc26a5f3ba65effb0fac935ffa5ee50c3b734107be457c48.png
             mix:
              - https://www.reddit.com/r/gaming.rss
              - https://www.reddit.com/r/games.rss
@@ -350,6 +356,7 @@ boards:
           - name: "Reddit: /r/hardware"
             url: https://www.reddit.com/r/hardware/
             rss: https://www.reddit.com/r/hardware.rss
+            icon: https://i.vas3k.ru/3062b953fa39b4f3bc26a5f3ba65effb0fac935ffa5ee50c3b734107be457c48.png
       - name: Платформы
         slug: platforms
         feeds:
@@ -412,6 +419,7 @@ boards:
           - name: 'Reddit: /r/technology/'
             url: https://www.reddit.com/r/technology
             rss: https://www.reddit.com/r/technology.rss
+            icon: https://i.vas3k.ru/3062b953fa39b4f3bc26a5f3ba65effb0fac935ffa5ee50c3b734107be457c48.png
             is_parsable: false
           - name: "Pinboard: Popular"
             url: https://pinboard.in/popular/
@@ -497,6 +505,7 @@ boards:
           - name: 'Reddit: /r/SideProject'
             url: https://www.reddit.com/r/SideProject/
             rss: https://www.reddit.com/r/SideProject.rss
+            icon: https://i.vas3k.ru/3062b953fa39b4f3bc26a5f3ba65effb0fac935ffa5ee50c3b734107be457c48.png
             is_parsable: false
       - name: Путешествия
         slug: travel
