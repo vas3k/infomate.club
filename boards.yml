@@ -260,14 +260,14 @@ boards:
             rss: https://infomate.club/parsing/telegram/techsparks
             icon: https://i.vas3k.ru/b5a4fb2b5d3d0279612c639a325958e89bfaa218a87a6016f74936d347d23ced.png
 
-  - name: Игры, железо и геймдев (бета)
+  - name: Игры, железки и геймдев [бета]
     slug: games
     is_visible: true
     is_private: false
     curator:
-      name: Игры, железо и геймдев (бета)
+      name: Игры, железки и геймдев [бета]
       avatar: https://i.vas3k.ru/d91addda792605da2764afc6c866257e05b8218d11b91534eaf0e87c03acebe5.jpg
-      bio: Тестовая версия подборки об играх, железе и прочей гиковне
+      bio: Тестовая подборка новостей об играх и всём, что с ними связано
     blocks:
       - name: На русском
         slug: ru
@@ -373,6 +373,16 @@ boards:
             url: https://www.nintendolife.com/
             rss: https://www.nintendolife.com/feeds/latest
             icon: https://i.vas3k.ru/6b873b5b6eea734311d63ab9f20643b724767a08e69ffeb48835043d5d3ed445.png
+          - name: Pocketgamer
+            url: https://www.pocketgamer.com/
+            rss: https://www.pocketgamer.com/rss/
+            icon: https://i.vas3k.ru/4206863a904a4ae9966eb5abbba5f1f179607a60a31b3f81c20a950a93cb2e9d.jpg
+          - name: UploadVR + Road to VR
+            url: https://uploadvr.com/
+            icon: https://i.vas3k.ru/85fbe5e90e244df525a3265beaec913f30f2bf6799d34c82d2224acb005dce9e.png
+            mix:
+              - https://uploadvr.com/feed/
+              - https://www.roadtovr.com/feed/
 
   - name: Вастрик
     slug: vas3k
