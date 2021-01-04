@@ -42,10 +42,10 @@ def initialize(config, board_slug, upload_favicons, always_yes):
 
         board_name = board_config.get("name") or board_config["slug"]
         print(f"Creating board: {board_name}...")
-        board, is_created = Board.objects.get_or_create(
+        board, is_created = Board.objects.update_or_create(
             slug=board_config["slug"],
             defaults=dict(
-                name=board_name,
+                name=board_name or board_config["slug"],
                 avatar=board_config["curator"].get("avatar"),
                 curator_name=board_config["curator"].get("name"),
                 curator_title=board_config["curator"].get("title"),
@@ -57,24 +57,11 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                 index=board_index,
             )
         )
-        if not is_created:
-            # update existing values
-            board.name = board_config.get("name") or board_config["slug"]
-            board.avatar = board_config["curator"].get("avatar")
-            board.curator_name = board_config["curator"].get("name")
-            board.curator_title = board_config["curator"].get("title")
-            board.curator_footer = board_config["curator"].get("footer")
-            board.curator_bio = board_config["curator"].get("bio")
-            board.curator_url = board_config["curator"].get("url")
-            board.is_private = board_config.get("is_private")
-            board.is_visible = board_config.get("is_visible")
-            board.index = board_index
-            board.save()
 
         for block_index, block_config in enumerate(board_config.get("blocks") or []):
             block_name = block_config.get("name") or ""
             print(f"\nCreating block: {block_name}...")
-            block, is_created = BoardBlock.objects.get_or_create(
+            block, is_created = BoardBlock.objects.update_or_create(
                 board=board,
                 slug=block_config["slug"],
                 defaults=dict(
@@ -83,12 +70,6 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                     view=block_config.get("view") or BoardBlock.DEFAULT_VIEW,
                 )
             )
-
-            if not is_created:
-                block.index = block_index
-                block.name = block_name
-                block.view = block_config.get("view") or BoardBlock.DEFAULT_VIEW
-                block.save()
 
             if not block_config.get("feeds"):
                 continue
@@ -109,7 +90,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                 
                 print(f"Creating or updating feed {feed_name} ({feed_url})...")
 
-                feed, is_created = BoardFeed.objects.get_or_create(
+                feed, is_created = BoardFeed.objects.update_or_create(
                     board=board,
                     block=block,
                     url=feed_url,
@@ -126,18 +107,6 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                         view=feed_config.get("view") or BoardFeed.DEFAULT_VIEW,
                     )
                 )
-
-                if not is_created:
-                    feed.rss = feed_rss
-                    feed.mix = feed_mix
-                    feed.name = feed_name
-                    feed.comment = feed_config.get("comment")
-                    feed.index = feed_index
-                    feed.icon = feed.icon or feed_config.get("icon")
-                    feed.columns = feed_config.get("columns") or 1
-                    feed.conditions = feed_config.get("conditions")
-                    feed.is_parsable = feed_config.get("is_parsable", True)
-                    feed.view = feed_config.get("view") or BoardFeed.DEFAULT_VIEW
 
                 html = None
 
