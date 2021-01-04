@@ -877,9 +877,6 @@ boards:
           - name: "Data Science at Home"
             url: https://datascienceathome.com
             rss: https://datascienceathome.com/feed/
-          - name: "Unsupervised"
-            url: http://www.unsupervised-podcast.xyz/
-            rss: https://rss.simplecast.com/podcasts/3605/rss
 
   - name: Тексты и редактура
     slug: content
