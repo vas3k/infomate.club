@@ -600,6 +600,7 @@ boards:
           - name: "TheLocal"
             url: https://www.thelocal.de/
             rss: https://feeds.thelocal.com/rss/de
+            icon: https://i.vas3k.ru/5a8888ed6bf5abe3f642d610f724f2f6eea71f8cf225c8d29e90a0cc9085dae1.png
           - name: "Что там у немцев?"
             url: https://t.me/dwrussian
             rss: https://infomate.club/parsing/telegram/dwrussian
@@ -607,9 +608,10 @@ boards:
           - name: IamExpat
             url: https://www.iamexpat.de/
             rss: https://www.iamexpat.de/rss/news-germany
-          - name: "Der Spiegel [DE]"
-            url: https://www.spiegel.de
-            rss: https://www.spiegel.de/schlagzeilen/index.rss
+          - name: "BZ [DE]"
+            url: https://www.bz-berlin.de/
+            rss: https://www.bz-berlin.de/feed
+            icon: https://i.vas3k.ru/38026d202b5c6beab60312602ca6facb3ecb22a4916084fac44858e1a68dc55c.png
           - name: "Der Tagesspiegel [DE]"
             url: https://www.tagesspiegel.de/
             rss: https://www.tagesspiegel.de/contentexport/feed/home
