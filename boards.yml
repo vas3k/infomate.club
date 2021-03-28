@@ -707,7 +707,7 @@ boards:
       avatar: https://i.vas3k.ru/hzv.png
       bio: State-of-the-art Machine Learning News Feed
       footer:  >
-        have something to add? Send me a message on <a href="https://twitter.com/tiulpin">Twitter</a>
+        have something to add? Send me a message on <a href="https://twitter.com/tiulpin">Twitter</a>.
     blocks:
       - slug: main
         feeds:
@@ -724,13 +724,60 @@ boards:
           - name: "The Gradient"
             url: https://thegradient.pub/
             rss: https://thegradient.pub/rss/
-          - name: "DataTau"
-            url: https://datatau.net/
-            rss: https://datatau.net/feed
+          - name: "TheSequence"
+            url: https://thesequence.substack.com/
+            rss: https://thesequence.substack.com/feed/
           - name: "Synced Review"
             url: https://medium.com/syncedreview
             rss: https://medium.com/feed/syncedreview
-
+      - name: "📓 Cool Blogs"
+        slug: blogs
+        feeds:
+          - name: "ODS.ai Habr"
+            url: https://habr.com/ru/company/ods/
+            rss: https://habr.com/ru/rss/company/ods/blog/?fl=ru
+          - name: "Machine Learning Mastery"
+            url: https://machinelearningmastery.com/blog/
+            rss: http://machinelearningmastery.com/blog/feed
+          - name: "ML in Production"
+            url: https://mlinproduction.com
+            rss: https://mlinproduction.com/feed
+          - name: "Sorta Insightful"
+            url: https://www.alexirpan.com/
+            rss: https://www.alexirpan.com/feed.xml
+          - name: "Lil'Log"
+            url: https://lilianweng.github.io/lil-log/
+            rss: https://lilianweng.github.io/lil-log/feed.xml
+          - name: "inFERENCe"
+            url: https://www.inference.vc/
+            rss: https://www.inference.vc/rss
+          - name: "The Spectator"
+            url: http://blog.shakirm.com/
+            rss: http://blog.shakirm.com/feed/
+          - name: "The Unofficial Google Data Science Blog"
+            url: http://www.unofficialgoogledatascience.com/
+            rss: http://www.unofficialgoogledatascience.com/feeds/posts/default
+          - name: "Off the Convex Path"
+            url: http://www.offconvex.org/
+            rss: http://www.offconvex.org/feed
+          - name: "Jay Alammar"
+            url: https://jalammar.github.io
+            rss: https://jalammar.github.io/feed.xml
+          - name: "Piekniewski's blog"
+            url: https://blog.piekniewski.info/
+            rss: https://blog.piekniewski.info/rss/
+          - name: "fast.ai NLP"
+            url: https://nlp.fast.ai
+            rss: http://nlp.fast.ai/feed.xml
+          - name: "Sebastian Ruder"
+            url: https://ruder.io/
+            rss: https://ruder.io/rss/
+          - name: "Andrew Karpathy blog"
+            url: http://karpathy.github.io/
+            rss: http://karpathy.github.io/feed.xml
+          - name: "大トロ"
+            url: http://blog.otoro.net/
+            rss: http://blog.otoro.net/feed.xml
       - name: "🔬 Science"
         slug: science
         feeds:
@@ -739,42 +786,6 @@ boards:
             url: https://paperswithcode.com/
             rss: https://us-east1-ml-feeds.cloudfunctions.net/pwc/latest
             columns: 3
-      - name: "📓 Cool Blogs"
-        slug: blogs
-        feeds:
-          - name: "ODS.ai Habr"
-            url: https://habr.com/ru/company/ods/
-            rss: https://habr.com/ru/rss/company/ods/blog/?fl=ru
-          - name: "inFERENCe"
-            url: https://www.inference.vc/
-            rss: https://www.inference.vc/rss
-          - name: "The Spectator"
-            url: http://blog.shakirm.com/
-            rss: http://blog.shakirm.com/feed/
-          - name: "大トロ"
-            url: http://blog.otoro.net/
-            rss: http://blog.otoro.net/feed.xml
-          - name: "The Unofficial Google Data Science Blog"
-            url: http://www.unofficialgoogledatascience.com/
-            rss: http://www.unofficialgoogledatascience.com/feeds/posts/default
-          - name: "Andrew Karpathy"
-            url: http://karpathy.github.io/
-            rss: http://karpathy.github.io/feed.xml
-          - name: "Off the Convex Path"
-            url: http://www.offconvex.org/
-            rss: http://www.offconvex.org/feed
-          - name: "Machine Learning Mastery"
-            url: https://machinelearningmastery.com/blog/
-            rss: http://machinelearningmastery.com/blog/feed
-          - name: "Lil'Log"
-            url: https://lilianweng.github.io/lil-log/
-            rss: https://lilianweng.github.io/lil-log/feed.xml
-          - name: "Piekniewski's blog"
-            url: https://blog.piekniewski.info/
-            rss: https://blog.piekniewski.info/rss/
-          - name: Sebastian Ruder
-            url: https://ruder.io/
-            rss: https://ruder.io/rss/
       - name: "💼 University and corporation labs"
         slug: labs
         feeds:
@@ -802,13 +813,6 @@ boards:
               - https://azurecomcdn.azureedge.net/en-us/blog/topics/artificial-intelligence/feed/
               - https://azurecomcdn.azureedge.net/en-us/blog/topics/datascience/feed/
               - https://azurecomcdn.azureedge.net/en-us/blog/topics/machine-learning-2/feed/
-          - name: "Facebook"
-            url: https://research.fb.com/blog/
-            rss: http://rssmix.com/u/10966862/rss.xml
-            mix:
-              - https://research.fb.com/blog/feed
-              - https://engineering.fb.com/category/ai-research/feed/
-              - https://engineering.fb.com/category/ml-applications/feed/
           - name: "MIT AI"
             url: http://news.mit.edu/topic/artificial-intelligence2
             rss: http://news.mit.edu/rss/topic/artificial-intelligence2
@@ -826,9 +830,13 @@ boards:
               - http://feeds.feedburner.com/nvidia/acceleratedcomputing
               - https://devblogs.nvidia.com/category/data-science/feed/
               - https://devblogs.nvidia.com/category/artificial-intelligence/feed/
-          - name: "Apple Machine Learning Journal"
-            url: https://machinelearning.apple.com/
-            rss: https://machinelearning.apple.com/feed.xml
+          - name: "Facebook"
+            url: https://research.fb.com/blog/
+            rss: http://rssmix.com/u/10966862/rss.xml
+            mix:
+              - https://research.fb.com/blog/feed
+              - https://engineering.fb.com/category/ai-research/feed/
+              - https://engineering.fb.com/category/ml-applications/feed/
           - name: "Uber Engineering"
             url: https://eng.uber.com/category/articles/ai/
             rss: https://eng.uber.com/category/articles/ai/feed/
@@ -838,21 +846,18 @@ boards:
       - name: "▶️ YouTube"
         slug: youtube
         feeds:
+          - name: "Yannic Kilcher"
+            url: https://www.youtube.com/channel/UCZHmQk67mSJgfCCTn7xBfew
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew
           - name: "Henry AI Labs"
             url: https://www.youtube.com/channel/UCHB9VepY6kYvZjj0Bgxnpbw
             rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCHB9VepY6kYvZjj0Bgxnpbw
-          - name: "Machine Learning and AI Academy"
-            url: https://www.youtube.com/channel/UC4lM4hz_v5ixNjK54UwPEVw
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC4lM4hz_v5ixNjK54UwPEVw
           - name: "3blue1brown"
             url: https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw
             rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw
           - name: "Two Minute Papers"
             url: https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg
             rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg
-          - name: "Primer"
-            url: https://www.youtube.com/channel/UCKzJFdi57J53Vr_BkTfN3uQ
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKzJFdi57J53Vr_BkTfN3uQ
           - name: "DataFest Video"
             url: https://www.youtube.com/channel/UCM9ECBAZtlLeEr-m3ldZ7Tw
             rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCM9ECBAZtlLeEr-m3ldZ7Tw
@@ -865,16 +870,15 @@ boards:
           - name: "ML Trainings"
             url: https://www.youtube.com/channel/UCeq6ZIlvC9SVsfhfKnSvM9w
             rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCeq6ZIlvC9SVsfhfKnSvM9w
+          - name: "Primer"
+            url: https://www.youtube.com/channel/UCKzJFdi57J53Vr_BkTfN3uQ
+            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKzJFdi57J53Vr_BkTfN3uQ
       - name: "🎧 Podcasts"
         slug: podcasts
         feeds:
           - name: "Lex Fridman AI Podcast"
             url: https://lexfridman.com/
             rss: https://lexfridman.com/category/ai/feed/
-          - name: "DeepMind: The Podcast"
-            url: https://deepmind.com/blog/article/welcome-to-the-deepmind-podcast
-            rss: https://feeds.simplecast.com/JT6pbPkg
-            icon: https://i.vas3k.ru/aff485d139d37ac7236f0bdf831812a2ef2419972ca3996c66885f229dccf7e2.jpg
           - name: "Microsoft Research Podcast"
             icon: https://i.vas3k.ru/i0t.png
             url: https://www.microsoft.com/en-us/research/blog/category/podcast/
@@ -894,6 +898,9 @@ boards:
           - name: "Data Science at Home"
             url: https://datascienceathome.com
             rss: https://datascienceathome.com/feed/
+          - name: "ParrotCast"
+            url: https://parrotcast.link/
+            rss: http://parrotcast.link/feed
 
   - name: Тексты и редактура
     slug: content
