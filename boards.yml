@@ -260,14 +260,14 @@ boards:
             rss: https://infomate.club/parsing/telegram/techsparks
             icon: https://i.vas3k.ru/b5a4fb2b5d3d0279612c639a325958e89bfaa218a87a6016f74936d347d23ced.png
 
-  - name: Игры, железки и геймдев [бета]
+  - name: Игры, железки и геймдев
     slug: games
     is_visible: true
     is_private: false
     curator:
-      name: Игры, железки и геймдев [бета]
+      name: Игры, железки и геймдев
       avatar: https://i.vas3k.ru/d91addda792605da2764afc6c866257e05b8218d11b91534eaf0e87c03acebe5.jpg
-      bio: Тестовая подборка новостей об играх и всём, что с ними связано
+      bio: Бета-версия подборки новостей об играх и всём, что с ними связано
     blocks:
       - name: На русском
         slug: ru
@@ -325,6 +325,10 @@ boards:
       - name: Индустрия
         slug: industry
         feeds:
+          - name: App2Top
+            url: https://app2top.ru/
+            rss: https://app2top.ru/rss
+            icon: https://i.vas3k.ru/c2756d30e2381ca7e69013b917d8b048dba7f12b2d38c268d2717d17a1183aa3.png
           - name: GamesIndustry.biz
             url: https://www.gamesindustry.biz/
             rss: https://www.gamesindustry.biz/rss/gamesindustry_news_feed.rss
@@ -500,6 +504,7 @@ boards:
               - https://mxb.dev/feed.xml
               - https://bureau.ru/bb/soviet/rss/
               - http://nickcraver.com/blog/feed.xml
+              - https://nepishi.ru/rss
       - name: Инди-разработка
         slug: make
         feeds:
