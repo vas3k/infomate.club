@@ -32,10 +32,15 @@ boards:
           - name: Ведомости
             url: https://www.vedomosti.ru/
             rss: https://vedomosti.ru/rss/news
-          - name: РБК
-            url: https://www.rbc.ru/
-            rss: http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
-            icon: https://i.vas3k.ru/8e8a9d54921aafb2c72e347f0cf07f3f4e84103d02117fdf1d04799cadb13b80.jpg
+            icon: https://i.vas3k.ru/e52824e20f01c22baee086c03cc5cac5c011b4fd5e7cd2062bb3d78066cb2019.jpg
+          - name: Эхо Москвы
+            url: https://echo.msk.ru/
+            rss: https://echo.msk.ru/news.rss
+            icon: https://i.vas3k.ru/f9a8212a62b560c42aad54b722f838f3cc10abe30786a0b875230950b8c2dc8e.png
+#          - name: РБК
+#            url: https://www.rbc.ru/
+#            rss: http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
+#            icon: https://i.vas3k.ru/8e8a9d54921aafb2c72e347f0cf07f3f4e84103d02117fdf1d04799cadb13b80.jpg
       - name: 🗽 Либеральные
         slug: ru_left
         view: "blocks/two.html"
@@ -48,6 +53,8 @@ boards:
               - https://paperpaper.ru/feed/
               - https://rss.dw.com/rdf/rss-ru-top
               - https://content.novayagazeta.ru/rss/all.xml
+              - https://rss.newsru.com/top/main
+              - https://www.svoboda.org/api/z-pqpiev-qpp
       - name: 👮‍♂️ Прокремлёвские
         slug: ru_right
         view: "blocks/two.html"
@@ -58,6 +65,9 @@ boards:
               - https://lenta.ru/rss
               - https://russian.rt.com/feed
               - https://kp.ru/rss/allsections.xml
+              - https://iz.ru/xml/rss/all.xml
+              - https://ria.ru/export/rss2/archive/index.xml
+              - http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
       - name: Телеграм
         slug: tg
         feeds:
@@ -287,6 +297,7 @@ boards:
           - name: Игры @ Mail.ru
             url: https://games.mail.ru/pc/news/
             rss: https://games.mail.ru/pc/rss/news/
+            icon: https://i.vas3k.ru/4c2ed25ae65ca8d14aad458021b2c2d46de909fa668af4f4b3a78ab1d4d15a74.png
           - name: Игромания
             url: https://www.igromania.ru/news/
             icon: https://i.vas3k.ru/da87856ddac8e5000798651b23669134fc47755adb23ac4cb9cf3862e5f0736e.jpg
@@ -904,7 +915,7 @@ boards:
 
   - name: Тексты и редактура
     slug: content
-    is_visible: true
+    is_visible: false
     is_private: false
     curator:
       name: Тексты и редактура
@@ -1494,7 +1505,7 @@ boards:
 
   - name: Linguistic Madness
     slug: linguisticmadness
-    is_visible: true
+    is_visible: false
     is_private: false
     curator:
       name: Linguistic Madness
@@ -1857,7 +1868,7 @@ boards:
 
   - name: Made for iPhone
     slug: iphone
-    is_visible: true
+    is_visible: false
     is_private: false
     curator:
       name: Made for iPhone
@@ -2180,117 +2191,3 @@ boards:
           - name: "Полка"
             url: https://podcasts.apple.com/ru/podcast/полка/id1450480149
             rss: https://feeds.simplecast.com/x_9E5llm
-
-  - name: Тестирование
-    slug: qa
-    is_visible: true
-    is_private: false
-    curator:
-      name: Тестирование
-      url: от <a href="https://twitter.com/diana_pinchuk">Дианы Пинчук</a>
-      avatar: https://i.vas3k.ru/nfg.jpg
-      bio: О тестировании ПО и обеспечении качества
-    blocks:
-      - slug: ru
-        name: "На русском"
-        feeds:
-          - name: "QA дайджест DOU (и другие дайджесты)"
-            url: https://dou.ua/lenta/tags/QA%20%D0%B4%D0%B0%D0%B9%D0%B4%D0%B6%D0%B5%D1%81%D1%82/
-            rss: https://dou.ua/lenta/digests/feed/
-          - name: "software-testing.ru"
-            url: https://software-testing.ru/
-            rss: https://software-testing.ru/index.php?format=feed&type=rss
-          - name: "Блог Лаборатории Качества"
-            url: https://quality-lab.ru/blog/
-            rss: https://quality-lab.ru/feed/
-          - name: "Блог Перфоманс Лаб"
-            url: http://www.performance-lab.ru/blog
-            rss: http://www.performance-lab.ru/feed
-          - name: "Блог Сергея Пирогова - Записки Автоматизатора"
-            url: https://automation-remarks.com/
-            rss: https://automation-remarks.com/rss/index.rss
-          - name: "Блог Ольги Назиной"
-            url: http://okiseleva.blogspot.com/
-            rss: http://okiseleva.blogspot.com/feeds/posts/default
-          - name: "Блог Никиты Макарова"
-            url: http://test-failed.blogspot.com/
-            rss: http://test-failed.blogspot.com/feeds/posts/default
-          - name: "Блог Алексея Лупана"
-            url: https://testitquickly.com/author/astenix/
-            rss: https://testitquickly.com/feed/
-          - name: "Хабр: Тестирование IT-систем"
-            url: https://habr.com/ru/hub/it_testing/
-            icon: https://i.vas3k.ru/fhv.png
-            rss: https://habr.com/ru/rss/hub/it_testing/all/?fl=ru
-      - slug: en
-        name: "In English"
-        feeds:
-          - name: "Ministry of Testing"
-            url: https://www.ministryoftesting.com/dojo/catalog
-            rss: http://feeds.feedburner.com/mottestingfeeds
-          - name: "James Bach blog"
-            url: https://www.satisfice.com/blog
-            rss: https://www.satisfice.com/feed
-          - name: "Michael Bolton blog'"
-            url: https://www.developsense.com/blog/
-            rss: https://www.developsense.com/blog/feed
-          - name: "Kristin Jackvony blog: Think like a tester"
-            url: http://thethinkingtester.blogspot.com/
-            rss: http://thethinkingtester.blogspot.com/feeds/posts/default
-          - name: "Alan Richardson (Evil tester) blog"
-            url: https://www.eviltester.com/blog/
-            rss: https://www.eviltester.com/index.xml
-          - name: "Maaret Pyhäjärvi blog"
-            url: https://visible-quality.blogspot.com/
-            rss: https://visible-quality.blogspot.com/feeds/posts/default
-          - name: "Katrina Clokie blog"
-            url: http://katrinatester.blogspot.com/
-            rss: http://katrinatester.blogspot.com/feeds/posts/default
-      - slug: youtube
-        name: "Youtube"
-        feeds:
-          - name: "Heisenbug Conference"
-            url: https://www.youtube.com/channel/UCX6fjZa167tSy_4ryTLcOBw
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCX6fjZa167tSy_4ryTLcOBw
-          - name: "Selenium Camp"
-            url: https://www.youtube.com/channel/UCTGNGRvd6fxpj1F6-7emUJw
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCTGNGRvd6fxpj1F6-7emUJw
-          - name: "QA Fest"
-            url: https://www.youtube.com/channel/UClTnsvgTiW2YcfP1tcI2oKA
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UClTnsvgTiW2YcfP1tcI2oKA
-          - name: "QA Guild"
-            url: https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCHtyBZ2XbtsRmNiAxh48RGg
-          - name: "SQA Days"
-            url: https://www.youtube.com/user/vldcorp
-            rss: https://www.youtube.com/feeds/videos.xml?user=vldcorp
-          - name: "Яндекс Тестирование"
-            url: https://www.youtube.com/channel/UC9VeXtf7fcCJUfmZ_cyweXA
-            rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC9VeXtf7fcCJUfmZ_cyweXA
-      - slug: podcasts
-        name: "Подкасты"
-        feeds:
-          - name: "QA Guild"
-            url: https://soundcloud.com/qaguild
-            rss: http://feeds.soundcloud.com/users/soundcloud:users:371334098/sounds.rss
-          - name: "Radio QA"
-            url: http://radio-qa.com/
-            rss: http://radio-qa.com/feed/
-          - name: "AB Testing"
-            url: https://testingpodcast.com/category/ab-testing/
-            rss: https://www.angryweasel.com/ABTesting/feed/podcast/
-          - name: "Ministry of Testing Podcasts"
-            url: https://www.ministryoftesting.com/dojo/podcasts
-            rss: https://www.ministryoftesting.com/feed/podcast
-      - slug: telegram
-        name: "Telegram-каналы"
-        feeds:
-          - name: "Automation Remarks"
-            url: https://t.me/automation_remarks
-            rss: https://infomate.club/parsing/telegram/automation_remarks
-          - name: "Automated-testing.info"
-            url: https://t.me/atinfo
-            rss: https://infomate.club/parsing/telegram/atinfo
-          - name: "QA Mania (Украиноязычный канал)"
-            url: https://t.me/qamania
-            rss: https://infomate.club/parsing/telegram/qamania

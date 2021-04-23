@@ -36,4 +36,9 @@ DOMAIN_FAVICONS = {
     "kp.ru": "https://i.vas3k.ru/64bc76ea5ed920e11ef2708087961af606077e51cb799e8588e68d4476123561.jpg",
     "dw.com": "https://i.vas3k.ru/1869452100cc16474d649fdbf72746b4826ff793c07e02b9262b3f801d87e4a2.jpg",
     "paperpaper.ru": "https://i.vas3k.ru/f34daebb47f629b99b8751b57eb55860ef152783fc16e7538f83a9cc09ee40d5.jpg",
+    "ria.ru": "https://i.vas3k.ru/d763e1ba2b33e669f9374881a83c5e312a0a1e07002eddaf6a955f8127eff46a.png",
+    "iz.ru": "https://i.vas3k.ru/b3b1a252ac5dd8cfdda858cff0e0c827f5e0219a3153d74d5f1a49dffe404906.png",
+    "newsru.com": "https://i.vas3k.ru/a54fde16b2f711db2ab10136b026d83ab0af5390dcf8714a49a1f2a6dc862839.jpg",
+    "svoboda.org": "https://i.vas3k.ru/0365a935ee356c027f23dc82f5922dcd58ccd5f8984fd862ec8f25e43b616b82.jpg",
+    "rbc.ru": "https://i.vas3k.ru/8e8a9d54921aafb2c72e347f0cf07f3f4e84103d02117fdf1d04799cadb13b80.jpg",
 }
