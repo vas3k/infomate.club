@@ -151,6 +151,7 @@ def fetch_rss(item, rss):
         filters = item.get("filters")
         if filters:
             for filter_code in filters:
+                print(f"- applying filter {filter_code}")
                 if FILTERS.get(filter_code):
                     entry = FILTERS[filter_code](entry)
 
