@@ -2,8 +2,6 @@ import io
 import os
 import sys
 import django
-from django.db.models import Q
-
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "infomate.settings")
 django.setup()
@@ -20,6 +18,7 @@ from requests import RequestException
 from newspaper import Article as NewspaperArticle, ArticleException
 
 from boards.models import BoardFeed, Article, Board
+from scripts.filters import FILTERS
 from scripts.common import DEFAULT_REQUEST_HEADERS, DEFAULT_REQUEST_TIMEOUT, MAX_PARSABLE_CONTENT_LENGTH, resolve_url, \
     parse_domain, parse_datetime, parse_title, parse_link, parse_rss_image, parse_rss_text_and_image
 
@@ -57,6 +56,7 @@ def update(num_workers, force, feed):
             "rss": feed.rss,
             "mix": feed.mix,
             "conditions": feed.conditions,
+            "filters": feed.filters,
             "is_parsable": feed.is_parsable,
         })
 
@@ -139,6 +139,7 @@ def fetch_rss(item, rss):
 
         print(f"- article: '{entry_title}' {entry_link}")
 
+        # check conditions (skip articles if false)
         conditions = item.get("conditions")
         if conditions:
             is_valid = check_conditions(conditions, entry)
@@ -146,11 +147,20 @@ def fetch_rss(item, rss):
                 print(f"- condition {conditions} does not match. Skipped")
                 continue
 
+        # apply filters (cleanup titles, etc)
+        filters = item.get("filters")
+        if filters:
+            for filter_code in filters:
+                if FILTERS.get(filter_code):
+                    entry = FILTERS[filter_code](entry)
+
         created_at = parse_datetime(entry)
         if created_at <= datetime.utcnow() - DELETE_OLD_ARTICLES_DELTA:
             print(f"- article is too old. Skipped")
             continue
 
+        entry_title = parse_title(entry)
+        entry_link = parse_link(entry)
         article, is_created = Article.objects.get_or_create(
             board_id=item["board_id"],
             feed_id=item["id"],

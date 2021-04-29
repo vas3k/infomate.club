@@ -103,6 +103,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                         index=feed_index,
                         columns=feed_config.get("columns") or 1,
                         conditions=feed_config.get("conditions"),
+                        filters=feed_config.get("filters"),
                         is_parsable=feed_config.get("is_parsable", True),
                         view=feed_config.get("view") or BoardFeed.DEFAULT_VIEW,
                     )

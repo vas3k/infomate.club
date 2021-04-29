@@ -37,6 +37,8 @@ boards:
             url: https://echo.msk.ru/
             rss: https://echo.msk.ru/news.rss
             icon: https://i.vas3k.ru/f9a8212a62b560c42aad54b722f838f3cc10abe30786a0b875230950b8c2dc8e.png
+            filters:
+              - echomsk_title_fix
 #          - name: РБК
 #            url: https://www.rbc.ru/
 #            rss: http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
@@ -67,7 +69,6 @@ boards:
               - https://kp.ru/rss/allsections.xml
               - https://iz.ru/xml/rss/all.xml
               - https://ria.ru/export/rss2/archive/index.xml
-              - http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
       - name: Телеграм
         slug: tg
         feeds:
