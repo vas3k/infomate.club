@@ -1792,7 +1792,7 @@ boards:
     curator:
       name: Data Engineering
       title: Data Engineering
-      url: от <a href="https://t.me/sashamikhailov">Саши Михайлова</a>
+      url: от <a href="https://t.me/data_days">Саши Михайлова</a>
       avatar: https://i.vas3k.club/69b26425bc514dea3ee485d67a5d11565f074b86a35227fb06b1a6640aa1e848.jpg
       bio: про инжиниринг данных и аналитику
       footer:  >
