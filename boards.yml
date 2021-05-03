@@ -1784,3 +1784,266 @@ boards:
           - name: "Google Online Security Blog"
             url: https://security.googleblog.com/
             rss: https://security.googleblog.com/feeds/posts/default?alt=rss
+
+  - name: Data Engineering
+    slug: de
+    is_visible: true
+    is_private: false
+    curator:
+      name: Data Engineering
+      title: Data Engineering
+      url: от <a href="https://t.me/sashamikhailov">Саши Михайлова</a>
+      avatar: https://i.vas3k.club/69b26425bc514dea3ee485d67a5d11565f074b86a35227fb06b1a6640aa1e848.jpg
+      bio: про инжиниринг данных и аналитику
+      footer:  >
+        субъективная подборка; буду рад предложениям в телеграм → <a href="https://t.me/sashamikhailov">@SashaMikhailov</a>
+    blocks:
+
+      - name: "🏢 %company_name% Engineering"
+        slug: labs
+        feeds:
+          - name: "AirBnb Engineering"
+            url: https://medium.com/airbnb-engineering
+            rss: https://medium.com/feed/airbnb-engineering
+            is_parsable: false
+          - name: "Netflix Engineering"
+            url: https://netflixtechblog.com/
+            rss: https://netflixtechblog.com/feed
+            is_parsable: false
+          - name: "Pinterest Engineering"
+            url: https://medium.com/pinterest-engineering
+            rss: https://medium.com/feed/pinterest-engineering
+            is_parsable: false
+          - name: "Facebook"
+            url: https://research.fb.com/blog/
+            rss: http://rssmix.com/u/10966862/rss.xml
+            is_parsable: false
+            mix:
+              - https://research.fb.com/blog/feed
+              - https://engineering.fb.com/category/ai-research/feed/
+              - https://engineering.fb.com/category/ml-applications/feed/
+          - name: "Uber Engineering"
+            url: https://eng.uber.com/category/articles/ai/
+            rss: https://eng.uber.com/category/articles/ai/feed/
+            is_parsable: false
+            columns: 1
+            articles_per_column: 10
+            mix:
+              - https://eng.uber.com/category/articles/uberdata/feed/
+              - https://eng.uber.com/category/articles/general-engineering/feed/
+              - https://eng.uber.com/category/articles/architecture/feed/
+          - name: "Spotify Engineering"
+            url: https://engineering.atspotify.com
+            rss: https://engineering.atspotify.com/rss/
+            is_parsable: false
+
+      - name: "Infrastructure"
+        slug: infra
+        feeds:
+          - name: "AWS"
+            url: https://aws.amazon.com/new/
+            rss: https://aws.amazon.com/new/feed/
+            is_parsable: false
+            columns: 2
+            mix:
+              - https://aws.amazon.com/blogs/big-data/feed/
+              - https://aws.amazon.com/blogs/database/feed/
+              - https://aws.amazon.com/blogs/devops/feed/
+              - https://aws.amazon.com/blogs/infrastructure-and-automation/feed/
+              - https://aws.amazon.com/blogs/machine-learning/feed/
+          - name: "Astronomer"
+            url: https://www.astronomer.io/blog
+            rss: https://www.astronomer.io/rss.xml
+            is_parsable: false
+          - name: "DBT — Data Build Tool"
+            url: https://blog.getdbt.com/
+            rss: https://blog.getdbt.com/rss/
+            is_parsable: false
+          - name: "FiveTran"
+            url: https://fivetran.com/blog
+            rss: https://fivetran.com/rss/blog
+            is_parsable: false
+
+      - name: "Mix"
+        slug: main
+        feeds:
+          - name: "/r/DataEngineering"
+            url: https://www.reddit.com/r/dataengineering/
+            rss: https://www.reddit.com/r/dataengineering.rss
+            is_parsable: false
+          - name: "Towards Data Science"
+            url: https://towardsdatascience.com/
+            rss: https://towardsdatascience.com/feed
+            is_parsable: false
+          - name: "DataBricks"
+            url: https://databricks.com/blog/category/engineering/
+            rss: https://databricks.com/blog/category/engineering/feed/
+            is_parsable: false
+          - name: "Monte Carlo Data"
+            url: https://www.montecarlodata.com/blog/
+            rss: https://www.montecarlodata.com/blog/rss/
+            is_parsable: false
+          - name: "BigData Republic"
+            url: https://www.bigdatarepublic.nl/articles/
+            rss: https://www.bigdatarepublic.nl/articles/
+          - name: "All Things Distributed"
+            url: https://www.allthingsdistributed.com/articles.html
+            rss: https://www.allthingsdistributed.com/articles.html
+
+      - name: "DE Telegram"
+        slug: de-telegram
+        feeds:
+          - name: "DataEng"
+            url: https://t.me/dataeng
+            rss: https://infomate.club/parsing/telegram/dataeng
+            is_parsable: false
+          - name: "Инжиниринг Данных"
+            url: https://t.me/rockyourdata
+            rss: https://infomate.club/parsing/telegram/rockyourdata
+            is_parsable: false
+          - name: "Left Join"
+            url: https://t.me/lefjoin
+            rss: https://infomate.club/parsing/telegram/lefjoin
+            is_parsable: false
+          - name: "SQLite на практике"
+            url: https://t.me/sqliter
+            rss: https://infomate.club/parsing/telegram/sqliter
+            is_parsable: false
+          - name: "Datalytics"
+            url: https://t.me/datalytx
+            rss: https://infomate.club/parsing/telegram/datalytx
+            is_parsable: false
+          - name: "Труба данных"
+            url: https://t.me/ohmydataengineer
+            rss: https://infomate.club/parsing/telegram/ohmydataengineer
+            is_parsable: false
+          - name: "под капотом Яндекс.Такси"
+            url: https://t.me/UnderTheHood
+            rss: https://infomate.club/parsing/telegram/UnderTheHood
+            is_parsable: false
+          - name: "enthusiastech"
+            url: https://t.me/enthusiastech
+            rss: https://infomate.club/parsing/telegram/enthusiastech
+            is_parsable: false
+          - name: "data будни"
+            url: https://t.me/data_days
+            rss: https://infomate.club/parsing/telegram/data_days
+            is_parsable: false
+          - name: "Data Governance"
+            url: https://t.me/dg4all
+            rss: https://infomate.club/parsing/telegram/dg4all
+            is_parsable: false
+
+      - name: "🎧 Podcasts"
+        slug: podcasts
+        feeds:
+
+          - name: "Data Engineering Podcast"
+            url: https://www.dataengineeringpodcast.com/
+            rss: https://www.dataengineeringpodcast.com/feed/mp3/
+            is_parsable: false
+          - name: "Data Brew by Databricks"
+            url: https://databricks.com/discover/data-brew
+            rss: https://feeds.buzzsprout.com/1370119.rss
+            is_parsable: false
+            filters:
+              - databrew_podcast_clean_title
+          - name: "InfoQ Podcast"
+            url: https://www.infoq.com/the-infoq-podcast/
+            rss: http://feeds.soundcloud.com/users/soundcloud:users:258266127/sounds.rss
+            is_parsable: false
+#            mix:
+#              - http://feeds.soundcloud.com/users/soundcloud:users:215740450/sounds.rss
+
+          - name: "«Ничего такого» by Dodo Enginnering"
+            url: https://www.buzzsprout.com/873301
+            rss: https://feeds.buzzsprout.com/873301.rss
+            is_parsable: false
+          - name: "Запуск завтра Podcast"
+            url: https://libolibo.ru/zapuskzavtra
+            rss: https://zapuskzavtra.libsyn.com/rss
+            is_parsable: false
+          - name: "Moscow Python Podcast"
+            url: https://podcast.python.ru/
+            rss: https://feed.podbean.com/learnpython/feed.xml
+            is_parsable: false
+            filters:
+              - moscow_python_podcast_clean_title
+
+          - name: "Podlodka Podcast"
+            url: https://podlodka.io/
+            rss: http://feeds.soundcloud.com/users/soundcloud:users:291337106/sounds.rss
+            is_parsable: false
+          - name: "Проветримся!"
+            url: https://progulka.yamshchikov.info/
+            rss: https://feeds.buzzsprout.com/231736.rss
+            is_parsable: false
+          - name: "Вы находитесь здесь"
+            url: https://libolibo.ru/nowyouarehere
+            rss: http://nowyouarehere.libsyn.com/rss
+            is_parsable: false
+
+          - name: "Comand Line Heroes by RedHat"
+            url: https://www.redhat.com/en/command-line-heroes
+            rss: https://feeds.pacific-content.com/commandlineheroes
+            is_parsable: false
+          - name: "Python Bytes"
+            url: https://pythonbytes.fm/
+            rss: https://pythonbytes.fm/episodes/rss
+            is_parsable: false
+          - name: "Software Engineering Daily"
+            url: https://softwareengineeringdaily.com/category/all-episodes/exclusive-content/Podcast/
+            rss: https://softwareengineeringdaily.com/category/podcast/feed
+            is_parsable: false
+
+          - name: "Habr Podcasts"
+            url: https://habr-podcast.com/weekly/
+            rss: http://feeds.soundcloud.com/users/soundcloud:users:637623342/sounds.rss
+            is_parsable: false
+          - name: "Мысли и Методы"
+            url: https://rakh.im/mimpod/
+            rss: https://feeds.soundcloud.com/users/soundcloud:users:259154388/sounds.rss?token=6f932-1-1559649010517
+            is_parsable: false
+          - name: "Трёп Себранта"
+            url: https://asebrant.libsyn.com/
+            rss: http://sebrant.chat/rss
+            is_parsable: false
+
+          - name: "ParrotCast"
+            url: https://parrotcast.link/
+            rss: https://anchor.fm/s/46865880/podcast/rss
+
+      - name: "⌨ Coding"
+        slug: coding
+        feeds:
+          - name: "Martin Fowler"
+            url: https://martinfowler.com/
+            rss: https://martinfowler.com/feed.atom
+          - name: "Фёдор Борщёв — CTO"
+            url: https://borshev.com/blog/
+            rss: https://borshev.com/blog/
+          - name: "Антон Жиянов"
+            url: https://antonz.ru/
+            rss: https://antonz.ru/rss/
+
+      - name: "Bare Products Updates"
+        slug: products
+        feeds:
+          - name: "Airflow — orchestration"
+            url: https://airflow.apache.org/blog/
+            rss: https://airflow.apache.org/blog/
+          - name: "Prefect — orchestration"
+            url: https://medium.com/the-prefect-blog
+            rss: https://medium.com/feed/the-prefect-blog
+          - name: "Meltano — EL tool"
+            url: https://meltano.com/blog/
+            rss: https://meltano.com/blog/rss/
+          - name: "Airbyte — EL tool"
+            url: https://airbyte.io/blog/
+            rss: https://airbyte.io/blog/rss/
+          - name: "Stitch — enterprise version of Singer"
+            url: https://www.stitchdata.com/blog/
+            rss: https://www.stitchdata.com/blog/rss/
+          - name: "Metabase"
+            url: https://www.metabase.com/blog/
+            rss: https://www.metabase.com/blog/
