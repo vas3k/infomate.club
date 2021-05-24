@@ -2047,3 +2047,81 @@ boards:
           - name: "Metabase"
             url: https://www.metabase.com/blog/
             rss: https://www.metabase.com/blog/
+            
+  - name: Jeff Who?
+    slug: jeff_who
+    is_visible: true
+    is_private: false
+    curator:
+      name: Jeff Who
+      title: Илон Маск и около его
+      url: by <a href="https://t.me/programistich">Programistich</a> and <a href="https://t.me/teslasfuture">Tesla и дорога в будущее</a>
+      avatar: https://i.vas3k.club/a5f1381e4182099db495f8cecf639c48f14a920ca15365c7d4476acc40cb710d.jpg
+      bio: Подборка новостей о компаниях Маска, а также подобных, например о EV, космос
+      footer:  >
+        Если хотите что-то добавить, пишите <a href="https://t.me/programistich">мне</a>
+    blocks:
+      - name: Телеграм-каналы
+        slug: tg
+        feeds:
+          - name: AlphaCentauri
+            url: https://t.me/alphacentaurichannel
+            rss: https://infomate.club/parsing/telegram/AlphaCentauri
+            icon: https://i.vas3k.club/75d02bcf00f8e27f416aa95c4bec0cf2deea0bcd39db125f65168ef93910f364.jpg
+          - name: Elon Musk | Илон Маск
+            url: https://t.me/elonmusksu
+            rss: https://infomate.club/parsing/telegram/ElonMusk
+            icon: https://i.vas3k.club/1f5d34e38b6cc0e70107752add3b6ca871c0b90718e45fdce10f33f30f19cd20.jpg
+          - name: SpaceX Rus
+            url: https://t.me/spacex_rus
+            rss: https://infomate.club/parsing/telegram/spacex_rus
+            icon: https://i.vas3k.club/8d317a04a5481942e697fa435a3ec0012d129750e9de4815384ae9d54d2065c7.jpg
+            
+      - name: EV
+        slug: ev
+        feeds:
+          - name: Electrek
+            url: https://electrek.co
+            rss: https://electrek.co/feed
+            icon: https://i.vas3k.club/ef32e466a42e51dc9280820a5e14bcb2476e6d9a1fae8f9347d5943eb508f3f9.jpg
+          - name: InsideEVs
+            url: https://insideevs.com/
+            rss: https://insideevs.com/rss/news/all/
+            icon: https://i.vas3k.club/f1e5ba046ebbf3ef513fe8655b4ba5f60120d8b4ab8494f1a1666114495be6ef.jpg
+          - name: CleanTechnica
+            url: https://cleantechnica.com/
+            rss: https://cleantechnica.com/feed/
+            icon: https://i.vas3k.club/7724fb3769907b5f52ef8b2be7553bf428d18ceb1a249e06f0542f48318131ff.jpg
+            
+      - name: Elon Musk
+        slug: elon_musk
+        feeds:
+          - name: Reddit
+            url: https://www.reddit.com/r/elonmusk/
+            rss: https://www.reddit.com/r/elonmusk/new.rss
+            icon: https://i.vas3k.club/e39aeab4974c11cbef2421b3ef7b307e419551e44b7614d6d321c6d6cb8ff6ec.jpg
+          - name: Boring Company
+            url: https://www.reddit.com/r/BoringCompany/
+            rss: https://www.reddit.com/r/BoringCompany/hot.rss
+            icon: https://i.vas3k.club/e39aeab4974c11cbef2421b3ef7b307e419551e44b7614d6d321c6d6cb8ff6ec.jpg
+          - name: Neuralink
+            url: https://www.reddit.com/r/Neuralink/
+            rss: https://www.reddit.com/r/Neuralink/hot.rss
+            icon: https://i.vas3k.club/e39aeab4974c11cbef2421b3ef7b307e419551e44b7614d6d321c6d6cb8ff6ec.jpg
+            
+      - name: Space
+        slug: space
+        feeds: 
+          - name: Space Explored
+            url: https://spaceexplored.com/
+            rss: https://spaceexplored.com/feed/
+            icon: https://i.vas3k.club/e96a77627fb9f8acd777433d6a37d2f49061d70cf36cc3511b4518b5fe97ebe6.jpg
+          - name: SpaceX
+            url: https://www.reddit.com/r/spacex
+            rss: https://www.reddit.com/r/spacex/hot.rss
+            icon: https://i.vas3k.club/e39aeab4974c11cbef2421b3ef7b307e419551e44b7614d6d321c6d6cb8ff6ec.jpg
+          - name: SpaceX Memes
+            url: https://www.reddit.com/r/SpaceXMasterrace/
+            rss: https://www.reddit.com/r/SpaceXMasterrace/hot.rss
+            icon: https://i.vas3k.club/e39aeab4974c11cbef2421b3ef7b307e419551e44b7614d6d321c6d6cb8ff6ec.jpg
+
