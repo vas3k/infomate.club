@@ -1799,21 +1799,24 @@ boards:
         субъективная подборка; буду рад предложениям в телеграм → <a href="https://t.me/sashamikhailov">@SashaMikhailov</a>
     blocks:
 
-      - name: "🏢 %company_name% Engineering"
+      - name: "🏢 %company% Engineering"
         slug: labs
         feeds:
           - name: "AirBnb Engineering"
             url: https://medium.com/airbnb-engineering
             rss: https://medium.com/feed/airbnb-engineering
             is_parsable: false
+
           - name: "Netflix Engineering"
             url: https://netflixtechblog.com/
             rss: https://netflixtechblog.com/feed
             is_parsable: false
+
           - name: "Pinterest Engineering"
             url: https://medium.com/pinterest-engineering
             rss: https://medium.com/feed/pinterest-engineering
             is_parsable: false
+
           - name: "Facebook"
             url: https://research.fb.com/blog/
             rss: http://rssmix.com/u/10966862/rss.xml
@@ -1822,6 +1825,7 @@ boards:
               - https://research.fb.com/blog/feed
               - https://engineering.fb.com/category/ai-research/feed/
               - https://engineering.fb.com/category/ml-applications/feed/
+
           - name: "Uber Engineering"
             url: https://eng.uber.com/category/articles/ai/
             rss: https://eng.uber.com/category/articles/ai/feed/
@@ -1832,6 +1836,7 @@ boards:
               - https://eng.uber.com/category/articles/uberdata/feed/
               - https://eng.uber.com/category/articles/general-engineering/feed/
               - https://eng.uber.com/category/articles/architecture/feed/
+
           - name: "Spotify Engineering"
             url: https://engineering.atspotify.com
             rss: https://engineering.atspotify.com/rss/
@@ -1883,12 +1888,12 @@ boards:
             url: https://www.montecarlodata.com/blog/
             rss: https://www.montecarlodata.com/blog/rss/
             is_parsable: false
-          - name: "BigData Republic"
-            url: https://www.bigdatarepublic.nl/articles/
-            rss: https://www.bigdatarepublic.nl/articles/
-          - name: "All Things Distributed"
-            url: https://www.allthingsdistributed.com/articles.html
-            rss: https://www.allthingsdistributed.com/articles.html
+#          - name: "BigData Republic"
+#            url: https://www.bigdatarepublic.nl/articles/
+#            rss: https://www.bigdatarepublic.nl/articles/
+#          - name: "All Things Distributed"
+#            url: https://www.allthingsdistributed.com/articles.html
+#            rss: https://www.allthingsdistributed.com/articles.html
 
       - name: "DE Telegram"
         slug: de-telegram
@@ -1902,7 +1907,7 @@ boards:
             rss: https://infomate.club/parsing/telegram/rockyourdata
             is_parsable: false
           - name: "Left Join"
-            url: https://t.me/lefjoin
+            url: https://t.me/leftjoin
             rss: https://infomate.club/parsing/telegram/lefjoin
             is_parsable: false
           - name: "SQLite на практике"
@@ -1917,10 +1922,6 @@ boards:
             url: https://t.me/ohmydataengineer
             rss: https://infomate.club/parsing/telegram/ohmydataengineer
             is_parsable: false
-          - name: "под капотом Яндекс.Такси"
-            url: https://t.me/UnderTheHood
-            rss: https://infomate.club/parsing/telegram/UnderTheHood
-            is_parsable: false
           - name: "enthusiastech"
             url: https://t.me/enthusiastech
             rss: https://infomate.club/parsing/telegram/enthusiastech
@@ -1928,11 +1929,14 @@ boards:
           - name: "data будни"
             url: https://t.me/data_days
             rss: https://infomate.club/parsing/telegram/data_days
+          - name: "под капотом Яндекс.Такси"
+            url: https://t.me/UnderTheHood
+            rss: https://infomate.club/parsing/telegram/UnderTheHood
             is_parsable: false
-          - name: "Data Governance"
-            url: https://t.me/dg4all
-            rss: https://infomate.club/parsing/telegram/dg4all
-            is_parsable: false
+#          - name: "Data Governance"
+#            url: https://t.me/dg4all
+#            rss: https://infomate.club/parsing/telegram/dg4all
+#            is_parsable: false
 
       - name: "🎧 Podcasts"
         slug: podcasts
@@ -1948,10 +1952,10 @@ boards:
             is_parsable: false
             filters:
               - databrew_podcast_clean_title
-          - name: "InfoQ Podcast"
-            url: https://www.infoq.com/the-infoq-podcast/
-            rss: http://feeds.soundcloud.com/users/soundcloud:users:258266127/sounds.rss
-            is_parsable: false
+#          - name: "InfoQ Podcast"
+#            url: https://www.infoq.com/the-infoq-podcast/
+          #            is_parsable: false
+          #            rss: http://feeds.soundcloud.com/users/soundcloud:users:258266127/sounds.rss
 #            mix:
 #              - http://feeds.soundcloud.com/users/soundcloud:users:215740450/sounds.rss
 
@@ -2019,31 +2023,10 @@ boards:
           - name: "Martin Fowler"
             url: https://martinfowler.com/
             rss: https://martinfowler.com/feed.atom
-          - name: "Фёдор Борщёв — CTO"
-            url: https://borshev.com/blog/
-            rss: https://borshev.com/blog/
           - name: "Антон Жиянов"
             url: https://antonz.ru/
             rss: https://antonz.ru/rss/
+#          - name: "Фёдор Борщёв — CTO"
+#            url: https://borshev.com/blog/
+#            rss: https://borshev.com/blog/
 
-      - name: "Bare Products Updates"
-        slug: products
-        feeds:
-          - name: "Airflow — orchestration"
-            url: https://airflow.apache.org/blog/
-            rss: https://airflow.apache.org/blog/
-          - name: "Prefect — orchestration"
-            url: https://medium.com/the-prefect-blog
-            rss: https://medium.com/feed/the-prefect-blog
-          - name: "Meltano — EL tool"
-            url: https://meltano.com/blog/
-            rss: https://meltano.com/blog/rss/
-          - name: "Airbyte — EL tool"
-            url: https://airbyte.io/blog/
-            rss: https://airbyte.io/blog/rss/
-          - name: "Stitch — enterprise version of Singer"
-            url: https://www.stitchdata.com/blog/
-            rss: https://www.stitchdata.com/blog/rss/
-          - name: "Metabase"
-            url: https://www.metabase.com/blog/
-            rss: https://www.metabase.com/blog/
