@@ -1842,6 +1842,129 @@ boards:
             rss: https://engineering.atspotify.com/rss/
             is_parsable: false
 
+          - name: "Ripple Engineering"
+            url: https://engineering.ripple.com/tag/data/
+            rss: https://engineering.ripple.com/tag/data/rss/
+            is_parsable: false
+
+          - name: "Yelp Engineering"
+            url: https://engineeringblog.yelp.com/
+            rss: https://engineeringblog.yelp.com/
+
+      - name: "Dmitry Anoshin Recommends"
+        slug: true_de
+        feeds:
+          - name: "Snowflake"
+            url: https://www.snowflake.com/blog/
+            rss: https://www.snowflake.com/blog/category/industry-solutions/feed/
+            is_parsable: false
+            mix:
+              - https://www.snowflake.com/blog/category/industry-solutions/feed/
+              - https://www.snowflake.com/blog/category/product-and-technology/feed/
+              - https://www.snowflake.com/blog/category/thought-leadership/feed/
+          - name: "Cloudera"
+            url: https://blog.cloudera.com/product/data-engineering/
+            rss: https://blog.cloudera.com/product/data-engineering/feed/
+            is_parsable: false
+
+          - name: "KD Nuggets"
+            url: https://www.kdnuggets.com/news/
+            rss: https://www.kdnuggets.com/news/feed
+            is_parsable: false
+
+          - name: "Silectis"
+            url: https://www.silect.is/blog/
+            rss: https://www.silect.is/blog/feed/
+            is_parsable: false
+
+          - name: "Rudder Stack"
+            url: https://rudderstack.com/blog
+            rss: https://rudderstack.com/blog
+
+          - name: "Precisely"
+            url: https://www.precisely.com/blog
+            rss: https://www.precisely.com/blog
+
+          - name: "Team Data Science"
+            url: https://www.teamdatascience.com/blog
+            rss: https://www.teamdatascience.com/blog
+
+          - name: "Data Mechanics"
+            url: https://www.datamechanics.co/blog
+            rss: https://www.datamechanics.co/blog
+
+          - name: "Secoda"
+            url: https://www.secoda.co/blog
+            rss: https://www.secoda.co/blog
+
+          - name: "Datawow"
+            url: https://datawow.io/blogs/
+            rss: https://datawow.io/blogs/
+
+          - name: "Smart Data"
+            url: https://www.smartdatacollective.com/category/big-data/
+            rss: https://www.smartdatacollective.com/category/big-data/feed/
+            is_parsable: false
+            mix:
+              - https://www.smartdatacollective.com/category/analytics/feed/
+              - https://www.smartdatacollective.com/category/business-intelligence/feed/
+
+          - name: "Knoldus"
+            url: https://blog.knoldus.com/category/tech-blogs/machine-learning/
+            rss: https://blog.knoldus.com/category/tech-blogs/machine-learning/feed/
+            is_parsable: false
+            mix:
+              - https://blog.knoldus.com/category/analytics/feed/
+              - https://blog.knoldus.com/category/ai/feed/
+              - https://blog.knoldus.com/category/tech-blogs/feed/
+
+          - name: "We Cloud Data"
+            url: https://weclouddata.com/blog/
+            rss: https://weclouddata.com/blog/feed/
+            is_parsable: false
+
+          - name: "Active Wizards"
+            url: https://activewizards.com/blog/
+            rss: https://activewizards.com/blog/rss/
+            is_parsable: false
+
+          - name: "Learn Data Engineering"
+            url: https://learndataengineering.com/blog
+            rss: https://learndataengineering.com/blog/rss/
+            is_parsable: false
+
+          - name: "SCRIBD"
+            url: https://tech.scribd.com/blog/
+            rss: https://tech.scribd.com/feed.xml
+            is_parsable: false
+
+          - name: "Data World"
+            url: https://data.world/blog/
+            rss: https://data.world/blog/feed/
+            is_parsable: false
+
+          - name: "Jesse Anderson"
+            url: https://www.jesse-anderson.com/category/blog/
+            rss: https://www.jesse-anderson.com/category/blog/feed/
+            is_parsable: false
+
+          - name: "Data Quest"
+            url: https://www.dataquest.io/blog/tag/data-engineering/
+            rss: https://www.dataquest.io/blog/tag/data-engineering/feed/
+            is_parsable: false
+            mix:
+              - https://www.dataquest.io/blog/topics/data-science-career-tips/feed/
+
+          - name: "Xenon Stack"
+            url: https://www.xenonstack.com/blog/category/big-data-engineering/
+            rss: https://www.xenonstack.com/blog/category/big-data-engineering/feed/
+            is_parsable: false
+            mix:
+              - https://www.xenonstack.com/blog/category/data-governance/feed/
+              - https://www.xenonstack.com/blog/category/interactive-visualization/feed/
+              - https://www.xenonstack.com/blog/category/data-science/feed/
+              - https://www.xenonstack.com/blog/category/enterprise-artificial-intelligence/feed/
+
       - name: "Infrastructure"
         slug: infra
         feeds:
