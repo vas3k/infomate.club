@@ -1791,7 +1791,7 @@ boards:
     is_private: false
     curator:
       name: Data Engineering
-      title: Data Engineering
+      title: про инжиниринг данных и аналитику
       url: от <a href="https://t.me/data_days">Саши Михайлова</a>
       avatar: https://i.vas3k.club/69b26425bc514dea3ee485d67a5d11565f074b86a35227fb06b1a6640aa1e848.jpg
       bio: про инжиниринг данных и аналитику
@@ -1851,7 +1851,8 @@ boards:
             url: https://engineeringblog.yelp.com/
             rss: https://engineeringblog.yelp.com/
 
-      - name: "Dmitry Anoshin Recommends"
+
+      - name: <a href="https://t.me/rockyourdata">Dmitry Anoshin</a> Recommends
         slug: true_de
         feeds:
           - name: "Snowflake"
@@ -1862,6 +1863,7 @@ boards:
               - https://www.snowflake.com/blog/category/industry-solutions/feed/
               - https://www.snowflake.com/blog/category/product-and-technology/feed/
               - https://www.snowflake.com/blog/category/thought-leadership/feed/
+
           - name: "Cloudera"
             url: https://blog.cloudera.com/product/data-engineering/
             rss: https://blog.cloudera.com/product/data-engineering/feed/
@@ -1995,6 +1997,11 @@ boards:
             rss: https://fivetran.com/rss/blog
             is_parsable: false
 
+          - name: "DataBricks"
+            url: https://databricks.com/blog/category/engineering/
+            rss: https://databricks.com/blog/category/engineering/feed/
+            is_parsable: false
+
       - name: "Mix"
         slug: main
         feeds:
@@ -2006,11 +2013,6 @@ boards:
           - name: "Towards Data Science"
             url: https://towardsdatascience.com/
             rss: https://towardsdatascience.com/feed
-            is_parsable: false
-
-          - name: "DataBricks"
-            url: https://databricks.com/blog/category/engineering/
-            rss: https://databricks.com/blog/category/engineering/feed/
             is_parsable: false
 
           - name: "Monte Carlo Data"
@@ -2076,11 +2078,6 @@ boards:
             rss: https://infomate.club/parsing/telegram/UnderTheHood
             is_parsable: false
 
-#          - name: "Data Governance"
-#            url: https://t.me/dg4all
-#            rss: https://infomate.club/parsing/telegram/dg4all
-#            is_parsable: false
-
       - name: "🎧 Podcasts"
         slug: podcasts
         feeds:
@@ -2096,13 +2093,6 @@ boards:
             is_parsable: false
             filters:
               - databrew_podcast_clean_title
-
-#          - name: "InfoQ Podcast"
-#            url: https://www.infoq.com/the-infoq-podcast/
-          #            is_parsable: false
-          #            rss: http://feeds.soundcloud.com/users/soundcloud:users:258266127/sounds.rss
-#            mix:
-#              - http://feeds.soundcloud.com/users/soundcloud:users:215740450/sounds.rss
 
           - name: "«Ничего такого» by Dodo Enginnering"
             url: https://www.buzzsprout.com/873301
@@ -2184,4 +2174,3 @@ boards:
 #          - name: "Фёдор Борщёв — CTO"
 #            url: https://borshev.com/blog/
 #            rss: https://borshev.com/blog/
-
