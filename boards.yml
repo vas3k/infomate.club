@@ -1991,7 +1991,7 @@ boards:
             url: https://blog.getdbt.com/
             rss: https://blog.getdbt.com/rss/
             is_parsable: false
-
+ 
           - name: "FiveTran"
             url: https://fivetran.com/blog
             rss: https://fivetran.com/rss/blog
@@ -2023,13 +2023,6 @@ boards:
           - name: "Preset.io"
             url: https://preset.io/blog/
             rss: https://preset.io/blog/
-
-#          - name: "BigData Republic"
-#            url: https://www.bigdatarepublic.nl/articles/
-#            rss: https://www.bigdatarepublic.nl/articles/
-#          - name: "All Things Distributed"
-#            url: https://www.allthingsdistributed.com/articles.html
-#            rss: https://www.allthingsdistributed.com/articles.html
 
       - name: "DE Telegram"
         slug: de-telegram
@@ -2064,6 +2057,11 @@ boards:
             rss: https://infomate.club/parsing/telegram/ohmydataengineer
             is_parsable: false
 
+          - name: "под капотом Яндекс.Такси"
+            url: https://t.me/UnderTheHood
+            rss: https://infomate.club/parsing/telegram/UnderTheHood
+            is_parsable: false
+
           - name: "enthusiastech"
             url: https://t.me/enthusiastech
             rss: https://infomate.club/parsing/telegram/enthusiastech
@@ -2072,6 +2070,7 @@ boards:
           - name: "data будни"
             url: https://t.me/data_days
             rss: https://infomate.club/parsing/telegram/data_days
+            is_parsable: false
 
           - name: "под капотом Яндекс.Такси"
             url: https://t.me/UnderTheHood
@@ -2170,7 +2169,3 @@ boards:
           - name: "Антон Жиянов"
             url: https://antonz.ru/
             rss: https://antonz.ru/rss/
-
-#          - name: "Фёдор Борщёв — CTO"
-#            url: https://borshev.com/blog/
-#            rss: https://borshev.com/blog/
