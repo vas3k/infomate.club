@@ -1852,7 +1852,7 @@ boards:
             rss: https://engineeringblog.yelp.com/
 
 
-      - name: <a href="https://t.me/rockyourdata">Dmitry Anoshin</a> Recommends
+      - name: "Dmitry Anoshin recommends"
         slug: true_de
         feeds:
           - name: "Snowflake"
