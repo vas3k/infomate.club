@@ -1847,9 +1847,9 @@ boards:
             rss: https://engineering.ripple.com/tag/data/rss/
             is_parsable: false
 
-          - name: "Yelp Engineering"
-            url: https://engineeringblog.yelp.com/
-            rss: https://engineeringblog.yelp.com/
+#          - name: "Yelp Engineering"
+#            url: https://engineeringblog.yelp.com/
+#            rss: https://engineeringblog.yelp.com/
 
 
       - name: "Dmitry Anoshin recommends"
@@ -1869,39 +1869,39 @@ boards:
             rss: https://blog.cloudera.com/product/data-engineering/feed/
             is_parsable: false
 
-          - name: "KD Nuggets"
-            url: https://www.kdnuggets.com/news/
-            rss: https://www.kdnuggets.com/news/feed
-            is_parsable: false
+#          - name: "KD Nuggets"
+#            url: https://www.kdnuggets.com/news/
+#            rss: https://www.kdnuggets.com/news/
+#            is_parsable: false
 
-          - name: "Silectis"
-            url: https://www.silect.is/blog/
-            rss: https://www.silect.is/blog/feed/
-            is_parsable: false
+#          - name: "Silectis"
+#            url: https://www.silect.is/blog/
+#            rss: https://www.silect.is/blog/feed/
+#            is_parsable: false
 
-          - name: "Rudder Stack"
-            url: https://rudderstack.com/blog
-            rss: https://rudderstack.com/blog
+#          - name: "Rudder Stack"
+#            url: https://rudderstack.com/blog
+#            rss: https://rudderstack.com/blog
 
-          - name: "Precisely"
-            url: https://www.precisely.com/blog
-            rss: https://www.precisely.com/blog
+#          - name: "Precisely"
+#            url: https://www.precisely.com/blog
+#            rss: https://www.precisely.com/blog
 
-          - name: "Team Data Science"
-            url: https://www.teamdatascience.com/blog
-            rss: https://www.teamdatascience.com/blog
+#          - name: "Team Data Science"
+#            url: https://www.teamdatascience.com/blog
+#            rss: https://www.teamdatascience.com/blog
 
-          - name: "Data Mechanics"
-            url: https://www.datamechanics.co/blog
-            rss: https://www.datamechanics.co/blog
+#          - name: "Data Mechanics"
+#            url: https://www.datamechanics.co/blog
+#            rss: https://www.datamechanics.co/blog
 
-          - name: "Secoda"
-            url: https://www.secoda.co/blog
-            rss: https://www.secoda.co/blog
+#          - name: "Secoda"
+#            url: https://www.secoda.co/blog
+#            rss: https://www.secoda.co/blog
 
-          - name: "Datawow"
-            url: https://datawow.io/blogs/
-            rss: https://datawow.io/blogs/
+#          - name: "Datawow"
+#            url: https://datawow.io/blogs/
+#            rss: https://datawow.io/blogs/
 
           - name: "Smart Data"
             url: https://www.smartdatacollective.com/category/big-data/
@@ -1925,10 +1925,10 @@ boards:
             rss: https://weclouddata.com/blog/feed/
             is_parsable: false
 
-          - name: "Active Wizards"
-            url: https://activewizards.com/blog/
-            rss: https://activewizards.com/blog/rss/
-            is_parsable: false
+#          - name: "Active Wizards"
+#            url: https://activewizards.com/blog/
+#            rss: https://activewizards.com/blog/rss/
+#            is_parsable: false
 
           - name: "Learn Data Engineering"
             url: https://learndataengineering.com/blog
@@ -1940,10 +1940,10 @@ boards:
             rss: https://tech.scribd.com/feed.xml
             is_parsable: false
 
-          - name: "Data World"
-            url: https://data.world/blog/
-            rss: https://data.world/blog/feed/
-            is_parsable: false
+#          - name: "Data World"
+#            url: https://data.world/blog/
+#            rss: https://data.world/blog/feed/
+#            is_parsable: false
 
           - name: "Jesse Anderson"
             url: https://www.jesse-anderson.com/category/blog/
@@ -1957,15 +1957,15 @@ boards:
             mix:
               - https://www.dataquest.io/blog/topics/data-science-career-tips/feed/
 
-          - name: "Xenon Stack"
-            url: https://www.xenonstack.com/blog/category/big-data-engineering/
-            rss: https://www.xenonstack.com/blog/category/big-data-engineering/feed/
-            is_parsable: false
-            mix:
-              - https://www.xenonstack.com/blog/category/data-governance/feed/
-              - https://www.xenonstack.com/blog/category/interactive-visualization/feed/
-              - https://www.xenonstack.com/blog/category/data-science/feed/
-              - https://www.xenonstack.com/blog/category/enterprise-artificial-intelligence/feed/
+#          - name: "Xenon Stack"
+#            url: https://www.xenonstack.com/blog/category/big-data-engineering/
+#            rss: https://www.xenonstack.com/blog/category/big-data-engineering/feed/
+#            is_parsable: false
+#            mix:
+#              - https://www.xenonstack.com/blog/category/data-governance/feed/
+#              - https://www.xenonstack.com/blog/category/interactive-visualization/feed/
+#              - https://www.xenonstack.com/blog/category/data-science/feed/
+#              - https://www.xenonstack.com/blog/category/enterprise-artificial-intelligence/feed/
 
       - name: "Infrastructure"
         slug: infra
@@ -2020,9 +2020,9 @@ boards:
             rss: https://www.montecarlodata.com/blog/rss/
             is_parsable: false
 
-          - name: "Preset.io"
-            url: https://preset.io/blog/
-            rss: https://preset.io/blog/
+#          - name: "Preset.io"
+#            url: https://preset.io/blog/
+#            rss: https://preset.io/blog/
 
       - name: "DE Telegram"
         slug: de-telegram
@@ -2039,7 +2039,7 @@ boards:
 
           - name: "Left Join"
             url: https://t.me/leftjoin
-            rss: https://infomate.club/parsing/telegram/lefjoin
+            rss: https://infomate.club/parsing/telegram/leftjoin
             is_parsable: false
 
           - name: "SQLite на практике"
