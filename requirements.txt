@@ -1,7 +1,7 @@
 Django==2.2.13
 psycopg2-binary==2.8.6
 click==7.0
-pillow==8.2.0
+pillow==9.0.0
 awesome-slugify>=1.6.5
 requests==2.22.0
 beautifulsoup4==4.6.2
