@@ -8,39 +8,48 @@ django.setup()
 
 import logging
 from datetime import timedelta, datetime
-import threading
-import queue
 
 import click
 
 from boards.models import Article
+from notifications.models import SentHistory
 
 from notifications.telegram.common import INFOMATE_DE_CHANNEL, send_telegram_message, Chat, render_html_message
-
-DEFAULT_NUM_WORKER_THREADS = 5
-DEFAULT_ENTRIES_LIMIT = 30
-MIN_REFRESH_DELTA = timedelta(minutes=30)
-DELETE_OLD_ARTICLES_DELTA = timedelta(days=300)
 
 log = logging.getLogger()
 
 
 @click.command()
 def send_telegram_updates():
-    articles = Article.objects.select_related('feed').filter(board__slug='de').order_by('-updated_at')[:1]
+    tg_channel = INFOMATE_DE_CHANNEL
 
-    for article in articles:
+    # get only articles which were not yet published
+    # to this particular channel
+    articles = Article.objects\
+        .select_related('feed')\
+        .filter(board__slug='de')\
+        .exclude(sent__channel_id=tg_channel.id)\
+
+    for article in articles[:3]:
         # split description on paragraphs
         paragraphs = article.description.split('\n')
 
-        send_telegram_message(
-            chat=INFOMATE_DE_CHANNEL,
-            text=render_html_message(
-                "article_as_post.html",
+        if article.is_fresh():
+            send_telegram_message(
+                chat=tg_channel,
+                text=render_html_message(
+                    "article_as_post.html",
+                    article=article,
+                    paragraphs=paragraphs,
+                ),
+            )
+
+            article_sent = SentHistory.objects.create(
                 article=article,
-                paragraphs=paragraphs,
-            ),
-        )
+                channel_id=tg_channel.id
+            )
+
+            article_sent.save()
 
 
 if __name__ == '__main__':

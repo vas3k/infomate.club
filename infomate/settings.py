@@ -17,7 +17,8 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     "django_bleach",
     "boards",
-    "parsing"
+    "parsing",
+    "notifications",
 ]
 
 MIDDLEWARE = [
