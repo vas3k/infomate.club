@@ -27,13 +27,10 @@ log = logging.getLogger()
 
 @click.command()
 def send_telegram_updates():
-
-    articles = Article.objects.filter(board__slug='de').order_by('-updated_at')[:5]
+    articles = Article.objects.select_related('feed').filter(board__slug='de').order_by('-updated_at')[:1]
 
     for article in articles:
-        # try not to render domain as url
-        article.domain = '.'.join(article.domain.split('.')[:-1]).upper()
-        # split message on paragraphs
+        # split description on paragraphs
         paragraphs = article.description.split('\n')
 
         send_telegram_message(
