@@ -28,9 +28,9 @@ def send_telegram_updates():
     articles = Article.objects\
         .select_related('feed')\
         .filter(board__slug='de')\
-        .exclude(sent__channel_id=tg_channel.id)\
+        .exclude(published__channel_id=tg_channel.id)\
 
-    for article in articles[:3]:
+    for article in articles[:1]:
         # split description on paragraphs
         paragraphs = article.description.split('\n')
 
