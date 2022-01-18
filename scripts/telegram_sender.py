@@ -32,7 +32,8 @@ def send_telegram_updates():
         .exclude(published__channel_id=tg_channel.id)\
         .exclude(feed__block__is_publishing_to_telegram=False)
 
-    for article in articles[:1]:
+    print(f'\nSending {len(articles)} articles to Telegram {tg_channel.id}')
+    for article in articles:
         # split description on paragraphs
         paragraphs = article.description.split('\n')
 
@@ -46,6 +47,7 @@ def send_telegram_updates():
                     tg_channel=tg_channel.id if tg_channel.id[0] == '@' else '@' + tg_channel.id
                 ),
             )
+            print(f'\t... sent article {article.title[:20]}[...]')
 
             article_sent = PublishHistory.objects.create(
                 article=article,
