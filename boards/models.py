@@ -71,6 +71,8 @@ class BoardBlock(models.Model):
 
     index = models.PositiveIntegerField(default=0)
 
+    is_publishing_to_telegram = models.BooleanField(default=False)
+
     class Meta:
         db_table = "board_blocks"
         ordering = ["index"]

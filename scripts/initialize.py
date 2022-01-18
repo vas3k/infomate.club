@@ -14,6 +14,7 @@ import yaml
 from bs4 import BeautifulSoup
 
 from boards.models import Board, BoardFeed, BoardBlock
+from notifications.models import BoardTelegramChannel
 from boards.icons import DOMAIN_FAVICONS
 from utils.images import upload_image_from_url
 from scripts.common import DEFAULT_REQUEST_HEADERS, parse_domain
@@ -58,6 +59,13 @@ def initialize(config, board_slug, upload_favicons, always_yes):
             )
         )
 
+        if board_config.get("sent_to_telegram_channel"):
+            print(f"Add Teleram channel for board: {board_name}...")
+            board_tg_channel, is_created = BoardTelegramChannel.objects.update_or_create(
+                board=board,
+                telegram_channel_id=board_config.get("sent_to_telegram_channel")
+            )
+
         for block_index, block_config in enumerate(board_config.get("blocks") or []):
             block_name = block_config.get("name") or ""
             print(f"\nCreating block: {block_name}...")
@@ -68,6 +76,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                     name=block_name,
                     index=block_index,
                     view=block_config.get("view") or BoardBlock.DEFAULT_VIEW,
+                    is_publishing_to_telegram=block_config.get("publish_to_telegram", False),
                 )
             )
 
