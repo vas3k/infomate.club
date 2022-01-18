@@ -12,7 +12,7 @@ from datetime import timedelta, datetime
 import click
 
 from boards.models import Article
-from notifications.models import SentHistory
+from notifications.models import PublishHistory
 
 from notifications.telegram.common import INFOMATE_DE_CHANNEL, send_telegram_message, Chat, render_html_message
 
@@ -35,7 +35,7 @@ def send_telegram_updates():
         paragraphs = article.description.split('\n')
 
         if article.is_fresh():
-            send_telegram_message(
+            message = send_telegram_message(
                 chat=tg_channel,
                 text=render_html_message(
                     "article_as_post.html",
@@ -44,9 +44,10 @@ def send_telegram_updates():
                 ),
             )
 
-            article_sent = SentHistory.objects.create(
+            article_sent = PublishHistory.objects.create(
                 article=article,
-                channel_id=tg_channel.id
+                channel_id=tg_channel.id,
+                telegram_message_id=message.message_id,
             )
 
             article_sent.save()
