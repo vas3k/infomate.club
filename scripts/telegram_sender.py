@@ -27,8 +27,10 @@ def send_telegram_updates():
     # to this particular channel
     articles = Article.objects\
         .select_related('feed')\
+        .select_related('board')\
         .filter(board__slug='de')\
         .exclude(published__channel_id=tg_channel.id)\
+        .exclude(feed__block__is_publishing_to_telegram=False)
 
     for article in articles[:1]:
         # split description on paragraphs
@@ -41,6 +43,7 @@ def send_telegram_updates():
                     "article_as_post.html",
                     article=article,
                     paragraphs=paragraphs,
+                    tg_channel=tg_channel.id if tg_channel.id[0] == '@' else '@' + tg_channel.id
                 ),
             )
 
