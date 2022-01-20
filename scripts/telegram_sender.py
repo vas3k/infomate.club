@@ -11,16 +11,20 @@ from datetime import timedelta, datetime
 
 import click
 
+from infomate import settings
 from boards.models import Article
-from notifications.models import PublishHistory
-
+from notifications.models import PublishHistory, BoardTelegramChannel
 from notifications.telegram.common import INFOMATE_DE_CHANNEL, send_telegram_message, Chat, render_html_message
 
 log = logging.getLogger()
 
+SEND_LIMIT = 5 if settings.DEBUG else 10000
+
 
 @click.command()
 def send_telegram_updates():
+    # TODO: get channel from database (for each article / board?)
+    # BoardTelegramChannel.objects.filter()
     tg_channel = INFOMATE_DE_CHANNEL
 
     # get only articles which were not yet published
@@ -32,12 +36,14 @@ def send_telegram_updates():
         .exclude(published__channel_id=tg_channel.id)\
         .exclude(feed__block__is_publishing_to_telegram=False)
 
-    print(f'\nSending {len(articles)} articles to Telegram {tg_channel.id}')
-    for article in articles:
-        # split description on paragraphs
-        paragraphs = article.description.split('\n')
 
-        if article.is_fresh():
+    print(f'\nSending {len(articles)} articles to Telegram {tg_channel.id}')
+    for article in articles[:3]:
+        # split description on paragraphs
+        text = article.summary or article.description
+        paragraphs = text.split('\n')
+
+        if article.is_fresh() or True:
             message = send_telegram_message(
                 chat=tg_channel,
                 text=render_html_message(
