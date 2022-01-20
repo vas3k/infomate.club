@@ -59,12 +59,17 @@ def initialize(config, board_slug, upload_favicons, always_yes):
             )
         )
 
-        if board_config.get("sent_to_telegram_channel"):
+        board_telegram_channel = board_config.get("sent_to_telegram_channel")
+        if board_telegram_channel:
             print(f"Add Teleram channel for board: {board_name}...")
             board_tg_channel, is_created = BoardTelegramChannel.objects.update_or_create(
                 board=board,
-                telegram_channel_id=board_config.get("sent_to_telegram_channel")
+                telegram_channel_id=board_telegram_channel
             )
+        else:
+            if BoardTelegramChannel.objects.filter(board=board).exists():
+                print(f"Remove Teleram channel for board: {board_name}...")
+                BoardTelegramChannel.objects.filter(board=board).delete()
 
         for block_index, block_config in enumerate(board_config.get("blocks") or []):
             block_name = block_config.get("name") or ""
