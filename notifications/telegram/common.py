@@ -81,3 +81,10 @@ def render_html_message(template, **data):
         **data,
         "settings": settings
     })
+
+
+def get_telergam_channel_name_at(channel_name):
+    if not channel_name:
+        return None
+
+    return channel_name if channel_name[0] == '@' else '@' + channel_name
