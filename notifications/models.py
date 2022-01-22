@@ -41,7 +41,7 @@ class BoardTelegramChannel(models.Model):
         db_table = "board_telegram_channel"
         ordering = ["-updated_at"]
         constraints = [models.UniqueConstraint(
-            fields=('board', 'channel_id'),
+            fields=('board', 'telegram_channel_id'),
             name='unique_board_telegram_channel',
         )]
 
