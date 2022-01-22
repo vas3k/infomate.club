@@ -7,7 +7,7 @@ services:
 #      context: .
 #      args:
 #        requirements: requirements.txt
-    command: make docker_run
+#    command: make docker_run
     container_name: infomate_app
     environment:
       - DEBUG=True
