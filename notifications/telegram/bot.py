@@ -8,4 +8,8 @@ log = logging.getLogger()
 
 TELEGRAM_TOKEN = settings.TELEGRAM_TOKEN or os.environ.get('TELEGRAM_TOKEN')
 
-bot = telegram.Bot(token=TELEGRAM_TOKEN) if TELEGRAM_TOKEN else None
+try:
+    bot = telegram.Bot(token=TELEGRAM_TOKEN) if TELEGRAM_TOKEN else None
+except telegram.error.InvalidToken as e:
+    log.error(e)
+    bot = None

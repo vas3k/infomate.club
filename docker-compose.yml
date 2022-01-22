@@ -7,11 +7,12 @@ services:
 #      context: .
 #      args:
 #        requirements: requirements.txt
-#    command: make docker_run
+    command: make docker_run
     container_name: infomate_app
     environment:
       - DEBUG=True
       - PYTHONUNBUFFERED=1
+      - TELEGRAM_TOKEN="${TELEGRAM_TOKEN}"
     restart: always
     volumes:
       - .:/app:delegated
