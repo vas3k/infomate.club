@@ -18,6 +18,7 @@ from notifications.models import BoardTelegramChannel
 from boards.icons import DOMAIN_FAVICONS
 from utils.images import upload_image_from_url
 from scripts.common import DEFAULT_REQUEST_HEADERS, parse_domain
+from notifications.telegram.common import get_telergam_channel_name_at
 
 
 @click.command()
@@ -61,7 +62,8 @@ def initialize(config, board_slug, upload_favicons, always_yes):
 
         board_telegram_channel = board_config.get("sent_to_telegram_channel")
         if board_telegram_channel:
-            print(f"Add Teleram channel for board: {board_name}...")
+            board_telegram_channel = get_telergam_channel_name_at(board_telegram_channel)
+            print(f"Add Teleram channel {board_telegram_channel} for board: {board_name}...")
             board_tg_channel, is_created = BoardTelegramChannel.objects.update_or_create(
                 board=board,
                 telegram_channel_id=board_telegram_channel
