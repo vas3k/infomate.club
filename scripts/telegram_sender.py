@@ -1,4 +1,3 @@
-import io
 import os
 import sys
 import django
@@ -14,54 +13,61 @@ import click
 from infomate import settings
 from boards.models import Article
 from notifications.models import PublishHistory, BoardTelegramChannel
-from notifications.telegram.common import INFOMATE_DE_CHANNEL, send_telegram_message, Chat, render_html_message
+from notifications.telegram.common import (
+    send_telegram_message, Chat, render_html_message,
+)
 
 log = logging.getLogger()
-
-SEND_LIMIT = 5 if settings.DEBUG else 10000
 
 
 @click.command()
 def send_telegram_updates():
-    # TODO: get channel from database (for each article / board?)
-    # BoardTelegramChannel.objects.filter()
-    tg_channel = INFOMATE_DE_CHANNEL
+    telegram_channels = BoardTelegramChannel.objects.select_related('board').all()
 
-    # get only articles which were not yet published
-    # to this particular channel
-    articles = Article.objects\
-        .select_related('feed')\
-        .select_related('board')\
-        .filter(board__slug='de')\
-        .exclude(published__channel_id=tg_channel.id)\
-        .exclude(feed__block__is_publishing_to_telegram=False)
+    week_ago = datetime.utcnow() - timedelta(days=7)
 
+    for channel in telegram_channels:
+        channel_name = channel.telegram_channel_id
 
-    print(f'\nSending {len(articles)} articles to Telegram {tg_channel.id}')
-    for article in articles[:3]:
-        # split description on paragraphs
-        text = article.summary or article.description
-        paragraphs = text.split('\n')
+        # get only articles which were not yet published
+        # to this particular channel
+        articles = Article.objects\
+            .select_related('feed')\
+            .select_related('board')\
+            .filter(board=channel.board)\
+            .filter(created_at__gte=week_ago)\
+            .exclude(published__channel_id=channel_name)\
+            .exclude(feed__block__is_publishing_to_telegram=False)
 
-        if article.is_fresh() or True:
-            message = send_telegram_message(
-                chat=tg_channel,
-                text=render_html_message(
-                    "article_as_post.html",
+        print(f'\nSending {len(articles)} articles to Telegram {channel_name}')
+        if settings.DEBUG and articles:
+            print('  DEBUG>> limit articles to 3')
+            articles = articles[:3]
+
+        for article in articles:
+            # split description on paragraphs
+            text = article.summary or article.description[:300] + ' [...]'
+            paragraphs = text.split('\n')
+
+            if article.is_fresh() or True:
+                message = send_telegram_message(
+                    chat=Chat(id=channel_name),
+                    text=render_html_message(
+                        "article_as_post.html",
+                        article=article,
+                        paragraphs=paragraphs,
+                        tg_channel=channel_name
+                    ),
+                )
+                print(f'\t... sent article {article.title[:20]}[...]')
+
+                article_sent = PublishHistory.objects.create(
                     article=article,
-                    paragraphs=paragraphs,
-                    tg_channel=tg_channel.id if tg_channel.id[0] == '@' else '@' + tg_channel.id
-                ),
-            )
-            print(f'\t... sent article {article.title[:20]}[...]')
+                    channel_id=channel_name,
+                    telegram_message_id=message.message_id,
+                )
 
-            article_sent = PublishHistory.objects.create(
-                article=article,
-                channel_id=tg_channel.id,
-                telegram_message_id=message.message_id,
-            )
-
-            article_sent.save()
+                article_sent.save()
 
 
 if __name__ == '__main__':
