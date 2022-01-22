@@ -9,8 +9,6 @@ from notifications.telegram.bot import bot, log
 
 Chat = namedtuple("Chat", ["id"])
 
-INFOMATE_DE_CHANNEL = Chat(id=settings.TELEGRAM_INFOMATE_DE_CHANNEL_ID)
-
 
 def send_telegram_message(
     chat: Chat,

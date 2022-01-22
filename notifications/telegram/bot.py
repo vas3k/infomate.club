@@ -1,3 +1,4 @@
+import os
 import logging
 
 import telegram
@@ -5,4 +6,6 @@ from django.conf import settings
 
 log = logging.getLogger()
 
-bot = telegram.Bot(token=settings.TELEGRAM_TOKEN) if settings.TELEGRAM_TOKEN else None
+TELEGRAM_TOKEN = settings.TELEGRAM_TOKEN or os.environ.get('TELEGRAM_TOKEN')
+
+bot = telegram.Bot(token=TELEGRAM_TOKEN) if TELEGRAM_TOKEN else None
