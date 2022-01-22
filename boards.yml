@@ -1807,22 +1807,18 @@ boards:
           - name: "AirBnb Engineering"
             url: https://medium.com/airbnb-engineering
             rss: https://medium.com/feed/airbnb-engineering
-            is_parsable: false
 
           - name: "Netflix Engineering"
             url: https://netflixtechblog.com/
             rss: https://netflixtechblog.com/feed
-            is_parsable: false
 
           - name: "Pinterest Engineering"
             url: https://medium.com/pinterest-engineering
             rss: https://medium.com/feed/pinterest-engineering
-            is_parsable: false
 
           - name: "Facebook"
             url: https://research.fb.com/blog/
             rss: http://rssmix.com/u/10966862/rss.xml
-            is_parsable: false
             mix:
               - https://research.fb.com/blog/feed
               - https://engineering.fb.com/category/ai-research/feed/
@@ -1831,7 +1827,6 @@ boards:
           - name: "Uber Engineering"
             url: https://eng.uber.com/category/articles/ai/
             rss: https://eng.uber.com/category/articles/ai/feed/
-            is_parsable: false
             columns: 1
             articles_per_column: 10
             mix:
@@ -1842,12 +1837,10 @@ boards:
           - name: "Spotify Engineering"
             url: https://engineering.atspotify.com
             rss: https://engineering.atspotify.com/rss/
-            is_parsable: false
 
           - name: "Ripple Engineering"
             url: https://engineering.ripple.com/tag/data/
             rss: https://engineering.ripple.com/tag/data/rss/
-            is_parsable: false
 
 #          - name: "Yelp Engineering"
 #            url: https://engineeringblog.yelp.com/
@@ -1861,7 +1854,6 @@ boards:
           - name: "Snowflake"
             url: https://www.snowflake.com/blog/
             rss: https://www.snowflake.com/blog/category/industry-solutions/feed/
-            is_parsable: false
             mix:
               - https://www.snowflake.com/blog/category/industry-solutions/feed/
               - https://www.snowflake.com/blog/category/product-and-technology/feed/
@@ -1870,7 +1862,6 @@ boards:
           - name: "Cloudera"
             url: https://blog.cloudera.com/product/data-engineering/
             rss: https://blog.cloudera.com/product/data-engineering/feed/
-            is_parsable: false
 
 #          - name: "KD Nuggets"
 #            url: https://www.kdnuggets.com/news/
@@ -1909,7 +1900,6 @@ boards:
           - name: "Smart Data"
             url: https://www.smartdatacollective.com/category/big-data/
             rss: https://www.smartdatacollective.com/category/big-data/feed/
-            is_parsable: false
             mix:
               - https://www.smartdatacollective.com/category/analytics/feed/
               - https://www.smartdatacollective.com/category/business-intelligence/feed/
@@ -1917,7 +1907,6 @@ boards:
           - name: "Knoldus"
             url: https://blog.knoldus.com/category/tech-blogs/machine-learning/
             rss: https://blog.knoldus.com/category/tech-blogs/machine-learning/feed/
-            is_parsable: false
             mix:
               - https://blog.knoldus.com/category/analytics/feed/
               - https://blog.knoldus.com/category/ai/feed/
@@ -1926,7 +1915,6 @@ boards:
           - name: "We Cloud Data"
             url: https://weclouddata.com/blog/
             rss: https://weclouddata.com/blog/feed/
-            is_parsable: false
 
 #          - name: "Active Wizards"
 #            url: https://activewizards.com/blog/
@@ -1936,12 +1924,10 @@ boards:
           - name: "Learn Data Engineering"
             url: https://learndataengineering.com/blog
             rss: https://learndataengineering.com/blog/rss/
-            is_parsable: false
 
           - name: "SCRIBD"
             url: https://tech.scribd.com/blog/
             rss: https://tech.scribd.com/feed.xml
-            is_parsable: false
 
 #          - name: "Data World"
 #            url: https://data.world/blog/
@@ -1951,12 +1937,10 @@ boards:
           - name: "Jesse Anderson"
             url: https://www.jesse-anderson.com/category/blog/
             rss: https://www.jesse-anderson.com/category/blog/feed/
-            is_parsable: false
 
           - name: "Data Quest"
             url: https://www.dataquest.io/blog/tag/data-engineering/
             rss: https://www.dataquest.io/blog/tag/data-engineering/feed/
-            is_parsable: false
             mix:
               - https://www.dataquest.io/blog/topics/data-science-career-tips/feed/
 
@@ -1976,7 +1960,6 @@ boards:
           - name: "AWS"
             url: https://aws.amazon.com/new/
             rss: https://aws.amazon.com/new/feed/
-            is_parsable: false
             columns: 2
             mix:
               - https://aws.amazon.com/blogs/big-data/feed/
@@ -1988,40 +1971,34 @@ boards:
           - name: "Astronomer"
             url: https://www.astronomer.io/blog
             rss: https://www.astronomer.io/rss.xml
-            is_parsable: false
 
           - name: "DBT — Data Build Tool"
             url: https://blog.getdbt.com/
             rss: https://blog.getdbt.com/rss/
-            is_parsable: false
- 
+
           - name: "FiveTran"
             url: https://fivetran.com/blog
             rss: https://fivetran.com/rss/blog
-            is_parsable: false
 
           - name: "DataBricks"
             url: https://databricks.com/blog/category/engineering/
             rss: https://databricks.com/blog/category/engineering/feed/
-            is_parsable: false
 
       - name: "Mix"
         slug: main
         feeds:
-          - name: "/r/DataEngineering"
-            url: https://www.reddit.com/r/dataengineering/
-            rss: https://www.reddit.com/r/dataengineering.rss
-            is_parsable: false
+#          - name: "/r/DataEngineering"
+#            url: https://www.reddit.com/r/dataengineering/
+#            rss: https://www.reddit.com/r/dataengineering.rss
+#            is_parsable: false
 
           - name: "Towards Data Science"
             url: https://towardsdatascience.com/
             rss: https://towardsdatascience.com/feed
-            is_parsable: false
 
           - name: "Monte Carlo Data"
             url: https://www.montecarlodata.com/blog/
             rss: https://www.montecarlodata.com/blog/rss/
-            is_parsable: false
 
 #          - name: "Preset.io"
 #            url: https://preset.io/blog/
