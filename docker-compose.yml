@@ -2,17 +2,17 @@ version: '3.7'
 
 services:
   infomate_app: &app
-    image: cr.yandex/crpucd93gvncjg9sp45g/infomateclub_infomate_app
-#    build:
-#      context: .
-#      args:
-#        requirements: requirements.txt
+#    image: cr.yandex/crpucd93gvncjg9sp45g/infomateclub_infomate_app:latest
+    build:
+      context: .
+      args:
+        requirements: requirements.txt
     command: make docker_run
     container_name: infomate_app
     environment:
       - DEBUG=True
       - PYTHONUNBUFFERED=1
-      - TELEGRAM_TOKEN="${TELEGRAM_TOKEN}"
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
     restart: always
     volumes:
       - .:/app:delegated
