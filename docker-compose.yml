@@ -2,7 +2,6 @@ version: '3.7'
 
 services:
   infomate_app: &app
-#    image: cr.yandex/crpucd93gvncjg9sp45g/infomateclub_infomate_app:latest
     build:
       context: .
       args:

@@ -68,6 +68,12 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                 board=board,
                 telegram_channel_id=board_telegram_channel
             )
+            # in case of telegram channel has been changed, delete previous
+            BoardTelegramChannel.objects\
+                .filter(board=board)\
+                .exclude(telegram_channel_id=board_telegram_channel)\
+                .delete()
+
         else:
             if BoardTelegramChannel.objects.filter(board=board).exists():
                 print(f"Remove Teleram channel for board: {board_name}...")
