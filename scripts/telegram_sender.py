@@ -7,6 +7,8 @@ django.setup()
 
 import logging
 from datetime import timedelta, datetime
+from random import random
+from time import sleep
 
 import click
 
@@ -19,6 +21,7 @@ from notifications.telegram.common import (
 
 log = logging.getLogger()
 
+DEBUG = os.getenv("DEBUG", True) in ('True', True)
 
 @click.command()
 def send_telegram_updates():
@@ -40,14 +43,16 @@ def send_telegram_updates():
             .exclude(feed__block__is_publishing_to_telegram=False)
 
         print(f'\nSending {len(articles)} articles to Telegram {channel_name}')
-        if settings.DEBUG and articles:
+        if DEBUG and articles:
             print('  DEBUG>> limit articles to 3')
             articles = articles[:3]
 
         for article in articles:
             # split description on paragraphs
-            text = article.summary or article.description[:300] + ' [...]'
-            paragraphs = text.split('\n')
+            text = article.summary or article.description
+            if text:
+                text = text[:300] + ' [...]'
+                text = text.split('\n')
 
             if article.is_fresh() or True:
                 message = send_telegram_message(
@@ -55,19 +60,21 @@ def send_telegram_updates():
                     text=render_html_message(
                         "article_as_post.html",
                         article=article,
-                        paragraphs=paragraphs,
+                        paragraphs=text,
                         tg_channel=channel_name
                     ),
                 )
-                print(f'\t... sent article {article.title[:20]}[...]')
+                print(f'\t... sent article {article.feed.name} / {article.title[:30]}[...]')
+                sleep(1 + random())
 
-                article_sent = PublishHistory.objects.create(
-                    article=article,
-                    channel_id=channel_name,
-                    telegram_message_id=message.message_id,
-                )
+                if message:
+                    article_sent = PublishHistory.objects.create(
+                        article=article,
+                        channel_id=channel_name,
+                        telegram_message_id=message.message_id,
+                    )
 
-                article_sent.save()
+                    article_sent.save()
 
 
 if __name__ == '__main__':
