@@ -417,7 +417,7 @@ boards:
         Так что следите.
     blocks:
       - slug: main
-        publish_to_telegram: True
+        publish_to_telegram: False
         feeds:
           - name: Hacker News
             url: https://news.ycombinator.com
@@ -521,7 +521,7 @@ boards:
               - http://nickcraver.com/blog/feed.xml
               - https://nepishi.ru/rss
       - name: Инди-разработка
-        publish_to_telegram: True
+        publish_to_telegram: False
         slug: make
         feeds:
           - name: Show HN
