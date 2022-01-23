@@ -1,4 +1,6 @@
 from collections import namedtuple
+from time import sleep
+from random import random
 
 import telegram
 from django.conf import settings
@@ -31,8 +33,24 @@ def send_telegram_message(
             disable_web_page_preview=disable_preview,
             **kwargs
         )
+
+    except telegram.error.RetryAfter as ex:
+        log.warning(f"Telegram error: {ex}")
+        sleep_seconds = ex.retry_after + random()
+        log.warning(f"Sleeping for {sleep_seconds:.2f}")
+        sleep(sleep_seconds)
+
+        return send_telegram_message(
+            chat=Chat(id=chat.id),
+            text=text,
+            parse_mode=parse_mode,
+            disable_web_page_preview=disable_preview,
+            **kwargs
+        )
+
     except telegram.error.TelegramError as ex:
         log.warning(f"Telegram error: {ex}")
+        return False
 
 
 def send_telegram_image(
