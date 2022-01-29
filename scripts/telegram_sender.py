@@ -23,17 +23,18 @@ log = logging.getLogger()
 
 DEBUG = os.getenv("DEBUG", True) in ('True', True)
 
+TEXT_LIMIT = 500
+
 
 def get_article_text(article: Article):
-    # split description on paragraphs
-    text = article.summary or article.description
-    if '\n' in text:
-        # looks like summary
-        text = text.split('\n')
-    else:
-        text = text[:300] + ' [...]'
+    if article.summary:
+        return article.summary.split('\n')
 
-    return text if isinstance(text, list) else [text]
+    elif article.description:
+        return [article.description[:TEXT_LIMIT] + ' [...]']
+
+    else:
+        return None
 
 
 @click.command()
