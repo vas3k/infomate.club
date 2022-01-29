@@ -12,7 +12,6 @@ from time import sleep
 
 import click
 
-from infomate import settings
 from boards.models import Article
 from notifications.models import PublishHistory, BoardTelegramChannel
 from notifications.telegram.common import (
@@ -38,8 +37,16 @@ def get_article_text(article: Article):
 
 
 @click.command()
-def send_telegram_updates():
-    telegram_channels = BoardTelegramChannel.objects.select_related('board').all()
+@click.option("--board-slug", help="To send articles from one particular board")
+def send_telegram_updates(board_slug):
+    if board_slug:
+        telegram_channels = BoardTelegramChannel.objects\
+            .select_related('board')\
+            .filter(board__slug=board_slug)
+
+    else:
+        telegram_channels = BoardTelegramChannel.objects\
+            .select_related('board').all()
 
     week_ago = datetime.utcnow() - timedelta(days=7)
 
