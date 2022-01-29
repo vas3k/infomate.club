@@ -21,6 +21,11 @@ DEFAULT_REQUEST_HEADERS = {
 DEFAULT_REQUEST_TIMEOUT = 10
 MAX_PARSABLE_CONTENT_LENGTH = 15 * 1024 * 1024  # 15Mb
 
+WEBSITES_FALLBACK_MESSAGES = [
+    # if try to parse Medium articles
+    'This website is using a security service to protect itself from online attacks'
+]
+
 socket.setdefaulttimeout(DEFAULT_REQUEST_TIMEOUT)
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
@@ -106,3 +111,11 @@ def parse_rss_text_and_image(entry):
             return text, src
 
     return text, ""
+
+
+def if_fallback_message_in_text(text: str) -> bool:
+    for message in WEBSITES_FALLBACK_MESSAGES:
+        if message in text:
+            return True
+
+    return False

@@ -20,7 +20,7 @@ from newspaper import Article as NewspaperArticle, ArticleException
 from boards.models import BoardFeed, Article, Board
 from scripts.filters import FILTERS
 from scripts.common import DEFAULT_REQUEST_HEADERS, DEFAULT_REQUEST_TIMEOUT, MAX_PARSABLE_CONTENT_LENGTH, resolve_url, \
-    parse_domain, parse_datetime, parse_title, parse_link, parse_rss_image, parse_rss_text_and_image
+    parse_domain, parse_datetime, parse_title, parse_link, parse_rss_image, parse_rss_text_and_image, if_fallback_message_in_text
 
 DEFAULT_NUM_WORKER_THREADS = 5
 DEFAULT_ENTRIES_LIMIT = 30
@@ -211,7 +211,7 @@ def fetch_rss(item, rss):
                     summary = None
                     summary_image = None
 
-                if summary:
+                if summary and not if_fallback_message_in_text(summary):
                     article.summary = summary
 
                 if summary_image:

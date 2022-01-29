@@ -23,6 +23,19 @@ log = logging.getLogger()
 
 DEBUG = os.getenv("DEBUG", True) in ('True', True)
 
+
+def get_article_text(article: Article):
+    # split description on paragraphs
+    text = article.summary or article.description
+    if '\n' in text:
+        # looks like summary
+        text = text.split('\n')
+    else:
+        text = text[:300] + ' [...]'
+
+    return text if isinstance(text, list) else [text]
+
+
 @click.command()
 def send_telegram_updates():
     telegram_channels = BoardTelegramChannel.objects.select_related('board').all()
@@ -48,11 +61,7 @@ def send_telegram_updates():
             articles = articles[:3]
 
         for article in articles:
-            # split description on paragraphs
-            text = article.summary or article.description
-            if text:
-                text = text[:300] + ' [...]'
-                text = text.split('\n')
+            text = get_article_text(article)
 
             if article.is_fresh() or True:
                 message = send_telegram_message(
