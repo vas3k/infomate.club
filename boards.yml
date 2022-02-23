@@ -2067,76 +2067,76 @@ boards:
         publish_to_telegram: True
         feeds:
 
-          - name: "Data Engineering Podcast"
+          - name: "[Podcast] Data Engineering"
             url: https://www.dataengineeringpodcast.com/
             rss: https://www.dataengineeringpodcast.com/feed/mp3/
             is_parsable: false
 
-          - name: "Data Brew by Databricks"
+          - name: "[Podcast] Data Brew by Databricks"
             url: https://databricks.com/discover/data-brew
             rss: https://feeds.buzzsprout.com/1370119.rss
             is_parsable: false
             filters:
               - databrew_podcast_clean_title
 
-          - name: "«Ничего такого» by Dodo Enginnering"
+          - name: "[Podcast] «Ничего такого» by Dodo Enginnering"
             url: https://www.buzzsprout.com/873301
             rss: https://feeds.buzzsprout.com/873301.rss
             is_parsable: false
 
-          - name: "Запуск завтра Podcast"
+          - name: "[Podcast] Запуск завтра"
             url: https://libolibo.ru/zapuskzavtra
             rss: https://zapuskzavtra.libsyn.com/rss
             is_parsable: false
 
-          - name: "Moscow Python Podcast"
+          - name: "[Podcast] Moscow Python"
             url: https://podcast.python.ru/
             rss: https://feed.podbean.com/learnpython/feed.xml
             is_parsable: false
             filters:
               - moscow_python_podcast_clean_title
 
-          - name: "Podlodka Podcast"
+          - name: "[Podcast] Podlodka"
             url: https://podlodka.io/
             rss: http://feeds.soundcloud.com/users/soundcloud:users:291337106/sounds.rss
             is_parsable: false
 
-          - name: "Проветримся!"
+          - name: "[Podcast] Проветримся!"
             url: https://progulka.yamshchikov.info/
             rss: https://feeds.buzzsprout.com/231736.rss
             is_parsable: false
 
-          - name: "Вы находитесь здесь"
+          - name: "[Podcast] Вы находитесь здесь"
             url: https://libolibo.ru/nowyouarehere
             rss: http://nowyouarehere.libsyn.com/rss
             is_parsable: false
 
-          - name: "Comand Line Heroes by RedHat"
+          - name: "[Podcast] Comand Line Heroes by RedHat"
             url: https://www.redhat.com/en/command-line-heroes
             rss: https://feeds.pacific-content.com/commandlineheroes
             is_parsable: false
 
-          - name: "Python Bytes"
+          - name: "[Podcast] Python Bytes"
             url: https://pythonbytes.fm/
             rss: https://pythonbytes.fm/episodes/rss
             is_parsable: false
 
-          - name: "Software Engineering Daily"
+          - name: "[Podcast] Software Engineering Daily"
             url: https://softwareengineeringdaily.com/category/all-episodes/exclusive-content/Podcast/
             rss: https://softwareengineeringdaily.com/category/podcast/feed
             is_parsable: false
 
-          - name: "Habr Podcasts"
+          - name: "[Podcast] Habr"
             url: https://habr-podcast.com/weekly/
             rss: http://feeds.soundcloud.com/users/soundcloud:users:637623342/sounds.rss
             is_parsable: false
 
-          - name: "Мысли и Методы"
+          - name: "[Podcast] Мысли и Методы"
             url: https://rakh.im/mimpod/
             rss: https://feeds.soundcloud.com/users/soundcloud:users:259154388/sounds.rss?token=6f932-1-1559649010517
             is_parsable: false
 
-          - name: "Трёп Себранта"
+          - name: "[Podcast] Трёп Себранта"
             url: https://asebrant.libsyn.com/
             rss: http://sebrant.chat/rss
             is_parsable: false
