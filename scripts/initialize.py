@@ -109,7 +109,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                     feed_rss = feed_config["rss"]
 
                 updated_feed_urls.add(feed_url)
-                
+
                 print(f"Creating or updating feed {feed_name} ({feed_url})...")
 
                 feed, is_created = BoardFeed.objects.update_or_create(
@@ -140,7 +140,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                     if not feed.icon:
                         html = html or load_page_html(feed_url)
                         icon = feed_config.get("icon")
-                        if not icon:
+                        if html and not icon:
                             icon = find_favicon(feed_url, html)
                             print(f"- found favicon: {icon}")
 
@@ -171,13 +171,20 @@ def initialize(config, board_slug, upload_favicons, always_yes):
 
 
 def load_page_html(url):
-    return requests.get(
-        url=url,
-        headers=DEFAULT_REQUEST_HEADERS,
-        allow_redirects=True,
-        timeout=30,
-        verify=False
-    ).text
+    try:
+        return requests.get(
+            url=url,
+            headers=DEFAULT_REQUEST_HEADERS,
+            allow_redirects=True,
+            timeout=30,
+            verify=False
+        ).text
+
+    except requests.exceptions.ReadTimeout as e:
+        print(f'URL is not responding {url}\n skipping icon')
+        print(e)
+        return None
+
 
 
 # def find_rss_feed(url, html):
@@ -209,6 +216,9 @@ def load_page_html(url):
 
 
 def find_favicon(url, html):
+    if None in [url, html]:
+        return None
+
     bs = BeautifulSoup(html, features="lxml")
     link_tags = bs.findAll("link")
     for link_tag in link_tags:
