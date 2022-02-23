@@ -21,6 +21,7 @@ from notifications.telegram.common import (
 log = logging.getLogger()
 
 DEBUG = os.getenv("DEBUG", True) in ('True', True)
+TG_MESSAGES_ONE_TIME_LIMIT = 3
 
 TEXT_LIMIT = 500
 
@@ -38,7 +39,8 @@ def get_article_text(article: Article):
 
 @click.command()
 @click.option("--board-slug", help="To send articles from one particular board")
-def send_telegram_updates(board_slug):
+@click.option("--tg_msg_limit", help="To send exact amount of articles to telegram", default=None)
+def send_telegram_updates(board_slug, tg_msg_limit):
     if board_slug:
         telegram_channels = BoardTelegramChannel.objects\
             .select_related('board')\
@@ -64,9 +66,10 @@ def send_telegram_updates(board_slug):
             .exclude(feed__block__is_publishing_to_telegram=False)
 
         print(f'\nSending {len(articles)} articles to Telegram {channel_name}')
-        if DEBUG and articles:
-            print('  DEBUG>> limit articles to 3')
-            articles = articles[:3]
+        if (DEBUG or tg_msg_limit) and articles:
+            limit = tg_msg_limit or TG_MESSAGES_ONE_TIME_LIMIT
+            print(f'  limit articles to {limit}')
+            articles = articles[:limit]
 
         for article in articles:
             text = get_article_text(article)
