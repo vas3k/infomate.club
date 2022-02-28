@@ -1,0 +1,106 @@
+from collections import namedtuple
+from time import sleep
+from random import random
+
+import telegram
+from django.conf import settings
+from django.template import loader
+from telegram import ParseMode
+
+from notifications.telegram.bot import bot, log
+
+Chat = namedtuple("Chat", ["id"])
+
+
+def send_telegram_message(
+    chat: Chat,
+    text: str,
+    parse_mode: ParseMode = telegram.ParseMode.HTML,
+    disable_preview: bool = True,
+    **kwargs
+):
+    if not bot:
+        log.warning("No telegram token. Skipping")
+        return
+
+    log.info(f"Telegram: sending the message: {text}")
+
+    try:
+        return bot.send_message(
+            chat_id=chat.id,
+            text=text,
+            parse_mode=parse_mode,
+            disable_web_page_preview=disable_preview,
+            **kwargs
+        )
+
+    except telegram.error.RetryAfter as ex:
+        log.warning(f"Telegram error: {ex}")
+        sleep_seconds = ex.retry_after + random()
+        log.warning(f"Sleeping for {sleep_seconds:.2f}")
+        sleep(sleep_seconds)
+
+        return send_telegram_message(
+            chat=Chat(id=chat.id),
+            text=text,
+            parse_mode=parse_mode,
+            disable_web_page_preview=disable_preview,
+            **kwargs
+        )
+
+    except telegram.error.TelegramError as ex:
+        log.warning(f"Telegram error: {ex}")
+        return False
+
+
+def send_telegram_image(
+    chat: Chat,
+    image_url: str,
+    text: str,
+    parse_mode: ParseMode = telegram.ParseMode.HTML,
+    **kwargs
+):
+    if not bot:
+        log.warning("No telegram token. Skipping")
+        return
+
+    log.info(f"Telegram: sending the image: {image_url} {text}")
+
+    try:
+        return bot.send_photo(
+            chat_id=chat.id,
+            photo=image_url,
+            caption=text[:1024],
+            parse_mode=parse_mode,
+            **kwargs
+        )
+    except telegram.error.TelegramError as ex:
+        log.warning(f"Telegram error: {ex}")
+
+
+def remove_action_buttons(chat: Chat, message_id: str, **kwargs):
+    try:
+        return bot.edit_message_reply_markup(
+            chat_id=chat.id,
+            message_id=message_id,
+            reply_markup=None,
+            **kwargs
+        )
+    except telegram.error.TelegramError:
+        log.info("Buttons are already removed. Skipping")
+        return None
+
+
+def render_html_message(template, **data):
+    template = loader.get_template(f"messages/{template}")
+    return template.render({
+        **data,
+        "settings": settings
+    })
+
+
+def get_telergam_channel_name_at(channel_name):
+    if not channel_name:
+        return None
+
+    return channel_name if channel_name[0] == '@' else '@' + channel_name

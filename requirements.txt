@@ -11,3 +11,4 @@ sentry-sdk==0.14.1
 nltk==3.4.5
 newspaper3k>=0.2.8
 django-bleach==0.6.1
+python-telegram-bot==12.5.1

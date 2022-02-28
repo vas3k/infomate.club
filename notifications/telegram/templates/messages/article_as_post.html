@@ -1,0 +1,6 @@
+<b>{{ article.title }}</b>
+[<a href="{{ article.url }}">{{ article.feed.name }}</a>]
+{% for para in paragraphs %}
+{{ para }}
+{% endfor %}
+{{ tg_channel }}

@@ -17,7 +17,8 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     "django_bleach",
     "boards",
-    "parsing"
+    "parsing",
+    "notifications",
 ]
 
 MIDDLEWARE = [
@@ -30,6 +31,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
+            os.path.join(BASE_DIR, "notifications/telegram/templates"),
             os.path.join(BASE_DIR, "templates"),
         ],
         "APP_DIRS": True,
@@ -118,6 +120,7 @@ MEDIA_UPLOAD_CODE = None  # should be set in private_settings.py
 TELEGRAM_APP_ID = None  # should set in private_settings.py
 TELEGRAM_APP_HASH = None  # should set in private_settings.py
 TELEGRAM_SESSION_FILE = None  # should set in private settings.py
+TELEGRAM_TOKEN = None  # should set in private settings.py
 TELEGRAM_CACHE_SECONDS = 10 * 60  # 10 min
 
 BLEACH_STRIP_TAGS = True

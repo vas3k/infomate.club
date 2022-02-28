@@ -20,7 +20,7 @@ from newspaper import Article as NewspaperArticle, ArticleException
 from boards.models import BoardFeed, Article, Board
 from scripts.filters import FILTERS
 from scripts.common import DEFAULT_REQUEST_HEADERS, DEFAULT_REQUEST_TIMEOUT, MAX_PARSABLE_CONTENT_LENGTH, resolve_url, \
-    parse_domain, parse_datetime, parse_title, parse_link, parse_rss_image, parse_rss_text_and_image
+    parse_domain, parse_datetime, parse_title, parse_link, parse_rss_image, parse_rss_text_and_image, if_fallback_message_in_text
 
 DEFAULT_NUM_WORKER_THREADS = 5
 DEFAULT_ENTRIES_LIMIT = 30
@@ -35,9 +35,12 @@ queue = queue.Queue()
 @click.option("--num-workers", default=DEFAULT_NUM_WORKER_THREADS, help="Number of parser threads")
 @click.option("--force", is_flag=True, help="Force to update all existing feeds")
 @click.option("--feed", help="To update one particular feed")
-def update(num_workers, force, feed):
+@click.option("--board-slug", help="To update feeds from particular board")
+def update(num_workers, force, feed, board_slug):
     if feed:
         need_to_update_feeds = BoardFeed.objects.filter(rss=feed)
+    elif board_slug:
+        need_to_update_feeds = BoardFeed.objects.filter(board__slug=board_slug)
     else:
         new_feeds = BoardFeed.objects.filter(refreshed_at__isnull=True)
         outdated_feeds = BoardFeed.objects.filter(url__isnull=False)
@@ -208,7 +211,7 @@ def fetch_rss(item, rss):
                     summary = None
                     summary_image = None
 
-                if summary:
+                if summary and not if_fallback_message_in_text(summary):
                     article.summary = summary
 
                 if summary_image:

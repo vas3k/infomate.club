@@ -11,6 +11,7 @@ services:
     environment:
       - DEBUG=True
       - PYTHONUNBUFFERED=1
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
     restart: always
     volumes:
       - .:/app:delegated

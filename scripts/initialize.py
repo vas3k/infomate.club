@@ -14,9 +14,11 @@ import yaml
 from bs4 import BeautifulSoup
 
 from boards.models import Board, BoardFeed, BoardBlock
+from notifications.models import BoardTelegramChannel
 from boards.icons import DOMAIN_FAVICONS
 from utils.images import upload_image_from_url
 from scripts.common import DEFAULT_REQUEST_HEADERS, parse_domain
+from notifications.telegram.common import get_telergam_channel_name_at
 
 
 @click.command()
@@ -58,6 +60,25 @@ def initialize(config, board_slug, upload_favicons, always_yes):
             )
         )
 
+        board_telegram_channel = board_config.get("sent_to_telegram_channel")
+        if board_telegram_channel:
+            board_telegram_channel = get_telergam_channel_name_at(board_telegram_channel)
+            print(f"Add Teleram channel {board_telegram_channel} for board: {board_name}...")
+            board_tg_channel, is_created = BoardTelegramChannel.objects.update_or_create(
+                board=board,
+                telegram_channel_id=board_telegram_channel
+            )
+            # in case of telegram channel has been changed, delete previous
+            BoardTelegramChannel.objects\
+                .filter(board=board)\
+                .exclude(telegram_channel_id=board_telegram_channel)\
+                .delete()
+
+        else:
+            if BoardTelegramChannel.objects.filter(board=board).exists():
+                print(f"Remove Teleram channel for board: {board_name}...")
+                BoardTelegramChannel.objects.filter(board=board).delete()
+
         for block_index, block_config in enumerate(board_config.get("blocks") or []):
             block_name = block_config.get("name") or ""
             print(f"\nCreating block: {block_name}...")
@@ -68,6 +89,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                     name=block_name,
                     index=block_index,
                     view=block_config.get("view") or BoardBlock.DEFAULT_VIEW,
+                    is_publishing_to_telegram=block_config.get("publish_to_telegram", False),
                 )
             )
 
@@ -87,7 +109,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                     feed_rss = feed_config["rss"]
 
                 updated_feed_urls.add(feed_url)
-                
+
                 print(f"Creating or updating feed {feed_name} ({feed_url})...")
 
                 feed, is_created = BoardFeed.objects.update_or_create(
@@ -118,7 +140,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                     if not feed.icon:
                         html = html or load_page_html(feed_url)
                         icon = feed_config.get("icon")
-                        if not icon:
+                        if html and not icon:
                             icon = find_favicon(feed_url, html)
                             print(f"- found favicon: {icon}")
 
@@ -149,13 +171,20 @@ def initialize(config, board_slug, upload_favicons, always_yes):
 
 
 def load_page_html(url):
-    return requests.get(
-        url=url,
-        headers=DEFAULT_REQUEST_HEADERS,
-        allow_redirects=True,
-        timeout=30,
-        verify=False
-    ).text
+    try:
+        return requests.get(
+            url=url,
+            headers=DEFAULT_REQUEST_HEADERS,
+            allow_redirects=True,
+            timeout=30,
+            verify=False
+        ).text
+
+    except requests.exceptions.ReadTimeout as e:
+        print(f'URL is not responding {url}\n skipping icon')
+        print(e)
+        return None
+
 
 
 # def find_rss_feed(url, html):
@@ -187,6 +216,9 @@ def load_page_html(url):
 
 
 def find_favicon(url, html):
+    if None in [url, html]:
+        return None
+
     bs = BeautifulSoup(html, features="lxml")
     link_tags = bs.findAll("link")
     for link_tag in link_tags:
