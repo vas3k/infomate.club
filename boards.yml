@@ -639,12 +639,6 @@ boards:
       - name: "Наблюдения, события, места"
         slug: events
         feeds:
-          - name: "Kiez in Berlin"
-            url: http://kiezinberlin.com/
-            rss: http://kiezinberlin.com/feed/
-          - name: "Канал Глазами Богдана"
-            url: https://t.me/bogdandevisu
-            rss: https://infomate.club/parsing/telegram/bogdandevisu?only=text
           - name: "Канал Travelclever"
             url: https://t.me/travelclever
             rss: https://infomate.club/parsing/telegram/travelclever?only=text

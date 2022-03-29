@@ -5,22 +5,30 @@
 
 PROJECT_NAME=infomate
 
-dev-requirements:  ## Install dev requirements
-	@pip3 install -r requirements.txt
+run:  ## Run dev server
+	python3 manage.py migrate
+	python3 manage.py runserver 0.0.0.0:8000
 
-docker_run:  ## Run dev server in docker
-	@python3 ./utils/wait_for_postgres.py
-	@python3 manage.py migrate
-	@python3 manage.py runserver 0.0.0.0:8000
+dev-requirements:  ## Install dev requirements
+	pip3 install -r requirements.txt
+
+docker-run-app:  ## Run production setup in docker
+	python3 ./utils/wait_for_postgres.py
+	python3 manage.py migrate
+	gunicorn infomate.asgi:application -w 3 -k uvicorn.workers.UvicornWorker --bind=0.0.0.0:8816 --capture-output --log-level debug --access-logfile - --error-logfile -
+
+docker-run-cron:  ## Run production cron container
+	env >> /etc/environment
+	cron -f -l 2
 
 feed_cleanup:  ## Cleanup RSS feeds
-	@python3 ./scripts/cleanup.py
+	python3 ./scripts/cleanup.py
 
 feed_init:  ## Initialize feeds from boards.yml
-	@python3 ./scripts/initialize.py --config boards.yml --no-upload-favicons -y
+	python3 ./scripts/initialize.py --config boards.yml --no-upload-favicons -y
 
 feed_refresh:  ## Refresh RSS feeds
-	@python3 ./scripts/update.py
+	python3 ./scripts/update.py
 
 help:  ## Display this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -31,16 +39,16 @@ lint:  ## Lint code with flake8
 	flake8 $(PROJECT_NAME)
 
 migrate:  ## Migrate database to the latest version
-	@python3 manage.py migrate
+	python3 manage.py migrate
 
 mypy:  ## Check types with mypy
 	mypy $(PROJECT_NAME)
 
 run:  ## Runs dev server
-	@python3 manage.py runserver
+	python3 manage.py runserver
 
 telegram:
-	@python3 setup_telegram.py
+	python3 setup_telegram.py
 
 test-ci: test-requirements lint mypy  ## Run tests (intended for CI usage)
 
@@ -48,8 +56,10 @@ test-requirements:  ## Install requirements to run tests
 	@pip3 install -r ./requirements-test.txt
 
 .PHONY: \
+  run \
   dev-requirements \
-  docker_run \
+  docker-run-app \
+  docker-run-cron \
   feed_cleanup \
   feed_init \
   feed_refresh \

@@ -1,0 +1,50 @@
+version: "3"
+services:
+  app: &app
+    image: ghcr.io/vas3k/infomate:${GITHUB_SHA:-latest}
+    command: make docker-run-production
+    container_name: infomate_app
+    environment:
+      - MODE=production
+      - PYTHONUNBUFFERED=1
+      - DEBUG=false
+      - APP_HOST=https://infomate.club
+      - POSTGRES_DB=infomate
+      - POSTGRES_USER=vas3k
+      - POSTGRES_PASSWORD=vas3k
+      - POSTGRES_HOST=host.docker.internal
+    env_file:
+      - .env
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "127.0.0.1:8816:8816"
+
+  cron:
+    <<: *app
+    command: make docker-run-cron
+    container_name: infomate_cron
+    depends_on:
+      - app
+      - postgres
+    ports: []
+
+#  postgres:
+#    image: postgres:12
+#    container_name: infomate_postgres
+#    restart: always
+#    environment:
+#      POSTGRES_USER: vas3k
+#      POSTGRES_PASSWORD: vas3k
+#      POSTGRES_DB: vas3k_club
+#    volumes:
+#      - /home/vas3k/pgdata:/var/lib/postgresql/data:rw
+
+  migrate_and_init:
+    <<: *app
+    container_name: infomate_init_feeds
+    restart: "no"
+    ports: []
+    command: make feed_init feed_refresh
+

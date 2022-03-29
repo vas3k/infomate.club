@@ -1,2 +1,2 @@
-0 * * * * cd /home/vas3k/infomate.club/scripts && python3 update.py >/dev/null 2>&1
-0 4 * * * cd /home/vas3k/infomate.club/scripts && python3 cleanup.py >/dev/null 2>&1
+0 * * * * cd /home/vas3k/infomate.club/scripts && python3 update.py >/proc/1/fd/1 2>/proc/1/fd/2
+0 4 * * * cd /home/vas3k/infomate.club/scripts && python3 cleanup.py >/proc/1/fd/1 2>/proc/1/fd/2

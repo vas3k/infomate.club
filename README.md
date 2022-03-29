@@ -1,6 +1,6 @@
 # Infomate.club
 
-[![Build Status](https://travis-ci.org/vas3k/infomate.club.svg?branch=master)](https://travis-ci.org/vas3k/infomate.club) [![GitHub license](https://img.shields.io/github/license/vas3k/infomate.club)](https://github.com/vas3k/infomate.club/blob/master/LICENSE) [![GitHub contributors](https://img.shields.io/github/contributors/vas3k/infomate.club)](https://GitHub.com/vas3k/infomate.club/graphs/contributors/)
+[![Build Status](https://travis-ci.org/vas3k/infomate.club.svg?branch=master)](https://travis-ci.org/vas3k/infomate.club)
 
 Infomate is a small web service that shows multiple RSS sources on one page and performs tricky parsing and summarizing articles using TextRank algorithm. 
 
@@ -127,6 +127,27 @@ boards:
             field: title
             word: Trump   # exclude articles with a word "Trump" in title
 ```
+
+## Running in production
+
+Deployment is done using a simple Github Action which builds a docker container, puts it into Github Registry, logs into your server via SSH and pulls it. 
+The pipeline is triggered on every push to master branch. If you want to set up your own fork, please add these constants to your repo SECRETS:
+
+```
+APP_HOST — e.g. "https://your.host.com"
+GHCR_TOKEN — your personal guthib access token with permissions to read/write into Github Registry
+SECRET_KEY — random string for django stuff (not really used)
+SENTRY_DSN — if you want to use Sentry
+PRODUCTION_SSH_HOST — hostname or IP of your server
+PRODUCTION_SSH_USERNAME — user which can deploy to your server
+PRODUCTION_SSH_KEY — private key for this user
+```
+
+After you install them all and commit something to the master, the action should run and deploy it to your server on port **8816**. 
+
+Don't forget to set up nginx as a proxy for that app (add SSL and everything else in there). Here's example config for that: [etc/nginx/infomate.club.conf](etc/nginx/infomate.club.conf)
+
+If something doesn't work, check the action itself: [.github/workflows/deploy.yml](.github/workflows/deploy.yml)
 
 ## Contributing
 

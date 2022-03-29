@@ -6,11 +6,10 @@ from random import random
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-DEBUG = os.getenv("DEBUG", True)
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = "wow so secret"
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "0.0.0.0", "vas3k.ru", "infomate.club"]
+DEBUG = (os.getenv("DEBUG") != "false")  # SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = os.getenv("SECRET_KEY") or "wow so secret"
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "0.0.0.0", "infomate.club"]
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
@@ -48,11 +47,11 @@ WSGI_APPLICATION = "infomate.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "infomate",
-        "USER": "postgres",  # redefined in private_settings.py
-        "PASSWORD": "postgres",
-        "HOST": "postgres",
-        "PORT": "5432",
+        "NAME": os.getenv("POSTGRES_DB") or "infomate",
+        "USER": os.getenv("POSTGRES_USER") or "postgres",
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD") or "",
+        "HOST": os.getenv("POSTGRES_HOST") or "localhost",
+        "PORT": os.getenv("POSTGRES_PORT") or 5432,
     }
 }
 
@@ -86,11 +85,20 @@ CSS_HASH = str(random())
 
 # Cache
 
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+if DEBUG:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+        }
     }
-}
+else:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+            "LOCATION": "/tmp/infomate_cache"
+        }
+    }
+
 STATIC_PAGE_CACHE_SECONDS = 5 * 60  # 5 min
 BOARD_CACHE_SECONDS = 10 * 60  # 10 min
 
@@ -99,38 +107,16 @@ BOARD_CACHE_SECONDS = 10 * 60  # 10 min
 APP_NAME = "Infomate"
 APP_TITLE = "Агрегатор инфополя"
 APP_DESCRIPTION = APP_TITLE
-APP_HOST = "https://infomate.club"
+APP_HOST = os.getenv("APP_HOST") or "http://127.0.0.1:8000"
 
-JWT_SECRET = "wow so secret"  # should be the same as on vas3k.ru
-JWT_ALGORITHM = "HS256"
-JWT_EXP_TIMEDELTA = timedelta(days=120)
-
-AUTH_COOKIE_NAME = "jwt"
-AUTH_COOKIE_MAX_AGE = 300 * 24 * 60 * 60  # 300 days
-AUTH_REDIRECT_URL = "https://vas3k.ru/auth/external/"
-AUTH_FAILED_REDIRECT_URL = "https://vas3k.ru/auth/login/"
-
-SENTRY_DSN = None
+SENTRY_DSN = os.getenv("SENTRY_DSN")
 
 MEDIA_UPLOAD_URL = "https://i.vas3k.ru/upload/"
-MEDIA_UPLOAD_CODE = None  # should be set in private_settings.py
+MEDIA_UPLOAD_CODE = os.getenv("MEDIA_UPLOAD_CODE")
 
-TELEGRAM_APP_ID = None  # should set in private_settings.py
-TELEGRAM_APP_HASH = None  # should set in private_settings.py
-TELEGRAM_SESSION_FILE = None  # should set in private settings.py
 TELEGRAM_CACHE_SECONDS = 10 * 60  # 10 min
 
 BLEACH_STRIP_TAGS = True
-
-try:
-    # poor mans' private settings
-    # As due to obvious reasons this file is missing in the repository, suppress the following 'pyflakes' error codes:
-    # - F401 'infomate.private_settings.*' imported but unused
-    # - F403 'from infomate.private_settings import *' used; unable to detect undefined names
-    from infomate.private_settings import *  # noqa: F401 F403
-except ImportError:
-    pass
-
 
 if SENTRY_DSN and not DEBUG:
     sentry_sdk.init(
