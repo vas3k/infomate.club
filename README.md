@@ -12,13 +12,13 @@ Thematic and people-based collections does a really good job for discovery of ne
 
 ![](https://i.vas3k.ru/i7m.png)
 
-## This is a pet-project 🐶
+## 🐶 This is a pet-project
 
-Which means you really shouldn't expect much from it. I wrote it over the weekend to solve my own pain. No state-of-art kubernetes bullshit, no architecture patterns, even no tests at all. It's here just to show people what a pet-project might look like.
+Which means you really shouldn't expect much from it. I wrote the MVP over the weekend to solve my own pain. No state-of-art kubernetes bullshit, no architecture patterns, even no tests at all. It's here just to show people what a pet-project might look like.
 
-This code has been written for fun, not for business. There is usually a big difference. Like between riding a bike on the streets and cycling in the wild for fun :)
+This code has been written for fun, not for business. There is usually a big difference.
 
-## How it works
+## 🤔 How it works
 
 It's basically a Django web app with a bunch of [scripts](scripts) for RSS parsing. It stores the parsed data in a PostgreSQL database.
 
@@ -29,7 +29,7 @@ Parsing and feed updates are performed by the three scripts running in cron. Lik
 
 Text summarization is done via [newspaper3k](https://newspaper.readthedocs.io/en/latest/) with some additional protection against bad types of content like podcasts and too big pages in general, which can eat all your memory. Anything can happen in the RSS world :)
 
-## Running it locally
+## ▶️ Running it locally
 
 The easy way. Install [docker](https://docs.docker.com/install/) on your machine. Then:
 
@@ -48,7 +48,7 @@ docker-compose down --remove-orphans
 ```
 
 
-## Running for development
+## ⚙️ Running for development
 
 Make sure you have python3 and postresql installed locally.
 
@@ -128,7 +128,7 @@ boards:
             word: Trump   # exclude articles with a word "Trump" in title
 ```
 
-## Running in production
+## 💎 Running in production
 
 Deployment is done using a simple Github Action which builds a docker container, puts it into Github Registry, logs into your server via SSH and pulls it. 
 The pipeline is triggered on every push to master branch. If you want to set up your own fork, please add these constants to your repo SECRETS:
@@ -149,7 +149,7 @@ Don't forget to set up nginx as a proxy for that app (add SSL and everything els
 
 If something doesn't work, check the action itself: [.github/workflows/deploy.yml](.github/workflows/deploy.yml)
 
-## Contributing
+## 🎉 Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -157,7 +157,7 @@ You can help us with opened issues too. There's always something to work on.
 
 We don't have any strict rules on formatting, just explain your motivation and the changes you've made to the PR description so that others understand what's going on.
 
-## License
+## 👩‍💼 License
 
 [Apache 2.0](LICENSE) © Vasily Zubarev
 
