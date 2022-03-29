@@ -1874,10 +1874,6 @@ boards:
             rss: https://sebrant.chat/rss
             is_parsable: false
 
-          - name: "ParrotCast"
-            url: https://parrotcast.link/
-            rss: https://anchor.fm/s/46865880/podcast/rss
-
       - name: "⌨ Coding"
         slug: coding
         feeds:
