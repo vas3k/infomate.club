@@ -149,13 +149,16 @@ def initialize(config, board_slug, upload_favicons, always_yes):
 
 
 def load_page_html(url):
-    return requests.get(
-        url=url,
-        headers=DEFAULT_REQUEST_HEADERS,
-        allow_redirects=True,
-        timeout=30,
-        verify=False
-    ).text
+    try:
+        return requests.get(
+            url=url,
+            headers=DEFAULT_REQUEST_HEADERS,
+            allow_redirects=True,
+            timeout=30,
+            verify=False
+        ).text
+    except Exception as ex:
+        print(f"🚨 Error loading page {url}: {ex}")
 
 
 # def find_rss_feed(url, html):
