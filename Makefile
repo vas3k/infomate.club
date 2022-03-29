@@ -13,7 +13,6 @@ dev-requirements:  ## Install dev requirements
 	pip3 install -r requirements.txt
 
 docker-run-app:  ## Run production setup in docker
-	python3 ./utils/wait_for_postgres.py
 	python3 manage.py migrate
 	gunicorn infomate.asgi:application -w 3 -k uvicorn.workers.UvicornWorker --bind=0.0.0.0:8816 --capture-output --log-level debug --access-logfile - --error-logfile -
 

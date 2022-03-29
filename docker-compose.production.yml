@@ -16,8 +16,6 @@ services:
     env_file:
       - .env
     restart: always
-    depends_on:
-      - postgres
     ports:
       - "127.0.0.1:8816:8816"
 
@@ -27,7 +25,6 @@ services:
     container_name: infomate_cron
     depends_on:
       - app
-      - postgres
     ports: []
 
 #  postgres:
