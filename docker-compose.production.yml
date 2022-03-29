@@ -12,10 +12,11 @@ services:
       - POSTGRES_DB=infomate
       - POSTGRES_USER=vas3k
       - POSTGRES_PASSWORD=vas3k
-      - POSTGRES_HOST=host.docker.internal
+      - POSTGRES_HOST=localhost
     env_file:
       - .env
     restart: always
+    network_mode: "host"  # this is needed to use host postgres, feel free to remove this line and use "postgres" container below
     ports:
       - "127.0.0.1:8816:8816"
 
@@ -34,14 +35,16 @@ services:
 #    environment:
 #      POSTGRES_USER: vas3k
 #      POSTGRES_PASSWORD: vas3k
-#      POSTGRES_DB: vas3k_club
+#      POSTGRES_DB: infomate
 #    volumes:
-#      - /home/vas3k/pgdata:/var/lib/postgresql/data:rw
+#      - /tmp/pgdata:/var/lib/postgresql/data:rw
 
   migrate_and_init:
     <<: *app
     container_name: infomate_init_feeds
     restart: "no"
     ports: []
+    depends_on:
+      - app
     command: make feed_init feed_refresh
 
