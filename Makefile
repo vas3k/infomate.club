@@ -43,9 +43,6 @@ migrate:  ## Migrate database to the latest version
 mypy:  ## Check types with mypy
 	mypy $(PROJECT_NAME)
 
-run:  ## Runs dev server
-	python3 manage.py runserver
-
 telegram:
 	python3 setup_telegram.py
 
@@ -66,6 +63,5 @@ test-requirements:  ## Install requirements to run tests
   lint \
   migrate \
   mypy \
-  run \
   test-ci \
   test-requirements
