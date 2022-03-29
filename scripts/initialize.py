@@ -126,7 +126,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                                 icon = upload_image_from_url(icon)
                                 print(f"- uploaded favicon: {icon}")
 
-                        feed.icon = icon
+                        feed.icon = icon[:512] if icon else None
 
                 feed.save()
 
