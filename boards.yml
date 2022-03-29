@@ -625,24 +625,52 @@ boards:
           - name: IamExpat
             url: https://www.iamexpat.de/
             rss: https://www.iamexpat.de/rss/news-germany
-          - name: "BZ [DE]"
+      - name: Больше новостей, но на немецком
+        slug: de
+        feeds:
+          - name: "BZ"
             url: https://www.bz-berlin.de/
             rss: https://www.bz-berlin.de/feed
             icon: https://i.vas3k.ru/38026d202b5c6beab60312602ca6facb3ecb22a4916084fac44858e1a68dc55c.png
-          - name: "Der Tagesspiegel [DE]"
+          - name: "Der Tagesspiegel"
             url: https://www.tagesspiegel.de/
             rss: https://www.tagesspiegel.de/contentexport/feed/home
             icon: https://i.vas3k.ru/fjb.jpg
-          - name: "RBB24 [DE]"
+          - name: "RBB24"
             url: https://www.rbb24.de
             rss: https://www.rbb24.de/aktuell/index.xml/feed=rss.xml
-      - name: "События, места, каналы"
+      - name: "События и местные каналы"
         slug: events
         feeds:
           - name: "How to Berlin"
             url: https://t.me/howtoberlin
             rss: https://infomate.club/parsing/telegram/howtoberlin?only=text
-            is_parsable: false
+            icon: https://i.vas3k.ru/cfd6db4e48b2abc24a24883e6933720b4482376a3a69fd2961489933c74a314b.jpg
+          - name: "Berlin.de Events"
+            url: https://www.berlin.de/en/events/
+            rss: https://www.berlin.de/en/events/rubric.rss
+            icon: https://i.vas3k.ru/fjc.png
+          - name: "Comedy in English"
+            url: https://comedyinenglish.de/full-calendar/
+            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e15a6ea8a93f86d5d8b4567.xml
+            icon: https://i.vas3k.ru/flr.jpg
+          - name: "Eventbrite"
+            url: https://www.eventbrite.com/d/germany--berlin/all-events/
+            rss: http://fetchrss.com/rss/6242ddaac45b4250ef751de26242ddebad9ae2191c2b8af2.xml
+            icon: https://i.vas3k.ru/91ed89e5c03aed45b7fdddbcaee1a859821f5c62ff9bb8e58af68c91ede6c496.png
+          - name: "Детский Берлин"
+            url: https://kinderberlin.com/
+            rss: https://kinderberlin.com/feed/
+            icon: https://i.vas3k.ru/be99147ae911189128465ba5bc6cba8fcd4d559b3dee25706b7a84ced08ae5f9.jpg
+          - name: Exberliner
+            url: https://www.exberliner.com/
+            rss: https://www.exberliner.com/feed/
+          - name: "Mit Vergnügen [DE]"
+            url: https://mitvergnuegen.com
+            rss: https://mitvergnuegen.com/feed
+          - name: "tipBerlin [DE]"
+            url: https://www.tip-berlin.de/
+            rss: https://www.tip-berlin.de/feed/
           - name: "Канал Воздух над Берлином"
             url: https://t.me/alleinvater
             rss: https://infomate.club/parsing/telegram/alleinvater?only=text
@@ -651,28 +679,20 @@ boards:
             url: https://t.me/travelclever
             rss: https://infomate.club/parsing/telegram/travelclever?only=text
             is_parsable: false
-          - name: "Berlin.de Events"
-            url: https://www.berlin.de/en/events/
-            rss: https://www.berlin.de/en/events/rubric.rss
-            icon: https://i.vas3k.ru/fjc.png
-          - name: "Mit Vergnügen [DE]"
-            url: https://mitvergnuegen.com
-            rss: https://mitvergnuegen.com/feed
-          - name: "Comedy in English"
-            url: https://comedyinenglish.de/full-calendar/
-            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e15a6ea8a93f86d5d8b4567.xml
-            icon: https://i.vas3k.ru/flr.jpg
       - name: "Подкасты"
         slug: podcasts
         feeds:
           - name: "Radio Spaetkauf 🥇"
-            url: https://podcasts.apple.com/de/podcast/radio-spaetkauf-berlin/id571999392?l=en
-            rss: http://radiospaetkauf.libsyn.com/rss
+            url: https://www.radiospaetkauf.com/
+            rss: https://www.radiospaetkauf.com/feed/
             icon: https://i.vas3k.ru/fje.jpg
           - name: "Berlin Briefing"
             url: https://podcasts.apple.com/de/podcast/berlin-briefing/id1241197566?l=en
             rss: https://berlinbriefing.podigee.io/feed/aac
             icon: https://i.vas3k.ru/fjf.jpg
+          - name: "Мама я в Берлине"
+            url: https://podcasts.apple.com/de/podcast/%D0%BC%D0%B0%D0%BC%D0%B0-%D1%8F-%D0%B2-%D0%B1%D0%B5%D1%80%D0%BB%D0%B8%D0%BD%D0%B5/id1594064048?l=en
+            rss: https://cloud.mave.digital/34194
       - name: "Учим немецкий"
         slug: learn
         feeds:

@@ -39,60 +39,20 @@ cd infomate.club
 docker-compose up --build
 ```
 
-After that navigate to [localhost:8000](http://localhost:8000)
+On the first run you might need to wait until the "migrate_and_init" container will finish its job populating your database. 
+After that you can open [localhost:8000](http://localhost:8000) in your favorite browser and enjoy.
 
-To terminate it:
+If something stucked or you want to terminate it completely, use this command in another terminal:
 
 ```shell script
 docker-compose down --remove-orphans
 ```
 
 
-## ⚙️ Running for development
+## ⚙️ boards.yml format
 
-Make sure you have python3 and postresql installed locally.
-
-#### Step 1: Install requirements
-
-```
-pip3 install -r requirements.txt --user
-```
-
-#### Step 2: Create a database structure
-
-```
-python3 manage.py migrate
-```
-
-#### Step 3: Take a look at [boards.yml](boards.yml)
-
-This is the main source of truth for all RSS streams and collections in the service. All updates to the database are made through it. For the first time you can just use the existing one.
-
-#### Step 4: Initialize your feeds
-
-```
-python3 scripts/initialize.py --config boards.yml
-```
-
-> Every time you make a change to boards.yml, just run this script again. He is smart enough to create the missing ones and remove the old ones.
-
-#### Step 5: Fetch some articles
-
-```
-python3 scripts/update.py
-```
-
-> Don't run it too often, otherwise sites may ban your IP. There is a hardcoded cooldown interval for each feed, but you can use `--force` flag to ignore it.
-
-#### Step 6: Run dev server
-
-```
-python3 manage.py runserver 8000
-```
-
-Then go to [localhost:8000](http://localhost:8000) again
-
-## boards.yml format
+All collections and feeds are stored in one file — [boards.yml](boards.yml). 
+This is your main and only entry point to add new stuff. 
 
 ```
 boards:
