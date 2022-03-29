@@ -646,18 +646,19 @@ boards:
             url: https://t.me/howtoberlin
             rss: https://infomate.club/parsing/telegram/howtoberlin?only=text
             icon: https://i.vas3k.ru/cfd6db4e48b2abc24a24883e6933720b4482376a3a69fd2961489933c74a314b.jpg
+            is_parsable: false
           - name: "Berlin.de Events"
             url: https://www.berlin.de/en/events/
             rss: https://www.berlin.de/en/events/rubric.rss
             icon: https://i.vas3k.ru/fjc.png
-          - name: "Comedy in English"
-            url: https://comedyinenglish.de/full-calendar/
-            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e15a6ea8a93f86d5d8b4567.xml
-            icon: https://i.vas3k.ru/flr.jpg
           - name: "Eventbrite"
             url: https://www.eventbrite.com/d/germany--berlin/all-events/
             rss: http://fetchrss.com/rss/6242ddaac45b4250ef751de26242ddebad9ae2191c2b8af2.xml
             icon: https://i.vas3k.ru/91ed89e5c03aed45b7fdddbcaee1a859821f5c62ff9bb8e58af68c91ede6c496.png
+          - name: "Comedy in English"
+            url: https://comedyinenglish.de/full-calendar/
+            rss: http://fetchrss.com/rss/5e1485a98a93f87e1f8b45685e15a6ea8a93f86d5d8b4567.xml
+            icon: https://i.vas3k.ru/flr.jpg
           - name: "Детский Берлин"
             url: https://kinderberlin.com/
             rss: https://kinderberlin.com/feed/
@@ -674,6 +675,8 @@ boards:
           - name: "Канал Воздух над Берлином"
             url: https://t.me/alleinvater
             rss: https://infomate.club/parsing/telegram/alleinvater?only=text
+            filters:
+              - remove_hashtags
             is_parsable: false
           - name: "Канал Travelclever"
             url: https://t.me/travelclever

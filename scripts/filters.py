@@ -1,3 +1,6 @@
+import re
+
+
 def echomsk_title_fix(entry):
     title = entry.get("title")
     if len(title) > 20 and title[17] == ":":
@@ -16,8 +19,16 @@ def databrew_podcast_clean_title(entry):
     entry["title"] = title.replace('Data Brew ', '').replace(' Episode ', 'E')
     return entry
 
+
+def remove_hashtags(entry):
+    title = entry.get("title")
+    entry["title"] = re.sub("#[A-Za-z0-9_]+", "", title)
+    return entry
+
+
 FILTERS = {
     "echomsk_title_fix": echomsk_title_fix,
     "moscow_python_podcast_clean_title": moscow_python_podcast_clean_title,
     "databrew_podcast_clean_title": databrew_podcast_clean_title,
+    "remove_hashtags": remove_hashtags,
 }
