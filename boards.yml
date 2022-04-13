@@ -293,7 +293,8 @@ boards:
             url: https://stopgame.ru/
             icon: https://i.vas3k.ru/110c51acbc7b938803332ce502eaa92284302093825b86f632002720397cdd66.png
             mix:
-             - https://rss.stopgame.ru/rss_frontpage.xml
+             - https://rss.stopgame.ru/rss_news.xml
+             - https://rss.stopgame.ru/articles.xml
              - https://www.youtube.com/feeds/videos.xml?channel_id=UCq7JZ8ATgQWeu6sDM1czjhg
           - name: Игры @ Mail.ru
             url: https://games.mail.ru/pc/news/
