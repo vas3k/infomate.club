@@ -80,6 +80,10 @@ boards:
             url: https://t.me/novaya_pishet
             rss: https://infomate.club/parsing/telegram/novaya_pishet
             icon: https://i.vas3k.ru/f2cabb4173f6dcaad7db9f6285458e0d79593a5eba08b77f16e89ff532171860.jpg
+          - name: Novaya Gazeta. Europe
+            url: https://t.me/novaya_europe
+            rss: https://infomate.club/parsing/telegram/novaya_europe
+            icon: https://i.vas3k.ru/f2cabb4173f6dcaad7db9f6285458e0d79593a5eba08b77f16e89ff532171860.jpg
           - name: Лентач
             url: https://t.me/lentachold
             rss: https://infomate.club/parsing/telegram/lentachold?only=text
