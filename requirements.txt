@@ -1,4 +1,4 @@
-Django==3.2.12
+Django==4.0.4
 gunicorn==20.1.0
 uvicorn==0.17.6
 psycopg2-binary==2.9.3
@@ -13,3 +13,5 @@ sentry-sdk==1.5.8
 nltk==3.6.6
 newspaper3k>=0.2.8
 django-bleach==1.0.0
+django-debug-toolbar==3.4.0
+

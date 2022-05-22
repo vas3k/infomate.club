@@ -10,13 +10,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = (os.getenv("DEBUG") != "false")  # SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY = os.getenv("SECRET_KEY") or "wow so secret"
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "0.0.0.0", "infomate.club"]
+INTERNAL_IPS = ["127.0.0.1"]
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     "django_bleach",
     "boards",
-    "parsing"
+    "parsing",
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,7 @@ if SENTRY_DSN and not DEBUG:
         dsn=SENTRY_DSN,
         integrations=[DjangoIntegration()]
     )
+
+if DEBUG:
+    INSTALLED_APPS += ["debug_toolbar"]
+    MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE

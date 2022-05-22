@@ -1,8 +1,8 @@
-from django.urls import path
+from django.conf import settings
+from django.urls import path, include
 from django.views.decorators.cache import cache_page
 
 from boards.views import index, board, privacy_policy, what
-from infomate import settings
 from parsing.views import TelegramChannelFeed
 
 urlpatterns = [
@@ -16,5 +16,12 @@ urlpatterns = [
     path("parsing/telegram/<str:channel_name>/",
          cache_page(settings.TELEGRAM_CACHE_SECONDS)(TelegramChannelFeed()),
          name="telegram_channel_feed"),
-
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
+
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK": lambda request: True,
+}

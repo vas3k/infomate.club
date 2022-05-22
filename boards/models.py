@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.db import models
-from django.contrib.postgres.fields import JSONField
+from django.db.models import JSONField
 from slugify import slugify
 
 from boards.icons import DOMAIN_ICONS, DOMAIN_FAVICONS
