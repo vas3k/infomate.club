@@ -1,6 +1,7 @@
 import uuid
 from datetime import datetime, timedelta
 
+from django.conf import settings
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.db import models
 from django.db.models import JSONField
@@ -139,13 +140,6 @@ class BoardFeed(models.Model):
 
     def last_articles(self):
         return self.articles.all()[:15 * self.columns]
-
-    def articles_by_column(self):
-        articles = self.articles.all()[:self.articles_per_column * self.columns]
-        return [
-            (column, articles[column * self.articles_per_column:self.articles_per_column * (column + 1)])
-            for column in range(self.columns)
-        ]
 
     def natural_last_article_at(self):
         if not self.last_article_at:

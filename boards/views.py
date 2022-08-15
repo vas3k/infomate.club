@@ -7,7 +7,8 @@ from django.views.decorators.cache import cache_page
 from django.views.decorators.http import last_modified
 
 from boards.cache import board_last_modified_at
-from boards.models import Board, BoardBlock, BoardFeed
+from boards.helpers import regroup_articles_by_feed
+from boards.models import Board, BoardBlock, BoardFeed, Article
 
 
 @cache_page(settings.STATIC_PAGE_CACHE_SECONDS)
@@ -28,11 +29,16 @@ def board(request, board_slug):
         return cached_page
 
     blocks = BoardBlock.objects.filter(board=board)
-    feeds = BoardFeed.objects.select_related("articles").filter(board=board)
+    feeds = BoardFeed.objects.select_related("block").filter(board=board)
+    articles = Article.objects.select_related("feed").filter(
+        board=board,
+        created_at__gt=datetime.utcnow() - timedelta(days=settings.OLD_ARTICLES_CLEANUP_AFTER_DAYS)
+    )
     result = render(request, "board.html", {
         "board": board,
         "blocks": blocks,
         "feeds": feeds,
+        "articles_grouped_by_feed": regroup_articles_by_feed(articles),
     })
     cache.set(f"board_{board.slug}", result, settings.BOARD_CACHE_SECONDS)
     return result

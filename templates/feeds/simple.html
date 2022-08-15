@@ -1,8 +1,11 @@
 {% load static %}
 {% load text_filters %}
 {% load bleach_tags %}
+{% load articles %}
 
-{% for column, articles in feed.articles_by_column %}
+{% articles_by_column articles_grouped_by_feed feed as feed_articles_by_column %}
+
+{% for column, articles in feed_articles_by_column %}
     <div class="feed {% if column > 1 %}hide-on-iphone{% endif %}">
         {% if feed.name %}
             <div class="feed-title {% if column != 0 %}feed-title-hidden{% endif %}">
