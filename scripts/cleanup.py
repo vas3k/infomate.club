@@ -32,9 +32,9 @@ def cleanup(older_than_days, more_than_amount):
         click.echo(f"Cleaning up feed {feed.name}, leaving {more_than_amount} last articles...")
         last_article_to_leave = Article.objects\
             .filter(feed=feed)\
-            .order_by("created_at")[more_than_amount:more_than_amount + 1].first()
+            .order_by("-created_at")[more_than_amount:more_than_amount + 1].first()
         if last_article_to_leave:
-            num_deleted, _ = Article.objects.filter(feed=feed, created_at__gt=last_article_to_leave.created_at).delete()
+            num_deleted, _ = Article.objects.filter(feed=feed, created_at__lt=last_article_to_leave.created_at).delete()
             click.echo(f"Deleted {num_deleted} old articles!")
     click.echo("Done")
 
