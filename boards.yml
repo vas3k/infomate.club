@@ -19,6 +19,7 @@ boards:
           - name: TJ
             url: https://tjournal.ru
             rss: https://tjournal.ru/rss/all
+            icon: https://i.vas3k.ru/bba63f7248fb952e4157c70b83bfd769d0328ed14055addf7756d1ad191bad05.jpg
             is_parsable: false
           - name: Коммерсантъ
             url: https://www.kommersant.ru/
