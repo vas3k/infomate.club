@@ -118,7 +118,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                     if not feed.icon:
                         html = html or load_page_html(feed_url)
                         icon = feed_config.get("icon")
-                        if not icon:
+                        if not icon and html:
                             icon = find_favicon(feed_url, html)
                             print(f"- found favicon: {icon}")
 
