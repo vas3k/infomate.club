@@ -16,20 +16,23 @@ boards:
             url: https://meduza.io/
             rss: https://meduza.io/rss/all
             icon: https://i.vas3k.ru/e4b09a9d72f9b0157b88ed1cc5b755f7b6099358c889edce021a481442c7222f.png
-          - name: TJ
-            url: https://tjournal.ru
-            rss: https://tjournal.ru/rss/all
-            icon: https://i.vas3k.ru/bba63f7248fb952e4157c70b83bfd769d0328ed14055addf7756d1ad191bad05.jpg
-            is_parsable: false
+          - name: DW
+            url: https://www.dw.com/ru/
+            rss: https://rss.dw.com/rdf/rss-ru-top
+            icon: https://i.vas3k.ru/1869452100cc16474d649fdbf72746b4826ff793c07e02b9262b3f801d87e4a2.jpg
           - name: Коммерсантъ
             url: https://www.kommersant.ru/
             rss: https://www.kommersant.ru/RSS/news.xml
             icon: https://i.vas3k.ru/70e935c410a400d14beaadc25ddd13b386267ee7e56bd028c47ebfeb49c497cd.jpg
-          - name: ТАСС
-            url: https://tass.ru/
-            rss: https://tass.ru/rss/v2.xml
-            icon: https://i.vas3k.ru/aca2f29518b01b25b3a40d63109d45dde74be15e47877aaa89553ff567b05151.png
-            is_parsable: false
+          # - name: ТАСС
+          #   url: https://tass.ru/
+          #   rss: https://tass.ru/rss/v2.xml
+          #   icon: https://i.vas3k.ru/aca2f29518b01b25b3a40d63109d45dde74be15e47877aaa89553ff567b05151.png
+          #   is_parsable: false
+          - name: РБК
+            url: https://www.rbc.ru/
+            rss: http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
+            icon: https://i.vas3k.ru/8e8a9d54921aafb2c72e347f0cf07f3f4e84103d02117fdf1d04799cadb13b80.jpg
           - name: Ведомости
             url: https://www.vedomosti.ru/
             rss: https://vedomosti.ru/rss/news
@@ -38,16 +41,12 @@ boards:
             url: https://zona.media/
             rss: https://zona.media/rss
             icon: https://i.vas3k.ru/96a1e39a81e4e95e97ef61fa60c102f2bb22ce1b46250a494792e21e928a191c.jpg
-#           - name: Эхо Москвы
-#             url: https://echo.msk.ru/
-#             rss: https://echo.msk.ru/news.rss
-#             icon: https://i.vas3k.ru/f9a8212a62b560c42aad54b722f838f3cc10abe30786a0b875230950b8c2dc8e.png
-#             filters:
-#               - echomsk_title_fix
-#          - name: РБК
-#            url: https://www.rbc.ru/
-#            rss: http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
-#            icon: https://i.vas3k.ru/8e8a9d54921aafb2c72e347f0cf07f3f4e84103d02117fdf1d04799cadb13b80.jpg
+      #           - name: Эхо Москвы
+      #             url: https://echo.msk.ru/
+      #             rss: https://echo.msk.ru/news.rss
+      #             icon: https://i.vas3k.ru/f9a8212a62b560c42aad54b722f838f3cc10abe30786a0b875230950b8c2dc8e.png
+      #             filters:
+      #               - echomsk_title_fix
       - name: 🗽 Либеральные
         slug: ru_left
         view: "blocks/two.html"
@@ -58,10 +57,10 @@ boards:
               - https://tvrain.ru/export/rss/all.xml
               - https://www.znak.com/rss
               - https://paperpaper.ru/feed/
-              - https://rss.dw.com/rdf/rss-ru-top
               - https://content.novayagazeta.ru/rss/all.xml
               - https://rss.newsru.com/top/main
               - https://www.svoboda.org/api/z-pqpiev-qpp
+              - https://infomate.club/parsing/telegram/holodmedia?only=text
       - name: 👮‍♂️ Прокремлёвские
         slug: ru_right
         view: "blocks/two.html"
@@ -74,6 +73,7 @@ boards:
               - https://kp.ru/rss/allsections.xml
               - https://iz.ru/xml/rss/all.xml
               - https://ria.ru/export/rss2/archive/index.xml
+              - https://www.mk.ru/rss/index.xml
       - name: Телеграм
         slug: tg
         feeds:
@@ -294,15 +294,15 @@ boards:
             url: https://dtf.ru/
             icon: https://i.vas3k.ru/75a05e5c534be82df78b704bf6d8c18308772736074ae3a6b2fdac4a6cd03343.png
             mix:
-             - https://dtf.ru/rss/all
-             - https://www.youtube.com/feeds/videos.xml?channel_id=UCBDLWj5X5D9bvBa3JIMMTIQ
+              - https://dtf.ru/rss/all
+              - https://www.youtube.com/feeds/videos.xml?channel_id=UCBDLWj5X5D9bvBa3JIMMTIQ
           - name: Stopgame
             url: https://stopgame.ru/
             icon: https://i.vas3k.ru/110c51acbc7b938803332ce502eaa92284302093825b86f632002720397cdd66.png
             mix:
-             - https://rss.stopgame.ru/rss_news.xml
-             - https://rss.stopgame.ru/articles.xml
-             - https://www.youtube.com/feeds/videos.xml?channel_id=UCq7JZ8ATgQWeu6sDM1czjhg
+              - https://rss.stopgame.ru/rss_news.xml
+              - https://rss.stopgame.ru/articles.xml
+              - https://www.youtube.com/feeds/videos.xml?channel_id=UCq7JZ8ATgQWeu6sDM1czjhg
           - name: Игры @ Mail.ru
             url: https://games.mail.ru/pc/news/
             rss: https://games.mail.ru/pc/rss/news/
@@ -311,8 +311,8 @@ boards:
             url: https://www.igromania.ru/news/
             icon: https://i.vas3k.ru/da87856ddac8e5000798651b23669134fc47755adb23ac4cb9cf3862e5f0736e.jpg
             mix:
-             - https://www.igromania.ru/rss/news-game.rss
-             - https://www.youtube.com/feeds/videos.xml?channel_id=UC_Q1vhf7wcR_zGlc5ahAg0A
+              - https://www.igromania.ru/rss/news-game.rss
+              - https://www.youtube.com/feeds/videos.xml?channel_id=UC_Q1vhf7wcR_zGlc5ahAg0A
           - name: IXBT.games
             url: https://www.gametech.ru/
             rss: https://infomate.club/parsing/telegram/ixbtgames
@@ -340,8 +340,8 @@ boards:
             url: https://www.reddit.com/r/gaming/
             icon: https://i.vas3k.ru/3062b953fa39b4f3bc26a5f3ba65effb0fac935ffa5ee50c3b734107be457c48.png
             mix:
-             - https://www.reddit.com/r/gaming.rss
-             - https://www.reddit.com/r/games.rss
+              - https://www.reddit.com/r/gaming.rss
+              - https://www.reddit.com/r/games.rss
       - name: Индустрия
         slug: industry
         feeds:
@@ -450,7 +450,7 @@ boards:
           - name: The Information
             url: https://www.theinformation.com/
             rss: https://www.theinformation.com/feed
-          - name: 'Reddit: /r/technology/'
+          - name: "Reddit: /r/technology/"
             url: https://www.reddit.com/r/technology
             rss: https://www.reddit.com/r/technology.rss
             icon: https://i.vas3k.ru/3062b953fa39b4f3bc26a5f3ba65effb0fac935ffa5ee50c3b734107be457c48.png
@@ -534,7 +534,7 @@ boards:
           - name: Indiehackers
             url: https://www.indiehackers.com/
             rss: https://rss.app/feeds/faq798zw7eJuer9w.xml
-          - name: 'Reddit: /r/SideProject'
+          - name: "Reddit: /r/SideProject"
             url: https://www.reddit.com/r/SideProject/
             rss: https://www.reddit.com/r/SideProject.rss
             icon: https://i.vas3k.ru/3062b953fa39b4f3bc26a5f3ba65effb0fac935ffa5ee50c3b734107be457c48.png
@@ -552,7 +552,7 @@ boards:
           - name: Secret Flying
             url: https://www.secretflying.com
             rss: https://www.secretflying.com/feed/
-          - name: 'Atlas Obscura: Stories'
+          - name: "Atlas Obscura: Stories"
             url: https://www.atlasobscura.com/articles
             rss: https://www.atlasobscura.com/feeds/latest
             icon: https://i.vas3k.ru/345139fb86cb52076134880d1b4ef700d6354c4cf4639ebdfaf1f9891115f7ad.jpg
@@ -736,7 +736,7 @@ boards:
       url: by <a href="https://twitter.com/tiulpin">Viktor Tiulpin</a> and <a href="https://t.me/Recent_AI">Recent AI News</a>
       avatar: https://i.vas3k.ru/hzv.png
       bio: State-of-the-art Machine Learning News Feed
-      footer:  >
+      footer: >
         have something to add? Send me a message on <a href="https://twitter.com/tiulpin">Twitter</a>.
     blocks:
       - slug: main
@@ -1519,10 +1519,9 @@ boards:
       url: от <a href="https://t.me/data_days">Саши Михайлова</a>
       avatar: https://i.vas3k.club/69b26425bc514dea3ee485d67a5d11565f074b86a35227fb06b1a6640aa1e848.jpg
       bio: про инжиниринг данных и аналитику
-      footer:  >
+      footer: >
         субъективная подборка; буду рад предложениям в телеграм → <a href="https://t.me/sashamikhailov">@SashaMikhailov</a>
     blocks:
-
       - name: "🏢 %company% Engineering"
         slug: labs
         feeds:
@@ -1571,10 +1570,9 @@ boards:
             rss: https://engineering.ripple.com/tag/data/rss/
             is_parsable: false
 
-#          - name: "Yelp Engineering"
-#            url: https://engineeringblog.yelp.com/
-#            rss: https://engineeringblog.yelp.com/
-
+      #          - name: "Yelp Engineering"
+      #            url: https://engineeringblog.yelp.com/
+      #            rss: https://engineeringblog.yelp.com/
 
       - name: "Dmitry Anoshin recommends"
         slug: true_de
@@ -1593,39 +1591,39 @@ boards:
             rss: https://blog.cloudera.com/product/data-engineering/feed/
             is_parsable: false
 
-#          - name: "KD Nuggets"
-#            url: https://www.kdnuggets.com/news/
-#            rss: https://www.kdnuggets.com/news/
-#            is_parsable: false
+          #          - name: "KD Nuggets"
+          #            url: https://www.kdnuggets.com/news/
+          #            rss: https://www.kdnuggets.com/news/
+          #            is_parsable: false
 
-#          - name: "Silectis"
-#            url: https://www.silect.is/blog/
-#            rss: https://www.silect.is/blog/feed/
-#            is_parsable: false
+          #          - name: "Silectis"
+          #            url: https://www.silect.is/blog/
+          #            rss: https://www.silect.is/blog/feed/
+          #            is_parsable: false
 
-#          - name: "Rudder Stack"
-#            url: https://rudderstack.com/blog
-#            rss: https://rudderstack.com/blog
+          #          - name: "Rudder Stack"
+          #            url: https://rudderstack.com/blog
+          #            rss: https://rudderstack.com/blog
 
-#          - name: "Precisely"
-#            url: https://www.precisely.com/blog
-#            rss: https://www.precisely.com/blog
+          #          - name: "Precisely"
+          #            url: https://www.precisely.com/blog
+          #            rss: https://www.precisely.com/blog
 
-#          - name: "Team Data Science"
-#            url: https://www.teamdatascience.com/blog
-#            rss: https://www.teamdatascience.com/blog
+          #          - name: "Team Data Science"
+          #            url: https://www.teamdatascience.com/blog
+          #            rss: https://www.teamdatascience.com/blog
 
-#          - name: "Data Mechanics"
-#            url: https://www.datamechanics.co/blog
-#            rss: https://www.datamechanics.co/blog
+          #          - name: "Data Mechanics"
+          #            url: https://www.datamechanics.co/blog
+          #            rss: https://www.datamechanics.co/blog
 
-#          - name: "Secoda"
-#            url: https://www.secoda.co/blog
-#            rss: https://www.secoda.co/blog
+          #          - name: "Secoda"
+          #            url: https://www.secoda.co/blog
+          #            rss: https://www.secoda.co/blog
 
-#          - name: "Datawow"
-#            url: https://datawow.io/blogs/
-#            rss: https://datawow.io/blogs/
+          #          - name: "Datawow"
+          #            url: https://datawow.io/blogs/
+          #            rss: https://datawow.io/blogs/
 
           - name: "Smart Data"
             url: https://www.smartdatacollective.com/category/big-data/
@@ -1649,10 +1647,10 @@ boards:
             rss: https://weclouddata.com/blog/feed/
             is_parsable: false
 
-#          - name: "Active Wizards"
-#            url: https://activewizards.com/blog/
-#            rss: https://activewizards.com/blog/rss/
-#            is_parsable: false
+          #          - name: "Active Wizards"
+          #            url: https://activewizards.com/blog/
+          #            rss: https://activewizards.com/blog/rss/
+          #            is_parsable: false
 
           - name: "Learn Data Engineering"
             url: https://learndataengineering.com/blog
@@ -1664,10 +1662,10 @@ boards:
             rss: https://tech.scribd.com/feed.xml
             is_parsable: false
 
-#          - name: "Data World"
-#            url: https://data.world/blog/
-#            rss: https://data.world/blog/feed/
-#            is_parsable: false
+          #          - name: "Data World"
+          #            url: https://data.world/blog/
+          #            rss: https://data.world/blog/feed/
+          #            is_parsable: false
 
           - name: "Jesse Anderson"
             url: https://www.jesse-anderson.com/category/blog/
@@ -1681,15 +1679,15 @@ boards:
             mix:
               - https://www.dataquest.io/blog/topics/data-science-career-tips/feed/
 
-#          - name: "Xenon Stack"
-#            url: https://www.xenonstack.com/blog/category/big-data-engineering/
-#            rss: https://www.xenonstack.com/blog/category/big-data-engineering/feed/
-#            is_parsable: false
-#            mix:
-#              - https://www.xenonstack.com/blog/category/data-governance/feed/
-#              - https://www.xenonstack.com/blog/category/interactive-visualization/feed/
-#              - https://www.xenonstack.com/blog/category/data-science/feed/
-#              - https://www.xenonstack.com/blog/category/enterprise-artificial-intelligence/feed/
+      #          - name: "Xenon Stack"
+      #            url: https://www.xenonstack.com/blog/category/big-data-engineering/
+      #            rss: https://www.xenonstack.com/blog/category/big-data-engineering/feed/
+      #            is_parsable: false
+      #            mix:
+      #              - https://www.xenonstack.com/blog/category/data-governance/feed/
+      #              - https://www.xenonstack.com/blog/category/interactive-visualization/feed/
+      #              - https://www.xenonstack.com/blog/category/data-science/feed/
+      #              - https://www.xenonstack.com/blog/category/enterprise-artificial-intelligence/feed/
 
       - name: "Infrastructure"
         slug: infra
@@ -1715,7 +1713,7 @@ boards:
             url: https://blog.getdbt.com/
             rss: https://blog.getdbt.com/rss/
             is_parsable: false
- 
+
           - name: "FiveTran"
             url: https://fivetran.com/blog
             rss: https://fivetran.com/rss/blog
@@ -1744,9 +1742,9 @@ boards:
             rss: https://www.montecarlodata.com/blog/rss/
             is_parsable: false
 
-#          - name: "Preset.io"
-#            url: https://preset.io/blog/
-#            rss: https://preset.io/blog/
+      #          - name: "Preset.io"
+      #            url: https://preset.io/blog/
+      #            rss: https://preset.io/blog/
 
       - name: "DE Telegram"
         slug: de-telegram
@@ -1804,7 +1802,6 @@ boards:
       - name: "🎧 Podcasts"
         slug: podcasts
         feeds:
-
           - name: "Data Engineering Podcast"
             url: https://www.dataengineeringpodcast.com/
             rss: https://www.dataengineeringpodcast.com/feed/mp3/
