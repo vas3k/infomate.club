@@ -12,7 +12,7 @@ services:
       - POSTGRES_DB=infomate
       - POSTGRES_USER=vas3k
       - POSTGRES_PASSWORD=vas3k
-      - POSTGRES_HOST=localhost
+      - POSTGRES_HOST=postgres
     env_file:
       - .env
     restart: always
