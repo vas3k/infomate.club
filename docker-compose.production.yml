@@ -16,7 +16,6 @@ services:
     env_file:
       - .env
     restart: always
-    network_mode: "host"  # this is needed to use host postgres, feel free to remove this line and use "postgres" container below
     ports:
       - "127.0.0.1:8816:8816"
 
@@ -28,16 +27,16 @@ services:
       - app
     ports: []
 
-#  postgres:
-#    image: postgres:12
-#    container_name: infomate_postgres
-#    restart: always
-#    environment:
-#      POSTGRES_USER: vas3k
-#      POSTGRES_PASSWORD: vas3k
-#      POSTGRES_DB: infomate
-#    volumes:
-#      - /tmp/pgdata:/var/lib/postgresql/data:rw
+  postgres:
+    image: postgres:15
+    container_name: infomate_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: vas3k
+      POSTGRES_PASSWORD: vas3k
+      POSTGRES_DB: infomate
+    volumes:
+      - /home/vas3k/pgdata/infomate:/var/lib/postgresql/data:rw
 
   migrate_and_init:
     <<: *app
