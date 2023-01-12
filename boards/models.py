@@ -1,7 +1,6 @@
 import uuid
 from datetime import datetime, timedelta
 
-from django.conf import settings
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.db import models
 from django.db.models import JSONField
