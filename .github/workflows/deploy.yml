@@ -35,6 +35,7 @@ jobs:
           secret_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       - run: echo "GITHUB_SHA=$GITHUB_SHA" >> .env
       - run: echo "${{ secrets.PRODUCTION_SSH_KEY }}" > ${{ env.SSH_KEY_PATH }} && chmod 600 ${{ env.SSH_KEY_PATH }}
+      - run: scp -o StrictHostKeyChecking=no -i ${{ env.SSH_KEY_PATH }} -r $(pwd)/* ${{ secrets.PRODUCTION_SSH_USERNAME }}@${{ secrets.PRODUCTION_SSH_HOST }}:/home/vas3k/infomate.club
       - run: scp -o StrictHostKeyChecking=no -i ${{ env.SSH_KEY_PATH }} .env ${{ secrets.PRODUCTION_SSH_USERNAME }}@${{ secrets.PRODUCTION_SSH_HOST }}:/home/vas3k/infomate.club/.env
       - run: scp -o StrictHostKeyChecking=no -i ${{ env.SSH_KEY_PATH }} docker-compose.production.yml ${{ secrets.PRODUCTION_SSH_USERNAME }}@${{ secrets.PRODUCTION_SSH_HOST }}:/home/vas3k/infomate.club/docker-compose.production.yml
       - run: ssh -i ${{ env.SSH_KEY_PATH }} ${{ secrets.PRODUCTION_SSH_USERNAME }}@${{ secrets.PRODUCTION_SSH_HOST }} "cd /home/vas3k/infomate.club && docker login ghcr.io -u $GITHUB_ACTOR -p ${{ secrets.GHCR_TOKEN }} && docker pull ghcr.io/$GITHUB_ACTOR/infomate:$GITHUB_SHA && docker-compose -f docker-compose.production.yml --env-file=.env up -d && docker system prune --all --force"
