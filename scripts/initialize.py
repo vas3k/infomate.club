@@ -80,7 +80,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
                 feed_name = feed_config.get("name")
                 feed_mix = feed_config.get("mix")
                 if feed_mix:
-                    feed_url = feed_config.get("url") or f"mix:{'|'.join(feed_mix)}"
+                    feed_url = f"mix:{'|'.join(feed_mix)}"
                     feed_rss = None
                 else:
                     feed_url = feed_config["url"]

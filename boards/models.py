@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.db import models
-from django.db.models import JSONField
 from slugify import slugify
 
 from boards.icons import DOMAIN_ICONS, DOMAIN_FAVICONS
@@ -104,7 +103,7 @@ class BoardFeed(models.Model):
     url = models.TextField()
     icon = models.URLField(max_length=512, null=True)
     rss = models.URLField(max_length=512, null=True)
-    mix = JSONField(null=True)
+    mix = models.JSONField(null=True)
 
     view = models.CharField(max_length=256, default=DEFAULT_VIEW, null=False)
 
@@ -117,8 +116,8 @@ class BoardFeed(models.Model):
     articles_per_column = models.SmallIntegerField(default=15)
     index = models.PositiveIntegerField(default=0)
 
-    conditions = JSONField(null=True)
-    filters = JSONField(null=True)
+    conditions = models.JSONField(null=True)
+    filters = models.JSONField(null=True)
     is_parsable = models.BooleanField(default=True)
 
     class Meta:

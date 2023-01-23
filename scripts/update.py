@@ -34,10 +34,16 @@ queue = queue.Queue()
 @click.command()
 @click.option("--num-workers", default=DEFAULT_NUM_WORKER_THREADS, help="Number of parser threads")
 @click.option("--force", is_flag=True, help="Force to update all existing feeds")
+@click.option("--board", help="To update one particular board")
+@click.option("--block", help="To update one particular block")
 @click.option("--feed", help="To update one particular feed")
-def update(num_workers, force, feed):
+def update(num_workers, force, board, block, feed):
     if feed:
         need_to_update_feeds = BoardFeed.objects.filter(rss=feed)
+    elif board:
+        need_to_update_feeds = BoardFeed.objects.filter(board__slug=board)
+    elif block:
+        need_to_update_feeds = BoardFeed.objects.filter(block__slug=block)
     else:
         new_feeds = BoardFeed.objects.filter(refreshed_at__isnull=True)
         outdated_feeds = BoardFeed.objects.filter(url__isnull=False)
@@ -49,6 +55,7 @@ def update(num_workers, force, feed):
 
     tasks = []
     for feed in need_to_update_feeds:
+        print(f"Adding task to parse feed: {feed.id} {feed.name}")
         tasks.append({
             "id": feed.id,
             "board_id": feed.board_id,
