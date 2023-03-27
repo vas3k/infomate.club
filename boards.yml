@@ -1794,7 +1794,7 @@ boards:
     slug: de
     is_visible: true
     is_private: false
-    sent_to_telegram_channel: infomate_de
+    send_to_telegram_channel: infomate_de
     curator:
       name: Data Engineering
       title: про инжиниринг данных и аналитику

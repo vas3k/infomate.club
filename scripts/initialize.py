@@ -60,7 +60,7 @@ def initialize(config, board_slug, upload_favicons, always_yes):
             )
         )
 
-        board_telegram_channel = board_config.get("sent_to_telegram_channel")
+        board_telegram_channel = board_config.get("send_to_telegram_channel")
         if board_telegram_channel:
             board_telegram_channel = get_telergam_channel_name_at(board_telegram_channel)
             print(f"Add Teleram channel {board_telegram_channel} for board: {board_name}...")
