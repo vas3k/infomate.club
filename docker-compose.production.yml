@@ -18,6 +18,10 @@ services:
     restart: always
     ports:
       - "127.0.0.1:8816:8816"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
 
   cron:
     <<: *app
@@ -26,6 +30,11 @@ services:
     depends_on:
       - app
     ports: []
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+
 
   postgres:
     image: postgres:15
