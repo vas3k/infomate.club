@@ -208,6 +208,7 @@ boards:
           - name: Rusbase
             url: https://rb.ru
             rss: https://rb.ru/feeds/all/
+            icon: https://i.vas3k.blog/825fe9f536ea6b1b88cb456429809b932bedb6a4f9e9aeb725d70e6d54d6add4.png
           - name: iXBT
             url: https://www.ixbt.com
             rss: http://www.ixbt.com/export/news.rss
@@ -436,21 +437,18 @@ boards:
             url: https://www.producthunt.com
             rss: https://www.producthunt.com/feed
             is_parsable: false
+          - name: Techmeme
+            url: https://www.techmeme.com/
+            rss: https://www.techmeme.com/feed.xml
+            icon: https://i.vas3k.blog/c53ed201ed07ddd338a8395d0a9d946b087d9a96630354164353cf6e33cd1cc4.png
+            is_parsable: false
             icon: https://i.vas3k.ru/fep.png
-          - name: Changelog
-            url: https://changelog.com/
-            rss: https://changelog.com/feed
-            icon: https://i.vas3k.ru/nip.png
           - name: GitHub Trending
             url: https://github.com/trending
             rss: https://mshibanami.github.io/GitHubTrendingRSS/weekly/all.xml
       - name: Технологии
         slug: tech
         feeds:
-          - name: Techmeme
-            url: https://www.techmeme.com/
-            rss: https://www.techmeme.com/feed.xml
-            is_parsable: false
           - name: "Reddit: /r/technology/"
             url: https://www.reddit.com/r/technology
             rss: https://www.reddit.com/r/technology.rss
@@ -464,11 +462,15 @@ boards:
               - type: not_in
                 field: title
                 word: Trump
+          - name: Changelog
+            url: https://changelog.com/
+            rss: https://changelog.com/feed
+            icon: https://i.vas3k.ru/nip.png
           - name: ZDNet
             rss: https://www.zdnet.com/news/rss.xml
             url: https://www.zdnet.com
           - name: TechCrunch
-            rss: http://feeds.feedburner.com/TechCrunch/
+            rss: https://techcrunch.com/feed/
             url: https://techcrunch.com
             is_parsable: false
           - name: Slashdot
