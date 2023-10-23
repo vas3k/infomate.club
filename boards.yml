@@ -447,9 +447,10 @@ boards:
       - name: Технологии
         slug: tech
         feeds:
-          - name: The Information
-            url: https://www.theinformation.com/
-            rss: https://www.theinformation.com/feed
+          - name: Techmeme
+            url: https://www.techmeme.com/
+            rss: https://www.techmeme.com/feed.xml
+            is_parsable: false
           - name: "Reddit: /r/technology/"
             url: https://www.reddit.com/r/technology
             rss: https://www.reddit.com/r/technology.rss
@@ -542,16 +543,10 @@ boards:
       - name: Путешествия
         slug: travel
         feeds:
-          - name: PeritoBurrito
-            url: https://perito-burrito.com
-            rss: http://perito-burrito.com/feed
           - name: Vandrouki
             url: https://vandrouki.ru
             rss: https://feeds.feedburner.com/vandroukiru
             icon: https://i.vas3k.ru/fer.jpg
-          - name: Secret Flying
-            url: https://www.secretflying.com
-            rss: https://www.secretflying.com/feed/
           - name: "Atlas Obscura: Stories"
             url: https://www.atlasobscura.com/articles
             rss: https://www.atlasobscura.com/feeds/latest
@@ -559,9 +554,6 @@ boards:
           - name: "T—Ж"
             url: https://journal.tinkoff.ru/chemodan/
             rss: https://journal.tinkoff.ru/feed/
-          - name: Geeky Explorer
-            url: https://www.geekyexplorer.com
-            rss: https://www.geekyexplorer.com/feed/
       - name: Европейское айти
         slug: eu
         feeds:
@@ -575,22 +567,8 @@ boards:
             icon: https://i.vas3k.ru/fl9.jpg
           - name: "TechCrunch: Europe"
             url: https://techcrunch.com/europe/
-            rss: https://techcrunch.com/europe/feed/
+            rss: https://techcrunch.com/tag/europe/feed/
             is_parsable: false
-      - name: Фотография
-        slug: photo
-        feeds:
-          - name: DPReview
-            url: https://www.dpreview.com
-            rss: https://www.dpreview.com/feeds/reviews.xml
-          - name: PetaPixel
-            url: https://petapixel.com
-            rss: https://feedproxy.google.com/PetaPixel
-            icon: https://i.vas3k.ru/fes.jpg
-          - name: 500px ISO
-            url: https://iso.500px.com
-            rss: https://iso.500px.com/feed/
-            icon: https://i.vas3k.ru/fet.png
 
   - name: How to Berlin
     slug: howtoberlin
