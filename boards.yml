@@ -436,6 +436,7 @@ boards:
           - name: Product Hunt
             url: https://www.producthunt.com
             rss: https://www.producthunt.com/feed
+            icon: https://i.vas3k.blog/3234804b88c8fc88501e09f2bb005e47af545c7fcd738794563350f9ed3fb5be.png
             is_parsable: false
           - name: Techmeme
             url: https://www.techmeme.com/
