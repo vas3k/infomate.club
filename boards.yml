@@ -226,6 +226,11 @@ boards:
             rss: https://techcrunch.com/feed/
             url: https://techcrunch.com
             is_parsable: false
+          - name: Techmeme
+            url: https://www.techmeme.com/
+            rss: https://www.techmeme.com/feed.xml
+            icon: https://i.vas3k.blog/c53ed201ed07ddd338a8395d0a9d946b087d9a96630354164353cf6e33cd1cc4.png
+            is_parsable: false
           - name: ArsTechnica
             rss: http://feeds.arstechnica.com/arstechnica/index/
             url: https://arstechnica.com
@@ -251,9 +256,6 @@ boards:
           - name: ZDNet
             rss: https://www.zdnet.com/news/rss.xml
             url: https://www.zdnet.com
-          - name: CNET
-            url: https://www.cnet.com/topics/tech-industry/
-            rss: http://feed.cnet.com/feed/topics/tech-industry
           - name: The Next Web
             rss: http://feeds2.feedburner.com/thenextweb
             url: https://thenextweb.com
@@ -274,10 +276,10 @@ boards:
             url: https://t.me/rozetked
             rss: https://infomate.club/parsing/telegram/rozetked
             icon: https://i.vas3k.ru/abe55f96279f22704cd1cc5009be2f6527c8d205f289dc1c7c328a03314f3d5d.jpg
-          - name: TechSparks
-            url: https://t.me/techsparks
-            rss: https://infomate.club/parsing/telegram/techsparks
-            icon: https://i.vas3k.ru/b5a4fb2b5d3d0279612c639a325958e89bfaa218a87a6016f74936d347d23ced.png
+          - name: 42 секунды
+            url: https://t.me/ftsec
+            rss: https://infomate.club/parsing/telegram/ftsec
+            icon: https://i.vas3k.blog/1bf9c873cfdff63d0af00c771a72e59b8c73f27ff80c2cf5a98385c66fbf66fc.jpg
 
   - name: Игры, железки и геймдев
     slug: games
@@ -304,10 +306,6 @@ boards:
               - https://rss.stopgame.ru/rss_news.xml
               - https://rss.stopgame.ru/articles.xml
               - https://www.youtube.com/feeds/videos.xml?channel_id=UCq7JZ8ATgQWeu6sDM1czjhg
-          - name: Игры @ Mail.ru
-            url: https://games.mail.ru/pc/news/
-            rss: https://games.mail.ru/pc/rss/news/
-            icon: https://i.vas3k.ru/4c2ed25ae65ca8d14aad458021b2c2d46de909fa668af4f4b3a78ab1d4d15a74.png
           - name: Игромания
             url: https://www.igromania.ru/news/
             icon: https://i.vas3k.ru/da87856ddac8e5000798651b23669134fc47755adb23ac4cb9cf3862e5f0736e.jpg
@@ -433,17 +431,12 @@ boards:
           - name: Lobsters
             url: https://lobste.rs/
             rss: https://lobste.rs/rss
-          - name: Product Hunt
-            url: https://www.producthunt.com
-            rss: https://www.producthunt.com/feed
-            icon: https://i.vas3k.blog/3234804b88c8fc88501e09f2bb005e47af545c7fcd738794563350f9ed3fb5be.png
-            is_parsable: false
           - name: Techmeme
             url: https://www.techmeme.com/
             rss: https://www.techmeme.com/feed.xml
             icon: https://i.vas3k.blog/c53ed201ed07ddd338a8395d0a9d946b087d9a96630354164353cf6e33cd1cc4.png
             is_parsable: false
-            icon: https://i.vas3k.ru/fep.png
+            columns: 2
           - name: GitHub Trending
             url: https://github.com/trending
             rss: https://mshibanami.github.io/GitHubTrendingRSS/weekly/all.xml
@@ -542,6 +535,11 @@ boards:
             url: https://www.reddit.com/r/SideProject/
             rss: https://www.reddit.com/r/SideProject.rss
             icon: https://i.vas3k.ru/3062b953fa39b4f3bc26a5f3ba65effb0fac935ffa5ee50c3b734107be457c48.png
+            is_parsable: false
+          - name: Product Hunt
+            url: https://www.producthunt.com
+            rss: https://www.producthunt.com/feed
+            icon: https://i.vas3k.blog/3234804b88c8fc88501e09f2bb005e47af545c7fcd738794563350f9ed3fb5be.png
             is_parsable: false
       - name: Путешествия
         slug: travel
