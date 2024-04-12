@@ -1863,5 +1863,5 @@ boards:
             rss: https://martinfowler.com/feed.atom
 
           - name: "Антон Жиянов"
-            url: https://antonz.ru/
-            rss: https://antonz.ru/rss/
+            url: https://antonz.org/
+            rss: https://antonz.org/index.xml
