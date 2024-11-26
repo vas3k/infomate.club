@@ -77,10 +77,12 @@
 
         .landing-board-name {
             display: block;
-            font-size: 140%;
+            font-size: 160%;
             line-height: 115%;
             margin: 10px 0 5px;
             font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .landing-board-title {
