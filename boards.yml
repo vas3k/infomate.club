@@ -1370,7 +1370,7 @@ boards:
     is_visible: true
     is_private: false
     curator:
-      name: Кибербезопасность
+      name: Кибер-безопасность
       url: от %username%
       avatar: https://i.vas3k.ru/j62.jpg
       bio: Подборка ресурсов по кибербезопасности
