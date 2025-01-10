@@ -1404,19 +1404,19 @@ boards:
 
           - name: "threatpost"
             url: https://threatpost.com
-            rss: https://threatpost.com/feed
+            rss: https://threatpost.com/feed/
 
           - name: "DarkReading"
             url: https://www.darkreading.com
-            rss: https://www.darkreading.com/rss_simple.asp
+            rss: https://www.darkreading.com/rss.xml
 
           - name: "WeLiveSecurity"
             url: https://www.welivesecurity.com
             rss: https://feeds.feedburner.com/eset/blog/
 
-          - name: "Naked Security"
+          - name: "Sophos X‑Ops"
             url: https://nakedsecurity.sophos.com
-            rss: https://nakedsecurity.sophos.com/feed
+            rss: https://news.sophos.com/en-us/category/threat-research/feed/
 
           - name: "Help Net Security"
             url: https://www.helpnetsecurity.com/
