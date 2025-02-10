@@ -1698,6 +1698,11 @@ boards:
             rss: https://fivetran.com/rss/blog
             is_parsable: false
 
+          - name: "Hevo"
+            url: https://hevodata.com/learn/
+            rss: https://hevodata.com/learn/feed/
+            is_parsable: false
+            
           - name: "DataBricks"
             url: https://databricks.com/blog/category/engineering/
             rss: https://databricks.com/blog/category/engineering/feed/
