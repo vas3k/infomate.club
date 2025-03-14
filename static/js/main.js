@@ -6,11 +6,40 @@ function initializeThemeSwitcher() {
         if (e.target.checked) {
             theme = 'dark';
         }
-
-        document.documentElement.setAttribute('theme', theme);
-        localStorage.setItem('theme', theme);
+        switchTheme(theme);
     }, false);
 
+    checkMacTheme();
+    syncThemeSwitcher();
+}
+
+function checkMacTheme() {
+    if (window.matchMedia) {
+        const darkThemeMatch = window.matchMedia('(prefers-color-scheme: dark)');
+        let theme = 'light';
+        if (darkThemeMatch.matches) {
+            theme = 'dark';
+        }
+        switchTheme(theme)
+        darkThemeMatch.addListener((e) => {
+            if (e.matches) {
+                theme = 'dark';
+            } else {
+                theme = 'light';
+            }
+            switchTheme(theme);
+            syncThemeSwitcher();
+        })
+    }
+}
+
+function switchTheme(theme) {
+    document.documentElement.setAttribute('theme', theme);
+    localStorage.setItem('theme', theme);
+}
+
+function syncThemeSwitcher() {
+    const themeSwitch = document.querySelector('.theme-switcher input[type="checkbox"]');
     const theme = localStorage.getItem('theme');
     if (theme !== null) {
         themeSwitch.checked = (theme === 'dark');
