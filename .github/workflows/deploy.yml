@@ -13,10 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - run: docker login ghcr.io -u $GITHUB_ACTOR -p ${{ secrets.GHCR_TOKEN }}
-      - run: |
-        IMAGE_USER=${GITHUB_ACTOR,,}
-        IMAGE_NAME="ghcr.io/${IMAGE_USER}/infomate"
-        docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:$GITHUB_SHA .
+      - run: docker build -t ghcr.io/$GITHUB_ACTOR/infomate:latest -t ghcr.io/$GITHUB_ACTOR/infomate:$GITHUB_SHA .
       - run: docker image push ghcr.io/$GITHUB_ACTOR/infomate:$GITHUB_SHA
       - run: docker image push ghcr.io/$GITHUB_ACTOR/infomate:latest
 
