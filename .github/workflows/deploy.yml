@@ -23,10 +23,15 @@ jobs:
             .
 
       - name: Push Docker image (by SHA)
-        run: docker push "${IMAGE_NAME}:${GITHUB_SHA}"
+        run: |
+          USER_LOWER=$(echo "${GITHUB_ACTOR}" | tr '[:upper:]' '[:lower:]')
+          docker push "ghcr.io/${USER_LOWER}/infomate:${GITHUB_SHA}"
 
       - name: Push Docker image (latest)
-        run: docker push "${IMAGE_NAME}:latest"
+        run: |
+          USER_LOWER=$(echo "${GITHUB_ACTOR}" | tr '[:upper:]' '[:lower:]')
+          docker push "ghcr.io/${USER_LOWER}/infomate:latest"
+
 
   deploy:
     name: Deploy
