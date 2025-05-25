@@ -117,8 +117,6 @@ You can help us with opened issues too. There's always something to work on.
 
 We don't have any strict rules on formatting, just explain your motivation and the changes you've made to the PR description so that others understand what's going on.
 
-test
-
 ## 👩‍💼 License
 
 [Apache 2.0](LICENSE) © Vasily Zubarev
