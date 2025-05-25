@@ -39,23 +39,59 @@ jobs:
     needs: build
     env:
       SSH_KEY_PATH: /tmp/ssh_key
+  
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
-      - name: Make envfile
-        run: export | grep "secret_" | sed "s/declare -x secret_//" > .env
-        env:
-          secret_SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          secret_APP_HOST: ${{ secrets.APP_HOST }}
-          secret_MEDIA_UPLOAD_CODE: ${{ secrets.MEDIA_UPLOAD_CODE }}
-          secret_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-      - run: echo "GITHUB_SHA=$GITHUB_SHA" >> .env
-      - run: echo "${{ secrets.PRODUCTION_SSH_KEY }}" > ${{ env.SSH_KEY_PATH }} && chmod 600 ${{ env.SSH_KEY_PATH }}
-      - run: |
-               ssh -o StrictHostKeyChecking=no \
-                -i /tmp/ssh_key \
-                "${{ secrets.PRODUCTION_SSH_USERNAME }}"@"${{ secrets.PRODUCTION_SSH_HOST }}" \
-                "mkdir -p /root/infomate.club"
-      - run: scp -o StrictHostKeyChecking=no -i ${{ env.SSH_KEY_PATH }} .env ${{ secrets.PRODUCTION_SSH_USERNAME }}@${{ secrets.PRODUCTION_SSH_HOST }}:/home/vas3k/infomate.club/.env
-      - run: scp -o StrictHostKeyChecking=no -i ${{ env.SSH_KEY_PATH }} docker-compose.production.yml ${{ secrets.PRODUCTION_SSH_USERNAME }}@${{ secrets.PRODUCTION_SSH_HOST }}:/home/vas3k/infomate.club/docker-compose.production.yml
-      - run: ssh -i ${{ env.SSH_KEY_PATH }} ${{ secrets.PRODUCTION_SSH_USERNAME }}@${{ secrets.PRODUCTION_SSH_HOST }} "cd /home/vas3k/infomate.club && docker login ghcr.io -u $GITHUB_ACTOR -p ${{ secrets.GHCR_TOKEN }} && docker pull ghcr.io/$GITHUB_ACTOR/infomate:$GITHUB_SHA && docker-compose -f docker-compose.production.yml --env-file=.env up -d && docker system prune --all --force"
+  
+      - name: Create production .env
+        run: |
+          cat <<EOF > .env
+          SECRET_KEY=${{ secrets.SECRET_KEY }}
+          APP_HOST=${{ secrets.APP_HOST }}
+          MEDIA_UPLOAD_CODE=${{ secrets.MEDIA_UPLOAD_CODE }}
+          SENTRY_DSN=${{ secrets.SENTRY_DSN }}
+          GITHUB_SHA=${GITHUB_SHA}
+          EOF
+  
+      - name: Install SSH key
+        run: |
+          echo "${{ secrets.PRODUCTION_SSH_KEY }}" > $SSH_KEY_PATH
+          chmod 600 $SSH_KEY_PATH
+  
+      - name: Ensure remote dir exists
+        run: |
+          ssh -o StrictHostKeyChecking=no \
+              -i $SSH_KEY_PATH \
+              root@${{ secrets.PRODUCTION_SSH_HOST }} \
+              "mkdir -p /root/infomate.club"
+  
+      - name: Copy .env to server
+        run: |
+          scp -o StrictHostKeyChecking=no \
+              -i $SSH_KEY_PATH \
+              .env \
+              root@${{ secrets.PRODUCTION_SSH_HOST }}:/root/infomate.club/.env
+  
+      - name: Copy docker-compose to server
+        run: |
+          scp -o StrictHostKeyChecking=no \
+              -i $SSH_KEY_PATH \
+              docker-compose.production.yml \
+              root@${{ secrets.PRODUCTION_SSH_HOST }}:/root/infomate.club/docker-compose.production.yml
+  
+      - name: SSH & deploy
+        run: |
+          ssh -o StrictHostKeyChecking=no \
+              -i $SSH_KEY_PATH \
+              root@${{ secrets.PRODUCTION_SSH_HOST }} << 'EOF'
+            cd /root/infomate.club
+            # Login (actor → lowercase)
+            echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io \
+              -u "$(echo "${GITHUB_ACTOR}" | tr '[:upper:]' '[:lower:]')" \
+              --password-stdin
+            # Pull & up
+            docker pull ghcr.io/$(echo "${GITHUB_ACTOR}" | tr '[:upper:]' '[:lower:]')/infomate:${GITHUB_SHA}
+            docker-compose -f docker-compose.production.yml --env-file .env up -d
+            docker system prune --all --force
+          EOF
