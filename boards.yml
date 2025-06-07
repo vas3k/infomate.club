@@ -1864,4 +1864,169 @@ boards:
 
           - name: "Антон Жиянов"
             url: https://antonz.ru/
-            rss: https://antonz.ru/rss/
+            rss: https://antonz.ru/rss
+            
+   - name: Литература
+    slug: literature
+    is_visible: true
+    is_private: false
+    curator:
+      name: Литература
+      title: Слово и смысл
+      url: by <a href="https://t.me/capybaratext">Олег Ефимов</a> and <a href="https://t.me/CapybaraReview">BOOKHACKING</a>
+      avatar: https://i.pinimg.com/736x/3a/a9/3e/3aa93eaabae960569519f8f3db8a8ecd.jpg
+      bio: 'Отслеживаю многое: от критиков до премий и конкурсов. <a href="https://clck.ru/3MW35o">Предложить источники</a>'
+    blocks:
+      - name: 'Самое интересное о литературе '
+        slug: bestlit
+        feeds:
+          - name: BookNinja
+            url: https://t.me/bookninja
+            rss: https://infomate.club/parsing/telegram/bookninja?only=text
+          - name: Prometa
+            url: https://t.me/prometa
+            rss: https://infomate.club/parsing/telegram/prometa?only=text
+          - name: Armenifedor
+            url: https://t.me/armenifedor
+            rss: https://infomate.club/parsing/telegram/armenifedor?only=text
+          - name: PalomeHeart
+            url: https://t.me/palomeheart
+            rss: https://infomate.club/parsing/telegram/palomeheart?only=text
+          - name: Rembodlery
+            url: https://t.me/rembodlery
+            rss: https://infomate.club/parsing/telegram/rembodlery?only=text
+          - name: Gorky Media
+            url: https://t.me/gorky_media
+            rss: https://infomate.club/parsing/telegram/gorky_media?only=text
+      - name: СМИ и новости
+        slug: media
+        feeds:
+          - name: The New York Times – Books
+            url: https://www.nytimes.com/international/section/books/review
+            rss: https://rss.nytimes.com/services/xml/rss/nyt/Books.xml
+          - name: The Guardian – Books
+            url: https://www.theguardian.com/books
+            rss: https://www.theguardian.com/books/rss
+      - name: Премии
+        slug: awards
+        feeds:
+          - name: Премия Небьюла (Июнь)
+            url: https://nebulas.sfwa.org/
+            rss: https://nebulas.sfwa.org/feed/
+          - name: Премия Хьюго (Август)
+            url: https://www.thehugoawards.org/
+            rss: https://www.thehugoawards.org/feed/
+          - name: Nobel Prize (Октябрь)
+            url: https://www.nobelprize.org/
+            rss: https://www.nobelprize.org/feed/
+          - name: Ясная поляна (Октябрь)
+            url: https://www.yppremia.ru/
+            rss: https://kill-the-newsletter.com/feeds/5caqwrn0u9ym6hi9hfoo.xml
+      - name: Писатели (официальные сайты)
+        slug: writerof
+        feeds:
+         - name: Джордж Р. Р. Мартин
+            url: https://georgerrmartin.com/
+            rss: https://georgerrmartin.com/notablog/feed/
+          - name: Damien Walter
+            url: damiengwalter.com
+            rss: https://damiengwalter.com/category/podcast/feed/
+          - name: Чарльз Стросс
+            url: https://www.antipope.org/charlie/blog-static/2024/08/they-dont-make-readers-like-th.html
+            rss: http://www.antipope.org/charlie/blog-static/atom.xml
+          - name: Сэм Хьюз (qntm)
+            url: qntm.org
+            rss: https://qntm.org/rss
+      - name: Писатели (ТГ)
+        slug: writer_tg
+        feeds:
+          - name: Gregor Zamza
+            url: https://t.me/Gregor_Zamza
+            rss: https://infomate.club/parsing/telegram/Gregor_Zamza?only=text
+          - name: LiliaKimStory
+            url: https://t.me/lilia_kim_story
+            rss: https://infomate.club/parsing/telegram/lilia_kim_story?only=text
+          - name: PoPolochkamAvtoram
+            url: https://t.me/po_polochkam_avtoram
+            rss: https://infomate.club/parsing/telegram/po_polochkam_avtoram?only=text
+          - name: Lavenderaccoon
+            url: https://t.me/lavenderaccoon
+            rss: https://infomate.club/parsing/telegram/lavenderaccoon?only=text
+      - name: Книжные блогеры | Критики
+        slug: book_bloggers
+        feeds:
+          - name: Books Reviews
+            url: https://t.me/books_reviews
+            rss: https://infomate.club/parsing/telegram/books_reviews?only=text
+          - name: DrinkRead
+            url: https://t.me/drinkread
+            rss: https://infomate.club/parsing/telegram/drinkread?only=text
+          - name: LimonadBook
+            url: https://t.me/limonadbook
+            rss: https://infomate.club/parsing/telegram/limonadbook?only=text
+          - name: Milchin
+            url: https://t.me/milchin
+            rss: https://infomate.club/parsing/telegram/milchin?only=text
+          - name: ReadOriginal
+            url: https://t.me/read_original
+            rss: https://infomate.club/parsing/telegram/read_original?only=text
+          - name: StarostinFlix
+            url: https://t.me/starostinflix
+            rss: https://infomate.club/parsing/telegram/starostinflix?only=text
+          - name: Williwaw Reads
+            url: https://t.me/williwaw_reads
+            rss: https://infomate.club/parsing/telegram/williwaw_reads?only=text
+          - name: Рюмка Белинского
+            url: https://t.me/ryumka_belinskogo
+            rss: https://infomate.club/parsing/telegram/ryumka_belinskogo?only=text
+          - name: Школа критики
+            url: https://t.me/shkola_kritiki
+            rss: https://infomate.club/parsing/telegram/shkola_kritiki?only=text
+          - name: All around Eve
+            url: https://t.me/allaboutevg
+            rss: https://infomate.club/parsing/telegram/allaboutevg?only=text
+      - name: Журналы и альманахи
+        slug: journals
+        feeds:
+          - name: Moloko News
+            url: https://t.me/molokonews
+            rss: https://infomate.club/parsing/telegram/molokonews?only=text
+          - name: Юность Journal
+            url: https://t.me/unost_journal
+            rss: https://infomate.club/parsing/telegram/unost_journal?only=text
+      - name: Публицисты
+        slug: publicists
+        feeds:
+          - name: Furherring
+            url: https://t.me/furherring
+            rss: https://infomate.club/parsing/telegram/furherring?only=text
+          - name: GlebNeznaet
+            url: https://t.me/glebneznaet
+            rss: https://infomate.club/parsing/telegram/glebneznaet?only=text
+          - name: Pechat Sallyks
+            url: https://t.me/pechat_sallyks
+            rss: https://infomate.club/parsing/telegram/pechat_sallyks?only=text
+      - name: Издательства
+        slug: publishers
+        feeds:
+          - name: Alpina Proza
+            url: https://t.me/alpinaproza
+            rss: https://infomate.club/parsing/telegram/alpinaproza?only=text
+          - name: GarageMCA Shop
+            url: https://t.me/garagemca_shop
+            rss: https://infomate.club/parsing/telegram/garagemca_shop?only=text
+          - name: Ricochet Press
+            url: https://t.me/ricochetpress
+            rss: https://infomate.club/parsing/telegram/ricochetpress?only=text
+      - name: Для писателей
+        slug: writers_call
+        feeds:
+          - name: Band School
+            url: https://t.me/bandschool
+            rss: https://infomate.club/parsing/telegram/bandschool?only=text
+          - name: Lit Agents
+            url: https://t.me/litagents
+            rss: https://infomate.club/parsing/telegram/litagents?only=text
+          - name: Writers Open Call
+            url: https://t.me/writersopencall
+            rss: https://infomate.club/parsing/telegram/writersopencall?only=text
