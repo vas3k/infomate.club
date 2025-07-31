@@ -3,7 +3,7 @@ gunicorn==20.1.0
 uvicorn==0.17.6
 psycopg2-binary==2.9.3
 click==7.0
-pillow==9.0.1
+pillow==9.3.0
 awesome-slugify>=1.6.5
 requests>=2.22.0
 beautifulsoup4==4.6.2
