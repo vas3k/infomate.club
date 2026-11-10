@@ -1866,7 +1866,7 @@ boards:
             url: https://antonz.ru/
             rss: https://antonz.ru/rss
             
-   - name: Литература
+  - name: Литература
     slug: literature
     is_visible: true
     is_private: false
@@ -1925,7 +1925,7 @@ boards:
       - name: Писатели (официальные сайты)
         slug: writerof
         feeds:
-         - name: Джордж Р. Р. Мартин
+          - name: Джордж Р. Р. Мартин
             url: https://georgerrmartin.com/
             rss: https://georgerrmartin.com/notablog/feed/
           - name: Damien Walter
